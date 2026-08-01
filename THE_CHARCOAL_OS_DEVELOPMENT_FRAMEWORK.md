@@ -4,7 +4,14 @@
 **Projeto:** THE CHARCOAL OS
 **Fase:** 000 — Governança do Projeto
 **Status:** Aguardando aprovação do proprietário
-**Versão:** 1.0.0
+**Versão:** 1.1.0
+
+### Histórico de Versões deste Documento
+
+| Versão | Data | Natureza | Descrição |
+|---|---|---|---|
+| 1.0.0 | 2026-08-01 | Inicial | Primeira versão da Constituição (Seções 1–20, Regras Permanentes). |
+| 1.1.0 | 2026-08-01 | MINOR (adição compatível) | Complementação solicitada pelo proprietário (comando `ALTERAR`): adicionadas Seções 21–26 (Manifesto, Princípios Fundamentais, Documentos Oficiais, Glossário Oficial, Filosofia de Evolução, Auditoria de Revisão). Nenhum conteúdo da v1.0.0 foi removido ou alterado. |
 
 ---
 
@@ -184,6 +191,127 @@ Até que estas cinco condições sejam satisfeitas simultaneamente, a fase perma
 
 ---
 
+## 21. Manifesto do THE CHARCOAL OS
+
+### O que é o THE CHARCOAL OS
+
+THE CHARCOAL OS é o sistema de gestão empresarial (ERP/CRM) proprietário que unifica, em um único ecossistema, todo o ciclo operacional do negócio: relacionamento com clientes e leads, orçamentos e contratos, produção (receitas, fichas técnicas, ingredientes, lotes), estoque, compras e fornecedores, gestão financeira (despesas, receitas financeiras, fluxo de caixa) e inteligência de negócio (dashboards executivos). Não é um ERP genérico adaptado ao negócio — é um sistema operacional de negócio desenhado desde a origem em torno do vocabulário, dos processos e das prioridades reais da operação que ele serve.
+
+### Missão
+
+Eliminar a fragmentação de sistemas e planilhas, garantir que cada dado exista uma única vez e seja compartilhado automaticamente entre todas as áreas da empresa, e colocar nas mãos do proprietário uma visão executiva completa, confiável e em tempo real do negócio — do custo de um único ingrediente ao resultado financeiro consolidado da empresa.
+
+### Visão de Longo Prazo
+
+Ser, em até dez anos, o sistema operacional central da empresa e de suas eventuais unidades e franquias: a única fonte de verdade para dados de clientes, produção, estoque e finanças, capaz de sustentar múltiplas unidades, um aplicativo mobile, integrações bancárias e uma camada de inteligência artificial nativa — sem exigir reconstrução da base já existente.
+
+### Problemas que Resolve
+
+- Dados cadastrados repetidamente em sistemas ou planilhas diferentes, gerando divergência e retrabalho.
+- Cálculo de custo de produção feito manualmente ou em múltiplos lugares, com risco de divergir do custo real.
+- Ausência de uma visão executiva única e atualizada do negócio (financeiro, produção e vendas vistos separadamente).
+- Falta de histórico e rastreabilidade de decisões, alterações de preço, insumos e produção.
+- Processos manuais repetitivos que consomem tempo sem agregar valor à operação.
+- Crescimento do negócio (novas unidades, franquias, volume) barrado por sistemas que não foram desenhados para escalar.
+
+### Diferencial em Relação aos ERPs Existentes
+
+- **Cadastro único de verdade**: um dado (cliente, ingrediente, fornecedor) é cadastrado uma única vez e reutilizado por todos os módulos — não replicado nem sincronizado por integrações frágeis.
+- **Integração nativa entre módulos**: Vendas, Produção, Estoque, Compras e Financeiro nascem conectados pelo mesmo modelo de dados, em vez de serem sistemas isolados unidos por integrações externas.
+- **Governança e auditabilidade desde a Fase 000**: diferente da maioria dos ERPs de mercado, o THE CHARCOAL OS nasce com constituição, memória cumulativa e processo de auditoria formal antes de qualquer linha de código.
+- **IA como assistente nativo**, não como módulo à parte — atuando sobre o mesmo dado único de todo o sistema (ver Seção 22, Princípio PF-06).
+- **Dashboard CEO como visão central do produto** (Princípio PF-07), não um relatório adicional entre outros.
+- **Verticalização real**: vocabulário e processos (Ficha Técnica, Produção, Lote, Evento, Pacote) refletem a operação real do negócio, não um genérico "ERP para qualquer empresa".
+
+## 22. Princípios Fundamentais
+
+Estes princípios são de observância obrigatória em toda decisão de arquitetura, modelagem de dados e funcionalidade, em todas as fases futuras. Em caso de conflito aparente entre um princípio e uma conveniência de implementação, o princípio prevalece — ou o conflito é escalado ao proprietário (Seção 17/19), nunca contornado silenciosamente.
+
+- **PF-01 — Cadastro único.** Um dado (cliente, fornecedor, ingrediente, produto etc.) é cadastrado uma única vez no sistema e referenciado, nunca duplicado, por todos os módulos que o utilizam.
+- **PF-02 — Compartilhamento automático entre módulos.** Uma informação cadastrada ou gerada em um módulo fica automaticamente disponível para todos os demais módulos que dela dependem, sem reentrada manual.
+- **PF-03 — Cálculo único.** Nenhuma regra de cálculo (custo, preço, imposto, saldo, indicador) existe implementada em mais de um lugar; todo cálculo deriva de uma única fonte de verdade e é reutilizado onde for necessário.
+- **PF-04 — Histórico obrigatório.** Toda informação relevante (preço, contrato, cadastro, produção, decisão) mantém histórico de alterações, com data, autor e valor anterior — nada é sobrescrito silenciosamente.
+- **PF-05 — Automação a serviço da redução de trabalho manual.** Toda automação introduzida deve eliminar ou reduzir mensuravelmente um passo manual existente; automação que apenas desloca trabalho manual não é aceita.
+- **PF-06 — IA como assistente inteligente, não como caixa-preta.** A inteligência artificial atua sobre os dados únicos do sistema para apoiar decisões e automatizar tarefas, mas toda sugestão ou ação de IA é auditável, explicável e reversível pelo usuário.
+- **PF-07 — Dashboard CEO como visão principal.** O Dashboard CEO é a tela padrão de entrada e a referência executiva do sistema; qualquer indicador relevante de qualquer módulo deve ser refletido nele, direta ou indiretamente.
+- **PF-08 — Preparado para crescer por muitos anos.** Toda decisão de modelagem e arquitetura é avaliada quanto à sua capacidade de sustentar o crescimento do negócio ao longo de, no mínimo, uma década (ver Seção 25), sem exigir reescrita estrutural.
+- **PF-09 — Simplicidade, escalabilidade e manutenção acima de tudo.** Entre alternativas tecnicamente válidas, prevalece a que for mais simples de entender, mais fácil de manter e mais capaz de escalar — nesta ordem de desempate quando houver conflito entre elas.
+- **PF-10 — Toda regra de negócio tem dono e está documentada.** Nenhuma regra de negócio relevante (cálculo, fluxo de aprovação, política comercial) existe apenas implicitamente no código; toda regra é registrada e associada a um responsável pela sua definição.
+- **PF-11 — Nenhuma automação ou integração quebra silenciosamente outro módulo.** Mudanças que afetam contratos de integração (Seção 16) entre módulos são tratadas como mudança de escopo, nunca como ajuste local sem aviso.
+- **PF-12 — Segurança e privacidade não são negociáveis.** Dados financeiros, cadastrais e de clientes são protegidos por padrão (privacidade por padrão / *privacy by default*), independentemente de pressão de prazo ou simplicidade de implementação.
+
+## 23. Documentos Oficiais do Projeto
+
+Os documentos abaixo são de manutenção obrigatória durante todo o ciclo de vida do projeto. Vários deles formalizam, com nomenclatura de mercado, mecanismos já exigidos nas Seções 7 a 16 desta Constituição — não são artefatos adicionais e sim os nomes oficiais dos artefatos ali definidos, unificados aqui para referência única.
+
+| Documento | Formaliza | Finalidade |
+|---|---|---|
+| **Project Memory** | Regra de Memória / `PROJECT_MEMORY.md` | Histórico cumulativo, por fase, de decisões, alterações, melhorias, riscos, pendências, funcionalidades aprovadas/rejeitadas, módulos e integrações. Leitura obrigatória antes de qualquer nova fase (Seção 17). |
+| **Architecture Decision Records (ADR)** | Seção 7 — Registro de Decisões (Decision Log) | Nome padrão de mercado para o registro individual de cada decisão técnica ou de produto relevante: contexto, alternativas consideradas, decisão tomada e motivo. Cada decisão relevante gera um ADR. |
+| **Project Changelog** | Seção 8 — Registro de Alterações | Lista cronológica de toda alteração relevante em escopo, arquitetura, regra de negócio ou estrutura de dados, com o que mudou, por que, impacto e aprovação. |
+| **Risk Register** | Seção 13 — Registro de Riscos | Lista viva de riscos identificados, com probabilidade, impacto, mitigação e status; nenhum risco é descartado sem registro. |
+| **Improvement Backlog** | Seção 14 — Backlog de Melhorias | Lista viva de melhorias sugeridas e ainda não implementadas, preservadas para reavaliação em fases futuras. |
+| **Glossary** | Seção 15 — Glossário Único de Domínio | Dicionário oficial de termos de negócio do sistema, com significado único e padronizado (ver versão inicial na Seção 24). |
+| **Integration Map** | Seção 16 — Mapa de Integrações | Registro de todo contrato de integração entre módulos (ou com sistemas externos), com origem, destino, dados trocados e dependências geradas. |
+| **Version History** | Seção 12 — Controle de Versões | Histórico de versões semânticas deste Framework, dos módulos e das releases do sistema, com a natureza (MAJOR/MINOR/PATCH) de cada mudança. |
+
+## 24. Glossário Oficial
+
+Versão inicial do Glossário Único de Domínio (Seção 15/23), a ser mantida e expandida em toda fase técnica futura. Cada termo é definido de forma padronizada: Definição, Módulo(s) relacionado(s) e Observações.
+
+| Termo | Definição | Módulo(s) | Observações |
+|---|---|---|---|
+| **Cliente** | Pessoa física ou jurídica que contrata produtos ou serviços da empresa. | CRM, Vendas, Financeiro | Cadastro único (PF-01); mesmo registro é reutilizado por todos os módulos que se relacionam com o cliente. |
+| **Lead** | Cliente em potencial, ainda não convertido, em estágio de prospecção ou negociação. | CRM | Ao ser convertido, transforma-se em Cliente sem gerar novo cadastro (PF-01) — apenas muda de estado. |
+| **Evento** | Ocorrência com data, local e escopo definidos para a qual a empresa fornece produtos ou produção. | Vendas, Eventos, Produção | Pode originar um ou mais Orçamentos, um Contrato e uma ou mais ordens de Produção. |
+| **Produto** | Item ou serviço final oferecido comercialmente ao cliente. | Vendas, Catálogo | Pode ser composto por uma ou mais Receitas/Fichas Técnicas. |
+| **Ingrediente** | Insumo básico utilizado na composição de uma Receita ou Ficha Técnica. | Produção, Estoque, Compras | Possui unidade de medida, custo unitário e controle próprio de Estoque e Lote. |
+| **Receita** | Conjunto padronizado de Ingredientes, quantidades e modo de preparo utilizado para produzir um item. | Produção | Termo restrito ao contexto culinário/produtivo. **Nunca** utilizar isoladamente para valores financeiros — ver "Receita Financeira". |
+| **Ficha Técnica** | Documento formal que detalha uma Receita com quantidades exatas, custo unitário de cada Ingrediente, rendimento e custo total por unidade produzida. | Produção, Custos | Fonte única do cálculo de custo de produção (PF-03) — nenhum outro lugar do sistema recalcula esse custo de forma independente. |
+| **Produção** | Processo de transformar Ingredientes em Produtos a partir de uma Ficha Técnica, para atender a um Evento ou repor Estoque. | Produção | Gera baixa de Estoque de Ingredientes e entrada de Estoque de Produtos/Lotes. |
+| **Fornecedor** | Pessoa física ou jurídica que fornece Ingredientes, produtos ou serviços à empresa. | Compras | Cadastro único (PF-01), compartilhado entre Compras, Estoque e Financeiro (contas a pagar). |
+| **Compra** | Aquisição de Ingredientes, produtos ou serviços junto a um Fornecedor. | Compras, Financeiro | Gera entrada de Estoque e lançamento de Despesa/contas a pagar. |
+| **Estoque** | Quantidade disponível de Ingredientes, Produtos ou materiais, controlada por localização e por Lote. | Estoque | Atualizado automaticamente por Compra, Produção e Venda (PF-02); nunca ajustado manualmente sem registro de histórico (PF-04). |
+| **Lote** | Conjunto de unidades de um Ingrediente ou Produto, produzido ou recebido em uma mesma ocasião, com rastreabilidade própria (data, validade, origem). | Estoque, Produção | Garante a rastreabilidade exigida pelo histórico obrigatório (PF-04). |
+| **Pacote** | Agrupamento comercial de um ou mais Produtos, vendido como unidade única ao Cliente. | Vendas | Não confundir com "Lote" (rastreabilidade de produção) nem com embalagem física. |
+| **Orçamento** | Proposta comercial formal enviada a um Cliente ou Lead, com Produtos/Pacotes, valores e condições. | Vendas | Pode estar vinculado a um Evento; quando aceito, origina um Contrato. |
+| **Contrato** | Documento formal que vincula empresa e Cliente às condições comerciais acordadas a partir de um Orçamento aprovado. | Vendas, Financeiro | Dispara a previsão de Receita Financeira e o cronograma correspondente no Fluxo de Caixa. |
+| **Documento** | Registro formal (arquivo, contrato, nota fiscal, ficha técnica etc.) anexado ou gerado pelo sistema. | Transversal | Termo genérico; toda entidade que gera Documento mantém histórico de versões (PF-04). |
+| **Despesa** | Saída de recursos financeiros da empresa, decorrente de Compra, custo operacional ou obrigação. | Financeiro | Não confundir com "custo de produção" (calculado via Ficha Técnica); Despesa é o lançamento financeiro/de caixa. |
+| **Receita Financeira** | Entrada de recursos financeiros na empresa, decorrente de Contrato, venda ou outra fonte. | Financeiro | Termo deliberadamente qualificado com "Financeira" para eliminar ambiguidade com "Receita" (culinária). Nunca usar "Receita" isoladamente em contexto financeiro. |
+| **Fluxo de Caixa** | Consolidação temporal das entradas (Receita Financeira) e saídas (Despesa) de recursos financeiros da empresa. | Financeiro, BI | Alimentado automaticamente por Contrato, Compra e Despesa (PF-02); nenhum lançamento manual duplica um lançamento já existente (PF-03). |
+| **Dashboard** | Painel visual consolidado de indicadores do negócio. | BI | O **Dashboard CEO** (PF-07) é a instância principal e prioritária deste conceito, agregando dados de todos os módulos em tempo real. |
+
+## 25. Filosofia de Evolução (Horizonte de 10 Anos)
+
+A arquitetura do THE CHARCOAL OS deve ser concebida, desde a primeira fase técnica, para absorver os seguintes vetores de crescimento sem exigir reescrita estrutural:
+
+- **Crescimento da empresa e novos usuários**: modelo de permissões e papéis (roles) desenhado para escalar em número de usuários simultâneos sem redesenho do modelo de autenticação/autorização.
+- **Novas unidades e franquias**: o modelo de dados deve prever, desde o início, um conceito de unidade/organização como dimensão transversal aos dados (mesmo que a primeira versão opere com uma única unidade), evitando migração destrutiva quando a segunda unidade surgir.
+- **Aplicativo mobile**: o mobile é um cliente adicional consumindo os mesmos serviços e o mesmo modelo de dados do sistema principal — nunca um sistema paralelo com sua própria cópia de dados.
+- **Integração bancária**: tratada como uma integração externa formal (Seção 16/Integration Map), isolada por contrato de integração, de forma que a troca de provedor bancário não impacte o núcleo do Financeiro.
+- **Inteligência artificial**: atua como camada transversal de apoio (PF-06), consumindo o dado único de todos os módulos — não como um módulo isolado com sua própria base de dados paralela.
+- **Automações**: cada nova automação deve reduzir trabalho manual mensurável (PF-05), ser auditável e reversível, e respeitar os contratos de integração já existentes (PF-11).
+- **Novos módulos**: toda nova área do sistema (ex.: um futuro módulo de RH ou logística) deve nascer aderente ao Glossário (Seção 24), aos Princípios Fundamentais (Seção 22) e aos padrões de dados já estabelecidos (Seção 15), sendo auditada quanto a isso antes de ser aceita (Seção 17).
+
+O critério de sucesso da arquitetura, ao longo desses dez anos, é que cada um destes vetores possa ser adicionado como uma **extensão** do sistema existente, e não como um **motivo de reconstrução** dele.
+
+## 26. Auditoria de Revisão desta Complementação
+
+Em atendimento ao comando `ALTERAR` do proprietário, foi realizada auditoria completa do documento após a inclusão das Seções 21 a 25, com o seguinte resultado:
+
+- **Duplicidade identificada e resolvida**: as Seções 22–24 introduziam nomenclatura potencialmente redundante com artefatos já definidos nas Seções 7–16 (ex.: "ADR" vs. "Registro de Decisões"). Resolução: a Seção 23 declara explicitamente que os oito Documentos Oficiais **formalizam**, com nome de mercado, os artefatos já exigidos nas Seções 7 a 16 — não são artefatos novos e adicionais. Nenhuma duplicidade real permanece.
+- **Ambiguidade de domínio identificada e resolvida**: o termo "Receita" (culinário) e "Receita Financeira" (financeiro) são termos naturalmente ambíguos em português. Resolução: o Glossário (Seção 24) fixa que "Receita", isoladamente, refere-se sempre ao contexto de Produção, e todo valor financeiro de entrada deve obrigatoriamente ser referido como "Receita Financeira" — nunca abreviado. Esta regra deverá ser propagada a toda nomenclatura técnica (banco de dados, telas, APIs) a partir da primeira fase técnica.
+- **Consistência verificada entre Manifesto e Visão (Seção 2)**: o Manifesto (Seção 21) especializa e detalha a Visão genérica já registrada na Seção 2, aplicando-a ao domínio de produção e eventos evidenciado pelo vocabulário de negócio; não há conflito, apenas aprofundamento. Nenhuma alteração foi necessária na Seção 2.
+- **Consistência verificada entre Princípios Fundamentais (Seção 22) e Padrões de Qualidade (Seção 5)**: são complementares e operam em níveis diferentes — a Seção 22 rege decisões de produto e modelagem de dados (nível de negócio), enquanto a Seção 5 rege critérios de aceite técnico de cada entrega (nível de execução). Nenhuma sobreposição conflitante identificada.
+- **Antecipação registrada**: a Seção 15 já previa a criação do Glossário "desde a primeira fase técnica"; a Seção 24 antecipa essa criação ainda na Fase 000 (governança), o que é tratado como avanço, não como violação — toda fase técnica futura deve **manter e expandir** este Glossário, nunca recriá-lo do zero.
+- **Risco novo identificado**: a especialização do Manifesto para um domínio de produção/eventos (Seção 21, Seção 24) tacitamente assume um segmento de negócio específico. Caso o proprietário pretenda um escopo diferente ou mais amplo, esta suposição deve ser corrigida antes da Fase 001. Este risco foi registrado no Risk Register (`PROJECT_MEMORY.md`) como **R-000-03**.
+- **Melhoria identificada**: nenhuma nova melhoria adicional além das já registradas em M-000-01 e M-000-02 foi identificada nesta revisão.
+
+Nenhuma inconsistência, conflito ou duplicidade permaneceu em aberto após esta auditoria. O conteúdo da versão 1.0.0 foi preservado integralmente; apenas conteúdo novo foi adicionado, conforme instrução do proprietário.
+
+---
+
 ## Regra Permanente (Auditoria Contínua)
 
 Antes de iniciar qualquer fase futura, é obrigatório: ler todas as fases anteriores, auditar integralmente o projeto, procurar inconsistências, conflitos, duplicidades e oportunidades de melhoria, e corrigir o que for encontrado dentro do escopo já aprovado. Havendo qualquer conflito que exija decisão do proprietário, o trabalho é interrompido imediatamente até obter orientação. Nenhuma decisão relevante é tomada sem registro do motivo.
@@ -198,4 +326,4 @@ Em todas as fases, o trabalho é conduzido com a postura de um Arquiteto de Soft
 
 ---
 
-*Fim do documento — THE CHARCOAL OS DEVELOPMENT FRAMEWORK v1.0.0*
+*Fim do documento — THE CHARCOAL OS DEVELOPMENT FRAMEWORK v1.1.0*
