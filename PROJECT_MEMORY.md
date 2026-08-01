@@ -97,4 +97,33 @@ Conforme D-000-09, esta fase substitui a proposta original de "Arquitetura Macro
 
 ---
 
+## FASE 001B — Business Discovery Questionnaire
+
+**Status:** Questionário entregue — aguardando respostas do proprietário
+**Data:** 2026-08-01
+
+O proprietário respondeu `ALTERAR` à Fase 001, considerando o `THE_CHARCOAL_OS_ENTERPRISE_DOMAIN_DISCOVERY.md` um mapeamento genérico de catering, insuficiente para um ERP totalmente personalizado. Foi criada a subfase 001B, cujo único entregável é o `THE_CHARCOAL_OS_BUSINESS_DISCOVERY_QUESTIONNAIRE.md` — o Business Discovery em si **não foi alterado**, conforme instrução explícita.
+
+### Decisões tomadas
+- D-001B-01: O Business Discovery (Fase 001) permanece formalmente em aberto e não aprovado até que as respostas ao questionário sejam incorporadas. Motivo: comando `ALTERAR` do proprietário.
+- D-001B-02: O questionário foi estruturado em 35 categorias fixas (definidas pelo proprietário no Prompt Oficial), com perguntas abertas, específicas e práticas, evitando perguntas de sim/não, cada uma acompanhada de justificativa de por que a informação importa para o sistema. Motivo: instrução explícita do Prompt Oficial da subfase 001B.
+
+### Alterações
+- ALT-001B-01: Criado o documento `THE_CHARCOAL_OS_BUSINESS_DISCOVERY_QUESTIONNAIRE.md` (v1.0.0). Nenhum outro documento do projeto foi alterado.
+
+### Melhorias sugeridas (Backlog)
+- M-001B-01: Após as respostas do proprietário, revisar o `THE_CHARCOAL_OS_ENTERPRISE_DOMAIN_DISCOVERY.md` linha a linha contra cada resposta, e não apenas incorporar trechos novos — a Fase 001 pode exigir reescrita, não apenas complementação, caso o modelo de negócio real divirja da hipótese inicial (ver R-000-03).
+
+### Riscos encontrados
+- Nenhum risco novo. Os riscos R-000-03/P-000-03 (hipótese de domínio de negócio) e R-001-01/R-001-02 (herdados da Fase 001) permanecem em aberto e serão diretamente endereçados pelas respostas a este questionário.
+
+### Pendências
+- P-001B-01: Respostas do proprietário às 110 perguntas do questionário (por categoria ou aos poucos, conforme sua conveniência).
+- P-001B-02: Após as respostas, reavaliar e possivelmente reescrever o `THE_CHARCOAL_OS_ENTERPRISE_DOMAIN_DISCOVERY.md` antes de submetê-lo novamente à aprovação da Fase 001.
+
+### Processos/Entidades identificados
+- Nenhum processo ou entidade novo foi formalmente identificado nesta subfase — ela é um instrumento de coleta, não de mapeamento; o mapeamento permanece o do documento da Fase 001, sujeito a revisão.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
