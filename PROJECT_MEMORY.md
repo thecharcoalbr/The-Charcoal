@@ -613,4 +613,33 @@ Recebido o Prompt Oficial (TCOS-008), executada a auditoria de abertura sobre to
 
 ---
 
+## FASE 009 — Integration and API Contract
+
+**Data:** 2026-08-01
+
+Recebido o Prompt Oficial (TCOS-009), executada a auditoria de abertura sobre todos os 12 documentos oficiais, e produzido o documento com o contrato conceitual de integração entre módulos: 20 Integrações (IN-001 a IN-020) cobrindo os 18 tópicos de comunicação exigidos, mais 7 capítulos de amarração (Matriz Geral de Integração, Mapa Global das Comunicações, Mapa dos Eventos do Sistema, Cadeia de Atualização dos Dashboards, Cadeia de Atualização da IA, Matriz de Dependências entre Serviços, Fluxo de Sincronização entre Módulos). Nenhuma API, endpoint, protocolo, formato de mensagem ou tecnologia foi definido. Nenhum documento anterior foi alterado.
+
+### Decisões tomadas
+- D-009-01: IN-016 (Indicadores) e IN-017 (Dashboards) foram documentadas como duas Integrações formalmente distintas (por exigência do Prompt Oficial), mas unidas em uma única cadeia explícita no Capítulo 7 — evitando que um leitor futuro as trate como dois mecanismos independentes.
+- D-009-02: IN-005 (Produção) e IN-019 (Pessoas/Escalas) foram confirmadas como ramificações paralelas e independentes de uma única publicação do evento "Evento confirmado" (parte de IN-001), documentadas separadamente apenas pela exigência de detalhamento por tópico do Prompt Oficial — comportamento esclarecido no Capítulo 10 (Fluxo de Sincronização).
+- D-009-03: distinção formal entre "Eventos de Domínio" (89, catalogados no TCOS-002, ciclo de vida de entidade) e "Eventos Arquiteturais do Event Bus" (ex.: "Indicador recalculado", "Custo recalculado", "Sugestão gerada (IA)", já previstos no TCOS-006) — nenhum dos dois catálogos foi alterado, apenas esclarecidos lado a lado no Capítulo 6.
+
+### Alterações
+- ALT-009-01: criado o documento `THE_CHARCOAL_OS_INTEGRATION_AND_API_CONTRACT.md` (v1.0.0). Nenhum documento anterior foi alterado.
+
+### Melhorias sugeridas (Backlog)
+- M-009-01 (nova): ao desenhar o mecanismo real de mensageria em fase técnica futura, avaliar se os eventos arquiteturais do Event Bus (Custo recalculado, Indicador recalculado, Sugestão gerada) devem ser incorporados ao catálogo oficial de eventos de domínio em uma eventual v1.1.0 do TCOS-002, por clareza de nomenclatura única.
+
+### Riscos encontrados
+- Nenhum risco novo. Riscos herdados (R-000-03/R-002-01, R-001-01/R-002-02, R-002A-01) permanecem abertos, sem impedir o contrato conceitual de integração — nenhuma integração dependente de parâmetro pendente foi documentada sem seu comportamento de bloqueio/alerta correspondente.
+
+### Pendências
+- P-009-01: validação formal do proprietário sobre o `THE_CHARCOAL_OS_INTEGRATION_AND_API_CONTRACT.md`.
+- Pendências herdadas: parâmetros do Módulo 24, M-003A-03/04, M-005-01/02/03, M-006-01, M-007-01, M-008-01, confirmação do domínio de negócio (R-000-03).
+
+### Estrutura de integração identificada
+- 20 Integrações, 27 de 27 módulos cobertos (100%), 15 de 15 Serviços cobertos (100%), 30 de 30 entidades conectadas (100%), 16 eventos formalmente referenciados (13 de domínio + 3 arquiteturais), 30 das 47 Regras de Negócio com cadeia multi-Serviço documentada. Maturidade estimada do projeto: 80%.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
