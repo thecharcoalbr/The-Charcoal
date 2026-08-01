@@ -190,4 +190,44 @@ Recebido o Prompt Oficial (Documento TCOS-002), foi executada a auditoria de abe
 
 ---
 
+## FASE 002A — Business Rules Specification
+
+**Status:** Rascunho entregue — aguardando validação do proprietário (`THE_CHARCOAL_OS_BUSINESS_RULES_SPECIFICATION.md` v1.0.0)
+**Data:** 2026-08-01
+
+O proprietário aprovou conceitualmente o Domain Model (comando `ALTERAR`, tratando-o como referência oficial e imutável) e solicitou um documento complementar, TCOS-002A, especificando o comportamento do sistema ("o que o sistema deve fazer quando..."). Produzido o `THE_CHARCOAL_OS_BUSINESS_RULES_SPECIFICATION.md`, com 47 Regras de Negócio (RN-001 a RN-047) cobrindo as 36 áreas exigidas. O `THE_CHARCOAL_OS_DOMAIN_MODEL.md` não foi alterado.
+
+### Decisões tomadas
+- D-002A-01: as 47 regras foram organizadas por área, na mesma ordem solicitada pelo proprietário, cada uma com os 12 campos obrigatórios (nome, objetivo, evento disparador, condições, ação do sistema, módulos afetados, entidades alteradas, impacto financeiro, impacto operacional, exceções, alertas, auditoria/histórico).
+- D-002A-02: toda regra que dependeria de um parâmetro numérico de negócio ainda não confirmado (consumo por pessoa, fatores de perda de limpeza/produção, margem-alvo de precificação, proporção de escala) foi especificada como lógica de cálculo com o parâmetro **configurável e pendente**, nunca com um valor numérico inventado. Motivo: princípio de governança "nada é assumido, tudo é registrado", e o risco R-000-03 ainda em aberto.
+- D-002A-03: "Engenharia de Custos" foi mantida, nesta especificação, como função especializada dentro de Produção/Financeiro, coerente com o já registrado no Domain Model — não foi criada como Área de Empresa própria, evitando inconsistência com a Seção 5 do Domain Discovery.
+- D-002A-04: os "módulos afetados" de toda regra usam exatamente os nomes das Áreas da Empresa já definidos na Seção 5 do Domain Discovery, garantindo rastreabilidade entre os três documentos (Domain Discovery, Domain Model, Business Rules).
+
+### Alterações
+- ALT-002A-01: criado o documento `THE_CHARCOAL_OS_BUSINESS_RULES_SPECIFICATION.md` (v1.0.0). Nenhum documento anterior foi alterado, incluindo o Domain Model, conforme instrução explícita do proprietário.
+
+### Melhorias sugeridas (Backlog)
+- M-002A-01: quando os parâmetros pendentes forem confirmados, criar uma tabela de parâmetros de negócio como anexo vivo deste documento, sem reescrever as regras em si.
+- M-002A-02: considerar, em fase técnica futura, um mecanismo de regras configuráveis (não codificadas rigidamente) para os parâmetros numéricos aqui identificados.
+
+### Riscos encontrados
+- R-002A-01 (novo): diversas regras de cálculo (consumo por pessoa/tipo/acompanhamento, perdas de limpeza/produção, rendimento, precificação, proporção de escala) dependem de parâmetros de negócio ainda não confirmados pelo proprietário. Enquanto pendentes, as regras especificam que o sistema deve alertar e exigir definição manual — nunca assumir um valor. Risco de retrabalho caso os parâmetros reais divirjam substancialmente da estrutura de cálculo prevista. Status: aberto.
+- R-000-03/R-002-01 e R-001-01/R-002-02 (herdados): permanecem abertos e diretamente relevantes a este documento — ver Seção "Dúvidas encontradas" do TCOS-002A.
+
+### Pendências
+- P-002A-01: validação formal do proprietário sobre o `THE_CHARCOAL_OS_BUSINESS_RULES_SPECIFICATION.md`.
+- P-002A-02: fechamento formal da Fase 002 (Domain Model + Business Rules Specification) com comando `APROVADO`.
+- P-002A-03: confirmação dos parâmetros de negócio listados no risco R-002A-01 — idealmente via retomada da entrevista de descoberta (Fase 001B).
+
+### Regras de negócio identificadas
+- 47 Regras de Negócio (RN-001 a RN-047) especificadas, cobrindo Dashboard CEO, Financeiro Pessoal, Financeiro Empresarial, Integração Pessoa/Empresa, Eventos, CRM, Clientes, Leads, Orçamentos, Contratos, Produção, Engenharia de Custos, Receitas, Fichas Técnicas, Precificação, Consumo (por pessoa/tipo de evento/acompanhamentos), Perdas (limpeza/produção), Rendimento, Compras, Estoque, Lotes, Equipamentos, Funcionários, Escalas, Marketing, Dashboards, Indicadores, Inteligência Artificial, Importação de Extrato Bancário, Conciliação Bancária, Lançamentos Manuais, Metas e Alertas.
+
+### Módulos existentes
+- Nenhum (ainda não houve decisão técnica; apenas especificação de comportamento de negócio).
+
+### Integrações
+- Nenhuma (fora de escopo desta fase).
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
