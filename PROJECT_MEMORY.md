@@ -124,6 +124,23 @@ O proprietário respondeu `ALTERAR` à Fase 001, considerando o `THE_CHARCOAL_OS
 ### Processos/Entidades identificados
 - Nenhum processo ou entidade novo foi formalmente identificado nesta subfase — ela é um instrumento de coleta, não de mapeamento; o mapeamento permanece o do documento da Fase 001, sujeito a revisão.
 
+### Revisão — Roteiro de Entrevista Otimizado (v2.0)
+
+O proprietário aprovou o conteúdo do questionário, mas solicitou (`ALTERAR`), antes de iniciar qualquer entrevista, a reorganização das 110 perguntas em uma sequência estratégica de Fases de Descoberta dependentes entre si. Produzido o documento `THE_CHARCOAL_OS_DISCOVERY_INTERVIEW_ROADMAP.md` (v1.0.0).
+
+**Decisões tomadas:**
+- D-001B-03: As 110 perguntas foram organizadas em 12 Fases de Entrevista, cada uma com objetivo e dependência explícita da fase anterior, seguindo a mesma sequência de Cadeia de Valor já registrada na Seção 4 do Domain Discovery (Fornecedor/Compra/Estoque → Produção → Recursos → Custo/Preço). Motivo: instrução explícita do proprietário; reforça consistência entre os documentos da Fase 001 (Seção 9 do Framework — Como Evitar Inconsistências).
+- D-001B-04: A pergunta Q94 ("qual evento/produto dá mais lucro") foi movida da categoria Financeiro da Empresa para a Fase 7 (Engenharia de Custos e Precificação), por ser, na prática, a pergunta-síntese do raciocínio de custo/preço, não do raciocínio de caixa.
+- D-001B-05: Foram adicionadas 5 perguntas novas, claramente marcadas `[NOVA]`, cobrindo lacunas identificadas apenas ao montar o fluxo contínuo da entrevista: operação em múltiplos locais (Fase 1), identidade visual (Fase 1), controle de acesso a informações sensíveis (Fase 6), enquadramento legal/tributário (Fase 10), e nível de conforto da equipe com tecnologia (Fase 12).
+- D-001B-06: O `THE_CHARCOAL_OS_BUSINESS_DISCOVERY_QUESTIONNAIRE.md` original foi mantido intacto como registro histórico da versão aprovada; o roteiro de entrevista é um documento complementar, não substitutivo.
+
+**Alterações:**
+- ALT-001B-02: Criado o documento `THE_CHARCOAL_OS_DISCOVERY_INTERVIEW_ROADMAP.md` (v1.0.0). Nenhum outro documento foi alterado.
+
+**Pendências:**
+- P-001B-03: Autorização do proprietário para iniciar a Fase 1 da entrevista ("Identidade e Propósito da Empresa"). Nenhuma pergunta foi feita ao proprietário até o momento.
+- P-001B-04 (protocolo permanente): ao final de cada Fase de entrevista futura, é obrigatório resumir aprendizados, listar inconsistências, listar dúvidas, listar oportunidades, atualizar este `PROJECT_MEMORY.md` e aguardar nova autorização antes da fase seguinte (ver Seção 3 do Roadmap).
+
 ---
 
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
