@@ -54,10 +54,46 @@
 
 ## FASE 001 — Business Discovery
 
-**Status:** NÃO INICIADA — aguardando Prompt Oficial do proprietário (ver D-000-09)
-**Data de redefinição:** 2026-08-01
+**Status:** Rascunho entregue — aguardando validação do proprietário (`THE_CHARCOAL_OS_ENTERPRISE_DOMAIN_DISCOVERY.md` v1.0.0)
+**Data:** 2026-08-01
 
-Conforme D-000-09, esta fase substitui a proposta original de "Arquitetura Macro e Stack Tecnológica" como próxima fase do projeto. Seu objetivo será compreender profundamente o funcionamento real do negócio antes de qualquer decisão técnica. Nenhuma atividade desta fase pode ser iniciada antes do recebimento do Prompt Oficial e da execução do processo de auditoria de abertura de fase (Seção 17 do Framework).
+Conforme D-000-09, esta fase substitui a proposta original de "Arquitetura Macro e Stack Tecnológica" como próxima fase do projeto. Recebido o Prompt Oficial (Documento TCOS-001), foi executada a auditoria de abertura (Seção 17 do Framework) sem novas inconsistências além do já registrado R-000-03/P-000-03, e produzido o documento `THE_CHARCOAL_OS_ENTERPRISE_DOMAIN_DISCOVERY.md`, mapeando o domínio de negócio hipotético (produção culinária em brasa/carvão comercializada via Eventos) em 25 capítulos de processos e um conjunto de entidades de negócio. Nenhuma decisão técnica foi tomada, em conformidade com a restrição da fase.
+
+### Decisões tomadas
+- D-001-01: Adotada a hipótese de trabalho de que o negócio opera no domínio de produção culinária em brasa/carvão comercializada majoritariamente via Eventos, mantendo-a explicitamente como hipótese a confirmar (não como fato), com pergunta formal Q1 ao proprietário. Motivo: coerência com o vocabulário já aprovado no Glossário Oficial (Seção 24 do Framework) e com R-000-03.
+- D-001-02: Estabelecida a estrutura de 25 capítulos de processos organizados por natureza (Principais, Apoio, Administrativos, Financeiros, Marketing, Operacionais, Produção, Eventos, Compras, Estoque, Clientes, Fornecedores, Documentos, Receitas, Engenharia de Custos, Precificação, Mão de Obra, Pós-venda, Crescimento), conforme exigido pelo Prompt Oficial TCOS-001.
+- D-001-03: Aplicada de forma consistente a regra de nomenclatura D-000-07 ("Receita" = culinário; "Receita Financeira" = entrada financeira) em todo o novo documento, evitando reintroduzir a ambiguidade já resolvida na Fase 000.
+
+### Alterações
+- ALT-001-01: Criado o documento `THE_CHARCOAL_OS_ENTERPRISE_DOMAIN_DISCOVERY.md` (v1.0.0), complementar ao Framework e à Memória — nenhum conteúdo pré-existente foi alterado.
+
+### Melhorias sugeridas (Backlog)
+- M-001-01: Considerar, em fase futura, transformar o Mapa de Processos (Seção 6 do Domain Discovery) em um diagrama visual (fluxograma) além do formato textual/tabular, para facilitar comunicação com stakeholders não técnicos.
+- M-001-02: Após confirmação das respostas às perguntas Q1–Q18, revisar o Glossário Oficial (Seção 24 do Framework) para incorporar eventuais entidades/termos adicionais confirmados pelo proprietário (ex.: Pagamento, Banco, Conta, Meta, Indicador, Campanha, já detalhados no Domain Discovery mas ainda não presentes no Glossário formal do Framework).
+
+### Riscos encontrados
+- R-001-01: O custo de Ficha Técnica pode não incluir hoje mão de obra e insumos de apoio (carvão, gás, embalagem), o que subestimaria o custo real de produção caso confirmado. Status: aberto — depende da resposta à Q12/Q17.
+- R-001-02: Ausência de rastreabilidade formal por Lote e de processo estruturado de escala de Mão de Obra são gargalos identificados que, se não corrigidos ainda na fase de processos, tendem a ser herdados como falhas de dado quando o sistema for modelado. Status: aberto — mitigação proposta nas Seções 28–29 do Domain Discovery.
+- R-000-03/P-000-03 (herdado da Fase 000): permanece aberto, tratado formalmente como pergunta Q1 desta fase.
+
+### Pendências
+- P-001-01: Validação do proprietário sobre o documento `THE_CHARCOAL_OS_ENTERPRISE_DOMAIN_DISCOVERY.md` (comando formal).
+- P-001-02: Respostas às perguntas Q1–Q18 registradas na Seção "Perguntas ao Proprietário" do Domain Discovery — nenhuma foi assumida por suposição.
+
+### Funcionalidades aprovadas / rejeitadas
+- Nenhuma (fase de descoberta de negócio; nenhuma funcionalidade de sistema foi proposta).
+
+### Processos identificados
+- 25 grupos de processos mapeados (Seções 7–25 do Domain Discovery), cobrindo o ciclo completo do negócio da captação de Lead ao Crescimento/expansão.
+
+### Entidades identificadas
+- 29 entidades de negócio detalhadas (Seção 26 do Domain Discovery): Cliente, Lead, Orçamento, Contrato, Campanha, Produto, Ingrediente, Receita, Ficha Técnica, Produção, Fornecedor, Compra, Estoque, Lote, Equipamento, Veículo, Despesa, Receita Financeira, Pagamento, Banco, Conta, Fluxo de Caixa, Funcionário, Documento, Meta, Indicador, Dashboard, Pacote, Evento.
+
+### Módulos existentes
+- Nenhum (ainda não houve decisão técnica; apenas mapeamento de domínio).
+
+### Integrações
+- Nenhuma (fora de escopo desta fase).
 
 ---
 
