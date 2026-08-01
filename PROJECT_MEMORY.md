@@ -438,4 +438,49 @@ Recebido o Prompt Oficial (TCOS-004), executada a auditoria de abertura sobre to
 
 ---
 
+## FASE 004 — Encerramento Oficial
+
+**Status:** APROVADA E CONGELADA pelo proprietário em 2026-08-01 (comando `APROVADO`)
+**Data:** 2026-08-01
+
+O `THE_CHARCOAL_OS_USER_JOURNEYS_AND_SYSTEM_FLOWS.md` (v1.0.0) passa a ser documentação oficial do THE CHARCOAL OS. Nenhuma alteração futura sem criação de nova versão.
+
+---
+
+## FASE 005 — UX/UI Specification
+
+**Status:** Rascunho entregue — aguardando validação do proprietário (`THE_CHARCOAL_OS_UX_UI_SPECIFICATION.md` v1.0.0)
+**Data:** 2026-08-01
+
+Recebido o Prompt Oficial (TCOS-005), executada a auditoria de abertura sobre todos os 8 documentos oficiais, e produzido o documento com as 30 telas obrigatórias (11 Dashboards + 19 telas de módulo), Navegação do Sistema, Design System completo e capítulo de Experiência do Usuário. Nenhum documento anterior foi alterado.
+
+### Decisões tomadas
+- D-005-01: as 30 telas foram documentadas com os 25 campos obrigatórios cada (Dashboards com detalhamento adicional de layout/origem de dado/integração com IA), referenciando por nome/número as entidades, Regras, funcionalidades e fluxos já oficiais. Módulo 23 (Documentos) foi servido por um componente reutilizável "Documentos Anexados" em vez de tela própria; CRM, Marketing e Inteligência Artificial tiveram suas funcionalidades de gestão incorporadas aos respectivos Dashboards, sem tela de gestão separada — ambas decisões de design explicitamente registradas, não gaps.
+
+### Alterações
+- ALT-005-01: criado o documento `THE_CHARCOAL_OS_UX_UI_SPECIFICATION.md` (v1.0.0). Nenhum documento anterior foi alterado.
+
+### Melhorias sugeridas (Backlog)
+- M-005-01: barra de busca global unificada (Cliente, Evento, Orçamento, Contrato).
+- M-005-02: assistente de configuração inicial guiado no Módulo 24 (reforça M-003A-01).
+- M-005-03: perfis de acesso pré-configurados por função no Módulo 25 (Administração).
+
+### Riscos encontrados
+- Nenhum risco novo. R-000-03/R-002-01, R-001-01/R-002-02 e R-002A-01 permanecem abertos; nenhum bloqueia o design de UX/UI, pois toda tela dependente de parâmetro pendente já prevê um estado de interface "parâmetro não definido" (bloqueio com link direto para Configurações).
+
+### Pendências
+- P-005-01: validação formal do proprietário sobre o `THE_CHARCOAL_OS_UX_UI_SPECIFICATION.md`.
+- Pendências herdadas: parâmetros do Módulo 24, M-003A-03, M-003A-04, M-004-01/02, confirmação do domínio de negócio (R-000-03).
+
+### Telas identificadas
+- 30 telas completas (11 Dashboards + 19 telas de módulo), Design System com 15 componentes reutilizáveis catalogados, e capítulo de Navegação cobrindo entrada, busca, filtro, criação, edição, exclusão (sempre inativação), impressão, exportação, importação, uso de IA, histórico e notificações.
+
+### Módulos existentes
+- 27 módulos (inalterados); 26 com tela própria, 1 (Documentos) servido por componente reutilizável.
+
+### Integrações
+- 15 relações módulo-a-módulo reutilizadas da Matriz de Integração do TCOS-004; nenhuma nova.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
