@@ -302,4 +302,44 @@ O proprietário aprovou formalmente o TCOS-002A e autorizou o avanço para o TCO
 
 ---
 
+## FASE 003 (complemento) — Validação de Cobertura Funcional (TCOS-003 v1.1.0)
+
+**Status:** Rascunho entregue — aguardando validação do proprietário
+**Data:** 2026-08-01
+
+O proprietário aprovou conceitualmente o conteúdo do TCOS-003 (nenhuma funcionalidade, módulo, regra, integração ou numeração foi alterada) e solicitou (`ALTERAR`) a adição de um capítulo permanente de Validação de Cobertura Funcional, cruzando as 30 entidades do Domain Model e as 47 Regras de Negócio contra as 83 funcionalidades já aprovadas.
+
+### Decisões tomadas
+- D-003A-01: adicionado o capítulo 7 "Validação de Cobertura Funcional" ao TCOS-003 (v1.0.0 → v1.1.0, MINOR), com duas matrizes de cobertura (entidades e regras), funcionalidades dependentes de parâmetros/integrações, consolidação de críticas/opcionais/roadmap, gaps e melhorias. Nenhum conteúdo da v1.0.0 foi alterado.
+
+### Alterações
+- ALT-003A-01: `THE_CHARCOAL_OS_FUNCTIONAL_SPECIFICATION.md` atualizado de v1.0.0 para v1.1.0. Nenhum outro documento foi tocado.
+
+### Melhorias sugeridas (Backlog)
+- M-003A-01: incluir, em versão futura, funcionalidades de cadastro de Banco/Conta.
+- M-003A-02: decidir com o proprietário se "Metas" (RN-046) deve virar um 26º módulo funcional próprio ou permanecer como configuração da Direção dentro do Dashboard CEO.
+- M-003A-03: incluir, em versão futura, funcionalidades explícitas de cadastro para Produto (catálogo), Ingrediente, Fornecedor, Pacote, e de definição de fórmula de Indicador.
+
+### Riscos encontrados
+- Nenhum risco novo. Riscos herdados (R-000-03/R-002-01, R-001-01/R-002-02, R-002A-01) permanecem, agora com rastreabilidade explícita de quais funcionalidades cada um afeta (Seção 7.3 do TCOS-003).
+
+### Gaps encontrados (auditoria de cobertura)
+- G-001: entidade Banco sem funcionalidade de cadastro (usada apenas como dado).
+- G-002: entidade Meta e Regra RN-046 sem cobertura funcional nesta fase — diferença legítima de escopo entre os 36 temas do TCOS-002A e os 25 módulos mínimos do TCOS-003, não um erro de execução.
+- G-003: Produto, Ingrediente, Fornecedor, Conta, Indicador e Pacote são usados por funcionalidades existentes, mas nenhuma funcionalidade os cadastra/cria explicitamente.
+- G-004: RN-010 (Fidelização de Cliente) citada apenas na descrição do Módulo 05, sem funcionalidade dedicada (regra 100% automática).
+
+### Pendências
+- P-003A-01: validação formal do proprietário sobre a v1.1.0 do TCOS-003.
+- P-003A-02: decisão do proprietário sobre M-003A-02 (módulo de Metas).
+- P-003A-03: tratamento dos gaps G-001 a G-004 em uma futura versão do TCOS-003, antes de avançar para fases técnicas.
+
+### Módulos existentes
+- 25 módulos funcionais (inalterados); nenhum novo módulo criado nesta complementação.
+
+### Integrações
+- Nenhuma nova; dependências de integração futura documentadas na Seção 7.4 do TCOS-003 (extrato bancário).
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*

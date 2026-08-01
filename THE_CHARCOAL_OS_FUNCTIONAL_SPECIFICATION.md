@@ -3,8 +3,15 @@
 **Documento:** TCOS-003 — Especificação Funcional
 **Projeto:** THE CHARCOAL OS
 **Fase:** 003 — Functional Specification
-**Status:** Rascunho para validação do proprietário
-**Versão:** 1.0.0
+**Status:** Conteúdo funcional (v1.0.0) conceitualmente aprovado pelo proprietário; complementado em 2026-08-01 com o capítulo permanente de Validação de Cobertura Funcional (v1.1.0), aguardando validação
+**Versão:** 1.1.0
+
+### Histórico de Versões deste Documento
+
+| Versão | Data | Natureza | Descrição |
+|---|---|---|---|
+| 1.0.0 | 2026-08-01 | Inicial | 25 módulos, 83 funcionalidades (F-001–F-083), Matriz Funcional, Resumo para o Proprietário, TCOS Quality Gate Executivo. |
+| 1.1.0 | 2026-08-01 | MINOR (adição compatível) | Complementação solicitada pelo proprietário (comando `ALTERAR`): adicionado o capítulo permanente "VALIDAÇÃO DE COBERTURA FUNCIONAL" ao final do documento. Nenhuma funcionalidade, numeração, módulo, regra ou integração da v1.0.0 foi alterada. |
 
 ---
 
@@ -913,4 +920,219 @@ Aguardar validação do proprietário. Recomenda-se, antes de Arquitetura/Banco 
 
 ---
 
-*Fim do documento — THE CHARCOAL OS FUNCTIONAL SPECIFICATION v1.0.0*
+## 7. VALIDAÇÃO DE COBERTURA FUNCIONAL *(capítulo permanente, adicionado em v1.1.0)*
+
+Este capítulo é permanente: toda futura versão deste documento deve manter e atualizar estas matrizes, nunca removê-las. Nenhum conteúdo das Seções 0 a 6 (v1.0.0) foi alterado para produzir este capítulo — apenas leitura e verificação cruzada do que já existia.
+
+### 7.1 Matriz — Entidades do Domain Model → Funcionalidades
+
+| # | Entidade | Funcionalidades que a criam/alteram | Módulo | Cobertura |
+|---|---|---|---|---|
+| 1 | Cliente | F-013, F-014, F-015, F-018 | 05, 06 | Direta |
+| 2 | Lead | F-016, F-017, F-018, F-019 | 06 | Direta |
+| 3 | Orçamento | F-025, F-026, F-027, F-028 | 08 | Direta |
+| 4 | Contrato | F-029, F-030, F-031 | 09 | Direta |
+| 5 | Campanha | F-065, F-066, F-067 | 21 | Direta |
+| 6 | Produto | F-046 (preço), F-040 (origem via Receita) | 12, 14 | **Parcial** — usado, sem cadastro/publicação de catálogo próprio |
+| 7 | Ingrediente | F-042, F-048, F-052 (usado) | 13, 15, 16 | **Parcial** — usado, sem funcionalidade explícita de cadastro |
+| 8 | Receita | F-039, F-040, F-041 | 12 | Direta |
+| 9 | Ficha Técnica | F-042, F-043, F-044 | 13 | Direta |
+| 10 | Produção | F-032, F-033, F-034, F-035 | 10 | Direta |
+| 11 | Fornecedor | F-048, F-049, F-051 (usado) | 15 | **Parcial** — usado, sem funcionalidade explícita de cadastro |
+| 12 | Compra | F-048, F-049, F-050, F-051 | 15 | Direta |
+| 13 | Estoque | F-052, F-053, F-054 (+ automático via F-032/F-050) | 16 | Direta |
+| 14 | Lote | F-055, F-056 | 17 | Direta |
+| 15 | Equipamento | F-057, F-058, F-059 | 18 | Direta |
+| 16 | Veículo | F-057, F-058, F-059 (agrupado com Equipamento) | 18 | Direta |
+| 17 | Despesa | F-005, F-007, F-009, F-010 | 03 | Direta |
+| 18 | Receita Financeira | F-006, F-007, F-009 | 03 | Direta |
+| 19 | Pagamento | F-007 | 03 | Direta |
+| 20 | Banco | — | — | **Ausente** |
+| 21 | Conta | F-005 a F-008 (usada como dado) | 03 | **Parcial** — usada, sem funcionalidade explícita de cadastro |
+| 22 | Fluxo de Caixa | F-008 | 03 | Direta |
+| 23 | Funcionário | F-060, F-061, F-062 | 19 | Direta |
+| 24 | Alocação de Funcionário | F-063, F-064 | 20 | Direta |
+| 25 | Documento | F-072, F-073, F-074 | 23 | Direta |
+| 26 | Meta | — | — | **Ausente** |
+| 27 | Indicador | F-001, F-002 (selecionado/usado) | 01 | **Parcial** — usado, sem funcionalidade explícita de definição de fórmula |
+| 28 | Dashboard | F-001, F-002 | 01 | Direta |
+| 29 | Pacote | F-046 (usado em precificação/orçamento) | 08, 14 | **Parcial** — usado, sem funcionalidade explícita de criação |
+| 30 | Evento | F-020, F-021, F-022, F-023, F-024 | 07 | Direta |
+
+**Resultado:** 22 entidades com cobertura Direta, 6 com cobertura Parcial (usadas por outras funcionalidades, mas sem uma funcionalidade própria de cadastro/definição), 2 Ausentes (Banco, Meta). Detalhamento no item 7.8 (Gaps).
+
+### 7.2 Matriz — Regras de Negócio (TCOS-002A) → Funcionalidades
+
+| RN | Nome | Funcionalidade(s) principal(is) | Cobertura |
+|---|---|---|---|
+| RN-001 | Atualização do Dashboard CEO | F-001 | Direta |
+| RN-002 | Retirada Pessoal como Despesa | F-003, F-004 | Direta |
+| RN-003 | Apuração de Resultado por Evento | F-009, F-023 | Direta |
+| RN-004 | Fechamento de Período | F-010 | Direta |
+| RN-005 | Lançamento de Natureza Ambígua | F-003 | Direta |
+| RN-006 | Confirmação de Evento (Orquestração) | F-021 | Direta |
+| RN-007 | Cancelamento de Evento | F-024 | Direta |
+| RN-008 | Atribuição de Origem ao Lead | F-016 | Direta |
+| RN-009 | Conversão de Lead sem Duplicidade | F-013, F-018 | Direta |
+| RN-010 | Fidelização de Cliente | Módulo 05 (automação) | **Indireta** — sem F dedicado |
+| RN-011 | Perda de Lead por Inatividade | F-019 | Direta |
+| RN-012 | Cálculo de Preço no Orçamento | F-025, F-046 | Direta |
+| RN-013 | Expiração de Orçamento | F-026, F-028 | Direta |
+| RN-014 | Geração Automática de Contrato | F-029, F-072 | Direta |
+| RN-015 | Aditivo Contratual | F-031 | Direta |
+| RN-016 | Planejamento de Produção | F-032 | Direta |
+| RN-017 | Planejado vs. Real | F-035, F-023 | Direta |
+| RN-018 | Custo Total do Evento | F-036, F-009 | Direta |
+| RN-019 | Recálculo por Custo de Ingrediente | F-037, F-043 | Direta |
+| RN-020 | Versionamento de Receita | F-041 | Direta |
+| RN-021 | Bloqueio sem Ficha Técnica Vigente | F-025, F-021(Mód.13) | Direta |
+| RN-022 | Cálculo de Preço (Custo+Margem) | F-045, F-046 | Direta |
+| RN-023 | Alerta de Margem Mínima | F-047, F-027 | Direta |
+| RN-024 | Consumo por Pessoa | F-075, F-032 | Direta |
+| RN-025 | Consumo por Tipo de Evento | F-075 | Direta |
+| RN-026 | Consumo por Acompanhamento | F-075 | Direta |
+| RN-027 | Perda de Limpeza | F-076, F-048 | Direta |
+| RN-028 | Perda de Produção | F-034, F-076 | Direta |
+| RN-029 | Rendimento | F-034, F-076 | Direta |
+| RN-030 | Geração de Lista de Compras | F-048 | Direta |
+| RN-031 | Recebimento e Conferência | F-050 | Direta |
+| RN-032 | Baixa Automática de Estoque | F-033 | Direta |
+| RN-033 | Ponto de Reposição | F-054 | Direta |
+| RN-034 | Rastreabilidade/Validade de Lote | F-055, F-056 | Direta |
+| RN-035 | Disponibilidade de Equipamento | F-058 | Direta |
+| RN-036 | Custo de Mão de Obra | F-061 | Direta |
+| RN-037 | Sugestão de Escala | F-063, F-078 | Direta |
+| RN-038 | Retorno de Campanha | F-012, F-066 | Direta |
+| RN-039 | Composição de Dashboard | F-001, F-002 | Direta |
+| RN-040 | Cálculo Único de Indicador | F-001 | Direta |
+| RN-041 | IA Auditável e Reversível | F-068, F-069, F-070, F-071 | Direta |
+| RN-042 | Previsão de Demanda | F-069 | Direta |
+| RN-043 | Importação de Extrato Bancário | F-007, F-068 | Direta |
+| RN-044 | Conciliação Bancária | F-007 | Direta |
+| RN-045 | Lançamento Manual | F-005, F-006 | Direta |
+| RN-046 | Acompanhamento de Meta | — | **Ausente** |
+| RN-047 | Tratamento Padrão de Alerta | F-082 | Direta |
+
+**Resultado:** 45 de 47 Regras com cobertura Direta, 1 com cobertura Indireta (RN-010), 1 Ausente (RN-046). Detalhamento no item 7.8.
+
+### 7.3 Funcionalidades que Dependem de Parâmetros Ainda Não Definidos
+
+| Funcionalidade | Parâmetro pendente | Resolvida por |
+|---|---|---|
+| F-032 (Planejar Produção), F-024 (Cancelar Evento — via RN-007) | Consumo por pessoa/tipo/acompanhamento (RN-024–026) | F-075 |
+| F-042/F-043 (Ficha Técnica), F-034 (Perdas/Rendimento) | Fatores de perda e rendimento esperado (RN-027–029) | F-076 |
+| F-045/F-046 (Precificação), F-025 (Orçamento) | Margem-alvo (RN-022) | F-077 |
+| F-063 (Sugestão de Escala) | Proporção de equipe por porte de Evento (RN-037) | F-078 |
+| F-024 (Cancelar Evento) | Política de reembolso/multa (RN-007) | F-079 |
+
+Enquanto os parâmetros acima não forem definidos via Módulo 24, estas funcionalidades operam em modo de alerta/bloqueio (nunca assumem valor), conforme já registrado no risco R-002A-01.
+
+### 7.4 Funcionalidades que Dependem de Futuras Integrações
+
+| Funcionalidade | Integração futura necessária |
+|---|---|
+| F-007 (Registrar/Consultar Pagamento) | Integração bancária para conciliação automatizada em escala (hoje prevista apenas como importação, RN-043) |
+| F-068 (Sugerir Categorização de Lançamento) | Integração com o formato de extrato do(s) banco(s) reais utilizados |
+
+Nenhuma outra das 83 funcionalidades depende de integração externa para funcionar; as demais dependências são apenas entre módulos internos (Seção 4.2).
+
+### 7.5 Funcionalidades Críticas
+
+*(Consolidado da Seção 4.3, sem alteração de conteúdo, reunido aqui para referência única de auditoria):* F-021, F-024, F-036, F-046, F-047, F-050, F-056, F-068, F-075 a F-079.
+
+### 7.6 Funcionalidades Opcionais
+
+Funcionalidades cuja ausência temporária não impede a operação essencial do negócio (podem ser adiadas em uma primeira versão sem comprometer o core):
+- F-002 (Configurar Indicadores do Dashboard CEO — pode operar com conjunto padrão inicialmente).
+- F-044, F-074 (Consultar histórico de versões — importante para auditoria, não para a operação diária).
+- F-051 (Consultar Histórico de Compras por Fornecedor).
+- F-066, F-067 (Consultar Retorno de Campanha, Encerrar Campanha).
+- F-070, F-071 (Sugerir Preço via IA, Configurar Nível de Automação de IA).
+- F-083 (Consultar Indicadores de Saúde do Sistema).
+
+### 7.7 Funcionalidades Futuras (Roadmap)
+
+*(Consolidado da Seção 4.4, sem alteração de conteúdo)*: aplicativo mobile para equipe de campo; Portal do Cliente; integração bancária bidirecional automatizada; simulador de cenário no Dashboard CEO; módulo de RH ampliado.
+
+### 7.8 Gaps Encontrados
+
+1. **Entidade Banco sem funcionalidade de cadastro.** Nenhuma das 83 funcionalidades cria explicitamente um Banco/Conta — apenas os utilizam como dado já existente (F-005 a F-008). Recomendação: M-003A-01.
+2. **Entidade Meta e Regra RN-046 sem cobertura.** "Metas" não estava entre os 25 módulos mínimos exigidos para o TCOS-003 (diferente dos 36 temas do TCOS-002A, que incluíam Metas). Isso não é um erro de execução desta fase — é uma diferença legítima de escopo entre os dois documentos, agora tornada visível por esta auditoria. Recomendação: M-003A-02.
+3. **Produto, Ingrediente, Fornecedor, Conta, Indicador e Pacote são usados, mas nenhuma funcionalidade cadastra/cria cada um explicitamente** — o fluxo atual pressupõe que já existem. Recomendação: M-003A-03.
+4. **RN-010 (Fidelização de Cliente) é citada apenas na descrição do Módulo 05, não no campo "Regras" de nenhuma funcionalidade específica** — consistente com ser uma regra 100% automática (disparada por "Evento concluído"), mas vale registrar a ausência de uma funcionalidade explícita de consulta/gestão de fidelização. Recomendação: incluída em M-003A-03.
+
+Nenhum destes gaps invalida o TCOS-003 v1.0.0 já aprovado — são lacunas de granularidade, não inconsistências ou contradições, e ficam formalmente registradas para tratamento em versão futura, sem necessidade de reabrir o que já foi aprovado.
+
+### 7.9 Melhorias Sugeridas
+
+- M-003A-01: incluir, em uma futura v1.2.0, funcionalidades de cadastro de Banco/Conta (provável novo item no Módulo 03).
+- M-003A-02: avaliar com o proprietário se um 26º módulo "Metas" (cobrindo RN-046) deve ser incorporado a uma futura versão, ou se Metas permanece deliberadamente fora do escopo funcional do usuário final (por exemplo, se for tratado apenas como configuração da Direção dentro do Dashboard CEO).
+- M-003A-03: incluir, em uma futura versão, funcionalidades explícitas de cadastro para Produto (catálogo), Ingrediente, Fornecedor e Pacote, e de definição de fórmula de Indicador — hoje implicitamente assumidos como pré-existentes pelas funcionalidades que os consomem.
+
+### 7.10 Resumo Executivo (Linguagem Simples)
+
+Fizemos uma conferência completa: pegamos a lista de tudo que existe no sistema (as "peças" do negócio, como Cliente, Evento, Estoque) e a lista de todas as regras de comportamento já aprovadas, e verificamos, uma por uma, se cada uma delas tem uma ação correspondente que o usuário pode realizar.
+
+O resultado é muito bom: praticamente tudo tem cobertura. Encontramos só algumas lacunas pequenas e específicas — por exemplo, hoje não existe uma tela explícita para "cadastrar um banco" ou "cadastrar um ingrediente novo do zero", embora essas informações já sejam usadas em várias partes do sistema. Isso não quebra nada do que já foi aprovado; é só uma lista de pequenos complementos para a próxima vez que revisarmos esta especificação.
+
+Também descobrimos que "Metas" (uma das 36 áreas de comportamento já aprovadas) não tinha, ainda, uma tela própria — porque não estava na lista de 25 áreas pedida para esta etapa. Isso é uma decisão a ser confirmada com você: Metas vai ganhar sua própria área no sistema, ou vai ficar apenas dentro do Dashboard CEO?
+
+Nada do que já foi aprovado mudou. Este capítulo só aponta, com transparência, o que ainda falta amarrar — exatamente para que nada seja esquecido mais adiante.
+
+---
+
+## 8. TCOS QUALITY GATE EXECUTIVO (v1.1.0)
+
+**1. Resumo Executivo**
+Adicionado o capítulo permanente "Validação de Cobertura Funcional" ao TCOS-003, cruzando as 30 entidades do Domain Model e as 47 Regras de Negócio do Business Rules Specification contra as 83 funcionalidades já aprovadas. Nenhum conteúdo da v1.0.0 foi alterado.
+
+**2. O que foi criado nesta fase**
+Duas matrizes de cobertura, lista de funcionalidades dependentes de parâmetros pendentes, lista de dependências de integrações futuras, consolidação de funcionalidades críticas/opcionais/roadmap, 4 gaps registrados, 3 melhorias sugeridas e um resumo em linguagem simples.
+
+**3. Estado atual do projeto**
+Fase 003 com conteúdo funcional aprovado e agora com validação de cobertura formal; nenhuma fase técnica iniciada.
+
+**4. Documentos oficiais existentes**
+Os mesmos 7 já registrados na Executive Memory da Seção 0, mais esta nova versão (v1.1.0) do TCOS-003.
+
+**5. Pendências abertas**
+Validação desta complementação; as mesmas pendências de parâmetros (agora com rastreabilidade explícita via Seção 7.3); decisão sobre M-003A-02 (módulo de Metas).
+
+**6. Dúvidas encontradas**
+Se "Metas" deve virar um 26º módulo funcional ou permanecer apenas como configuração da Direção dentro do Dashboard CEO.
+
+**7. Riscos identificados**
+Nenhum risco novo além dos já herdados (R-000-03/R-002-01, R-001-01/R-002-02, R-002A-01). A cobertura parcial de Produto/Ingrediente/Fornecedor/Conta/Pacote/Indicador é tratada como gap de granularidade, não como risco.
+
+**8. Inconsistências encontradas**
+Nenhuma. As lacunas encontradas (Seção 7.8) são gaps de granularidade/escopo, não contradições entre documentos.
+
+**9. Melhorias sugeridas**
+M-003A-01, M-003A-02, M-003A-03 (Seção 7.9).
+
+**10. Impacto desta fase nas próximas**
+As matrizes de cobertura tornam-se checklist obrigatório de conferência para qualquer fase técnica futura: nenhuma tela/API deve ser construída sem que sua funcionalidade correspondente já exista aqui (ou sem que o gap tenha sido formalmente resolvido antes).
+
+**11. Nota da fase: 9/10**
+Justificativa: auditoria de cobertura genuína e completa, com gaps reais encontrados e registrados (não uma checagem superficial "está tudo ok"). Não é 10 porque os gaps identificados (Banco, Meta, cadastros implícitos) precisarão ser resolvidos antes da fase técnica, sob risco de retrabalho.
+
+**12. Próxima fase recomendada**
+Aguardar validação do proprietário sobre esta complementação, incluindo decisão sobre M-003A-02 (Metas). Recomenda-se resolver os gaps da Seção 7.8 (via nova versão do TCOS-003) antes de avançar para Arquitetura/Banco de Dados/UX/APIs.
+
+**13. Atualização do PROJECT_MEMORY.md:** ver commit correspondente.
+
+**Métricas de Encerramento (Seção 30 do Framework):**
+- Quantidade de páginas: +1 capítulo, ~8 páginas equivalentes adicionadas (total do documento ~38 páginas equivalentes).
+- Quantidade de entidades: 30 auditadas (0 novas).
+- Quantidade de regras: 47 auditadas (0 novas).
+- Quantidade de processos: não aplicável a este capítulo (validação, não novo processo).
+- Quantidade de eventos: não aplicável a este capítulo.
+- Quantidade de decisões: 1 (D-003A-01, ver `PROJECT_MEMORY.md`).
+- Quantidade de riscos: 0 novos.
+- Quantidade de pendências: 1 nova (decisão sobre módulo de Metas), somada às já existentes.
+- Quantidade de melhorias: 3 (M-003A-01 a M-003A-03).
+- Percentual estimado de maturidade do projeto: **38%** (subiu de 35% para 38% — a validação de cobertura reduz o risco de retrabalho técnico futuro, mesmo com gaps identificados, porque agora são gaps *conhecidos e registrados*, não desconhecidos).
+
+---
+
+*Fim do documento — THE CHARCOAL OS FUNCTIONAL SPECIFICATION v1.1.0*
