@@ -664,32 +664,49 @@ O `THE_CHARCOAL_OS_INTEGRATION_AND_API_CONTRACT.md` (v1.0.0) passa a ser documen
 
 ## FASE 010 — Backend Architecture
 
+**Status:** Rascunho aguardando validação do proprietário (comando `CORRIGIR` recebido e executado; ainda não aprovada)
 **Data:** 2026-08-01
 
-Recebido o Prompt Oficial (TCOS-010), executada a auditoria de abertura sobre todos os 13 documentos oficiais, e produzido o documento com a arquitetura lógica interna de backend: organização em 4 camadas por Serviço, os 15 Serviços Conceituais detalhados nos 8 campos exigidos (Objetivo, Responsabilidades, Entradas, Saídas, Dependências, Regras de funcionamento, Restrições, Impacto nos demais módulos), o conceito de Caso de Uso, orquestração coreografada, processamento síncrono/assíncrono, e 10 componentes transversais formalizados (3 deles genuinamente novos: Jobs Agendados, Filas Conceituais, e a separação Logs/Auditoria/Observabilidade/Tolerância a Falhas). Nenhuma linguagem, framework, banco físico ou API foi definida. Nenhum documento anterior foi alterado.
+Recebido o Prompt Oficial (TCOS-010), executada a auditoria de abertura sobre os 13 documentos oficiais congelados, e produzido o documento com a arquitetura lógica interna de backend: organização em 4 camadas por Serviço, os 15 Serviços Conceituais detalhados nos 8 campos exigidos (Objetivo, Responsabilidades, Entradas, Saídas, Dependências, Regras de funcionamento, Restrições, Impacto nos demais módulos), o conceito de Caso de Uso, orquestração coreografada, processamento síncrono/assíncrono, e 10 componentes transversais formalizados (3 deles genuinamente novos: Jobs Agendados, Filas Conceituais, e a separação Logs/Auditoria/Observabilidade/Tolerância a Falhas). Nenhuma linguagem, framework, banco físico ou API foi definida. Nenhum documento anterior foi alterado.
 
-### Decisões tomadas
+### Decisões tomadas (primeira rodada)
 - D-010-01: o backend ocupa 4 das 5 camadas macro já definidas no System Architecture (todas exceto Apresentação); cada um dos 15 Serviços é internamente organizado nessas mesmas 4 camadas, escopadas à sua própria responsabilidade.
 - D-010-02: o Caso de Uso foi definido como a menor unidade de execução de backend, sempre correspondente a uma funcionalidade (F-XXX) já aprovada, e sempre operando sobre exatamente um Agregado (TCOS-007) por transação — nunca dois Agregados na mesma transação, mesmo dentro do mesmo Serviço.
 - D-010-03: a orquestração multi-Serviço (ex.: confirmação de Evento) é formalmente **coreografada** (cada Serviço reage a um evento público por conta própria), nunca **centralizada** — nenhum Caso de Uso de origem aguarda a conclusão de Casos de Uso reativos em outros Serviços.
-- D-010-04: três lacunas técnicas reais, nunca antes formalizadas em nenhum documento aprovado, foram identificadas e resolvidas nesta fase por adição: (1) Jobs Agendados — processamento disparado pela passagem do tempo (ex.: alerta de Lote vencendo, encerramento de ciclo de Meta); (2) Filas Conceituais — garantia de entrega/ordem/idempotência de eventos, nunca antes formalizada no Event Bus; (3) separação explícita entre Auditoria de negócio (TCOS-006/008) e Logs técnicos (novo nesta fase), com Observabilidade e Tolerância a Falhas como camadas transversais adicionais.
+- D-010-04: três lacunas técnicas reais, nunca antes formalizadas em nenhum documento aprovado, foram identificadas e resolvidas nesta fase por adição: (1) Jobs Agendados; (2) Filas Conceituais; (3) separação explícita entre Auditoria de negócio e Logs técnicos, com Observabilidade e Tolerância a Falhas como camadas transversais adicionais.
+
+### Auditoria Corretiva (comando `CORRIGIR`, executada após a primeira entrega)
+
+O proprietário determinou uma segunda rodada de auditoria antes de aprovar. Inconsistências encontradas e correções executadas:
+
+- **Contagem de Documentos Oficiais:** a Executive Memory listava 14 artefatos, mas o restante do documento alternava entre "13" e "os 13" sem declarar critério. Corrigido: **13 Documentos Oficiais Congelados** (entregáveis de Fase, imutáveis sem nova versão) **+ 1 Documento Oficial Vivo** (`PROJECT_MEMORY.md`) = **14 Documentos Oficiais no total**, critério agora explícito em todas as ocorrências do TCOS-010.
+- **Regra Transacional de Agregados:** reformulada para a versão oficial de 6 pontos determinada pelo proprietário (consulta apenas via contrato público; uma transação por Agregado; nenhuma transação distribuída; alteração em outro Agregado sempre via novo Caso de Uso iniciado por Evento; consulta nunca amplia a transação; assíncrono sempre com retry/idempotência/fila de falhas/reconciliação) — propagada sem contradição pelos Capítulos 7, 8, 9, 10, 11, 12 e 16 do TCOS-010.
+- **Cobertura das 47 Regras de Negócio:** a estatística anterior ("34 das 47") foi substituída por uma Matriz de Rastreabilidade completa (novo Capítulo 30 do TCOS-010), demonstrando rastreabilidade **47/47** — Serviço, Caso de Uso, tipo de execução, Agregado, evento publicado, Integração relacionada e capítulo responsável para cada regra, com justificativa formal para as 2 regras (RN-004, RN-007) sem evento/Integração dedicada.
+- **Catálogo de Jobs Agendados:** ampliado de 5 para **8 Jobs** — 3 regras dependentes de tempo (RN-011, RN-030, RN-042) haviam sido omitidas na primeira rodada.
+- **Referências cruzadas internas:** mais de 60 ocorrências de "Capítulo N" verificadas uma a uma contra os cabeçalhos reais do TCOS-010; 2 estavam desatualizadas ("Jobs Agendados, Capítulo 13" e "Filas Conceituais, Capítulo 14" — corretos: 15 e 16) e foram corrigidas.
+- **Nomenclatura do `PROJECT_MEMORY.md`:** verificado via `git ls-files` — um único arquivo com esse nome exato no repositório; nenhuma divergência ou duplicata encontrada.
+- **Declarações absolutas:** frases como "todos os documentos foram lidos integralmente" e "nenhuma inconsistência encontrada" foram substituídas por afirmações com escopo declarado; a promessa de "implementação integral a partir deste único documento" (Capítulo 1 do TCOS-010) foi reformulada para descrever exatamente o que o documento fornece.
+
+Nenhuma Regra de Negócio foi criada; nenhum documento das Fases 000-009 foi alterado; nenhuma tecnologia foi escolhida; a Fase 011 não foi criada.
 
 ### Alterações
-- ALT-010-01: criado o documento `THE_CHARCOAL_OS_BACKEND_ARCHITECTURE.md` (v1.0.0). Nenhum documento anterior foi alterado.
+- ALT-010-01: criado o documento `THE_CHARCOAL_OS_BACKEND_ARCHITECTURE.md` (v1.0.0, rascunho). Nenhum documento anterior foi alterado.
+- ALT-010-02: aplicadas, no mesmo arquivo em rascunho, as correções da Auditoria Corretiva acima (nenhuma alteração de documento já congelado).
 
 ### Melhorias sugeridas (Backlog)
-- M-010-01 (nova): ao escolher a tecnologia de mensageria em fase técnica futura, avaliar mecanismos nativos de garantia de entrega/ordem/idempotência antes de implementar o Barramento de Eventos e Filas de forma customizada.
-- M-010-02 (nova): o parâmetro "X dias antes do Evento" usado pelo Job de alerta de escala não confirmada ainda não está definido — associado à mesma pendência já registrada para o Módulo 24 (Configurações).
+- M-010-01 (mantida): ao escolher a tecnologia de mensageria em fase técnica futura, avaliar mecanismos nativos de garantia de entrega/ordem/idempotência antes de implementar o Barramento de Eventos e Filas de forma customizada.
+- M-010-02 (mantida): o parâmetro "X dias antes do Evento" usado pelo Job de alerta de escala não confirmada ainda não está definido — associado à mesma pendência já registrada para o Módulo 24 (Configurações).
+- M-010-03 (nova, desta auditoria corretiva): o Integration and API Contract (TCOS-009) não formalizou uma Integração dedicada para "Evento cancelado" (RN-007) nem para "Lead marcado como perdido" (RN-011) — sugerido para avaliação em uma eventual v1.1.0 daquele documento; nenhuma alteração feita agora, pois o TCOS-009 está congelado.
 
 ### Riscos encontrados
 - Nenhum risco novo de negócio. Riscos herdados (R-000-03/R-002-01, R-001-01/R-002-02, R-002A-01) permanecem abertos, sem impedir a arquitetura de backend.
 
 ### Pendências
-- P-010-01: validação formal do proprietário sobre o `THE_CHARCOAL_OS_BACKEND_ARCHITECTURE.md`.
-- Pendências herdadas: parâmetros do Módulo 24, M-003A-03/04, M-005-01/02/03, M-006-01, M-007-01, M-008-01, M-009-01, confirmação do domínio de negócio (R-000-03).
+- P-010-01: validação formal do proprietário sobre o `THE_CHARCOAL_OS_BACKEND_ARCHITECTURE.md` (documento ainda em rascunho após a auditoria corretiva).
+- Pendências herdadas: parâmetros do Módulo 24 (incluindo os 2 novos parâmetros identificados nesta auditoria: periodicidade do Job de previsão de demanda e período de inatividade de Lead), M-003A-03/04, M-005-01/02/03, M-006-01, M-007-01, M-008-01, M-009-01, confirmação do domínio de negócio (R-000-03).
 
-### Estrutura de backend identificada
-- 15 Serviços detalhados (100%), 25 componentes com os 8 campos obrigatórios (15 Serviços + 10 transversais), 4 camadas por Serviço, 5 Jobs Agendados catalogados, 34 das 47 Regras de Negócio referenciadas com comportamento de execução detalhado. Maturidade estimada do projeto: 84%.
+### Estrutura de backend identificada (corrigida)
+- 15/15 Serviços detalhados (100%), 47/47 Regras de Negócio rastreadas (100%, Capítulo 30 do TCOS-010), 20/20 Integrações preservadas (100%), 24/24 Agregados respeitados pela Regra Transacional (100%), 25 componentes com os 8 campos obrigatórios (15 Serviços + 10 transversais), 4 camadas por Serviço, 8 Jobs Agendados catalogados, 14 Documentos Oficiais no total (13 congelados + 1 vivo). Maturidade estimada do projeto: 84% (inalterada — esta rodada corrigiu precisão e rastreabilidade, sem alterar escopo arquitetural).
 
 ---
 

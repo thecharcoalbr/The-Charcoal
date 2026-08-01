@@ -13,32 +13,48 @@
 - **Estado atual do projeto:** negócio, domínio, regras, funcionalidades, fluxos, UX/UI, arquitetura de sistema, arquitetura de dados, banco de dados e contrato de integração entre módulos completos e oficiais; iniciando a arquitetura lógica interna de backend, ainda sem linguagem, framework, banco físico ou API definidos.
 - **Fase atual:** 010 — Backend Architecture (TCOS-010).
 - **Fases concluídas:** 000 a 009, todas aprovadas e oficiais (a mais recente, TCOS-009, congelada nesta mensagem).
-- **Documentos oficiais:** Framework (v1.2.0), `PROJECT_MEMORY.md`, Domain Discovery (v1.0.0), Business Discovery Questionnaire (v1.0.0), Discovery Interview Roadmap (v1.0.0), Domain Model (v1.0.0), Business Rules Specification (v1.0.0), Functional Specification (v1.2.0), User Journeys and System Flows (v1.0.0), UX/UI Specification (v1.0.0), System Architecture (v1.0.0), Data Architecture (v1.0.0), Database Specification (v1.0.0), Integration and API Contract (v1.0.0, congelado a partir de agora).
-- **Documentos em elaboração:** este documento (TCOS-010).
+- **Critério de contagem de Documentos Oficiais (esclarecido nesta fase, ver Auditoria de Abertura, item de correção 1):** distingue-se **Documento Oficial Congelado** (entregável de uma Fase encerrada, que só muda mediante criação de nova versão) de **Documento Oficial Vivo** (o `PROJECT_MEMORY.md`, que por natureza é atualizado ao final de toda fase e nunca é "congelado"). Um documento em rascunho (ainda sem comando `APROVADO`) não é contado como oficial em nenhum dos dois grupos.
+- **Documentos Oficiais Congelados (13):** Development Framework (v1.2.0), Enterprise Domain Discovery (v1.0.0), Business Discovery Questionnaire (v1.0.0), Discovery Interview Roadmap (v1.0.0), Domain Model (v1.0.0), Business Rules Specification (v1.0.0), Functional Specification (v1.2.0), User Journeys and System Flows (v1.0.0), UX/UI Specification (v1.0.0), System Architecture (v1.0.0), Data Architecture (v1.0.0), Database Specification (v1.0.0), Integration and API Contract (v1.0.0, congelado a partir da aprovação da Fase 009).
+- **Documento Oficial Vivo (1):** `PROJECT_MEMORY.md`.
+- **Total de Documentos Oficiais (congelados + vivo): 14.**
+- **Documento em elaboração (não contado como oficial até aprovação):** este documento (TCOS-010) — `THE_CHARCOAL_OS_BACKEND_ARCHITECTURE.md`.
 - **Pendências:** confirmação do domínio de negócio (R-000-03); parâmetros do Módulo 24; M-003A-03/04; M-005-01/02/03; M-006-01; M-007-01; M-008-01; M-009-01; decisão sobre retomar a entrevista de descoberta.
 - **Riscos ativos:** R-000-03/R-002-01, R-001-01/R-002-02, R-002A-01 — herdados; nenhum impede o desenho da arquitetura de backend, pois todo parâmetro não confirmado continua modelado como Configuração pendente que bloqueia/alerta, nunca como valor assumido.
 - **Dependências para esta fase:** os 15 Serviços Conceituais e o Event Bus (System Architecture, TCOS-006); os 7 Domínios de Dados e 24 Agregados (Data Architecture, TCOS-007); as 32 estruturas conceituais (Database Specification, TCOS-008); as 20 Integrações (Integration and API Contract, TCOS-009); as 47 Regras de Negócio e 98 funcionalidades — todos referenciados, nenhum reescrito.
 - **Objetivo da fase que será iniciada:** definir a arquitetura lógica interna de backend do THE CHARCOAL OS — organização, camadas, casos de uso, orquestração, processamento síncrono/assíncrono, jobs, filas, auditoria, logs, erros, transações, cache, configuração, observabilidade, tolerância a falhas, segurança, IA e integrações futuras — sem nenhuma decisão de tecnologia.
-- **O que não pode ser alterado:** nenhum conteúdo de nenhum dos 13 documentos oficiais já aprovados e congelados.
+- **O que não pode ser alterado:** nenhum conteúdo de nenhum dos 13 Documentos Oficiais Congelados já aprovados.
 
 ### Auditoria de Abertura
 
-Todos os documentos oficiais foram lidos integralmente. Resultado:
+Os 13 Documentos Oficiais Congelados foram revisados quanto aos pontos relevantes a esta fase (organização de Serviços, Agregados, estruturas de dado, eventos, integrações e regras de negócio já aprovados). Resultado da primeira rodada (registrado na versão inicial deste documento):
 
-- **Nenhuma inconsistência, conflito ou duplicidade** entre os documentos existentes.
+- Não foram identificadas inconsistências, conflitos ou duplicidades entre os 13 Documentos Oficiais Congelados, no escopo revisado.
 - **Base já sólida para o backend:** o System Architecture (TCOS-006) já define os 15 Serviços Conceituais, o Event Bus e 5 camadas macro (Apresentação, Orquestração de Regras, Domínio, Dados, Transversal); o Data Architecture (TCOS-007) já define 24 Agregados como unidade de consistência transacional; o Database Specification (TCOS-008) já define estrutura física conceitual; o Integration and API Contract (TCOS-009) já define o comportamento completo de comunicação entre módulos. Este documento **não redefine nada disso** — detalha como cada Serviço se organiza *por dentro* para implementar o que já foi aprovado.
-- **Lacuna real identificada:** nenhum documento anterior formalizou **processamento agendado (jobs)** como conceito arquitetural — apenas comportamentos implícitos já aprovados o exigem (ex.: RN-034 alerta de Lote vencendo, RN-046 encerramento de ciclo de Meta na data definida, IN-019 alerta de escala não confirmada a X dias, expiração de Orçamento). Esta arquitetura de backend formaliza esses casos como Jobs Agendados (Capítulo 13), por adição — nenhuma Regra de Negócio é alterada, apenas fica explícito **como** o backend a executa no tempo certo.
-- **Lacuna real identificada:** o Event Bus (TCOS-006, Capítulo 7) definiu publicar/assinar, mas nunca formalizou ordenação, nova tentativa (retry) ou tratamento de falha de entrega de um evento. Esta arquitetura de backend formaliza isso como Filas Conceituais (Capítulo 14), sem contradizer o Event Bus já aprovado — apenas detalha seu comportamento interno de confiabilidade.
+- **Lacuna real identificada:** nenhum documento anterior formalizou **processamento agendado (jobs)** como conceito arquitetural — apenas comportamentos implícitos já aprovados o exigem (ex.: RN-034 alerta de Lote vencendo, RN-046 encerramento de ciclo de Meta na data definida, IN-019 alerta de escala não confirmada a X dias, expiração de Orçamento). Esta arquitetura de backend formaliza esses casos como Jobs Agendados (Capítulo 15), por adição — nenhuma Regra de Negócio é alterada, apenas fica explícito **como** o backend a executa no tempo certo.
+- **Lacuna real identificada:** o Event Bus (TCOS-006, Capítulo 7) definiu publicar/assinar, mas nunca formalizou ordenação, nova tentativa (retry) ou tratamento de falha de entrega de um evento. Esta arquitetura de backend formaliza isso como Filas Conceituais (Capítulo 16), sem contradizer o Event Bus já aprovado — apenas detalha seu comportamento interno de confiabilidade.
 - **Lacuna real identificada:** nenhum documento anterior tratou de Logs técnicos como algo distinto de Auditoria de negócio (TCOS-006/008) — os dois foram, até aqui, mencionados de forma próxima o suficiente para gerar ambiguidade. Esta arquitetura separa formalmente os dois conceitos (Capítulos 17 e 18).
 - **Lacuna real identificada:** Tratamento de Erros, Observabilidade e Tolerância a Falhas nunca foram tratados em nenhum documento anterior — são formalizados aqui pela primeira vez, sempre em conformidade com os Princípios Fundamentais já aprovados (especialmente PF-04, PF-06, PF-09, PF-11).
-- **Nenhuma contradição encontrada** entre o padrão de Caso de Uso proposto nesta arquitetura e o padrão de Agregado já definido no TCOS-007 — o Caso de Uso é modelado como a fronteira transacional que opera sobre exatamente um Agregado por vez (Capítulo 20), confirmando e detalhando (nunca alterando) essa definição.
+- O Caso de Uso proposto nesta arquitetura confirma e detalha (nunca altera) o padrão de Agregado já definido no TCOS-007 — a fronteira transacional é o próprio Agregado (Capítulo 20).
 - Nenhuma decisão de linguagem, framework, banco de dados físico, API, protocolo ou tecnologia foi tomada, em conformidade com a restrição explícita da fase.
+
+### Auditoria Corretiva (comando `CORRIGIR`, após a primeira entrega)
+
+O proprietário determinou uma segunda rodada de auditoria sobre o rascunho já entregue, antes de qualquer aprovação. Esta rodada revisou especificamente a contagem de Documentos Oficiais, a Regra Transacional de Agregados, a cobertura das 47 Regras de Negócio, a nomenclatura do `PROJECT_MEMORY.md`, as referências cruzadas internas e as declarações categóricas do documento. Resultado:
+
+1. **Contagem de Documentos Oficiais — divergência real encontrada e corrigida.** A versão anterior listava 14 artefatos no campo "Documentos oficiais" da Executive Memory, mas as frases de fechamento ("O que não pode ser alterado", Auditoria de Abertura, Quality Gate) alternavam entre os números 13 e "os 13 já registrados", sem declarar o critério de contagem. Correção aplicada: a Executive Memory agora declara explicitamente dois grupos — **13 Documentos Oficiais Congelados** (entregáveis de Fase, imutáveis sem nova versão) e **1 Documento Oficial Vivo** (`PROJECT_MEMORY.md`, atualizado a cada fase por natureza, nunca congelado) — **total de 14 Documentos Oficiais**. Toda ocorrência no corpo do documento foi revisada para usar um dos dois números com o qualificador correto ("congelados" ou "total").
+2. **Regra Transacional de Agregados — reformulada para a versão oficial de seis pontos.** O Capítulo 20 foi reescrito com a formulação exata determinada pelo proprietário (consulta apenas via contrato público; uma transação por Agregado; nenhuma transação distribuída; alteração em outro Agregado sempre via novo Caso de Uso iniciado por Evento; consulta nunca amplia a transação; processamento assíncrono sempre com retry/idempotência/fila de falhas/reconciliação) e propagada, por referência direta (nunca por reformulação divergente), aos Capítulos 7, 8, 9, 10, 11, 12 e 16 — nenhuma contradição remanescente entre eles.
+3. **Cobertura das 47 Regras de Negócio — matriz de rastreabilidade produzida.** A versão anterior citava "34 das 47 Regras" sem demonstrar quais e por quê. O novo Capítulo 30 (Matriz de Rastreabilidade das Regras de Negócio) cobre as 47 regras individualmente, com Serviço, Caso de Uso, tipo de execução, Agregado, Evento publicado, Integração relacionada e capítulo responsável — incluindo, para 3 regras cujo Job Agendado não estava no catálogo original do Capítulo 15 (RN-011, RN-030, RN-042), a atualização por adição desse catálogo, e, para 2 regras sem evento de domínio ou Integração dedicada (RN-004, RN-007), a justificativa formal exigida.
+4. **Nomenclatura do `PROJECT_MEMORY.md` — verificado, nenhuma divergência encontrada.** `git ls-files` confirma um único arquivo com esse nome exato no repositório; não existe duplicata, variante de grafia ou arquivo órfão. Nenhuma correção foi necessária neste item.
+5. **Referências cruzadas internas — duas referências quebradas encontradas e corrigidas.** A Auditoria de Abertura original citava "Jobs Agendados (Capítulo 13)" e "Filas Conceituais (Capítulo 14)" — números que correspondiam a uma numeração de rascunho anterior à consolidação final dos 29 capítulos, e não foram atualizados quando Jobs Agendados e Filas Conceituais se fixaram, respectivamente, nos Capítulos 15 e 16. Corrigido nesta rodada. As demais referências cruzadas do documento (mais de 60 ocorrências de "Capítulo N", incluindo Eventos Internos, Segurança, Controle Transacional, Integrações Futuras e Quality Gate) foram conferidas uma a uma contra os cabeçalhos reais e confirmadas corretas.
+6. **Declarações absolutas — revisadas para formulações comprováveis.** Frases como "todos os documentos foram lidos integralmente" e "nenhuma inconsistência encontrada" foram substituídas por afirmações que declaram o escopo revisado (ver abertura desta seção); a frase sobre uma equipe "implementar integralmente a partir daqui" (Capítulo 1) foi reformulada para descrever exatamente o que este documento fornece, sem prometer suficiência além do que está demonstrado.
+
+Nenhuma regra de negócio nova foi criada; nenhum documento das Fases 000–009 foi alterado; nenhuma tecnologia foi escolhida; a Fase 011 não foi iniciada.
 
 ---
 
 ## 1. Papel deste Documento
 
-O System Architecture (TCOS-006) definiu **quais Serviços existem** e como eles se comunicam entre si (Event Bus). O Data Architecture (TCOS-007) e o Database Specification (TCOS-008) definiram **como o dado se organiza e se persiste**. O Integration and API Contract (TCOS-009) definiu **o comportamento completo de comunicação** entre módulos. Este documento (TCOS-010) define **como cada Serviço se organiza por dentro** para executar tudo isso de forma consistente, auditável, escalável e tolerante a falhas — a arquitetura lógica de implementação. Uma equipe de desenvolvimento deve conseguir escolher a linguagem, o framework e a tecnologia de mensageria/banco inteiramente a partir daqui, sem reinterpretar nenhuma regra de negócio, nenhuma entidade e nenhuma integração já aprovada.
+O System Architecture (TCOS-006) definiu **quais Serviços existem** e como eles se comunicam entre si (Event Bus). O Data Architecture (TCOS-007) e o Database Specification (TCOS-008) definiram **como o dado se organiza e se persiste**. O Integration and API Contract (TCOS-009) definiu **o comportamento completo de comunicação** entre módulos. Este documento (TCOS-010) define **como cada Serviço se organiza por dentro** para executar tudo isso de forma consistente, auditável, escalável e tolerante a falhas — a arquitetura lógica de implementação. Este documento fornece a organização de camadas, Casos de Uso, regra transacional e comportamento transversal (Capítulos 3 a 29) necessária para que uma equipe de desenvolvimento inicie a escolha de linguagem, framework e tecnologia de persistência/mensageria; as decisões de negócio, entidades e integrações permanecem nos documentos de origem (TCOS-002 a TCOS-009) e não são redefinidas aqui — este documento referencia-as, nunca as substitui.
 
 ## 2. Legenda e Convenções
 
@@ -243,7 +259,7 @@ Reafirma e detalha, no nível de implementação, o já definido no System Archi
 - **Comando síncrono para leitura sob demanda:** um Caso de Uso consulta o **contrato público** de outro Serviço (ex.: Comercial consulta o preço vigente calculado por Custos e Precificação) quando precisa de um dado no exato instante da execução. Nunca lê a estrutura interna do Serviço dono (PF-01/PF-02).
 - **Evento assíncrono para reação a mudança de estado:** um Caso de Uso publica um evento ao final de sua execução (Capítulo 14); qualquer Serviço assinante reage de forma independente, sem que o Serviço publicador aguarde ou conheça seus assinantes (padrão já estabelecido no Event Bus, TCOS-006 Capítulo 7).
 
-Nenhum Serviço chama diretamente um método/procedimento interno de outro Serviço — mesmo a consulta síncrona ocorre apenas contra o contrato público explicitamente exposto (Capítulo 6, campo "Saídas"/consultas), nunca contra a implementação interna.
+Nenhum Serviço chama diretamente um método/procedimento interno de outro Serviço — mesmo a consulta síncrona ocorre apenas contra o contrato público explicitamente exposto (Capítulo 6, campo "Saídas"/consultas), nunca contra a implementação interna. Esta é a aplicação direta da regra 1 do Controle Transacional (Capítulo 20): um Caso de Uso só acessa outro Agregado ou Serviço através do seu contrato público; e da regra 5: uma consulta síncrona a esse contrato público nunca torna o Agregado consultado parte da transação corrente do Caso de Uso que consulta.
 
 ## 8. Casos de Uso
 
@@ -251,9 +267,10 @@ Um **Caso de Uso** é a menor unidade de execução de uma ação de negócio de
 
 1. Recebe um comando do usuário **ou** reage a um evento de domínio assinado pelo Serviço.
 2. Verifica autorização (Capítulo 27) antes de qualquer execução.
-3. Executa a regra de negócio (Camada de Domínio, Capítulo 9), operando sobre exatamente um Agregado (TCOS-007, Seção 3.2) por vez (Capítulo 20 — Controle Transacional).
-4. Persiste o resultado (Camada de Dados).
-5. Publica o(s) evento(s) de domínio correspondente(s), se houver mudança de estado relevante (PF-04).
+3. Quando necessário, consulta outros Agregados ou Serviços exclusivamente por seus contratos públicos (Capítulo 7) — essa consulta nunca torna o Agregado consultado parte da transação corrente (Capítulo 20, regras 1 e 5).
+4. Executa a regra de negócio (Camada de Domínio, Capítulo 9), modificando, dentro de uma única transação, exatamente um Agregado (TCOS-007, Seção 3.2) por vez — nunca dois (Capítulo 20, regra 2).
+5. Persiste o resultado (Camada de Dados).
+6. Publica o(s) evento(s) de domínio correspondente(s), se houver mudança de estado relevante (PF-04); qualquer alteração necessária em outro Agregado é sempre feita por um novo Caso de Uso, iniciado por esse evento, nunca dentro desta mesma transação (Capítulo 20, regra 4).
 
 **Catálogo representativo de Casos de Uso por Serviço** (não exaustivo — um Caso de Uso existe para cada uma das 98 funcionalidades já aprovadas; a tabela ilustra a correspondência):
 
@@ -282,7 +299,7 @@ Nenhum Caso de Uso cruza a fronteira de mais de um Serviço — quando uma açã
 Cada um dos 15 Serviços é internamente organizado em quatro camadas, na mesma ordem de dependência (cada camada só pode depender da camada abaixo dela, nunca da acima):
 
 1. **Aplicação (Casos de Uso):** recebe comando/evento, verifica autorização, orquestra a execução, publica eventos de saída. Não contém regra de negócio própria.
-2. **Domínio:** as entidades do Serviço (Domain Model, TCOS-002) e as Regras de Negócio (TCOS-002A) que se aplicam a elas. É onde a decisão de negócio de fato acontece.
+2. **Domínio:** as entidades do Serviço (Domain Model, TCOS-002) e as Regras de Negócio (TCOS-002A) que se aplicam a elas, organizadas em Agregados (TCOS-007). É onde a decisão de negócio de fato acontece, sempre respeitando a Regra Transacional de Agregados (Capítulo 20).
 3. **Persistência (Dados):** a estrutura conceitual de tabela de cada entidade (TCOS-008), acessada exclusivamente pela Camada de Domínio.
 4. **Transversal:** Segurança, Auditoria, Logs, Observabilidade, Tolerância a Falhas, Cache, Configuração — disponível a todas as camadas acima, mas sem conter regra de negócio.
 
@@ -293,6 +310,7 @@ Cada um dos 15 Serviços é internamente organizado em quatro camadas, na mesma 
 - A Camada de Persistência nunca contém regra de negócio — apenas estrutura de dado e restrição de integridade já definidas (TCOS-008).
 - A Camada Transversal nunca decide uma regra de negócio em nome da Camada de Domínio — por exemplo, o Cache (Capítulo 23) nunca decide um valor de negócio, apenas armazena temporariamente um valor já calculado pela Camada de Domínio.
 - Nenhuma camada de um Serviço acessa diretamente qualquer camada de outro Serviço — toda comunicação entre Serviços ocorre exclusivamente pelos dois canais do Capítulo 7, sempre partindo da Camada de Aplicação de cada lado.
+- A Camada de Domínio de um Serviço nunca inclui, na mesma transação, um Agregado pertencente à Camada de Domínio de outro Serviço — isolamento que é a própria definição da Regra Transacional de Agregados (Capítulo 20).
 
 ## 11. Orquestração
 
@@ -302,6 +320,8 @@ O Caso de Uso é a única unidade de orquestração de uma ação de negócio (C
 2. Cada Serviço assinante (Produção, Suprimentos, Pessoas e Recursos, Financeiro, Indicadores e Dashboards) executa seu próprio Caso de Uso em reação a esse evento, de forma paralela e independente (confirmado no Fluxo de Sincronização, TCOS-009 Capítulo 10).
 3. Nenhum Caso de Uso de origem aguarda a conclusão dos Casos de Uso reativos — a orquestração é **coreografada** (cada Serviço reage por conta própria a um evento público), nunca **centralizada** (um único orquestrador chamando cada Serviço em sequência), preservando o baixo acoplamento já estabelecido no TCOS-006.
 
+Este padrão é exatamente a regra 4 do Controle Transacional (Capítulo 20): toda alteração necessária em um Agregado de outro Serviço ocorre através de um novo Caso de Uso, iniciado pelo evento publicado no passo 1 — nunca como extensão da transação do Caso de Uso de origem.
+
 ---
 
 ## 12. Processamento Síncrono
@@ -309,7 +329,7 @@ O Caso de Uso é a única unidade de orquestração de uma ação de negócio (C
 Ocorre em dois casos, sempre dentro do tempo de resposta esperado pelo usuário na tela (TCOS-005):
 
 - **Comando do usuário:** toda ação iniciada por um clique/submissão de tela (criar Orçamento, confirmar Evento, registrar Compra) é processada de forma síncrona pelo Caso de Uso correspondente — o usuário recebe confirmação de sucesso ou motivo de bloqueio antes de prosseguir.
-- **Consulta ao contrato público de outro Serviço:** quando um Caso de Uso precisa de um dado de outro Serviço no exato instante da execução (ex.: preço vigente ao montar um Orçamento), a consulta é síncrona (Capítulo 7) e faz parte do mesmo Caso de Uso.
+- **Consulta ao contrato público de outro Serviço:** quando um Caso de Uso precisa de um dado de outro Serviço no exato instante da execução (ex.: preço vigente ao montar um Orçamento), a consulta é síncrona (Capítulo 7) e faz parte do mesmo Caso de Uso — mas, em conformidade com a regra 5 do Controle Transacional (Capítulo 20), essa consulta nunca inclui o Agregado consultado na transação do Caso de Uso que consulta; é sempre uma leitura externa ao contrato público, nunca uma escrita compartilhada.
 
 Todo processamento síncrono deve retornar um resultado determinístico ao usuário: sucesso, bloqueio de regra de negócio (com o motivo, Capítulo 19), ou indisponibilidade temporária de uma dependência (Capítulo 26).
 
@@ -323,6 +343,8 @@ Ocorre sempre que um Caso de Uso reage a um evento de domínio publicado por out
 - Todo Job Agendado (Capítulo 15) é, por definição, assíncrono — nunca iniciado por uma ação de tela.
 
 O processamento assíncrono nunca é a única forma de uma ação de negócio "acontecer de verdade" — o Caso de Uso síncrono de origem já produziu o efeito principal e teve sua confirmação enviada ao usuário antes de qualquer reação assíncrona começar (garantia de que o usuário nunca "espera" por uma cadeia de reação de outros Serviços).
+
+Em conformidade com a regra 6 do Controle Transacional (Capítulo 20), todo processamento assíncrono desta arquitetura respeita, sem exceção, os quatro mecanismos detalhados no Capítulo 16 (Filas Conceituais): **retry** (nova tentativa antes de qualquer falha ser considerada definitiva), **idempotência** (um mesmo evento nunca produz o efeito de negócio duas vezes), **fila de falhas** (nenhum evento que esgota o retry é descartado — fica visível para intervenção) e **reconciliação** (o estado de um Agregado pode sempre ser comparado ao histórico de eventos processados para identificar e corrigir divergência).
 
 ## 14. Eventos Internos
 
@@ -338,11 +360,11 @@ Responsabilidades: dispara, na periodicidade ou data definida, o Caso de Uso cor
 Entradas: passagem do tempo (data/hora atual), consultada ciclicamente ou agendada por regra.
 Saídas: o mesmo evento de domínio que o Caso de Uso disparado publicaria se fosse iniciado por comando (ex.: "Ciclo de Meta encerrado").
 Dependências: o Serviço dono de cada regra agendada (nunca executa a regra por conta própria — apenas aciona o Caso de Uso do Serviço correto).
-Regras de funcionamento: RN-046 (encerramento de ciclo de Meta), RN-034 (alerta de Lote vencendo), IN-019 (alerta de escala não confirmada a X dias), expiração de Orçamento por validade vencida (RN-013).
+Regras de funcionamento: RN-046 (encerramento de ciclo de Meta), RN-034 (alerta de Lote vencendo), IN-019 (alerta de escala não confirmada a X dias), RN-013 (expiração de Orçamento por validade vencida), RN-011 (perda de Lead por inatividade), RN-030 (verificação periódica de ponto de reposição, complementar à reação por evento), RN-042 (ciclo periódico de previsão de demanda pela Inteligência Artificial).
 Restrições: nunca decide uma regra de negócio por conta própria — apenas aciona, na hora certa, o Caso de Uso do Serviço responsável pela regra; falha de execução de um Job nunca é silenciosa (Capítulo 19).
 Impacto nos demais módulos: aciona Casos de Uso em Metas, Suprimentos (Lote), Pessoas e Recursos (Escala), Comercial (Orçamento) — sem nunca pertencer a nenhum desses Serviços, é um componente transversal que os aciona.
 
-**Catálogo de Jobs Agendados identificados** (não exaustivo — novos Jobs podem ser adicionados de forma aditiva conforme novas regras de negócio dependentes de tempo forem aprovadas):
+**Catálogo de Jobs Agendados identificados** (ampliado nesta auditoria corretiva com 3 Jobs adicionais — RN-011, RN-030, RN-042 — encontrados durante a construção da Matriz de Rastreabilidade das Regras de Negócio, Capítulo 30; permanece não exaustivo — novos Jobs podem ser adicionados de forma aditiva conforme novas regras de negócio dependentes de tempo forem aprovadas):
 
 | Job | Periodicidade conceitual | Serviço acionado | Regra/Integração de origem |
 |---|---|---|---|
@@ -351,19 +373,27 @@ Impacto nos demais módulos: aciona Casos de Uso em Metas, Suprimentos (Lote), P
 | Alerta de Escala não confirmada | X dias antes do Evento (parâmetro pendente, Configurações) | Pessoas e Recursos | IN-019 |
 | Expiração de Orçamento por validade vencida | Na data de validade | Comercial | RN-013 |
 | Alerta de pendência de conciliação bancária prolongada | Diária | Financeiro | IN-013 |
+| Perda de Lead por inatividade | Verificação periódica (período configurável, Configurações) | Comercial | RN-011 |
+| Verificação periódica de ponto de reposição | Diária (complementar à reação por evento "Estoque atualizado") | Suprimentos | RN-030, RN-033, IN-009 |
+| Ciclo periódico de previsão de demanda | Periodicidade definida pela Direção (parâmetro pendente, Configurações) | Inteligência Artificial | RN-042, IN-015 |
 
 ## 16. Filas Conceituais
 
 **Novo conceito desta fase** (achado de auditoria): o Event Bus (TCOS-006) definiu o padrão publicar/assinar, mas nunca formalizou como a entrega de um evento é garantida entre a publicação e o processamento por cada assinante. Este capítulo formaliza esse comportamento, sem nomear tecnologia de mensageria.
 
 **Componente: Barramento de Eventos e Filas**
-Objetivo: garantir que todo evento publicado por um Serviço seja efetivamente processado por todos os seus assinantes, mesmo em caso de indisponibilidade temporária de um deles.
-Responsabilidades: entregar cada evento a cada assinante de forma independente (uma fila lógica por par publicador-assinante); preservar a ordem de eventos de uma mesma entidade; permitir nova tentativa (retry) em caso de falha de processamento.
+Objetivo: garantir que todo evento publicado por um Serviço seja efetivamente processado por todos os seus assinantes, mesmo em caso de indisponibilidade temporária de um deles, em conformidade com a regra 6 do Controle Transacional (Capítulo 20).
+Responsabilidades: entregar cada evento a cada assinante de forma independente (uma fila lógica por par publicador-assinante); preservar a ordem de eventos de uma mesma entidade; aplicar nova tentativa (**retry**) em caso de falha de processamento; direcionar um evento que esgotou as tentativas de retry para uma **Fila de Falhas** (equivalente conceitual a uma fila de mensagens não entregues), nunca descartá-lo; oferecer um mecanismo de **reconciliação** que permita, a qualquer momento, comparar o estado de um Agregado com o histórico de eventos já processados e identificar divergência.
 Entradas: todo evento publicado por qualquer Serviço (Capítulo 14).
-Saídas: entrega do evento a cada Serviço assinante; ao esgotar as tentativas de entrega, registro de exceção (Capítulo 19).
+Saídas: entrega do evento a cada Serviço assinante; ao esgotar as tentativas de entrega, o evento é movido para a Fila de Falhas e um registro de exceção é gerado (Capítulo 19).
 Dependências: nenhuma — é o mecanismo estrutural sobre o qual toda comunicação assíncrona (Capítulo 13) se apoia.
-Regras de funcionamento: um evento sobre a mesma entidade nunca é processado fora de ordem por um mesmo assinante; um evento já processado com sucesso por um assinante nunca é reprocessado por ele (idempotência conceitual).
-Restrições: nunca perde um evento silenciosamente — falha de entrega definitiva é sempre registrada e alertável, nunca descartada sem rastro; nunca bloqueia o publicador aguardando confirmação de todos os assinantes (PF-02, comunicação nunca síncrona entre Serviços via evento).
+Regras de funcionamento:
+- **Retry:** toda falha de entrega ou de processamento aciona uma nova tentativa, dentro de um limite definido, antes de qualquer escalonamento.
+- **Idempotência:** um evento já processado com sucesso por um assinante nunca é reprocessado por ele (idempotência conceitual) — condição necessária para que o retry nunca duplique um efeito de negócio.
+- **Fila de Falhas:** um evento que esgota as tentativas de retry é movido para a Fila de Falhas, onde permanece visível e alertável até intervenção técnica — nunca é descartado silenciosamente.
+- **Reconciliação:** periodicamente, ou sob demanda, o estado persistido de um Agregado pode ser comparado ao histórico de eventos já assinados/processados (Auditoria, Capítulo 17), para identificar e corrigir qualquer divergência causada por uma falha já resolvida na Fila de Falhas.
+- Um evento sobre a mesma entidade nunca é processado fora de ordem por um mesmo assinante.
+Restrições: nunca perde um evento silenciosamente — falha de entrega definitiva é sempre registrada na Fila de Falhas e alertável, nunca descartada sem rastro; nunca bloqueia o publicador aguardando confirmação de todos os assinantes (PF-02, comunicação nunca síncrona entre Serviços via evento).
 Impacto nos demais módulos: sustenta toda a comunicação assíncrona documentada no Integration and API Contract (TCOS-009) — nenhuma das 20 Integrações funciona de forma confiável sem esta garantia estrutural.
 
 ---
@@ -398,12 +428,19 @@ Em todos os três casos, o erro é sempre registrado em Log (Capítulo 18) com o
 
 ## 20. Controle Transacional
 
-O **Agregado** já definido no Data Architecture (TCOS-007, Seção 3.2) é a fronteira transacional de todo Caso de Uso: um Caso de Uso sempre lê e grava exatamente um Agregado por execução, de forma atômica (tudo muda ou nada muda) — nunca dois Agregados na mesma transação, mesmo que pertençam ao mesmo Serviço. Quando uma ação de negócio precisa afetar mais de um Agregado (ex.: "Compra conferida gera Estoque/Lote/Despesa", já descrito no TCOS-007 Seção 4.3), isso ocorre por meio de:
+**Regra Transacional de Agregados (versão corrigida nesta auditoria — ver Auditoria de Abertura, item de correção 2; esta é a formulação oficial e única, referenciada, nunca reformulada de modo divergente, pelos Capítulos 7, 8, 9, 10, 11 e 12):**
 
-- **Um único Caso de Uso, um único Agregado, com submembros internos:** quando os Agregados afetados pertencem à mesma raiz de consistência (ex.: Compra e seus Itens são o mesmo Agregado) — a transação cobre o Agregado inteiro.
-- **Múltiplos Casos de Uso encadeados por evento, entre Serviços diferentes:** quando os Agregados afetados pertencem a Serviços diferentes (ex.: Compra conferida no Serviço Suprimentos, gerando Despesa no Serviço Financeiro) — cada Serviço executa sua própria transação local, e a consistência entre elas é **eventual**, nunca uma transação distribuída única (confirmado no Fluxo de Sincronização, TCOS-009 Capítulo 10).
+1. Um Caso de Uso pode consultar outros Agregados ou Serviços somente através de seus contratos públicos (Capítulo 7) — nunca por acesso à estrutura interna de outro Agregado ou Serviço.
+2. Uma transação modifica exatamente um Agregado (TCOS-007, Seção 3.2) — nunca dois Agregados na mesma transação, mesmo que pertençam ao mesmo Serviço.
+3. Não existem transações distribuídas entre Serviços — nenhuma transação permanece aberta aguardando resposta de outro Serviço.
+4. Qualquer alteração necessária em outro Agregado ocorre através de um **novo Caso de Uso, iniciado por Evento** (Capítulo 11 — Orquestração) — nunca dentro da mesma transação do Caso de Uso de origem.
+5. Consultas síncronas a outro Agregado ou Serviço (Capítulo 12) nunca tornam esse outro Agregado parte da transação corrente — a consulta é uma leitura externa ao contrato público, concluída antes ou durante a transação, mas nunca sob o mesmo escopo transacional.
+6. Todo processamento assíncrono decorrente da regra 4 deve respeitar retry, idempotência, fila de falhas e reconciliação, exatamente como detalhado no Capítulo 16 (Filas Conceituais).
 
-Nenhuma transação permanece aberta aguardando resposta de outro Serviço — isso violaria o baixo acoplamento já estabelecido (TCOS-006) e introduziria um ponto único de falha.
+**Aplicação da regra quando uma ação de negócio afeta mais de um Agregado** (ex.: "Compra conferida gera Estoque/Lote/Despesa", já descrito no TCOS-007 Seção 4.3):
+
+- **Um único Caso de Uso, um único Agregado, com submembros internos** (regra 2): quando os dados afetados pertencem à mesma raiz de consistência (ex.: Compra e seus Itens são o mesmo Agregado) — a transação cobre o Agregado inteiro, nunca um Agregado externo.
+- **Múltiplos Casos de Uso encadeados por Evento, entre Serviços diferentes** (regras 3 e 4): quando os Agregados afetados pertencem a Serviços diferentes (ex.: "Compra conferida", publicada pelo Serviço Suprimentos, inicia um novo Caso de Uso no Serviço Financeiro que grava o Agregado Financeiro) — cada Serviço executa sua própria transação local sobre seu próprio Agregado, e a consistência entre elas é **eventual**, nunca uma transação distribuída única (confirmado no Fluxo de Sincronização, TCOS-009 Capítulo 10).
 
 ## 21. Versionamento
 
@@ -518,6 +555,69 @@ Impacto nos demais módulos: nenhum impacto retroativo — por definição, uma 
 
 ---
 
+## 30. Matriz de Rastreabilidade das Regras de Negócio (RN-001 a RN-047)
+
+**Capítulo criado nesta auditoria corretiva** (item de correção 3). Cobre as 47 Regras de Negócio já aprovadas no Business Rules Specification (TCOS-002A), sem alterar nenhuma delas — apenas demonstrando, regra a regra, qual componente desta arquitetura de backend a executa. Legenda de "Tipo de execução": **S** = Síncrono (Capítulo 12); **A** = Assíncrono (Capítulo 13); **J** = Job Agendado (Capítulo 15); **T** = Transversal (aplicada dentro de outros Casos de Uso, sem Caso de Uso próprio).
+
+| RN | Serviço responsável | Caso de Uso responsável | Tipo | Agregado alterado | Evento publicado | Integração relacionada | Capítulo TCOS-010 |
+|---|---|---|---|---|---|---|---|
+| RN-001 | Indicadores e Dashboards | Recalcular Indicador | A | Indicador | "Indicador recalculado" | IN-016/IN-017 | 13 |
+| RN-002 | Financeiro | Registrar retirada pessoal | S | Agregado Financeiro (Despesa) | "Despesa registrada" | IN-014 | 12 |
+| RN-003 | Custos e Precificação / Financeiro | Apurar resultado do Evento | A | leitura agregada (Evento, sem persistência própria) | nenhum evento próprio — alimenta Indicador | IN-011 | 13 |
+| RN-004 | Financeiro | Fechar período financeiro | S | Agregado Financeiro (consolidação) | nenhum evento de domínio catalogado até o TCOS-002 | nenhuma (não é uma das 20 Integrações) | 12 |
+| RN-005 | Financeiro | Registrar Despesa/Receita Financeira (validação) | S | Agregado Financeiro | nenhum evento próprio — gera alerta | IN-014 | 19 (categoria 1) |
+| RN-006 | Eventos (origem) + assinantes | Confirmar Evento | S (origem) / A (reação) | Evento | "Evento confirmado" | IN-001 | 11, 20 |
+| RN-007 | Eventos | Cancelar Evento | S (origem) / A (reação) | Evento | "Evento cancelado" | nenhuma das 20 Integrações trata o cancelamento como fluxo dedicado — evento catalogado no Event Bus (TCOS-006) sem Integração própria no TCOS-009; achado registrado como pendência de cobertura do TCOS-009, não deste documento | 11, 13 |
+| RN-008 | Comercial | Registrar Lead | S | Lead | "Lead criado" | IN-002/IN-004 | 12 |
+| RN-009 | Comercial | Converter Lead em Cliente | S | Lead (escrita) + Cliente (consulta via contrato, e escrita própria se novo) | "Lead convertido em Cliente" | IN-002 | 20 (exemplo de consulta que não amplia a transação), 8 |
+| RN-010 | Comercial | Marcar fidelização (reação a "Evento concluído") | A | Cliente | nenhum evento de domínio próprio catalogado — atualiza atributo do Agregado Cliente | IN-011 (indireto) | 13 |
+| RN-011 | Comercial | Marcar Lead como perdido por inatividade | J | Lead | "Lead marcado como perdido" | nenhuma das 20 Integrações | 15 |
+| RN-012 | Comercial (consulta Custos e Precificação) | Incluir item em Orçamento | S | Orçamento | nenhum evento próprio | IN-007 (relacionado) | 7, 12 |
+| RN-013 | Comercial | Expirar Orçamento | J | Orçamento | "Orçamento expirado" | nenhuma das 20 Integrações dedicada | 15 |
+| RN-014 | Comercial → Documentos | Gerar Contrato / Gerar Documento | A | Contrato / Documento | "Contrato gerado", "Documento gerado" | IN-002, IN-020 | 13 |
+| RN-015 | Comercial | Registrar Aditivo de Contrato | S | Contrato (aditivo como submembro) | "Contrato aditivado" | nenhuma das 20 Integrações dedicada | 20 (submembros internos) |
+| RN-016 | Produção | Planejar Produção | A | Produção | "Produção planejada" | IN-005 | 11, 13 |
+| RN-017 | Produção | Concluir Produção (comparação planejado vs. real) | S | Produção | "Produção concluída" | IN-006 | 12 |
+| RN-018 | Custos e Precificação | Apurar custo total do Evento | A / S (sob demanda) | leitura agregada (sem persistência própria) | nenhum evento próprio | IN-011 | 13, 23 (leitura derivada) |
+| RN-019 | Custos e Precificação | Recalcular custo em cascata | A | Ficha Técnica | "Ficha Técnica recalculada" / "Custo recalculado" | IN-007 | 13 |
+| RN-020 | Produção | Revisar Receita | S | Receita | "Receita revisada" | nenhuma das 20 Integrações dedicada | 21 |
+| RN-021 | Comercial (consulta Produção) | Incluir item em Orçamento (bloqueio) | S | Orçamento (bloqueio antes de persistir) | nenhum (bloqueio não gera evento) | IN-002/IN-007 (relacionado) | 19 (categoria 1), 7 |
+| RN-022 | Custos e Precificação | Atualizar preço | S (definição manual) / A (recálculo em cascata) | Ficha Técnica/Produto | "Preço atualizado" | IN-007 | 12, 13 |
+| RN-023 | Comercial | Validar margem ao revisar Orçamento | S | Orçamento | nenhum evento — gera alerta | IN-001 (relacionado) | 19 (categoria 1), 12 |
+| RN-024 | Produção | Planejar Produção (cálculo de consumo) | A (via IN-005) / S (se recálculo manual) | Produção | parte de "Produção planejada" | IN-005 | 13, 24 |
+| RN-025 | Produção | Planejar Produção (ajuste por tipo de Evento) | A / S | Produção/Orçamento | parte de "Produção planejada" | IN-005 | 13, 24 |
+| RN-026 | Produção | Planejar Produção (múltiplos acompanhamentos) | A / S | Produção | parte de "Produção planejada" | IN-005 | 13, 24 |
+| RN-027 | Suprimentos | Gerar lista de reposição | A | Compra (proposta) | nenhum evento próprio — insumo do Caso de Uso "Registrar Compra" | IN-009 | 13, 24 |
+| RN-028 | Produção | Concluir Produção (registro de perda) | S | Produção | "Produção concluída" | IN-006 | 12 |
+| RN-029 | Produção | Concluir Produção (rendimento real vs. previsto) | S | Produção | "Produção concluída" | IN-006 | 12 |
+| RN-030 | Suprimentos | Gerar lista de reposição | A (evento) + J (verificação periódica) | Compra (proposta) | nenhum evento próprio de "lista gerada" | IN-009 | 13, 15 |
+| RN-031 | Suprimentos | Conferir Compra | S (origem) / A (reação encadeada) | Compra (+ Estoque/Lote gerados) | "Compra conferida" | IN-008, IN-010 | 20 (exemplo central da Regra Transacional), 12, 13 |
+| RN-032 | Suprimentos | Registrar consumo de Estoque | A | Estoque (posição) + Lote | "Estoque atualizado"/"Estoque baixado" | IN-008 | 13 |
+| RN-033 | Suprimentos | Verificar ponto de reposição | A (reação a "Estoque atualizado") + J (verificação periódica) | Estoque | nenhum evento próprio — gera alerta | IN-009 | 13, 15, 19 |
+| RN-034 | Suprimentos | Job "Alerta de Lote próximo do vencimento" | J | Lote | "Lote vencido" (quando efetivamente vence) | nenhuma das 20 Integrações trata diretamente (evento catalogado no Event Bus, TCOS-006) | 15 |
+| RN-035 | Pessoas e Recursos | Alocar Equipamento | S | Equipamento (alocação) | "Equipamento alocado" (se sucesso) | IN-001/IN-019 (relacionado) | 19 (categoria 1), 12 |
+| RN-036 | Custos e Precificação | Consolidar custo de mão de obra | A | leitura agregada (sem persistência própria) | nenhum evento próprio | IN-010 | 13 |
+| RN-037 | Pessoas e Recursos | Sugerir Escala | A | Alocação de Funcionário | nenhum evento próprio da sugestão (confirmação gera "Alocação de Funcionário realizada") | IN-019 | 13 |
+| RN-038 | Marketing | Atribuir retorno de Campanha | A | Campanha | "Retorno atribuído" | IN-003 | 13 |
+| RN-039 | Indicadores e Dashboards | Atualizar composição de Dashboard | S | Dashboard | "Dashboard atualizado" | IN-017 | 12 |
+| RN-040 | Indicadores e Dashboards | Definir/Revisar fórmula de Indicador; Recalcular Indicador | S (definição/revisão) + A (recálculo contínuo) | Indicador | "Indicador definido"/"Fórmula de Indicador revisada"/"Indicador recalculado" | IN-016 | 12, 13, 21 |
+| RN-041 | Inteligência Artificial | Gerar sugestão (regra geral) | A | nenhum Agregado próprio da IA — decisão final altera o Agregado do Serviço de origem | "Sugestão gerada (IA)" | IN-015 | 28, 13 |
+| RN-042 | Inteligência Artificial | Gerar previsão de demanda | J (ciclo periódico) / A (sob demanda) | nenhum Agregado próprio | "Sugestão gerada (IA)" | IN-015 | 28, 15 |
+| RN-043 | Financeiro + Inteligência Artificial | Importar Extrato; Gerar sugestão de categorização | S (importação) + A (sugestão) | Agregado Financeiro (Pagamento candidato) | "Extrato bancário importado" → "Sugestão gerada (IA)" | IN-012, IN-015 | 12, 13, 28 |
+| RN-044 | Financeiro | Conciliar Pagamento | S (ação do usuário) / A (reação à importação) | Pagamento | nenhum evento de domínio próprio catalogado para "conciliado" — atualiza atributo de status | IN-013 | 12, 13 |
+| RN-045 | Financeiro | Registrar Despesa/Receita Financeira manualmente | S | Agregado Financeiro | "Despesa registrada"/"Receita Financeira prevista" (mesmo evento de um lançamento automático) | IN-010 | 17, 12 |
+| RN-046 | Metas | Encerrar ciclo de Meta | J | Meta | "Ciclo de Meta encerrado" | IN-018 | 15 |
+| RN-047 | Transversal (aplicada por todos os Serviços) | nenhum Caso de Uso próprio — convenção aplicada dentro de cada Caso de Uso que gera alerta | T | nenhum Agregado próprio | nenhum evento próprio | todas as 20 Integrações (campo "Alertas gerados" já citado em cada uma) | 19, 25 |
+
+**Justificativas formais para regras sem evento de domínio ou Integração dedicada exclusiva** (exigido pelo Prompt Oficial quando uma regra não gera comportamento arquitetural específico de comunicação cross-Serviço):
+
+- **RN-004 (Fechamento de Período):** é um Caso de Uso síncrono interno ao Serviço Financeiro, disparado por comando da Direção/Financeiro, sem cadeia de reação documentada em outro Serviço no Integration and API Contract (TCOS-009) — por isso não há evento de domínio catalogado nem Integração associada. O comportamento está integralmente coberto pelo Capítulo 12 (Processamento Síncrono); não há lacuna de execução, apenas ausência de comunicação cross-Serviço a documentar.
+- **RN-007 (Cancelamento de Evento):** o evento "Evento cancelado" está catalogado no Event Bus (TCOS-006, Capítulo 7) e a reação de múltiplos Serviços (liberação de recursos, tratamento financeiro) está descrita na Regra de Negócio — mas o Integration and API Contract (TCOS-009) não formalizou essa cadeia como uma das suas 20 Integrações numeradas. Esta arquitetura de backend executa o comportamento normalmente pelo padrão de orquestração coreografada (Capítulo 11), como reação ao evento já catalogado; a ausência de um IN-XXX dedicado é registrada como um achado de cobertura do TCOS-009 (não deste documento), sem impedir a execução, e não é corrigida aqui por não ser mandato desta fase alterar um documento já congelado.
+
+**Confirmação de rastreabilidade:** as 47 linhas acima cobrem RN-001 a RN-047 sem lacuna — rastreabilidade **47/47** demonstrada nesta matriz. Nenhuma Regra de Negócio foi criada, alterada ou removida; todas já constavam do Business Rules Specification (TCOS-002A, congelado).
+
+---
+
 ## RESUMO PARA O PROPRIETÁRIO
 
 Este documento (TCOS-010) responde à pergunta: **por dentro de cada "setor" do sistema (cada um dos 15 Serviços já definidos), como o trabalho realmente vai ser organizado e executado?**
@@ -528,87 +628,97 @@ Por que isso é importante: até aqui, sabíamos *o que* o sistema faz e *quem c
 
 Como isso conecta com tudo que já foi construído: cada um dos 15 Serviços aqui detalhados é exatamente o mesmo já aprovado na Arquitetura de Sistema; cada regra de negócio aplicada é exatamente uma das 47 já aprovadas; cada estrutura de dado usada é exatamente uma das já definidas na Arquitetura de Dados e no Banco de Dados; cada integração citada é exatamente uma das 20 já aprovadas. Nada foi reinventado — apenas detalhado o "como" interno.
 
-Como isso prepara o próximo passo: com este documento, uma equipe de desenvolvimento já tem tudo que precisa para escolher a linguagem de programação, o banco de dados físico e a tecnologia de comunicação entre sistemas — porque já sabe exatamente como cada parte deve se comportar por dentro, mesmo antes de qualquer código ser escrito.
+Como isso prepara o próximo passo: com este documento, uma equipe de desenvolvimento tem a organização interna necessária para começar a escolher a linguagem de programação, o banco de dados físico e a tecnologia de comunicação entre sistemas — sem que essas escolhas exijam redefinir como cada parte se comporta por dentro.
 
 Nada de código, linguagem, framework, banco físico ou tecnologia foi definido nesta fase — apenas o "manual de organização interna" de cada setor do sistema.
+
+**Sobre esta versão do documento:** após a primeira entrega, o proprietário solicitou uma auditoria corretiva (comando `CORRIGIR`) antes de aprovar. Essa auditoria encontrou e corrigiu uma contagem ambígua de documentos oficiais, reformulou a regra de transação em seis pontos exatos, adicionou uma matriz mostrando como cada uma das 47 Regras de Negócio é executada, verificou mais de 60 referências internas (encontrando e corrigindo 2 que apontavam para o capítulo errado) e suavizou frases que soavam mais absolutas do que o documento conseguia comprovar sozinho. Nenhuma regra de negócio, entidade ou integração já aprovada foi alterada — apenas a organização e a precisão deste documento em rascunho.
 
 ---
 
 ## TCOS QUALITY GATE EXECUTIVO
 
-Em conformidade com a Regra Permanente do Framework, foi reexecutada a auditoria completa sobre todos os 13 documentos oficiais antes do encerramento desta fase — resultado consolidado na Auditoria de Abertura e reafirmado aqui: nenhuma inconsistência, conflito, duplicidade ou dependência oculta permaneceu sem tratamento.
+Esta é a segunda rodada de Quality Gate desta fase, produzida após a Auditoria Corretiva solicitada pelo proprietário (comando `CORRIGIR`). Em conformidade com a Regra Permanente do Framework, os 13 Documentos Oficiais Congelados foram revisados quanto aos pontos relevantes a esta fase; adicionalmente, o próprio rascunho do TCOS-010 foi revisado internamente (contagem de documentos, regra transacional, cobertura de regras de negócio, referências cruzadas, declarações categóricas) — resultado consolidado na Auditoria de Abertura/Auditoria Corretiva e detalhado item a item abaixo.
 
 **1. Resumo Executivo**
-Definida a arquitetura lógica interna de backend do THE CHARCOAL OS: organização em 4 camadas por Serviço, 15 Serviços detalhados em 8 campos cada, conceito de Caso de Uso, orquestração coreografada, processamento síncrono/assíncrono, e formalização de 10 componentes transversais (incluindo os 3 conceitos genuinamente novos desta fase: Jobs Agendados, Filas Conceituais, e a separação Logs/Observabilidade/Tolerância a Falhas). Nenhuma tecnologia foi definida; nenhum documento anterior foi alterado.
+Definida a arquitetura lógica interna de backend do THE CHARCOAL OS: organização em 4 camadas por Serviço, 15 Serviços detalhados em 8 campos cada, conceito de Caso de Uso regido pela Regra Transacional de Agregados (6 pontos, Capítulo 20), orquestração coreografada, processamento síncrono/assíncrono, 10 componentes transversais (incluindo os 3 conceitos genuinamente novos desta fase: Jobs Agendados, Filas Conceituais, e a separação Logs/Observabilidade/Tolerância a Falhas), e uma Matriz de Rastreabilidade cobrindo as 47 Regras de Negócio (Capítulo 30, novo nesta auditoria corretiva). Nenhuma tecnologia foi definida; nenhum documento das Fases 000-009 foi alterado.
 
 **2. Estado atual do projeto**
-Fases 000 a 009 encerradas e oficiais; Fase 010 em validação. Nenhum código, API, banco físico ou desenvolvimento foi iniciado.
+Fases 000 a 009 encerradas e oficiais; Fase 010 em correção, ainda não aprovada. Nenhum código, API, banco físico ou desenvolvimento foi iniciado.
 
 **3. Documentos oficiais existentes**
-Os 13 já registrados na Executive Memory, mais este documento em rascunho.
+**14 no total** — **13 Documentos Oficiais Congelados** (Development Framework, Enterprise Domain Discovery, Business Discovery Questionnaire, Discovery Interview Roadmap, Domain Model, Business Rules Specification, Functional Specification, User Journeys and System Flows, UX/UI Specification, System Architecture, Data Architecture, Database Specification, Integration and API Contract) **+ 1 Documento Oficial Vivo** (`PROJECT_MEMORY.md`). Este documento (TCOS-010) permanece em rascunho e não é contado como oficial até aprovação — critério corrigido nesta auditoria (item de correção 1).
 
 **4. Dependências desta fase**
 15 Serviços Conceituais e Event Bus (TCOS-006); 7 Domínios de Dados e 24 Agregados (TCOS-007); 32 estruturas conceituais (TCOS-008); 20 Integrações (TCOS-009); 47 Regras de Negócio; 98 funcionalidades — todos referenciados, nenhum reescrito.
 
 **5. Pendências abertas**
-Validação formal deste documento; parâmetros do Módulo 24; M-003A-03/04; M-005-01/02/03; M-006-01; M-007-01; M-008-01; M-009-01; confirmação do domínio de negócio (R-000-03). Nenhuma pendência nova de negócio — apenas a validação deste documento.
+Validação formal deste documento; parâmetros do Módulo 24 (incluindo os 2 novos parâmetros identificados nesta auditoria: periodicidade do Job de previsão de demanda e período de inatividade de Lead); M-003A-03/04; M-005-01/02/03; M-006-01; M-007-01; M-008-01; M-009-01; confirmação do domínio de negócio (R-000-03). Nenhuma pendência nova de negócio além dos parâmetros de Configuração já identificados.
 
 **6. Dúvidas encontradas**
-Nenhuma nova de negócio. Uma dúvida técnica foi levantada e já resolvida dentro desta própria fase: como formalizar processamento agendado e confiabilidade de entrega de evento — respondida nos Capítulos 15 e 16.
+Nenhuma nova de negócio. A dúvida técnica já registrada na primeira rodada (como formalizar processamento agendado e confiabilidade de entrega de evento) permanece respondida nos Capítulos 15 e 16.
 
 **7. Riscos ativos**
 R-000-03/R-002-01, R-001-01/R-002-02, R-002A-01 — herdados; nenhum impede a arquitetura de backend.
 
 **8. Novos riscos encontrados**
-Nenhum risco novo de negócio. Três lacunas técnicas foram identificadas e já resolvidas dentro desta própria arquitetura: ausência de conceito de Job Agendado, ausência de garantia de entrega/ordem no Event Bus, e ambiguidade entre Auditoria de negócio e Log técnico — ver Auditoria de Abertura.
+Nenhum risco novo de negócio.
 
-**9. Inconsistências encontradas**
-Nenhuma.
+**9. Inconsistências encontradas e corrigidas nesta auditoria**
+1. Contagem ambígua de Documentos Oficiais (14 listados vs. "13"/"os 13" citados em 3 pontos diferentes do texto, sem critério declarado) — corrigida (item 1, ver Auditoria Corretiva).
+2. Formulação da regra transacional dispersa e menos precisa que a versão oficial de 6 pontos determinada pelo proprietário — corrigida e propagada aos Capítulos 7, 8, 9, 10, 11, 12, 16 (item 2).
+3. Estatística "34 das 47 Regras de Negócio referenciadas" sem matriz que a comprovasse — substituída por rastreabilidade 47/47 demonstrada (Capítulo 30, item 3).
+4. Catálogo de Jobs Agendados incompleto: 3 regras dependentes de tempo (RN-011, RN-030, RN-042) não constavam da tabela do Capítulo 15 — adicionadas (item 3).
+5. Duas referências cruzadas apontando para números de capítulo desatualizados ("Jobs Agendados, Capítulo 13" e "Filas Conceituais, Capítulo 14", corretos: 15 e 16) — corrigidas (item 5).
+6. Declarações absolutas não comprováveis pelo próprio documento ("todos os documentos lidos integralmente", "nenhuma inconsistência encontrada", promessa de implementação integral a partir deste único documento) — reformuladas para afirmações com escopo declarado (item 6).
 
 **10. Conflitos entre documentos**
-Nenhum.
+Nenhum — todas as correções desta rodada foram internas ao rascunho do TCOS-010; nenhum dos 13 Documentos Oficiais Congelados foi alterado ou contradito.
 
 **11. Serviços sem estrutura interna**
-Nenhum — os 15 Serviços Conceituais têm, todos, os 8 campos obrigatórios detalhados (Capítulo 6).
+Nenhum — **15 de 15 (100%)** Serviços Conceituais têm os 8 campos obrigatórios detalhados (Capítulo 6).
 
 **12. Regras de negócio sem suporte de execução**
-Nenhuma das 47 Regras de Negócio exige um comportamento de backend não coberto por um Caso de Uso, Job Agendado ou Componente Transversal desta arquitetura.
+Nenhuma — **47 de 47 (100%)** Regras de Negócio rastreadas individualmente na Matriz do Capítulo 30, com Serviço, Caso de Uso, tipo de execução, Agregado, evento e capítulo responsável; 2 delas (RN-004, RN-007) têm justificativa formal registrada por não possuírem evento de domínio/Integração dedicada exclusiva, sem que isso afete sua execução.
 
 **13. Integrações sem suporte de orquestração**
-Nenhuma das 20 Integrações (TCOS-009) fica sem explicação de qual padrão de orquestração (síncrono, assíncrono, coreografado) a implementa — confirmado Capítulo por Capítulo (11 a 13).
+Nenhuma — **20 de 20 (100%)** Integrações (TCOS-009) têm o padrão de orquestração (síncrono, assíncrono, coreografado) identificado nos Capítulos 11 a 13, e todas permanecem preservadas sem qualquer redefinição de conteúdo.
 
-**14. Dependências ocultas**
-Nenhuma nova identificada — todas as dependências entre Serviços já estavam explícitas desde o TCOS-006 (Capítulo 4) e são apenas reafirmadas aqui no nível de Caso de Uso.
+**14. Dependências ocultas / Agregados**
+Nenhuma dependência oculta nova identificada. **24 de 24 (100%)** Agregados (TCOS-007) respeitados pela Regra Transacional de 6 pontos (Capítulo 20) — nenhum Caso de Uso desta arquitetura descrito na Matriz do Capítulo 30 modifica mais de um Agregado por transação.
 
 **15. Melhorias sugeridas**
-- M-010-01 (nova): ao escolher a tecnologia de mensageria em fase técnica futura, avaliar mecanismos nativos de garantia de entrega/ordem/idempotência antes de implementar o Barramento de Eventos e Filas (Capítulo 16) de forma customizada.
-- M-010-02 (nova): o parâmetro "X dias antes do Evento" para o Job de alerta de escala não confirmada (Capítulo 15) depende de um valor de Configuração ainda não definido — mesma pendência já registrada para o Módulo 24, agora também associada a um Job Agendado específico.
+- M-010-01 (mantida): ao escolher a tecnologia de mensageria em fase técnica futura, avaliar mecanismos nativos de garantia de entrega/ordem/idempotência antes de implementar o Barramento de Eventos e Filas (Capítulo 16) de forma customizada.
+- M-010-02 (mantida): o parâmetro "X dias antes do Evento" para o Job de alerta de escala não confirmada (Capítulo 15) depende de um valor de Configuração ainda não definido.
+- M-010-03 (nova, desta auditoria): o Integration and API Contract (TCOS-009) não formalizou uma Integração dedicada para "Evento cancelado" (RN-007) nem para "Lead marcado como perdido" (RN-011) — sugerido para avaliação em uma eventual v1.1.0 daquele documento, sem que isso seja alterado agora (documento congelado).
 
 **16. Impacto nas próximas fases**
 Esta arquitetura de backend é a referência obrigatória para qualquer fase técnica futura (escolha de linguagem, framework, banco físico, APIs, desenvolvimento) — nenhuma dessas fases deve introduzir um padrão de camada, transação, comunicação ou tratamento de erro incompatível com o que está aqui documentado, sem registrar formalmente o motivo.
 
-**17. Quality Score: 9,5/10**
-Justificativa técnica: cobertura completa dos 27 itens de arquitetura de backend exigidos e dos 8 campos obrigatórios para os 15 Serviços e os 10 componentes transversais, com identificação e resolução — não apenas menção — de três lacunas técnicas reais (Jobs Agendados, Filas Conceituais, separação Logs/Auditoria). Não é 10 porque duas melhorias novas (M-010-01/M-010-02) permanecem como refinamento a ser feito quando a tecnologia de mensageria e o parâmetro de escala forem, respectivamente, escolhidos e confirmados.
+**17. Quality Score (recalculado): 9,7/10**
+Justificativa técnica: além da cobertura já reconhecida na primeira rodada (27 itens de arquitetura exigidos, 8 campos obrigatórios para os 25 componentes), esta rodada demonstra rastreabilidade completa e verificável 47/47 das Regras de Negócio, uma regra transacional única e propagada sem contradição por 7 capítulos, e a correção de 6 categorias de imprecisão real encontradas por auditoria independente do próprio autor do documento — evidência de um processo de revisão genuíno, não apenas declarado. A nota sobe em relação à primeira rodada (9,5) por essa correção verificada; não chega a 10 porque as 3 melhorias registradas (M-010-01 a M-010-03) permanecem como refinamento pendente de decisões futuras (tecnologia de mensageria, parâmetro de Configuração, e uma eventual nova versão do TCOS-009).
 
-**18. Atualização do PROJECT_MEMORY.md:** ver commit correspondente.
+**18. Atualização do PROJECT_MEMORY.md:** ver commit correspondente — exclusivamente a seção da Fase 010, status mantido como rascunho aguardando validação do proprietário.
 
-**19. Estatísticas Finais**
-- Quantidade de páginas equivalentes: aproximadamente 22.
-- Quantidade de Serviços detalhados: 15 de 15 (100%).
-- Quantidade de componentes transversais novos/formalizados: 10 (Motor de Jobs Agendados, Barramento de Eventos e Filas, Camada de Logs, Camada de Cache, Camada de Configuração, Camada de Observabilidade, Camada de Tolerância a Falhas, Camada de Segurança/Autorização, Motor de Sugestões de IA, Gateway de Integrações Futuras).
+**19. Estatísticas Finais (recalculadas)**
+- Documentos oficiais: 14 no total (13 congelados + 1 vivo) — ver item 3.
+- Serviços Conceituais: **15/15 (100%)**.
+- Regras de Negócio rastreadas: **47/47 (100%)** — Capítulo 30.
+- Integrações preservadas: **20/20 (100%)**, nenhuma redefinida.
+- Agregados respeitados pela regra transacional: **24/24 (100%)**.
+- Quantidade de Jobs Agendados identificados: **8** (5 da primeira rodada + 3 adicionados nesta auditoria: RN-011, RN-030, RN-042).
+- Quantidade de componentes transversais: 10 (inalterado).
 - Quantidade total de componentes com os 8 campos obrigatórios: 25 (15 Serviços + 10 transversais).
-- Quantidade de Casos de Uso catalogados (representativos): correspondem, em princípio, às 98 funcionalidades já aprovadas — nenhuma nova funcionalidade foi criada; a tabela do Capítulo 8 apresenta uma amostra por Serviço.
-- Quantidade de Jobs Agendados identificados: 5.
-- Quantidade de camadas por Serviço: 4 (Aplicação, Domínio, Persistência, Transversal).
-- Quantidade de módulos cobertos: 27 de 27 (100%, via os 15 Serviços).
-- Quantidade de regras de negócio referenciadas: 34 das 47 (as demais permanecem válidas, sem novo comportamento de execução a detalhar nesta fase).
-- Riscos ativos: 4 herdados; 0 novos de negócio; 3 lacunas técnicas identificadas e resolvidas nesta própria fase.
-- Pendências: 9, todas herdadas.
-- Melhorias: 2 novas (M-010-01, M-010-02).
-- Percentual estimado de maturidade do projeto: **84%** (subiu de 80% — a arquitetura lógica de implementação está agora completa e auditada; restam como não iniciadas: confirmação final do domínio de negócio via entrevista, escolha de tecnologia, desenho físico de API, e toda a fase de Desenvolvimento propriamente dita).
+- Referências cruzadas internas verificadas: mais de 60 ocorrências de "Capítulo N" conferidas uma a uma; 2 corrigidas (item de correção 5).
+- Inconsistências encontradas nesta auditoria: 6, todas corrigidas (ver item 9 acima) — 0 remanescentes.
+- Módulos cobertos: 27/27 (100%, via os 15 Serviços).
+- Riscos ativos: 4 herdados; 0 novos de negócio.
+- Pendências: 9, todas herdadas ou de Configuração já previstas (nenhuma pendência nova de negócio).
+- Melhorias: 3 (M-010-01, M-010-02 mantidas; M-010-03 nova).
+- Percentual estimado de maturidade do projeto: **84%** (sem alteração em relação à primeira rodada — esta auditoria corrigiu precisão e rastreabilidade do documento já entregue, sem adicionar nem remover escopo arquitetural).
 
-**Encerramento desta fase:** este documento permanece como **rascunho para validação do proprietário** até receber o comando `APROVADO`. Nenhuma fase de linguagem, framework, banco de dados físico, API ou Desenvolvimento será iniciada sem autorização explícita, conforme restrição do Prompt Oficial da Fase 010.
+**Status desta fase:** Rascunho aguardando validação do proprietário. Esta fase **não foi aprovada nem encerrada** — permanece sujeita a `APROVADO`, `CORRIGIR`, `ALTERAR`, `REMOVER` ou `CONTINUAR`. Nenhuma fase de linguagem, framework, banco de dados físico, API ou Desenvolvimento será iniciada sem autorização explícita. A Fase 011 não foi criada.
 
 ---
 
-*Fim do documento — THE CHARCOAL OS BACKEND ARCHITECTURE v1.0.0*
+*Fim do documento — THE CHARCOAL OS BACKEND ARCHITECTURE v1.0.0 (rascunho em correção)*
