@@ -572,4 +572,45 @@ Recebido o Prompt Oficial (TCOS-007), executada a auditoria de abertura sobre to
 
 ---
 
+## FASE 007 — Encerramento Oficial
+
+**Status:** APROVADA E CONGELADA pelo proprietário em 2026-08-01 (comando `APROVADO`)
+**Data:** 2026-08-01
+
+O `THE_CHARCOAL_OS_DATA_ARCHITECTURE.md` (v1.0.0) passa a ser documentação oficial do THE CHARCOAL OS. Nenhuma alteração futura sem criação de nova versão.
+
+---
+
+## FASE 008 — Database Specification
+
+**Status:** Rascunho entregue — aguardando validação do proprietário (`THE_CHARCOAL_OS_DATABASE_SPECIFICATION.md` v1.0.0)
+**Data:** 2026-08-01
+
+Recebido o Prompt Oficial (TCOS-008), executada a auditoria de abertura sobre todos os 11 documentos oficiais, e produzido o documento com a especificação conceitual completa do banco de dados: 9 Esquemas, 32 estruturas conceituais de tabela (30 de entidade + Log de Auditoria + Parâmetros de Configuração), cada uma nos 15 campos exigidos, mais os 12 capítulos de estratégia obrigatórios (Modelo Conceitual, Esquemas, Chaves, Integridade Referencial, Versionamento, Auditoria, Histórico, Performance, Backup, Escalabilidade, Multiempresa, Multifilial). Nenhum SGBD, SQL ou código foi definido. Nenhum documento anterior foi alterado.
+
+### Decisões tomadas
+- D-008-01: as 30 entidades foram organizadas em 9 Esquemas lógicos (7 de Domínio de Dados + `auditoria` + `configuracao`, ambos transversais), espelhando os Serviços Conceituais já definidos no System Architecture.
+- D-008-02: Fluxo de Caixa e Indicador foram formalmente definidos como estruturas de leitura derivada/cache, nunca como cópia armazenada do dado de origem — resolvendo uma duplicidade estrutural que só estava implícita até esta fase.
+- D-008-03: cardinalidade explícita foi adicionada a todo relacionamento do Mapa Global dos Dados (TCOS-007) — atributo que nenhum documento anterior havia formalizado.
+- D-008-04: identificadas estruturas de alto volume de escrita (Log de Auditoria, Pagamento, Produção, Alocação de Funcionário, Despesa, Receita Financeira) como candidatas a particionamento conceitual por período, sem definir a tecnologia que implementaria isso.
+
+### Alterações
+- ALT-008-01: criado o documento `THE_CHARCOAL_OS_DATABASE_SPECIFICATION.md` (v1.0.0). Nenhum documento anterior foi alterado.
+
+### Melhorias sugeridas (Backlog)
+- M-008-01 (nova): ao escolher a tecnologia de banco de dados, avaliar mecanismos nativos de particionamento para as 6 estruturas de alto volume identificadas.
+- M-007-01 (herdada): decisão de negócio sobre compartilhamento de catálogo entre Unidades permanece pendente, com impacto direto em 4 estruturas (`tb_produto`, `tb_receita`, `tb_ficha_tecnica`, `tb_ingrediente`).
+
+### Riscos encontrados
+- Nenhum risco novo. Riscos herdados (R-000-03/R-002-01, R-001-01/R-002-02, R-002A-01) permanecem abertos, sem impedir a especificação do banco.
+
+### Pendências
+- P-008-01: validação formal do proprietário sobre o `THE_CHARCOAL_OS_DATABASE_SPECIFICATION.md`.
+- Pendências herdadas: parâmetros do Módulo 24 (agora com estrutura de dado definida), M-003A-03/04, M-005-01/02/03, M-006-01, M-007-01, confirmação do domínio de negócio (R-000-03).
+
+### Estrutura de banco identificada
+- 9 Esquemas, 32 estruturas conceituais (30 de entidade + 2 transversais), 30+ relacionamentos com cardinalidade explícita, 96 índices conceituais recomendados, 32 restrições de integridade.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
