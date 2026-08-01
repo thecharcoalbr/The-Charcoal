@@ -264,4 +264,42 @@ O proprietário aprovou o conteúdo técnico do `THE_CHARCOAL_OS_BUSINESS_RULES_
 
 ---
 
+## FASE 003 — Functional Specification
+
+**Status:** Rascunho entregue — aguardando validação do proprietário (`THE_CHARCOAL_OS_FUNCTIONAL_SPECIFICATION.md` v1.0.0)
+**Data:** 2026-08-01
+
+O proprietário aprovou formalmente o TCOS-002A e autorizou o avanço para o TCOS-003, definindo todas as funcionalidades do THE CHARCOAL OS (o que o usuário faz no sistema), em 25 módulos obrigatórios. Seguindo o Framework v1.2.0, o documento abre com Executive Memory e encerra com Resumo para o Proprietário e Quality Gate.
+
+### Decisões tomadas
+- D-003-01: as 47 Regras de Negócio do TCOS-002A foram todas mapeadas a pelo menos uma funcionalidade deste documento, para que nenhuma regra fique "sem tela" (funcionalidade) correspondente.
+- D-003-02: CRM, Clientes e Leads foram tratados como três módulos distintos (conforme solicitado), evitando duplicidade ao definir CRM como visão consolidada de funil/atribuição, e Leads/Clientes como o cadastro e ciclo de vida específico de cada entidade.
+- D-003-03: foi criado o Módulo 24 (Configurações) como o local funcional explícito onde os parâmetros de negócio ainda pendentes (R-002A-01) serão definidos — cada parâmetro tem uma funcionalidade própria (F-075 a F-079), mantendo o princípio de nunca assumir um valor não confirmado.
+- D-003-04: foi criado o Módulo 25 (Administração do Sistema) com um papel transversal "Administrador do Sistema", necessário para gestão de usuários/permissões e do mecanismo de Alertas (RN-047), sem antecipar nenhuma decisão técnica de autenticação/autorização.
+
+### Alterações
+- ALT-003-01: criado o documento `THE_CHARCOAL_OS_FUNCTIONAL_SPECIFICATION.md` (v1.0.0). Nenhum documento anterior foi alterado.
+
+### Melhorias sugeridas (Backlog)
+- M-003-01: considerar um "assistente de configuração inicial" que guie o preenchimento de todos os parâmetros pendentes do Módulo 24 de uma só vez.
+- M-003-02: reavaliar as Funcionalidades Futuras do Roadmap (Seção 4.4 do TCOS-003) após a maturidade dos 25 módulos atuais.
+
+### Riscos encontrados
+- Nenhum risco novo. R-000-03/R-002-01, R-001-01/R-002-02 e R-002A-01 permanecem abertos e diretamente relevantes — o Módulo 24 (Configurações) é a mitigação funcional planejada para R-002A-01.
+
+### Pendências
+- P-003-01: validação formal do proprietário sobre o `THE_CHARCOAL_OS_FUNCTIONAL_SPECIFICATION.md`.
+- P-003-02: preenchimento real dos parâmetros do Módulo 24 (Configurações) — idealmente via retomada da entrevista de descoberta.
+
+### Funcionalidades identificadas
+- 83 funcionalidades (F-001 a F-083) especificadas em 25 módulos obrigatórios (Dashboard CEO, Financeiro Pessoal, Financeiro Empresarial, CRM, Clientes, Leads, Eventos, Orçamentos, Contratos, Produção, Engenharia de Custos, Receitas, Fichas Técnicas, Precificação, Compras, Estoque, Lotes, Equipamentos, Funcionários, Escalas, Marketing, Inteligência Artificial, Documentos, Configurações, Administração do Sistema).
+
+### Módulos existentes
+- 25 módulos funcionais especificados (ainda sem decisão técnica de implementação).
+
+### Integrações
+- Nenhuma técnica; dependências entre módulos mapeadas em nível de negócio (Seção 4.2 do TCOS-003).
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
