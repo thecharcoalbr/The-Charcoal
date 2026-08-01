@@ -230,4 +230,38 @@ O proprietário aprovou conceitualmente o Domain Model (comando `ALTERAR`, trata
 
 ---
 
+## FASE 002A (complemento) — Padrão de Documentação do Projeto (Framework v1.2.0)
+
+**Status:** Rascunho entregue — aguardando validação do proprietário
+**Data:** 2026-08-01
+
+O proprietário aprovou o conteúdo técnico do `THE_CHARCOAL_OS_BUSINESS_RULES_SPECIFICATION.md` (nenhuma regra, estrutura, numeração ou comportamento do sistema foi alterado) e solicitou (`ALTERAR`) a evolução do padrão de documentação do projeto, via atualização do Framework para v1.2.0.
+
+### Decisões tomadas
+- D-002A-05: Adicionadas as Seções 27–30 ao Framework (v1.1.0 → v1.2.0, MINOR), tornando obrigatórias para **todo documento futuro** do projeto: (27) uma seção de abertura "EXECUTIVE MEMORY"; (28) uma seção "RESUMO PARA O PROPRIETÁRIO" em linguagem simples, de no máximo uma página, antes do Quality Gate; (29) o Quality Gate como seção formal obrigatória de todo documento, não apenas do relatório de fase; (30) métricas de encerramento obrigatórias do Quality Gate (páginas, entidades, regras, processos, eventos, decisões, riscos, pendências, melhorias e percentual de maturidade). Motivo: instrução explícita do proprietário.
+- D-002A-06: A Seção 27 (Executive Memory) formaliza, com nome único, a prática já exercida sob nomes distintos ("Nota de Auditoria de Abertura") nas Fases 001, 002 e 002A — reconhecidas retroativamente como precedentes válidas, sem necessidade de reformulação retroativa desses documentos já aprovados.
+- D-002A-07: A Seção 29 formaliza, como exigência de documento (não apenas de relatório de chat), o Quality Gate já praticado nos encerramentos de fase desde a Fase 000.
+- D-002A-08: Nenhuma alteração foi feita em `THE_CHARCOAL_OS_BUSINESS_RULES_SPECIFICATION.md`, `THE_CHARCOAL_OS_DOMAIN_MODEL.md` ou em qualquer outro documento além do Framework, conforme instrução explícita.
+
+### Alterações
+- ALT-002A-02: Framework atualizado de v1.1.0 para v1.2.0 (MINOR — adição compatível). Seções 27–31 adicionadas após a Seção 26, antes das Regras Permanentes. Nenhuma seção 1–26 pré-existente foi removida, renumerada ou reescrita.
+
+### Melhorias sugeridas (Backlog)
+- M-002A-03: a partir do próximo documento produzido, aplicar as Seções 27–30 na prática e usar essa aplicação real como validação de que a regra é operacionalmente viável (ex.: o limite de "uma página" para o Resumo ao Proprietário pode exigir ajuste conforme a complexidade do documento).
+
+### Riscos encontrados
+- Nenhum risco novo. Riscos herdados (R-000-03/R-002-01, R-001-01/R-002-02, R-002A-01) permanecem inalterados por esta atualização puramente procedimental.
+
+### Pendências
+- P-002A-04: validação formal do proprietário sobre a v1.2.0 do Framework.
+- P-002A-05 (permanente, a partir de agora): todo documento futuro do projeto deve conter as seções Executive Memory (Seção 27), Resumo para o Proprietário (Seção 28) e Quality Gate com métricas de encerramento (Seções 29–30) do Framework.
+
+### Módulos existentes
+- Nenhum (alteração puramente de governança/documentação).
+
+### Integrações
+- Nenhuma.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*

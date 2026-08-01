@@ -3,8 +3,8 @@
 **Documento:** Constituição Oficial do Projeto
 **Projeto:** THE CHARCOAL OS
 **Fase:** 000 — Governança do Projeto
-**Status:** APROVADO pelo proprietário em 2026-08-01
-**Versão:** 1.1.0
+**Status:** APROVADO pelo proprietário em 2026-08-01 (v1.1.0); complementado em 2026-08-01 (v1.2.0), aguardando validação formal desta complementação
+**Versão:** 1.2.0
 
 ### Histórico de Versões deste Documento
 
@@ -13,6 +13,7 @@
 | 1.0.0 | 2026-08-01 | Inicial | Primeira versão da Constituição (Seções 1–20, Regras Permanentes). |
 | 1.1.0 | 2026-08-01 | MINOR (adição compatível) | Complementação solicitada pelo proprietário (comando `ALTERAR`): adicionadas Seções 21–26 (Manifesto, Princípios Fundamentais, Documentos Oficiais, Glossário Oficial, Filosofia de Evolução, Auditoria de Revisão). Nenhum conteúdo da v1.0.0 foi removido ou alterado. |
 | 1.1.0 | 2026-08-01 | Aprovação | Documento aprovado pelo proprietário via comando `APROVADO`, sem novas alterações de conteúdo. Passa a integrar oficialmente a documentação do THE CHARCOAL OS. |
+| 1.2.0 | 2026-08-01 | MINOR (adição compatível) | Complementação solicitada pelo proprietário (comando `ALTERAR`, após aprovação de conteúdo do TCOS-002A): adicionadas Seções 27–31 (Regras de Documentação — Executive Memory, Resumo para o Proprietário, Quality Gate Obrigatório, Métricas de Encerramento, Auditoria da Complementação). Nenhum conteúdo das Seções 1–26 foi removido ou alterado; nenhum outro documento do projeto foi tocado. |
 
 ---
 
@@ -313,6 +314,62 @@ Nenhuma inconsistência, conflito ou duplicidade permaneceu em aberto após esta
 
 ---
 
+## 27. Regra de Documentação — Executive Memory Obrigatória
+
+Todo documento novo do projeto — de qualquer fase, subfase ou complemento — deve abrir com uma seção chamada **EXECUTIVE MEMORY**, contendo, no mínimo:
+
+- Estado atual do projeto.
+- Fase atual.
+- Fases concluídas.
+- Documentos oficiais.
+- Documentos em elaboração.
+- Pendências.
+- Riscos ativos.
+- Dependências.
+- Objetivo da fase que será iniciada.
+- O que não pode ser alterado.
+
+Nenhum documento pode apresentar conteúdo substantivo antes desta seção. Esta regra formaliza, com nome único e obrigatório, a prática de auditoria de abertura já exercida (sob nomes distintos, como "Nota de Auditoria de Abertura") nas Fases 001, 002 e 002A — que ficam reconhecidas como precedentes válidas deste padrão, sem necessidade de reformulação retroativa.
+
+## 28. Regra de Documentação — Resumo para o Proprietário
+
+Todo documento novo deve conter, imediatamente antes do Quality Gate (Seção 29), uma seção chamada **RESUMO PARA O PROPRIETÁRIO**, escrita em linguagem simples, sem termos técnicos, respondendo obrigatoriamente:
+
+- O que foi construído.
+- Por que isso é importante.
+- Como isso melhora o THE CHARCOAL OS.
+- Como este documento se conecta aos documentos anteriores.
+- Como ele será utilizado nas próximas fases.
+
+Limite: no máximo uma página.
+
+## 29. Regra de Documentação — Quality Gate Obrigatório
+
+O Quality Gate — já praticado nos relatórios de encerramento de fase desde a Fase 000 — passa a ser uma seção formal e obrigatória de **todo documento** do projeto, não apenas do relatório apresentado ao final de uma fase. Nenhuma fase é considerada concluída (Seção 20) sem que seu(s) documento(s) tenham passado pelo Quality Gate completo, incluindo as métricas obrigatórias definidas na Seção 30.
+
+## 30. Regra de Documentação — Métricas de Encerramento do Quality Gate
+
+Todo Quality Gate deve encerrar, obrigatoriamente, apresentando:
+
+- Quantidade de páginas.
+- Quantidade de entidades.
+- Quantidade de regras.
+- Quantidade de processos.
+- Quantidade de eventos.
+- Quantidade de decisões.
+- Quantidade de riscos.
+- Quantidade de pendências.
+- Quantidade de melhorias.
+- Percentual estimado de maturidade do projeto.
+
+Quando um item não se aplicar ao documento em questão (ex.: um documento de governança pura não possui "entidades"), ele deve ser declarado como **"não aplicável a este documento"**, nunca omitido silenciosamente.
+
+## 31. Auditoria desta Complementação (v1.2.0)
+
+Em atendimento ao comando `ALTERAR` do proprietário, foi verificado que as Seções 27–30 são puramente procedimentais (padrão de documentação), sem alterar nenhuma Entidade, Regra de Negócio, Processo ou Evento já aprovados nos documentos TCOS-001, TCOS-002 e TCOS-002A — nenhuma dessas seções contradiz ou reabre conteúdo já aprovado. Nenhuma duplicidade foi encontrada com as Seções 1–26 já existentes: a Seção 27 formaliza uma prática já existente (auditoria de abertura), a Seção 29 formaliza uma prática já existente (Quality Gate nos relatórios de fase), e as Seções 28 e 30 introduzem exigências genuinamente novas. Nenhuma inconsistência permaneceu em aberto.
+
+---
+
 ## Regra Permanente (Auditoria Contínua)
 
 Antes de iniciar qualquer fase futura, é obrigatório: ler todas as fases anteriores, auditar integralmente o projeto, procurar inconsistências, conflitos, duplicidades e oportunidades de melhoria, e corrigir o que for encontrado dentro do escopo já aprovado. Havendo qualquer conflito que exija decisão do proprietário, o trabalho é interrompido imediatamente até obter orientação. Nenhuma decisão relevante é tomada sem registro do motivo.
@@ -327,4 +384,4 @@ Em todas as fases, o trabalho é conduzido com a postura de um Arquiteto de Soft
 
 ---
 
-*Fim do documento — THE CHARCOAL OS DEVELOPMENT FRAMEWORK v1.1.0*
+*Fim do documento — THE CHARCOAL OS DEVELOPMENT FRAMEWORK v1.2.0*
