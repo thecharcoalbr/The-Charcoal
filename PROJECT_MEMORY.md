@@ -483,4 +483,49 @@ Recebido o Prompt Oficial (TCOS-005), executada a auditoria de abertura sobre to
 
 ---
 
+## FASE 005 — Encerramento Oficial
+
+**Status:** APROVADA E CONGELADA pelo proprietário em 2026-08-01 (comando `APROVADO`)
+**Data:** 2026-08-01
+
+O `THE_CHARCOAL_OS_UX_UI_SPECIFICATION.md` (v1.0.0) passa a ser documentação oficial do THE CHARCOAL OS. Nenhuma alteração futura sem criação de nova versão.
+
+---
+
+## FASE 006 — System Architecture
+
+**Status:** Rascunho entregue — aguardando validação do proprietário (`THE_CHARCOAL_OS_SYSTEM_ARCHITECTURE.md` v1.0.0)
+**Data:** 2026-08-01
+
+Recebido o Prompt Oficial (TCOS-006), executada a auditoria de abertura sobre todos os 9 documentos oficiais, e produzido o documento com a arquitetura conceitual completa: 5 camadas, 18 integrações de domínio, matriz de dependências dos 27 módulos, fluxo global de dados, 15 Serviços Conceituais, Event Bus, segurança conceitual e escalabilidade. Nenhuma tecnologia (linguagem, banco de dados, framework, API, nuvem, infraestrutura) foi definida. Nenhum documento anterior foi alterado.
+
+### Decisões tomadas
+- D-006-01: os 27 módulos funcionais foram agrupados em 15 Serviços Conceituais coesos (14 correspondentes a grupos de módulos + 1 transversal, Auditoria), evitando o antipadrão de um serviço por módulo/tela. Toda comunicação entre Serviços ocorre por evento publicado (Event Bus) ou consulta ao contrato público — nunca por acesso direto ao dado interno de outro Serviço.
+- D-006-02: a orquestração de confirmação de Evento (RN-006), até então descrita funcionalmente como uma sequência de ações, foi modelada arquiteturalmente como um único evento publicado ("Evento confirmado") com múltiplos Serviços assinantes independentes — resolvendo um risco de acoplamento identificado na auditoria de abertura.
+- D-006-03: criado o Serviço de Indicadores e Dashboards como único ponto de consumo de dado para todos os Dashboards (CEO e especializados), resolvendo estruturalmente a melhoria M-004-01 (unificação dos três mecanismos de atualização de Dashboard/Indicador do TCOS-004).
+- D-006-04: criado o Serviço de Auditoria, transversal e sem módulo funcional próprio, que assina todos os eventos do Event Bus sem exceção — materialização arquitetural do Princípio PF-04 (histórico obrigatório).
+
+### Alterações
+- ALT-006-01: criado o documento `THE_CHARCOAL_OS_SYSTEM_ARCHITECTURE.md` (v1.0.0). Nenhum documento anterior foi alterado.
+
+### Melhorias sugeridas (Backlog)
+- M-006-01 (nova): quando a dimensão "Organização/Unidade" (múltiplas filiais/empresas) for implementada, revisar o contrato de consulta de todos os 15 Serviços para incluí-la desde o início.
+- M-004-01 (herdada): marcada como **resolvida estruturalmente** por esta arquitetura.
+
+### Riscos encontrados
+- Nenhum risco novo de negócio. Dois riscos técnicos foram identificados e resolvidos dentro da própria fase (acoplamento na orquestração de Evento; acoplamento no consumo do Dashboard CEO) — ver Auditoria de Abertura do TCOS-006.
+- Riscos herdados (R-000-03/R-002-01, R-001-01/R-002-02, R-002A-01) permanecem abertos, sem impedir a arquitetura conceitual.
+
+### Pendências
+- P-006-01: validação formal do proprietário sobre o `THE_CHARCOAL_OS_SYSTEM_ARCHITECTURE.md`.
+- Pendências herdadas: parâmetros do Módulo 24, M-003A-03/04, M-005-01/02/03, confirmação do domínio de negócio (R-000-03).
+
+### Dependências/Integrações identificadas
+- 27 relações módulo→Serviço mapeadas na Matriz de Dependências; 18 integrações de domínio documentadas; 15 Serviços Conceituais; 23 eventos internos arquiteturalmente destacados (subconjunto dos 89 já catalogados no Domain Model).
+
+### Módulos existentes
+- 27 módulos (inalterados), agora organizados em 15 Serviços Conceituais.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
