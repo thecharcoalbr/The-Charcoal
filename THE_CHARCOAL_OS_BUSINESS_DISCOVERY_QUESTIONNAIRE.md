@@ -2,7 +2,7 @@
 
 **Documento:** Fase 001B — Business Discovery Questionnaire
 **Projeto:** THE CHARCOAL OS
-**Status:** Aguardando respostas do proprietário
+**Status:** APROVADO pelo proprietário em 2026-08-01 — Documentação Oficial do THE CHARCOAL OS. Qualquer alteração exige criação de nova versão. As entrevistas em si ainda não foram iniciadas — ver `THE_CHARCOAL_OS_DISCOVERY_INTERVIEW_ROADMAP.md` para a sequência oficial de execução.
 **Versão:** 1.0.0
 
 ---

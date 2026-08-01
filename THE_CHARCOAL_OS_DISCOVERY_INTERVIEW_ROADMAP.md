@@ -2,7 +2,7 @@
 
 **Documento:** Fase 001B (v2.0) — Reorganização Estratégica do Questionário em Fases de Entrevista
 **Projeto:** THE CHARCOAL OS
-**Status:** Roteiro pronto — aguardando autorização do proprietário para iniciar a Fase 1 da entrevista
+**Status:** APROVADO pelo proprietário em 2026-08-01 — Documentação Oficial do THE CHARCOAL OS. Qualquer alteração exige criação de nova versão. A execução da Fase 1 da entrevista ainda depende de autorização específica e posterior do proprietário.
 **Versão:** 1.0.0
 **Documento-base:** `THE_CHARCOAL_OS_BUSINESS_DISCOVERY_QUESTIONNAIRE.md` (v1.0.0, conteúdo aprovado)
 

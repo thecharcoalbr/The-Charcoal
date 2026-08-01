@@ -54,8 +54,10 @@
 
 ## FASE 001 — Business Discovery
 
-**Status:** Rascunho entregue — aguardando validação do proprietário (`THE_CHARCOAL_OS_ENTERPRISE_DOMAIN_DISCOVERY.md` v1.0.0)
+**Status:** APROVADA E ENCERRADA pelo proprietário em 2026-08-01 (comando `APROVADO`). Todos os documentos produzidos na Fase 001 (`THE_CHARCOAL_OS_ENTERPRISE_DOMAIN_DISCOVERY.md`, `THE_CHARCOAL_OS_BUSINESS_DISCOVERY_QUESTIONNAIRE.md`, `THE_CHARCOAL_OS_DISCOVERY_INTERVIEW_ROADMAP.md`) tornam-se Documentação Oficial do THE CHARCOAL OS; nenhum pode ser alterado sem criação de nova versão.
 **Data:** 2026-08-01
+
+**Nota de encerramento (achado de auditoria, ver Fase 002):** o encerramento ocorreu **antes** da execução da entrevista de descoberta (Fase 001B) e das respostas às perguntas Q1–Q110, contrariando o plano registrado em P-001B-02. Isso decorreu de instrução explícita e direta do proprietário, sendo por isso válido e definitivo — mas o risco R-000-03/P-000-03 (hipótese de domínio de negócio ainda não confirmada) permanece formalmente aberto e passa a ser herdado também pela Fase 002 e por todo documento que reutilize o vocabulário de entidades da Fase 001.
 
 Conforme D-000-09, esta fase substitui a proposta original de "Arquitetura Macro e Stack Tecnológica" como próxima fase do projeto. Recebido o Prompt Oficial (Documento TCOS-001), foi executada a auditoria de abertura (Seção 17 do Framework) sem novas inconsistências além do já registrado R-000-03/P-000-03, e produzido o documento `THE_CHARCOAL_OS_ENTERPRISE_DOMAIN_DISCOVERY.md`, mapeando o domínio de negócio hipotético (produção culinária em brasa/carvão comercializada via Eventos) em 25 capítulos de processos e um conjunto de entidades de negócio. Nenhuma decisão técnica foi tomada, em conformidade com a restrição da fase.
 
@@ -140,6 +142,51 @@ O proprietário aprovou o conteúdo do questionário, mas solicitou (`ALTERAR`),
 **Pendências:**
 - P-001B-03: Autorização do proprietário para iniciar a Fase 1 da entrevista ("Identidade e Propósito da Empresa"). Nenhuma pergunta foi feita ao proprietário até o momento.
 - P-001B-04 (protocolo permanente): ao final de cada Fase de entrevista futura, é obrigatório resumir aprendizados, listar inconsistências, listar dúvidas, listar oportunidades, atualizar este `PROJECT_MEMORY.md` e aguardar nova autorização antes da fase seguinte (ver Seção 3 do Roadmap).
+
+---
+
+## FASE 002 — Domain Model
+
+**Status:** Rascunho entregue — aguardando validação do proprietário (`THE_CHARCOAL_OS_DOMAIN_MODEL.md` v1.0.0)
+**Data:** 2026-08-01
+
+Recebido o Prompt Oficial (Documento TCOS-002), foi executada a auditoria de abertura (Seção 17 do Framework) sobre todos os documentos oficiais até então aprovados, e produzido o `THE_CHARCOAL_OS_DOMAIN_MODEL.md`: o Modelo de Domínio Oficial do THE CHARCOAL OS, detalhando 30 entidades de negócio (16 campos cada), Relacionamentos do Domínio, Regras Globais (9 categorias) e 89 Eventos do Domínio catalogados. Nenhuma decisão técnica (banco de dados, classes, código) foi tomada, em conformidade com a restrição da fase.
+
+### Decisões tomadas
+- D-002-01: Adotadas 7 "Convenções Gerais" (CG-01 a CG-07), derivadas diretamente dos Princípios Fundamentais PF-01 a PF-12 do Framework, aplicadas por padrão a todas as 30 entidades para evitar repetição e garantir consistência. Motivo: Seção 9 do Framework (Como Evitar Inconsistências).
+- D-002-02: Adicionada a entidade **Alocação de Funcionário** (30ª entidade), não presente nas 29 da Fase 001, para formalizar o vínculo entre Funcionário e Evento/Produção. Motivo: lacuna identificada na auditoria de abertura desta fase — já implícita nos capítulos de Mão de Obra/Escalas do Domain Discovery, mas nunca modelada como entidade própria.
+- D-002-03: Os campos "Quem pode criar/alterar/excluir/visualizar" de cada entidade foram expressos em termos de áreas de negócio (Comercial, Produção, Financeiro etc.), nunca de perfis técnicos de acesso, para não antecipar decisão técnica fora do escopo desta fase.
+- D-002-04: Registrado formalmente que o encerramento da Fase 001 ocorreu antes da execução da entrevista de descoberta, e que o risco R-000-03/P-000-03 (hipótese de domínio de negócio) é herdado por este Domain Model, não apenas pela Fase 001 — qualquer futura confirmação divergente exigirá nova versão deste documento.
+- D-002-05: O Fluxo de Caixa foi modelado com uma ressalva explícita de que não é uma entidade transacional discreta, e sim uma visão agregada e derivada — decisão de modelagem de domínio, não uma decisão técnica de arquitetura.
+
+### Alterações
+- ALT-002-01: Criado o documento `THE_CHARCOAL_OS_DOMAIN_MODEL.md` (v1.0.0). Nenhum documento da Fase 001 ou do Framework foi alterado.
+- ALT-002-02: Atualizados os cabeçalhos de status dos três documentos da Fase 001 (Domain Discovery, Questionnaire, Interview Roadmap) para refletir sua aprovação/encerramento formal, sem alterar qualquer outro conteúdo desses documentos.
+
+### Melhorias sugeridas (Backlog)
+- M-002-01: Quando o Framework for revisado para uma futura v1.2.0, incorporar ao Glossário Oficial (Seção 24) os termos ainda ausentes frente às 30 entidades deste Domain Model (Campanha, Ingrediente, Produção, Fornecedor, Compra, Lote, Equipamento, Veículo, Pagamento, Banco, Conta, Fluxo de Caixa, Funcionário, Alocação de Funcionário, Meta, Indicador) — consolida M-001-02, já registrada.
+- M-002-02: Retomar formalmente a execução da Fase 001B (entrevista de descoberta) em algum momento futuro — mesmo com a Fase 001 encerrada, as respostas às perguntas Q1–Q110 continuam valiosas para validar ou corrigir este Domain Model.
+
+### Riscos encontrados
+- R-002-01 (crítico, herdado): R-000-03/P-000-03 — hipótese de domínio de negócio (produção culinária em brasa/carvão via Eventos) permanece sem confirmação do proprietário, apesar de a Fase 001 estar encerrada e este Domain Model já construído sobre ela. Status: aberto, herdado por toda fase futura que reutilize este vocabulário.
+- R-002-02 (herdado): R-001-01 — custo de mão de obra e insumos de apoio podem não estar hoje incorporados ao custo real de produção; tratado como condicionalidade explícita na Regra Global de Engenharia de Custos deste Domain Model. Status: aberto.
+- R-002-03: o Glossário Oficial do Framework (20 termos, já aprovado e congelado) está desatualizado frente às 30 entidades deste Domain Model; como o Framework não pode ser alterado sem nova versão formal, a divergência permanece registrada como pendência, não como erro corrigido. Status: aberto — ver M-002-01.
+
+### Pendências
+- P-002-01: Validação do proprietário sobre o `THE_CHARCOAL_OS_DOMAIN_MODEL.md` (comando formal).
+- P-002-02: Decisão do proprietário sobre M-002-02 — retomar ou não a entrevista de descoberta (Fase 001B) antes de avançar para uma futura fase técnica.
+
+### Entidades identificadas
+- 30 entidades detalhadas (29 herdadas da Fase 001 + 1 nova): Cliente, Lead, Orçamento, Contrato, Campanha, Produto, Ingrediente, Receita, Ficha Técnica, Produção, Fornecedor, Compra, Estoque, Lote, Equipamento, Veículo, Despesa, Receita Financeira, Pagamento, Banco, Conta, Fluxo de Caixa, Funcionário, **Alocação de Funcionário (nova)**, Documento, Meta, Indicador, Dashboard, Pacote, Evento.
+
+### Eventos de domínio identificados
+- 89 eventos de domínio catalogados (Seção 6 do Domain Model), cobrindo o ciclo de vida completo das 30 entidades.
+
+### Módulos existentes
+- Nenhum (ainda não houve decisão técnica; apenas modelagem de domínio).
+
+### Integrações
+- Nenhuma (fora de escopo desta fase).
 
 ---
 

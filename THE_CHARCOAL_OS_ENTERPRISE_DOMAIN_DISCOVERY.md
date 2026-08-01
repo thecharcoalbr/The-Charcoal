@@ -3,7 +3,7 @@
 **Documento:** TCOS-001 — Descoberta Completa do Domínio de Negócio
 **Projeto:** THE CHARCOAL OS
 **Fase:** 001 — Business Discovery
-**Status:** Rascunho para validação do proprietário
+**Status:** APROVADO pelo proprietário em 2026-08-01 — Documentação Oficial do THE CHARCOAL OS. Qualquer alteração exige criação de nova versão.
 **Versão:** 1.0.0
 **Documentos-base considerados:** `THE_CHARCOAL_OS_DEVELOPMENT_FRAMEWORK.md` (v1.1.0), `PROJECT_MEMORY.md`
 
