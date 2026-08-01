@@ -388,4 +388,54 @@ O proprietário confirmou que os gaps G-001 (Banco) e G-002 (Meta) identificados
 
 ---
 
+## FASE 003 — Encerramento Oficial
+
+**Status:** APROVADA E CONGELADA pelo proprietário em 2026-08-01 (comando `APROVADO`)
+**Data:** 2026-08-01
+
+O `THE_CHARCOAL_OS_FUNCTIONAL_SPECIFICATION.md` (v1.2.0) passa a ser documentação oficial do THE CHARCOAL OS. Nenhuma alteração futura sem criação de nova versão.
+
+---
+
+## FASE 004 — User Journeys & System Flows
+
+**Status:** Rascunho entregue — aguardando validação do proprietário (`THE_CHARCOAL_OS_USER_JOURNEYS_AND_SYSTEM_FLOWS.md` v1.0.0)
+**Data:** 2026-08-01
+
+Recebido o Prompt Oficial (TCOS-004), executada a auditoria de abertura sobre todos os documentos oficiais (Framework v1.2.0, Domain Discovery, Questionnaire, Interview Roadmap, Domain Model, Business Rules Specification, Functional Specification v1.2.0), e produzido o documento com 30 fluxos operacionais completos, Matriz de Integração entre Módulos e Mapa Operacional em linguagem simples. Nenhum documento anterior foi alterado.
+
+### Decisões tomadas
+- D-004-01: os 30 fluxos foram documentados com os 19 campos obrigatórios cada, referenciando por nome/número as entidades, Regras de Negócio, módulos e funcionalidades já oficiais, sem redefini-los. Sobreposições aparentes entre fluxos explicitamente solicitados em separado (Evento vs. Encerramento de Evento; os quatro fluxos de Dashboards/Indicadores) foram resolvidas por escopo (visão geral vs. detalhamento), com referência cruzada em vez de repetição de conteúdo.
+
+### Alterações
+- ALT-004-01: criado o documento `THE_CHARCOAL_OS_USER_JOURNEYS_AND_SYSTEM_FLOWS.md` (v1.0.0). Nenhum documento anterior foi alterado.
+
+### Melhorias sugeridas (Backlog)
+- M-004-01: unificar, em fase técnica futura, os mecanismos de FL-026/FL-027/FL-028 em um único motor de recálculo de Indicadores/Dashboards.
+- M-004-02: aprofundar a jornada de Pós-venda (FL-030) quando a entrevista de descoberta for retomada — hoje a mais fracamente sustentada por Regras/Funcionalidades dedicadas (apenas RN-010 e F-014).
+
+### Riscos encontrados
+- Nenhum risco novo. R-000-03/R-002-01, R-001-01/R-002-02 e R-002A-01 permanecem abertos, agora rastreáveis a jornadas específicas (FL-007, FL-013, FL-014, FL-015 dependem de parâmetros ainda não confirmados).
+
+### Gaps/observações de auditoria
+- Confirmado (não é gap novo): F-072–F-074 (Documentos) e F-080/F-081/F-083 (Administração do Sistema) são transversais, sem jornada de negócio própria entre os 30 fluxos — esperado.
+- Confirmado (não é gap novo): RN-004 e RN-047 são processos periódicos/administrativos sem jornada própria.
+- Reforçado: a jornada de Pós-venda (FL-030) é a mais fracamente sustentada por Regras/Funcionalidades dedicadas — consistente com as perguntas Q79–Q81 do Business Discovery, ainda sem resposta.
+- Confirmado: nenhuma dependência circular entre os 27 módulos; grafo de dependências é acíclico.
+
+### Pendências
+- P-004-01: validação formal do proprietário sobre o `THE_CHARCOAL_OS_USER_JOURNEYS_AND_SYSTEM_FLOWS.md`.
+- Pendências herdadas: parâmetros do Módulo 24, M-003A-03, M-003A-04, confirmação do domínio de negócio (R-000-03).
+
+### Fluxos identificados
+- 30 fluxos completos (FL-001 a FL-030), cobrindo todas as jornadas obrigatórias solicitadas, mais Matriz de Integração entre Módulos (15 relações mapeadas) e Mapa Operacional consolidado.
+
+### Módulos existentes
+- 27 módulos (inalterados nesta fase).
+
+### Integrações
+- 15 relações módulo-a-módulo documentadas na Matriz de Integração (Seção 4.1 do TCOS-004); nenhuma dependência circular encontrada.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
