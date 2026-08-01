@@ -3,7 +3,7 @@
 **Documento:** Constituição Oficial do Projeto
 **Projeto:** THE CHARCOAL OS
 **Fase:** 000 — Governança do Projeto
-**Status:** Aguardando aprovação do proprietário
+**Status:** APROVADO pelo proprietário em 2026-08-01
 **Versão:** 1.1.0
 
 ### Histórico de Versões deste Documento
@@ -12,6 +12,7 @@
 |---|---|---|---|
 | 1.0.0 | 2026-08-01 | Inicial | Primeira versão da Constituição (Seções 1–20, Regras Permanentes). |
 | 1.1.0 | 2026-08-01 | MINOR (adição compatível) | Complementação solicitada pelo proprietário (comando `ALTERAR`): adicionadas Seções 21–26 (Manifesto, Princípios Fundamentais, Documentos Oficiais, Glossário Oficial, Filosofia de Evolução, Auditoria de Revisão). Nenhum conteúdo da v1.0.0 foi removido ou alterado. |
+| 1.1.0 | 2026-08-01 | Aprovação | Documento aprovado pelo proprietário via comando `APROVADO`, sem novas alterações de conteúdo. Passa a integrar oficialmente a documentação do THE CHARCOAL OS. |
 
 ---
 
