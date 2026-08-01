@@ -528,4 +528,48 @@ Recebido o Prompt Oficial (TCOS-006), executada a auditoria de abertura sobre to
 
 ---
 
+## FASE 006 — Encerramento Oficial
+
+**Status:** APROVADA E CONGELADA pelo proprietário em 2026-08-01 (comando `APROVADO`)
+**Data:** 2026-08-01
+
+O `THE_CHARCOAL_OS_SYSTEM_ARCHITECTURE.md` (v1.0.0) passa a ser documentação oficial do THE CHARCOAL OS. Nenhuma alteração futura sem criação de nova versão.
+
+---
+
+## FASE 007 — Data Architecture
+
+**Status:** Rascunho entregue — aguardando validação do proprietário (`THE_CHARCOAL_OS_DATA_ARCHITECTURE.md` v1.0.0)
+**Data:** 2026-08-01
+
+Recebido o Prompt Oficial (TCOS-007), executada a auditoria de abertura sobre todos os 10 documentos oficiais, e produzido o documento com a arquitetura de dados completa: 7 Domínios de Dados, 24 Agregados, as 30 entidades documentadas nos 12 campos exigidos, Dados Configuráveis/Históricos/Auditoria/Analíticos/IA, Mapa Global dos Dados, Governança dos Dados, 8 Estratégias e Classificação dos Dados em 7 categorias. Nenhuma tecnologia de persistência foi definida. Nenhum documento anterior foi alterado.
+
+### Decisões tomadas
+- D-007-01: introduzidos metadados universais (Identificador Global estável e nunca reutilizado; autor/data de criação e última alteração; escopo organizacional reservado) aplicáveis a todas as 30 entidades sem exceção — lacuna real identificada na auditoria de abertura (nenhum documento anterior havia formalizado isso).
+- D-007-02: Despesa, Receita Financeira e Pagamento foram consolidados em um único "Agregado Financeiro" com três entidades-membro, em vez de três estruturas de integridade isoladas — simplificação concreta identificada na auditoria.
+- D-007-03: fixada a regra geral de soft delete: nenhuma entidade que já participou de um processo de negócio é fisicamente excluída (CG-01/PF-04); apenas registros puramente transitórios e nunca confirmados (ex.: rascunho abandonado) podem ser removidos fisicamente.
+- D-007-04: reservado o escopo "Organização/Unidade" como atributo transversal aditivo (não uma entidade nova), preparando a dimensão multiempresa/multifilial (M-006-01) sem exigir redesenho de nenhuma entidade quando implementada.
+
+### Alterações
+- ALT-007-01: criado o documento `THE_CHARCOAL_OS_DATA_ARCHITECTURE.md` (v1.0.0). Nenhum documento anterior foi alterado.
+
+### Melhorias sugeridas (Backlog)
+- M-007-01 (nova): ao confirmar a decisão de negócio sobre compartilhamento de catálogo (Produto/Receita/Ficha Técnica) entre futuras Unidades/Filiais, atualizar esta arquitetura antes de iniciar o TCOS-008.
+- M-006-01 (herdada): permanece pendente de implementação, agora com mecanismo de adição aditiva já definido.
+
+### Riscos encontrados
+- Nenhum risco novo. Riscos herdados (R-000-03/R-002-01, R-001-01/R-002-02, R-002A-01) permanecem abertos, sem impedir a arquitetura de dados.
+
+### Dúvidas encontradas
+- Se Produto/Receita/Ficha Técnica devem ser compartilhados entre futuras Unidades/Filiais ou específicos de cada uma — decisão de negócio ainda não confirmada (ligada a R-000-03).
+
+### Pendências
+- P-007-01: validação formal do proprietário sobre o `THE_CHARCOAL_OS_DATA_ARCHITECTURE.md`.
+- Pendências herdadas: parâmetros do Módulo 24, M-003A-03/04, M-005-01/02/03, M-006-01, confirmação do domínio de negócio (R-000-03).
+
+### Estrutura de dados identificada
+- 7 Domínios de Dados, 24 Agregados, 30 entidades (0 novas, todas herdadas do Domain Model com camada de dados definida), 30+ relacionamentos mapeados no Mapa Global dos Dados, 7 categorias de Classificação dos Dados.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
