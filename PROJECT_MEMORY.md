@@ -662,4 +662,35 @@ O `THE_CHARCOAL_OS_INTEGRATION_AND_API_CONTRACT.md` (v1.0.0) passa a ser documen
 
 ---
 
+## FASE 010 — Backend Architecture
+
+**Data:** 2026-08-01
+
+Recebido o Prompt Oficial (TCOS-010), executada a auditoria de abertura sobre todos os 13 documentos oficiais, e produzido o documento com a arquitetura lógica interna de backend: organização em 4 camadas por Serviço, os 15 Serviços Conceituais detalhados nos 8 campos exigidos (Objetivo, Responsabilidades, Entradas, Saídas, Dependências, Regras de funcionamento, Restrições, Impacto nos demais módulos), o conceito de Caso de Uso, orquestração coreografada, processamento síncrono/assíncrono, e 10 componentes transversais formalizados (3 deles genuinamente novos: Jobs Agendados, Filas Conceituais, e a separação Logs/Auditoria/Observabilidade/Tolerância a Falhas). Nenhuma linguagem, framework, banco físico ou API foi definida. Nenhum documento anterior foi alterado.
+
+### Decisões tomadas
+- D-010-01: o backend ocupa 4 das 5 camadas macro já definidas no System Architecture (todas exceto Apresentação); cada um dos 15 Serviços é internamente organizado nessas mesmas 4 camadas, escopadas à sua própria responsabilidade.
+- D-010-02: o Caso de Uso foi definido como a menor unidade de execução de backend, sempre correspondente a uma funcionalidade (F-XXX) já aprovada, e sempre operando sobre exatamente um Agregado (TCOS-007) por transação — nunca dois Agregados na mesma transação, mesmo dentro do mesmo Serviço.
+- D-010-03: a orquestração multi-Serviço (ex.: confirmação de Evento) é formalmente **coreografada** (cada Serviço reage a um evento público por conta própria), nunca **centralizada** — nenhum Caso de Uso de origem aguarda a conclusão de Casos de Uso reativos em outros Serviços.
+- D-010-04: três lacunas técnicas reais, nunca antes formalizadas em nenhum documento aprovado, foram identificadas e resolvidas nesta fase por adição: (1) Jobs Agendados — processamento disparado pela passagem do tempo (ex.: alerta de Lote vencendo, encerramento de ciclo de Meta); (2) Filas Conceituais — garantia de entrega/ordem/idempotência de eventos, nunca antes formalizada no Event Bus; (3) separação explícita entre Auditoria de negócio (TCOS-006/008) e Logs técnicos (novo nesta fase), com Observabilidade e Tolerância a Falhas como camadas transversais adicionais.
+
+### Alterações
+- ALT-010-01: criado o documento `THE_CHARCOAL_OS_BACKEND_ARCHITECTURE.md` (v1.0.0). Nenhum documento anterior foi alterado.
+
+### Melhorias sugeridas (Backlog)
+- M-010-01 (nova): ao escolher a tecnologia de mensageria em fase técnica futura, avaliar mecanismos nativos de garantia de entrega/ordem/idempotência antes de implementar o Barramento de Eventos e Filas de forma customizada.
+- M-010-02 (nova): o parâmetro "X dias antes do Evento" usado pelo Job de alerta de escala não confirmada ainda não está definido — associado à mesma pendência já registrada para o Módulo 24 (Configurações).
+
+### Riscos encontrados
+- Nenhum risco novo de negócio. Riscos herdados (R-000-03/R-002-01, R-001-01/R-002-02, R-002A-01) permanecem abertos, sem impedir a arquitetura de backend.
+
+### Pendências
+- P-010-01: validação formal do proprietário sobre o `THE_CHARCOAL_OS_BACKEND_ARCHITECTURE.md`.
+- Pendências herdadas: parâmetros do Módulo 24, M-003A-03/04, M-005-01/02/03, M-006-01, M-007-01, M-008-01, M-009-01, confirmação do domínio de negócio (R-000-03).
+
+### Estrutura de backend identificada
+- 15 Serviços detalhados (100%), 25 componentes com os 8 campos obrigatórios (15 Serviços + 10 transversais), 4 camadas por Serviço, 5 Jobs Agendados catalogados, 34 das 47 Regras de Negócio referenciadas com comportamento de execução detalhado. Maturidade estimada do projeto: 84%.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
