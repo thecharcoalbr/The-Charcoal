@@ -342,4 +342,50 @@ O proprietário aprovou conceitualmente o conteúdo do TCOS-003 (nenhuma funcion
 
 ---
 
+## FASE 003 (complemento 2) — Módulos Metas e Bancos (TCOS-003 v1.2.0)
+
+**Status:** Rascunho entregue — aguardando validação do proprietário
+**Data:** 2026-08-01
+
+O proprietário confirmou que os gaps G-001 (Banco) e G-002 (Meta) identificados na v1.1.0 representam evolução natural do sistema, não falhas, e solicitou (`ALTERAR`) a criação dos Módulos 26 (Metas) e 27 (Bancos), com atualização automática de todas as matrizes e estatísticas do documento.
+
+### Decisões tomadas
+- D-003B-01: criado o Módulo 26 — Metas (F-084 a F-091), resolvendo o gap G-002 e dando cobertura direta à Regra RN-046. O Dashboard CEO (Módulo 01) passa a apenas consumir/apresentar Metas (F-091), nunca geri-las — toda gestão ocorre exclusivamente no Módulo 26, conforme instrução explícita.
+- D-003B-02: criado o Módulo 27 — Bancos (F-092 a F-098), resolvendo o gap G-001 (Banco) e parte do G-003 (Conta), centralizando cadastro de Banco/Conta/Cartão que os Módulos 02 e 03 já utilizavam como dado.
+- D-003B-03: "Cartão" e "Conta Internacional" foram modelados como tipo/atributo da entidade Conta já existente no Domain Model, não como novas entidades — para respeitar a restrição de não alterar entidades nesta fase. Registrada nova melhoria (M-003A-04) para avaliar se Cartão deveria ser uma entidade própria em uma futura revisão do Domain Model.
+- D-003B-04: todas as matrizes de cobertura (entidades, regras), a Matriz Funcional, o Índice Geral e as Estatísticas do Documento foram atualizados para refletir os 27 módulos e 98 funcionalidades — sem alterar nenhum conteúdo de módulos 01–25, funcionalidades F-001–F-083, regras de negócio ou entidades.
+
+### Alterações
+- ALT-003B-01: `THE_CHARCOAL_OS_FUNCTIONAL_SPECIFICATION.md` atualizado de v1.1.0 para v1.2.0. Nenhum outro documento foi tocado.
+
+### Melhorias sugeridas (Backlog)
+- M-003A-01 e M-003A-02: concluídas nesta fase.
+- M-003A-03 (mantida): cadastro explícito de Produto/Ingrediente/Fornecedor/Pacote e definição de fórmula de Indicador.
+- M-003A-04 (nova): avaliar se Cartão deve virar entidade própria no Domain Model.
+
+### Riscos encontrados
+- Nenhum risco novo. Riscos herdados (R-000-03/R-002-01, R-001-01/R-002-02, R-002A-01) inalterados.
+
+### Gaps encontrados
+- G-001 e G-002: **resolvidos** por esta complementação.
+- G-003 (parcial: Conta): **resolvido**; Produto/Ingrediente/Fornecedor/Pacote/Indicador permanecem parciais (fora do escopo desta complementação).
+- G-004 (RN-010): mantido como observação, não como falha.
+- G-005 (novo): Cartão/Conta Internacional modelados como tipo de Conta, não como entidade própria — decisão registrada, não um erro.
+
+### Pendências
+- P-003B-01: validação formal do proprietário sobre a v1.2.0 do TCOS-003.
+- P-003B-02: decisão sobre M-003A-04 (Cartão como entidade própria).
+- Pendências herdadas: M-003A-03, parâmetros do Módulo 24, confirmação do domínio de negócio (R-000-03).
+
+### Módulos existentes
+- 27 módulos funcionais especificados (25 já existentes + Metas + Bancos).
+
+### Funcionalidades identificadas
+- 98 funcionalidades no total (F-001 a F-098); 15 novas nesta fase (F-084 a F-098).
+
+### Integrações
+- Nenhuma técnica; Módulo 27 documentado como fonte de dado para Módulos 02, 03 e 22 (Seção 4.2/7.11 do TCOS-003).
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*

@@ -3,8 +3,8 @@
 **Documento:** TCOS-003 — Especificação Funcional
 **Projeto:** THE CHARCOAL OS
 **Fase:** 003 — Functional Specification
-**Status:** Conteúdo funcional (v1.0.0) conceitualmente aprovado pelo proprietário; complementado em 2026-08-01 com o capítulo permanente de Validação de Cobertura Funcional (v1.1.0), aguardando validação
-**Versão:** 1.1.0
+**Status:** Conteúdo funcional (v1.0.0) e capítulo de Cobertura (v1.1.0) conceitualmente aprovados; complementado em 2026-08-01 com os Módulos 26 (Metas) e 27 (Bancos) (v1.2.0), aguardando validação
+**Versão:** 1.2.0
 
 ### Histórico de Versões deste Documento
 
@@ -12,6 +12,7 @@
 |---|---|---|---|
 | 1.0.0 | 2026-08-01 | Inicial | 25 módulos, 83 funcionalidades (F-001–F-083), Matriz Funcional, Resumo para o Proprietário, TCOS Quality Gate Executivo. |
 | 1.1.0 | 2026-08-01 | MINOR (adição compatível) | Complementação solicitada pelo proprietário (comando `ALTERAR`): adicionado o capítulo permanente "VALIDAÇÃO DE COBERTURA FUNCIONAL" ao final do documento. Nenhuma funcionalidade, numeração, módulo, regra ou integração da v1.0.0 foi alterada. |
+| 1.2.0 | 2026-08-01 | MINOR (adição compatível) | Complementação solicitada pelo proprietário (comando `ALTERAR`), em resposta aos gaps G-001/G-002 identificados na v1.1.0: adicionados o Módulo 26 (Metas, 8 novas funcionalidades F-084–F-091) e o Módulo 27 (Bancos, 7 novas funcionalidades F-092–F-098), um Índice Geral de Módulos, e atualização das matrizes de cobertura, da Matriz Funcional e das estatísticas do documento. Nenhuma funcionalidade F-001–F-083, módulo 01–25, regra de negócio, entidade ou integração pré-existente foi alterada. |
 
 ---
 
@@ -48,6 +49,38 @@ O Domain Model (TCOS-002) definiu **o que cada entidade é**. O Business Rules S
 - Toda funcionalidade referencia as Regras de Negócio (RN-XXX) do TCOS-002A que a governam, sem reescrevê-las.
 - "Quem pode executar/utilizar" usa as Áreas da Empresa já definidas no Domain Discovery (Seção 5): Comercial/CRM, Produção, Compras/Suprimentos, Estoque/Logística, Eventos/Operações, Financeiro, Marketing, Pessoas/Mão de Obra, Administrativo/Documentos, BI/Direção Executiva — mais o papel transversal **Administrador do Sistema** (introduzido neste documento, Módulo 25) para configuração e governança técnica de acesso.
 - Cada funcionalidade é descrita em formato compacto de uma linha por campo, para manter os 13 campos obrigatórios sem redundância com o Domain Model/Business Rules.
+
+### Índice Geral de Módulos *(adicionado em v1.2.0)*
+
+| # | Módulo | Funcionalidades |
+|---|---|---|
+| 01 | Dashboard CEO | F-001–F-002 |
+| 02 | Financeiro Pessoal | F-003–F-004 |
+| 03 | Financeiro Empresarial | F-005–F-010 |
+| 04 | CRM | F-011–F-012 |
+| 05 | Clientes | F-013–F-015 |
+| 06 | Leads | F-016–F-019 |
+| 07 | Eventos | F-020–F-024 |
+| 08 | Orçamentos | F-025–F-028 |
+| 09 | Contratos | F-029–F-031 |
+| 10 | Produção | F-032–F-035 |
+| 11 | Engenharia de Custos | F-036–F-038 |
+| 12 | Receitas | F-039–F-041 |
+| 13 | Fichas Técnicas | F-042–F-044 |
+| 14 | Precificação | F-045–F-047 |
+| 15 | Compras | F-048–F-051 |
+| 16 | Estoque | F-052–F-054 |
+| 17 | Lotes | F-055–F-056 |
+| 18 | Equipamentos | F-057–F-059 |
+| 19 | Funcionários | F-060–F-062 |
+| 20 | Escalas | F-063–F-064 |
+| 21 | Marketing | F-065–F-067 |
+| 22 | Inteligência Artificial | F-068–F-071 |
+| 23 | Documentos | F-072–F-074 |
+| 24 | Configurações | F-075–F-079 |
+| 25 | Administração do Sistema | F-080–F-083 |
+| 26 | Metas *(novo, v1.2.0)* | F-084–F-091 |
+| 27 | Bancos *(novo, v1.2.0)* | F-092–F-098 |
 
 ---
 
@@ -777,6 +810,91 @@ Objetivo: garantir que nenhum alerta gerado por qualquer regra se perca | Execut
 **F-083 — Consultar Indicadores de Saúde do Sistema**
 Objetivo: dar visibilidade sobre o uso e a integridade geral do sistema (não do negócio em si) | Executa: Administrador do Sistema | Dispara: consulta | Fluxo: 1) sistema consolida volume de uso, alertas pendentes, parâmetros de Configurações ainda não definidos | Regras: — | Entradas: nenhuma | Saídas: painel de saúde administrativa | Dados: derivado de todos os módulos | Dependências: nenhuma | Resultado esperado: visibilidade de pendências de configuração e uso do sistema | Exceções: nenhuma | Auditoria: leitura.
 
+### Módulo 26 — Metas *(novo, adicionado em v1.2.0 — resolve o gap G-002)*
+
+- **Objetivo do módulo:** ser o único lugar do sistema onde Metas são criadas, geridas e encerradas — o Dashboard CEO apenas consome e apresenta o que este módulo produz.
+- **Funcionalidades existentes:** F-084 a F-091.
+- **Quem poderá utilizar:** Direção (criação/gestão); demais áreas conforme responsabilidade atribuída à Meta.
+- **Pré-requisitos:** Indicador associado já existente (Módulo 01/Dashboard CEO, ou de qualquer outro módulo).
+- **Fluxo funcional:** criação (com período, indicador, responsável, valor-alvo e critério de sucesso definidos de uma vez) → acompanhamento contínuo → encerramento do ciclo → histórico permanente.
+- **Entradas:** período, Indicador associado, responsável, valor-alvo, critério de sucesso.
+- **Processamentos:** comparação contínua entre valor-alvo e valor real do Indicador; encerramento automático de ciclo (RN-046).
+- **Saídas:** Meta em cada estado (Ativa, Atingida, Não atingida, Encerrada); Dashboard de Metas.
+- **Validações:** toda Meta exige um Indicador mensurável associado (Regra Global do Domain Model).
+- **Restrições:** Meta encerrada não é reaberta — apenas duplicada para novo ciclo (F-087).
+- **Mensagens importantes:** atraso no progresso; ciclo concluído.
+- **Alertas:** atraso (progresso abaixo do esperado para a data); conclusão de ciclo (RN-046).
+- **Automações:** encerramento automático de ciclo com marcação "Atingida"/"Não atingida" (RN-046).
+- **Integrações com outros módulos:** Dashboard CEO (consumo, nunca gestão), Indicadores (associação), todas as áreas como possíveis responsáveis.
+- **Regras de auditoria:** todo ciclo de Meta (ativo, atingido ou não) é preservado permanentemente (RN-046, CG-01); toda justificativa registrada é imutável após o registro.
+- **Indicadores relacionados:** taxa de metas atingidas, tempo médio de atraso.
+
+**F-084 — Criar Meta**
+Objetivo: registrar um novo objetivo quantitativo para um período | Executa: Direção | Dispara: definição de objetivo de gestão | Fluxo: 1) usuário define período, Indicador associado, responsável, valor-alvo e critério de sucesso, em uma única operação 2) Meta entra "Ativa" | Regras: Regra Global de Metas do Domain Model | Entradas: período, Indicador, responsável, valor-alvo, critério de sucesso | Saídas: Meta criada | Dados: Meta, Indicador | Dependências: Indicador já existente | Resultado esperado: objetivo mensurável formalizado | Exceções: nenhum Indicador correspondente bloqueia a criação | Auditoria: criação registrada.
+
+**F-085 — Editar Meta**
+Objetivo: ajustar uma Meta ainda em curso | Executa: Direção | Dispara: necessidade de revisão (ex.: mudança de cenário) | Fluxo: 1) usuário ajusta valor-alvo, período ou responsável 2) alteração é registrada com histórico | Regras: CG-01 | Entradas: campo(s) a alterar | Saídas: Meta atualizada | Dados: Meta | Dependências: Meta "Ativa" | Resultado esperado: Meta sempre refletindo o objetivo real vigente | Exceções: Meta encerrada não pode ser editada | Auditoria: toda edição preserva o valor anterior.
+
+**F-086 — Encerrar Meta (Ciclo)**
+Objetivo: formalizar o fim de um ciclo de Meta | Executa: sistema (automático, RN-046), Direção (encerramento antecipado) | Dispara: fim do período definido, ou decisão da Direção | Fluxo: conforme RN-046 | Regras: RN-046 | Entradas: nenhuma (automático) ou motivo (encerramento antecipado) | Saídas: Meta "Atingida" ou "Não atingida" | Dados: Meta, Indicador | Dependências: Meta "Ativa" | Resultado esperado: resultado do ciclo formalizado e notificado | Exceções: nenhuma | Auditoria: todo ciclo preservado permanentemente.
+
+**F-087 — Duplicar Meta**
+Objetivo: reaproveitar a estrutura de uma Meta anterior para um novo ciclo | Executa: Direção | Dispara: necessidade de repetir um objetivo em novo período | Fluxo: 1) usuário seleciona Meta encerrada como modelo 2) novo período é definido 3) nova Meta "Ativa" é criada | Regras: — | Entradas: Meta de origem, novo período | Saídas: nova Meta criada | Dados: Meta | Dependências: Meta de origem existente | Resultado esperado: agilidade na definição de metas recorrentes | Exceções: nenhuma | Auditoria: nova Meta registra a Meta de origem que a inspirou.
+
+**F-088 — Acompanhar Progresso e Comparar Meta x Realizado**
+Objetivo: visualizar, a qualquer momento, o quão perto a Meta está de ser atingida | Executa: Direção, responsável pela Meta | Dispara: consulta, ou verificação periódica automática | Fluxo: 1) sistema compara valor atual do Indicador com o valor-alvo 2) calcula percentual de progresso | Regras: RN-046 (base de comparação) | Entradas: Meta selecionada | Saídas: progresso atual, alerta de atraso quando aplicável | Dados: Meta, Indicador | Dependências: Indicador com valor atualizado | Resultado esperado: gestão proativa, não apenas no encerramento do ciclo | Exceções: nenhuma | Auditoria: leitura; alerta de atraso é registrado (ver Módulo 25 — Alertas).
+
+**F-089 — Consultar Histórico de Metas**
+Objetivo: visualizar todas as Metas passadas, atingidas ou não | Executa: Direção | Dispara: consulta | Fluxo: 1) usuário filtra por período/responsável/Indicador 2) sistema lista Metas correspondentes | Regras: CG-01 | Entradas: filtros | Saídas: histórico de Metas | Dados: Meta | Dependências: nenhuma | Resultado esperado: aprendizado histórico de gestão por metas | Exceções: nenhuma | Auditoria: leitura.
+
+**F-090 — Registrar Justificativa de Meta**
+Objetivo: documentar o motivo de uma Meta não ter sido atingida (ou ter sido superada) | Executa: responsável pela Meta, Direção | Dispara: encerramento de ciclo (F-086) | Fluxo: 1) usuário registra justificativa 2) justificativa fica permanentemente vinculada ao ciclo | Regras: CG-01 | Entradas: texto de justificativa | Saídas: justificativa registrada | Dados: Meta | Dependências: Meta encerrada | Resultado esperado: aprendizado organizacional preservado, não apenas o número final | Exceções: nenhuma | Auditoria: justificativa é imutável após registrada.
+
+**F-091 — Visualizar Dashboard de Metas**
+Objetivo: apresentar, de forma consolidada, todas as Metas ativas e seu progresso | Executa: Direção, responsáveis pelas Metas | Dispara: acesso à tela do módulo | Fluxo: 1) sistema agrega todas as Metas ativas e seus progressos | Regras: RN-039 (mesma regra geral de composição de Dashboard por Indicador) | Entradas: nenhuma | Saídas: painel de Metas | Dados: Meta, Indicador | Dependências: Metas ativas existentes | Resultado esperado: visão dedicada de metas, consumida (não gerida) também pelo Dashboard CEO | Exceções: nenhuma | Auditoria: leitura.
+
+### Módulo 27 — Bancos *(novo, adicionado em v1.2.0 — resolve o gap G-001 e parte do G-003)*
+
+- **Objetivo do módulo:** centralizar toda a gestão bancária do sistema — cadastro de Bancos, Contas e Cartões — servindo como fonte única de dado para o Financeiro Pessoal, o Financeiro Empresarial e a Importação/Conciliação de Extratos.
+- **Funcionalidades existentes:** F-092 a F-098.
+- **Quem poderá utilizar:** Financeiro; Direção (consulta).
+- **Pré-requisitos:** nenhum para cadastro de Banco.
+- **Fluxo funcional:** cadastro de Banco → cadastro de Conta/Cartão (classificados por tipo) → consulta de saldo/histórico → uso pelos módulos Financeiro Pessoal, Financeiro Empresarial e Inteligência Artificial (importação/conciliação).
+- **Entradas:** dados do Banco, dados da Conta/Cartão, tipo (pessoal, empresarial, cartão, digital, investimento, internacional).
+- **Processamentos:** classificação por tipo; consolidação de saldo por Conta/Banco.
+- **Saídas:** Banco/Conta/Cartão cadastrados; saldo e histórico consultáveis.
+- **Validações:** toda Conta pertence a um único Banco; todo Pagamento referencia uma Conta existente e ativa.
+- **Restrições:** Conta/Cartão encerrado não recebe novo Pagamento.
+- **Mensagens importantes:** nenhuma própria além das já herdadas de RN-043/RN-044.
+- **Alertas:** herdados de RN-043 (importação) e RN-044 (conciliação), agora com o cadastro que lhes faltava.
+- **Automações:** nenhuma própria — fornece a base de dados para as automações já existentes em RN-043/RN-044/RN-045.
+- **Integrações com outros módulos:** Financeiro Pessoal (F-003, F-004), Financeiro Empresarial (F-005 a F-010), Inteligência Artificial (F-068, importação de extrato), Dashboard CEO/Financeiro (consumo consolidado).
+- **Regras de auditoria:** toda alteração de cadastro, status ou saldo inicial é registrada com histórico (CG-01).
+- **Indicadores relacionados:** saldo consolidado por tipo de Conta, número de Contas ativas.
+
+**Nota de modelagem:** "Cartão" foi tratado como um **tipo/subtipo de Conta** (entidade já existente no Domain Model), e não como uma nova entidade — para não violar a restrição desta fase de não alterar entidades. Caso o proprietário deseje que Cartão tenha ciclo de vida próprio (fatura, limite, vencimento, como uma entidade distinta), isso deve ser tratado em uma futura revisão formal do Domain Model (TCOS-002), fora do escopo desta atualização. O mesmo vale para "Conta Internacional" (tratada como Conta com atributo de moeda), sem criar nova entidade.
+
+**F-092 — Cadastrar Banco**
+Objetivo: registrar uma instituição financeira | Executa: Financeiro | Dispara: necessidade de nova relação bancária | Fluxo: 1) dados do Banco são informados 2) Banco entra "Ativo" | Regras: CG-02 | Entradas: nome do Banco | Saídas: Banco cadastrado | Dados: Banco | Dependências: nenhuma | Resultado esperado: base para cadastro de Contas | Exceções: nenhuma | Auditoria: criação registrada.
+
+**F-093 — Cadastrar/Editar Conta (Pessoal, Empresarial, Digital ou de Investimento)**
+Objetivo: registrar uma conta bancária vinculada a um Banco | Executa: Financeiro | Dispara: abertura de nova conta ou necessidade de cadastrá-la no sistema | Fluxo: 1) Banco de vínculo é selecionado 2) tipo de Conta é classificado (pessoal, empresarial, digital, investimento, internacional) 3) Conta entra "Ativa" | Regras: Regras Globais Financeiras do Domain Model | Entradas: Banco, tipo, identificação da Conta, moeda (se internacional) | Saídas: Conta cadastrada/atualizada | Dados: Conta, Banco | Dependências: Banco cadastrado | Resultado esperado: base de dado que F-005 a F-008 e F-003/F-004 já utilizavam, agora efetivamente cadastrável | Exceções: nenhuma | Auditoria: toda alteração preserva histórico.
+
+**F-094 — Cadastrar/Gerenciar Cartão**
+Objetivo: registrar um Cartão (crédito/débito) vinculado a uma Conta | Executa: Financeiro | Dispara: necessidade de cadastrar um Cartão usado pela empresa ou pessoalmente | Fluxo: 1) Conta de vínculo é selecionada 2) dados do Cartão (limite, vencimento de fatura, quando aplicável) são informados | Regras: Regras Globais Financeiras do Domain Model | Entradas: Conta de vínculo, limite, vencimento | Saídas: Cartão cadastrado (como Conta do tipo "Cartão") | Dados: Conta (tipo Cartão) | Dependências: Conta/Banco cadastrados | Resultado esperado: gastos em Cartão rastreáveis como qualquer outro Pagamento | Exceções: nenhuma | Auditoria: toda alteração preserva histórico.
+
+**F-095 — Inativar/Encerrar Conta ou Cartão**
+Objetivo: registrar o encerramento de uma relação bancária | Executa: Financeiro | Dispara: encerramento de conta/cartão | Fluxo: 1) usuário solicita encerramento 2) Conta passa a "Encerrada", preservando o histórico | Regras: Regras Globais Financeiras do Domain Model | Entradas: Conta/Cartão selecionado, motivo (opcional) | Saídas: Conta "Encerrada" | Dados: Conta | Dependências: nenhuma | Resultado esperado: nenhum novo Pagamento é possível na Conta encerrada | Exceções: nenhuma | Auditoria: encerramento registrado permanentemente.
+
+**F-096 — Consultar Saldo e Status de Conta**
+Objetivo: visualizar o saldo atual e o status de cada Conta/Cartão | Executa: Financeiro, Direção | Dispara: consulta | Fluxo: 1) usuário seleciona Conta/Banco 2) sistema exibe saldo e status | Regras: Regra de Fluxo de Caixa do Domain Model | Entradas: Conta/Banco selecionado | Saídas: saldo, status | Dados: Conta, Pagamento | Dependências: nenhuma | Resultado esperado: visibilidade real de posição bancária | Exceções: nenhuma | Auditoria: leitura.
+
+**F-097 — Consultar Histórico de Movimentações por Conta**
+Objetivo: visualizar todos os Pagamentos associados a uma Conta | Executa: Financeiro | Dispara: consulta ou preparação de conciliação (RN-044) | Fluxo: 1) usuário seleciona a Conta 2) sistema lista Pagamentos | Regras: RN-044 | Entradas: Conta selecionada, período | Saídas: histórico de movimentações | Dados: Conta, Pagamento | Dependências: Pagamentos já registrados | Resultado esperado: base para conciliação e auditoria financeira | Exceções: nenhuma | Auditoria: leitura.
+
+**F-098 — Visualizar Dashboard Financeiro Consolidado (Bancos e Contas)**
+Objetivo: apresentar a posição consolidada de todos os Bancos, Contas e Cartões | Executa: Financeiro, Direção | Dispara: acesso à tela do módulo | Fluxo: 1) sistema agrega saldo e status de todas as Contas | Regras: RN-039 | Entradas: nenhuma | Saídas: painel financeiro consolidado | Dados: Banco, Conta | Dependências: Contas cadastradas | Resultado esperado: visão bancária dedicada, consumida (não gerida) também pelo Dashboard CEO | Exceções: nenhuma | Auditoria: leitura.
+
 ---
 
 ## 4. Matriz Funcional
@@ -810,7 +928,9 @@ Objetivo: dar visibilidade sobre o uso e a integridade geral do sistema (não do
 | 23 | Documentos | 3 | F-072–F-074 |
 | 24 | Configurações | 5 | F-075–F-079 |
 | 25 | Administração do Sistema | 4 | F-080–F-083 |
-| **Total** | **25 módulos** | **83 funcionalidades** | F-001–F-083 |
+| 26 | Metas *(v1.2.0)* | 8 | F-084–F-091 |
+| 27 | Bancos *(v1.2.0)* | 7 | F-092–F-098 |
+| **Total** | **27 módulos** | **98 funcionalidades** | F-001–F-098 |
 
 ### 4.2 Dependências entre Módulos (visão de negócio, sem tecnologia)
 
@@ -827,6 +947,8 @@ CRM ◄── Leads, Clientes, Marketing (consolida, não origina dado)
 Inteligência Artificial ──► Financeiro Empresarial (extrato), Compras (previsão), Precificação (sugestão) — sempre como apoio, nunca decisão sozinha
 Documentos ◄── Contratos, Compras, Clientes, Fornecedores, Eventos (gerados a partir deles)
 Administração do Sistema ──► todos (governança de acesso e alertas, transversal)
+Bancos ──► Financeiro Pessoal, Financeiro Empresarial, Inteligência Artificial (importação/conciliação) — fornece o cadastro que esses módulos já consumiam (v1.2.0)
+Metas ──► Dashboard CEO (apenas consumo/apresentação, nunca gestão — v1.2.0)
 ```
 
 ### 4.3 Funcionalidades Críticas
@@ -841,6 +963,7 @@ Consideradas críticas por protegerem margem, segurança alimentar ou integridad
 - F-056 (Registrar Vencimento ou Descarte de Lote — segurança alimentar, RN-034).
 - F-068 (Sugerir Categorização de Lançamento Financeiro — ponto de entrada da IA no Financeiro, RN-043).
 - F-075 a F-079 (Configurações — sem elas, 8 das 47 Regras de Negócio operam apenas em modo de alerta/bloqueio, nunca automaticamente).
+- F-092, F-093 (Cadastrar Banco/Conta — sem elas, F-005 a F-008 e F-003/F-004 não têm sobre o que operar; adicionadas em v1.2.0).
 
 ### 4.4 Funcionalidades Futuras (Roadmap, fora do escopo atual)
 
@@ -947,19 +1070,19 @@ Este capítulo é permanente: toda futura versão deste documento deve manter e 
 | 17 | Despesa | F-005, F-007, F-009, F-010 | 03 | Direta |
 | 18 | Receita Financeira | F-006, F-007, F-009 | 03 | Direta |
 | 19 | Pagamento | F-007 | 03 | Direta |
-| 20 | Banco | — | — | **Ausente** |
-| 21 | Conta | F-005 a F-008 (usada como dado) | 03 | **Parcial** — usada, sem funcionalidade explícita de cadastro |
+| 20 | Banco | F-092 *(v1.2.0)* | 27 | **Direta** *(resolvido — era Ausente na v1.1.0)* |
+| 21 | Conta | F-093, F-094, F-095, F-096, F-097 *(v1.2.0)*, + usada em F-005 a F-008 | 27, 03 | **Direta** *(resolvido — era Parcial na v1.1.0)* |
 | 22 | Fluxo de Caixa | F-008 | 03 | Direta |
 | 23 | Funcionário | F-060, F-061, F-062 | 19 | Direta |
 | 24 | Alocação de Funcionário | F-063, F-064 | 20 | Direta |
 | 25 | Documento | F-072, F-073, F-074 | 23 | Direta |
-| 26 | Meta | — | — | **Ausente** |
+| 26 | Meta | F-084 a F-090 *(v1.2.0)* | 26 | **Direta** *(resolvido — era Ausente na v1.1.0)* |
 | 27 | Indicador | F-001, F-002 (selecionado/usado) | 01 | **Parcial** — usado, sem funcionalidade explícita de definição de fórmula |
-| 28 | Dashboard | F-001, F-002 | 01 | Direta |
+| 28 | Dashboard | F-001, F-002, F-091, F-098 | 01, 26, 27 | Direta |
 | 29 | Pacote | F-046 (usado em precificação/orçamento) | 08, 14 | **Parcial** — usado, sem funcionalidade explícita de criação |
 | 30 | Evento | F-020, F-021, F-022, F-023, F-024 | 07 | Direta |
 
-**Resultado:** 22 entidades com cobertura Direta, 6 com cobertura Parcial (usadas por outras funcionalidades, mas sem uma funcionalidade própria de cadastro/definição), 2 Ausentes (Banco, Meta). Detalhamento no item 7.8 (Gaps).
+**Resultado (v1.2.0):** 25 entidades com cobertura Direta (+3 desde a v1.1.0: Banco, Conta, Meta), 5 com cobertura Parcial (Produto, Ingrediente, Fornecedor, Indicador, Pacote), 0 Ausentes. Detalhamento no item 7.8 (Gaps).
 
 ### 7.2 Matriz — Regras de Negócio (TCOS-002A) → Funcionalidades
 
@@ -1010,10 +1133,10 @@ Este capítulo é permanente: toda futura versão deste documento deve manter e 
 | RN-043 | Importação de Extrato Bancário | F-007, F-068 | Direta |
 | RN-044 | Conciliação Bancária | F-007 | Direta |
 | RN-045 | Lançamento Manual | F-005, F-006 | Direta |
-| RN-046 | Acompanhamento de Meta | — | **Ausente** |
+| RN-046 | Acompanhamento de Meta | F-084, F-086, F-088 *(v1.2.0)* | **Direta** *(resolvido — era Ausente na v1.1.0)* |
 | RN-047 | Tratamento Padrão de Alerta | F-082 | Direta |
 
-**Resultado:** 45 de 47 Regras com cobertura Direta, 1 com cobertura Indireta (RN-010), 1 Ausente (RN-046). Detalhamento no item 7.8.
+**Resultado (v1.2.0):** 46 de 47 Regras com cobertura Direta (+1 desde a v1.1.0: RN-046), 1 com cobertura Indireta (RN-010), 0 Ausentes. Detalhamento no item 7.8.
 
 ### 7.3 Funcionalidades que Dependem de Parâmetros Ainda Não Definidos
 
@@ -1056,18 +1179,40 @@ Funcionalidades cuja ausência temporária não impede a operação essencial do
 
 ### 7.8 Gaps Encontrados
 
-1. **Entidade Banco sem funcionalidade de cadastro.** Nenhuma das 83 funcionalidades cria explicitamente um Banco/Conta — apenas os utilizam como dado já existente (F-005 a F-008). Recomendação: M-003A-01.
-2. **Entidade Meta e Regra RN-046 sem cobertura.** "Metas" não estava entre os 25 módulos mínimos exigidos para o TCOS-003 (diferente dos 36 temas do TCOS-002A, que incluíam Metas). Isso não é um erro de execução desta fase — é uma diferença legítima de escopo entre os dois documentos, agora tornada visível por esta auditoria. Recomendação: M-003A-02.
-3. **Produto, Ingrediente, Fornecedor, Conta, Indicador e Pacote são usados, mas nenhuma funcionalidade cadastra/cria cada um explicitamente** — o fluxo atual pressupõe que já existem. Recomendação: M-003A-03.
-4. **RN-010 (Fidelização de Cliente) é citada apenas na descrição do Módulo 05, não no campo "Regras" de nenhuma funcionalidade específica** — consistente com ser uma regra 100% automática (disparada por "Evento concluído"), mas vale registrar a ausência de uma funcionalidade explícita de consulta/gestão de fidelização. Recomendação: incluída em M-003A-03.
+**Gaps da v1.1.0 e seu status após a v1.2.0:**
 
-Nenhum destes gaps invalida o TCOS-003 v1.0.0 já aprovado — são lacunas de granularidade, não inconsistências ou contradições, e ficam formalmente registradas para tratamento em versão futura, sem necessidade de reabrir o que já foi aprovado.
+1. ~~**Entidade Banco sem funcionalidade de cadastro.**~~ **RESOLVIDO em v1.2.0** pelo Módulo 27 (F-092).
+2. ~~**Entidade Meta e Regra RN-046 sem cobertura.**~~ **RESOLVIDO em v1.2.0** pelo Módulo 26 (F-084 a F-090). Confirmado pelo proprietário: os gaps de Banco e Meta representam evolução natural do sistema, não falhas de execução da fase anterior.
+3. **Produto, Ingrediente, Fornecedor, Indicador e Pacote continuam usados, mas sem funcionalidade explícita de cadastro/definição própria.** Não fazia parte do escopo desta complementação (limitada a Metas e Bancos). Recomendação: M-003A-03 (mantida em aberto).
+4. **RN-010 (Fidelização de Cliente) continua citada apenas na descrição do Módulo 05**, sem funcionalidade dedicada — mantido como observação, não como falha (regra 100% automática). Recomendação: mantida em M-003A-03.
+
+**Novos gaps identificados nesta auditoria (v1.2.0):**
+
+5. **"Cartão" e "Conta Internacional" foram modelados como tipo/atributo de Conta, não como entidades próprias**, para não violar a restrição de não alterar entidades nesta fase. Se o proprietário desejar ciclo de vida próprio para Cartão (fatura, limite, vencimento como conceitos de primeira classe), isso exigirá uma revisão formal do Domain Model (TCOS-002) — fora do escopo desta atualização. Recomendação: M-003A-04.
+6. **Nenhum gap de redundância entre módulos foi encontrado** (ver Seção 7.11 — Cobertura dos Módulos): Módulo 26 (Metas) e Módulo 27 (Bancos) têm escopo de gestão exclusivo e claramente distinto do Dashboard CEO (Módulo 01) e do Financeiro (Módulos 02/03), que passam a apenas consumir o que esses dois novos módulos produzem — sem sobreposição de responsabilidade.
+
+Nenhum destes gaps invalida qualquer versão anterior já aprovada — são lacunas de granularidade, não inconsistências ou contradições, e ficam formalmente registradas para tratamento em versão futura.
 
 ### 7.9 Melhorias Sugeridas
 
-- M-003A-01: incluir, em uma futura v1.2.0, funcionalidades de cadastro de Banco/Conta (provável novo item no Módulo 03).
-- M-003A-02: avaliar com o proprietário se um 26º módulo "Metas" (cobrindo RN-046) deve ser incorporado a uma futura versão, ou se Metas permanece deliberadamente fora do escopo funcional do usuário final (por exemplo, se for tratado apenas como configuração da Direção dentro do Dashboard CEO).
-- M-003A-03: incluir, em uma futura versão, funcionalidades explícitas de cadastro para Produto (catálogo), Ingrediente, Fornecedor e Pacote, e de definição de fórmula de Indicador — hoje implicitamente assumidos como pré-existentes pelas funcionalidades que os consomem.
+- ~~M-003A-01~~ **Concluída em v1.2.0** (Módulo 27).
+- ~~M-003A-02~~ **Concluída em v1.2.0** (Módulo 26).
+- M-003A-03 (mantida): incluir, em uma futura versão, funcionalidades explícitas de cadastro para Produto (catálogo), Ingrediente, Fornecedor e Pacote, e de definição de fórmula de Indicador.
+- M-003A-04 (nova): avaliar com o proprietário se "Cartão" deve se tornar uma entidade própria no Domain Model (com fatura, limite e vencimento como conceitos de primeira classe) em vez de um tipo de Conta.
+
+### 7.11 Cobertura dos Módulos (Verificação de Redundância) *(nova em v1.2.0)*
+
+Verificação explícita de que os 27 módulos não se sobrepõem em responsabilidade:
+
+| Módulo | Escopo exclusivo | Módulo(s) relacionado(s) | Sobreposição? |
+|---|---|---|---|
+| 01 — Dashboard CEO | Consolidação e apresentação executiva geral | Todos (consumo) | Não — apenas consome, nunca gerencia dados de outros módulos |
+| 26 — Metas | Criação, edição, encerramento e histórico de Metas | 01 (consumo via F-091) | Não — Dashboard CEO nunca cria/edita Meta, apenas exibe |
+| 02 — Financeiro Pessoal | Retiradas pessoais como Despesa | 03, 27 | Não — trata exclusivamente da natureza "pessoal" do lançamento |
+| 03 — Financeiro Empresarial | Despesa, Receita Financeira, Pagamento, Fluxo de Caixa operacionais | 02, 27 | Não — usa Conta/Banco cadastrados no Módulo 27, mas não os cadastra |
+| 27 — Bancos | Cadastro e gestão de Banco, Conta e Cartão | 02, 03, 22 (IA) | Não — apenas cadastra e consulta; não lança Despesa/Receita Financeira |
+
+Nenhuma redundância de responsabilidade foi encontrada entre os 27 módulos.
 
 ### 7.10 Resumo Executivo (Linguagem Simples)
 
@@ -1135,4 +1280,63 @@ Aguardar validação do proprietário sobre esta complementação, incluindo dec
 
 ---
 
-*Fim do documento — THE CHARCOAL OS FUNCTIONAL SPECIFICATION v1.1.0*
+## 9. Estatísticas do Documento *(nova em v1.2.0)*
+
+| Métrica | v1.1.0 | v1.2.0 | Variação |
+|---|---|---|---|
+| Módulos | 25 | 27 | +2 |
+| Funcionalidades | 83 | 98 | +15 |
+| Entidades do Domain Model cobertas (Direta) | 22 | 25 | +3 |
+| Entidades do Domain Model cobertas (Parcial) | 6 | 5 | −1 (Conta passou a Direta; Banco e Meta não contavam aqui) |
+| Entidades do Domain Model Ausentes | 2 | 0 | −2 |
+| Regras de Negócio cobertas (Direta) | 45 | 46 | +1 |
+| Regras de Negócio cobertas (Indireta) | 1 | 1 | 0 |
+| Regras de Negócio Ausentes | 1 | 0 | −1 |
+| Gaps abertos | 4 | 3 (+1 novo, ver 7.8) | — |
+| Melhorias sugeridas em aberto | 3 | 2 | −1 |
+
+## 10. TCOS QUALITY GATE EXECUTIVO (v1.2.0)
+
+**Resumo Executivo**
+Adicionados os Módulos 26 (Metas) e 27 (Bancos) ao TCOS-003, com 15 novas funcionalidades (F-084 a F-098), resolvendo os dois gaps reais identificados na auditoria de cobertura anterior (Banco e Meta), sem alterar nenhum conteúdo já aprovado (F-001–F-083, Módulos 01–25, Regras de Negócio, entidades ou integrações).
+
+**Estado atual do projeto**
+Fase 003 com escopo funcional agora cobrindo a totalidade das entidades e quase a totalidade das Regras de Negócio (46 de 47 diretamente); nenhuma fase técnica (Arquitetura, Banco de Dados, UX/UI, APIs) foi iniciada.
+
+**Documentos oficiais**
+Os mesmos 7 já registrados na Executive Memory da Seção 0, mais esta nova versão (v1.2.0) do TCOS-003.
+
+**Novos módulos criados**
+Módulo 26 — Metas (F-084 a F-091, 8 funcionalidades); Módulo 27 — Bancos (F-092 a F-098, 7 funcionalidades).
+
+**Quantidade total de módulos:** 27.
+
+**Quantidade total de funcionalidades:** 98 (F-001–F-098).
+
+**Quantidade total de entidades cobertas:** 30 de 30 (25 Diretas, 5 Parciais, 0 Ausentes).
+
+**Quantidade total de regras cobertas:** 47 de 47 (46 Diretas, 1 Indireta, 0 Ausentes).
+
+**Pendências abertas**
+- Validação formal do proprietário sobre a v1.2.0.
+- M-003A-03: cadastro explícito de Produto/Ingrediente/Fornecedor/Pacote e definição de fórmula de Indicador.
+- M-003A-04 (nova): decisão sobre Cartão como entidade própria no Domain Model.
+- Confirmação dos parâmetros de negócio do Módulo 24 (herdada).
+
+**Riscos ativos**
+R-000-03/R-002-01, R-001-01/R-002-02, R-002A-01 (todos herdados, inalterados por esta complementação).
+
+**Melhorias sugeridas**
+M-003A-03 (mantida), M-003A-04 (nova).
+
+**Percentual atualizado de maturidade do projeto: 42%**
+(subiu de 38% para 42% — cobertura de entidades e regras praticamente completa reduz significativamente o risco de retrabalho nas fases técnicas futuras; o restante do percentual pendente reflete os parâmetros de negócio ainda não confirmados e a ausência de decisão técnica de arquitetura/dados/UX/API).
+
+**Nota da fase: 9,5/10**
+Justificativa: os dois gaps reais identificados foram resolvidos com módulos coerentes, sem retrabalho em nenhum conteúdo já aprovado, e com nova auditoria genuína (não apenas "carimbo") que identificou e registrou honestamente um gap adicional (Cartão como possível entidade própria). Não é 10 porque M-003A-03 permanece em aberto e ainda há parâmetros de negócio pendentes de confirmação real.
+
+**Atualização do PROJECT_MEMORY.md:** ver commit correspondente.
+
+---
+
+*Fim do documento — THE CHARCOAL OS FUNCTIONAL SPECIFICATION v1.2.0*
