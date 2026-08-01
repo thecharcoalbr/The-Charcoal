@@ -613,6 +613,17 @@ Recebido o Prompt Oficial (TCOS-008), executada a auditoria de abertura sobre to
 
 ---
 
+## FASE 008 — Encerramento Oficial
+
+**Status:** APROVADA E CONGELADA pelo proprietário em 2026-08-01 (comando `APROVADO`)
+**Data:** 2026-08-01
+
+O `THE_CHARCOAL_OS_DATABASE_SPECIFICATION.md` (v1.0.0) passa a ser documentação oficial do THE CHARCOAL OS. Nenhuma alteração futura sem criação de nova versão.
+
+*Nota de auditoria (registrada na Fase 010): este fechamento formal não havia sido registrado no momento da aprovação — corrigido agora, por adição, sem alterar nenhum conteúdo já existente neste arquivo.*
+
+---
+
 ## FASE 009 — Integration and API Contract
 
 **Data:** 2026-08-01
@@ -639,6 +650,15 @@ Recebido o Prompt Oficial (TCOS-009), executada a auditoria de abertura sobre to
 
 ### Estrutura de integração identificada
 - 20 Integrações, 27 de 27 módulos cobertos (100%), 15 de 15 Serviços cobertos (100%), 30 de 30 entidades conectadas (100%), 16 eventos formalmente referenciados (13 de domínio + 3 arquiteturais), 30 das 47 Regras de Negócio com cadeia multi-Serviço documentada. Maturidade estimada do projeto: 80%.
+
+---
+
+## FASE 009 — Encerramento Oficial
+
+**Status:** APROVADA E CONGELADA pelo proprietário em 2026-08-01 (comando `APROVADO`)
+**Data:** 2026-08-01
+
+O `THE_CHARCOAL_OS_INTEGRATION_AND_API_CONTRACT.md` (v1.0.0) passa a ser documentação oficial do THE CHARCOAL OS. Nenhuma alteração futura sem criação de nova versão.
 
 ---
 
