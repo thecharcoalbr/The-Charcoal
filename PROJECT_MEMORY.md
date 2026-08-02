@@ -1954,4 +1954,29 @@ Reiniciada a Auditoria de Abertura da Tela 10 após as duas correções do Capí
 
 ---
 
+## APROVAÇÃO — Tela 10 (Dashboard Metas) — Conclusão oficial
+
+**Status:** APROVADA E CONGELADA PELO PROPRIETÁRIO (comando `APROVADO`)
+**Data:** 2026-08-02
+
+O proprietário aprovou integralmente a Tela 10 (Dashboard Metas) como baseline oficial, encerrando esta etapa.
+
+### Alterações
+- Nenhuma alteração de conteúdo. Apenas este registro de aprovação em `PROJECT_MEMORY.md`.
+
+### Confirmação de auditoria de consistência pós-aprovação
+- Confirmado que o mockup `mockup-dashboard-metas.html`/`dashboard-metas.png` (scratchpad, não versionado em Git) corresponde integralmente ao TCOS-018 Capítulo 22 (já corrigido nas 2 rodadas desta fase) e à UX/UI Specification §3.10.
+- Confirmado que os dados compartilhados com a Tela 01 (Dashboard CEO) — Faturamento do mês (72%), Novos Clientes no trimestre (45%), Redução de perda de Produção (100%) — permanecem idênticos entre as duas telas, sem duplicação de cálculo.
+- Confirmado, via `git status`, que nenhum documento oficial além do `PROJECT_MEMORY.md` foi alterado nesta etapa de aprovação.
+- Confirmado que a Tela 10 passa a integrar oficialmente o conjunto de referências visuais aprovadas do THE CHARCOAL OS, ao lado das Telas 01–09.
+
+### Pendências
+- Correção pendente do TCOS-018 Capítulo 19 ("azul" → "Âmbar-Atenção"), achado §3.15 Orçamentos (UX/UI Specification) e OE-T06-01 permanecem, sem alteração.
+- Backlog Oficial de UX/UI da Tela 09 (OE-T09-01 a OE-T09-06) permanece aguardando a futura Revisão Global de UX/UI.
+- Início imediato do protocolo oficial da Tela 11 (Dashboard Inteligência Artificial).
+
+**Aprovação:** a Tela 10 (Dashboard Metas) foi aprovada integralmente pelo proprietário (comando `APROVADO`) e passa a integrar oficialmente o conjunto de referências visuais aprovadas do THE CHARCOAL OS, ao lado das Telas 01–09.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
