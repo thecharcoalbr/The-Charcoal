@@ -428,7 +428,7 @@ Distribuição em grid: Desktop 2 a 4 colunas (Capítulo 11 deste documento), Ta
 
 **Cards de KPI:** Sugestões pendentes; Taxa de aceite; Previsões ativas.
 
-**Visualização:** feed cronológico de sugestões, cada uma com origem (módulo), tipo (Classificação/Previsão/Recomendação/Monitoramento, AI Architecture, Capítulo 6) e Componente de sugestão de IA (botões Aceitar/Recusar).
+**Visualização:** feed cronológico de sugestões, cada uma com origem (módulo), confiança, tipo (Classificação/Previsão/Recomendação/Monitoramento, AI Architecture, Capítulo 6) e Componente de sugestão de IA (botões Aceitar/Recusar).
 
 **Gráfico:** gráfico de taxa de aceite ao longo do tempo.
 

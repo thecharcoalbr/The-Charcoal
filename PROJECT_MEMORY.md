@@ -2010,4 +2010,31 @@ Ao iniciar a Auditoria de Abertura da Tela 11 (Dashboard Inteligência Artificia
 
 ---
 
+## CORREÇÃO — Atributo "Confiança" Ausente no Campo "Visualização" (TCOS-018, Capítulo 23)
+
+**Status:** CONCLUÍDA E APROVADA PELO PROPRIETÁRIO (comando `CORRIGIR`, escopo fechado)
+**Data:** 2026-08-02
+
+Ao reiniciar a Auditoria de Abertura da Tela 11 após a correção anterior (Alertas/Notificações/Modais/Estados da interface/Filtros), a releitura do campo "Visualização" do Capítulo 23 contra a UX/UI Specification §3.11 encontrou uma nova divergência, independente da anterior: o atributo "confiança" (grau de confiança da sugestão de IA), explicitamente listado na fonte oficial e diretamente referenciado pela RN-042 ("alerta de baixa confiança quando o histórico for insuficiente"), não constava em nenhum campo do Capítulo 23. Reportado como Achado formal antes de qualquer correção; o proprietário autorizou (`CORRIGIR`) o escopo exato abaixo.
+
+### Decisões tomadas
+- D-COR11-01: campo "Visualização" do Capítulo 23 corrigido — atributo "confiança" inserido na enumeração ("origem (módulo), confiança, tipo..."), copiado literalmente da UX/UI Specification §3.11, Layout item 3 ("cada sugestão... com origem, confiança e status"). Demais atributos já existentes (tipo, Componente de sugestão de IA) mantidos inalterados.
+
+### Alterações
+- ALT-COR11-01: `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` (TCOS-018), Capítulo 23, campo "Visualização" — inserção pontual do atributo "confiança". Confirmado via `git diff` que apenas essa linha foi alterada (1 inserção, 1 remoção) — nenhum outro campo do Capítulo 23 (Objetivo, Cards de KPI, Gráfico, Ações rápidas, Modais, Alertas, Notificações, Filtros, Estados da interface, Comportamento esperado) foi tocado; nenhum outro capítulo alterado; verificação programática confirmou os 28 capítulos permanecem sequenciais; nenhum identificador oficial (RN-041/042/043, F-068–F-071) foi modificado.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova além das já registradas (correção pendente Cap. 19 "azul"; achado §3.15 Orçamentos; OE-T06-01; Backlog Oficial de UX/UI da Tela 09, itens OE-T09-01 a OE-T09-06).
+
+### Riscos encontrados
+- Nenhum risco novo de arquitetura, regra de negócio ou documento oficial.
+
+### Pendências
+- Nova Auditoria de Abertura da Tela 11 a ser executada (novamente) antes da construção, conforme protocolo.
+- Correção pendente do TCOS-018 Capítulo 19 ("azul" → "Âmbar-Atenção"), achado §3.15 Orçamentos e OE-T06-01 permanecem, sem alteração.
+
+**Confirmação de auditoria:** confirmado, antes da edição, que o working tree estava limpo e os 28 capítulos íntegros/sequenciais. Confirmado, depois da edição, via `git diff`, que apenas a linha do campo "Visualização" do Capítulo 23 foi alterada; confirmado que nenhum outro campo, capítulo ou documento oficial foi modificado; confirmado que RN-041/042/043 e F-068–F-071 permanecem íntegros em seus documentos de origem.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
