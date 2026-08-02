@@ -3,7 +3,7 @@
 **Documento:** TCOS-013 — Arquitetura Conceitual de Inteligência Artificial
 **Projeto:** THE CHARCOAL OS
 **Fase:** 013 — AI Architecture
-**Status:** Rascunho para validação do proprietário
+**Status:** Oficial — Aprovado e Congelado pelo proprietário em 2026-08-02 (comando `APROVADO`)
 **Versão:** 1.0.0
 
 ---
@@ -310,8 +310,8 @@ Justificativa técnica: cobertura completa dos 31 tópicos exigidos, com identif
 - Quantidade de melhorias sugeridas: 3 novas (M-013-01 a M-013-03).
 - Percentual estimado de maturidade do projeto: **93%** (subiu de 91% — a arquitetura conceitual de IA, complementar às de backend, frontend e segurança, está completa e auditada; restam como não iniciadas: confirmação final do domínio de negócio via entrevista, escolha de tecnologia/modelo, e toda a fase de Desenvolvimento propriamente dita).
 
-**Status desta fase:** rascunho aguardando validação do proprietário. Nenhuma fase de Desenvolvimento, Código, modelo de IA, API, banco de dados ou infraestrutura será iniciada sem autorização explícita, conforme restrição do Prompt Oficial da Fase 013.
+**Status desta fase:** APROVADA E CONGELADA pelo proprietário em 2026-08-02 (comando `APROVADO`). Este documento passa a integrar a documentação oficial do THE CHARCOAL OS como o 17º Documento Oficial Congelado; nenhuma alteração futura sem criação de nova versão formal. Nenhuma fase de Desenvolvimento, Código, modelo de IA, API, banco de dados ou infraestrutura foi iniciada. A Fase 014 (Infrastructure Architecture) segue conforme instrução do proprietário.
 
 ---
 
-*Fim do documento — THE CHARCOAL OS AI ARCHITECTURE v1.0.0*
+*Fim do documento — THE CHARCOAL OS AI ARCHITECTURE v1.0.0 (Oficial)*
