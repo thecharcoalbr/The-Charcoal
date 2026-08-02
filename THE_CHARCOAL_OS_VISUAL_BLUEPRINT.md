@@ -5,7 +5,7 @@
 **Natureza:** Documento de representação visual do sistema. NÃO constitui implementação, NÃO constitui Frontend, NÃO constitui código. Sua finalidade exclusiva é permitir a validação da experiência do usuário antes de qualquer desenvolvimento técnico.
 **Baseline referenciada:** v1.0.0 (TCOS-000 a TCOS-017), sob a autoridade da Constituição Permanente do Projeto.
 **Referência visual canônica desta fase:** `THE_CHARCOAL_OS_UX_UI_SPECIFICATION.md` (TCOS-005) e `THE_CHARCOAL_OS_FRONTEND_ARCHITECTURE.md` (TCOS-011) — em caso de divergência de nomenclatura entre documentos oficiais, prevalecem estes dois, por determinação expressa do proprietário (comando `ALTERAR`, 2026-08-02).
-**Status:** Documento em Construção — Parte 2 de 8 APROVADA — Parte 3 de 8 em construção: sub-parte 3a APROVADA (índice das 30 telas + 7 telas de módulo) — sub-parte 3b em construção.
+**Status:** Documento em Construção — Parte 2 de 8 APROVADA — Parte 3 de 8 em construção: sub-parte 3a APROVADA — sub-parte 3b concluída (Fichas Técnicas, Precificação, Compras, Estoque, Lotes, Equipamentos) — aguardando decisão do proprietário para prosseguir à sub-parte 3c.
 
 ---
 
@@ -635,8 +635,200 @@ Os 11 Dashboards já foram integralmente detalhados nos Capítulos 13–23 (Part
 
 **Validações visuais:** edição de Receita Aprovada sempre gera nova versão automaticamente — nunca sobrescreve a versão vigente.
 
-**Comportamento esperado:** aprovação leva à criação da Ficha Técnica associada (Capítulo 3b); nova versão se propaga automaticamente à Ficha Técnica já existente (RN-020), sempre com aviso visível, nunca silenciosamente.
+**Comportamento esperado:** aprovação leva à criação da Ficha Técnica associada (Capítulo 24.9, a seguir); nova versão se propaga automaticamente à Ficha Técnica já existente (RN-020), sempre com aviso visível, nunca silenciosamente.
+
+### 24.9 Fichas Técnicas
+
+**Objetivo:** ser a fonte única de custo de produção de cada item (Módulo 13).
+
+**Layout / Template:** Lista de Fichas Técnicas + Detalhe/editor de composição e custo.
+
+**Distribuição dos componentes:** tabela de Fichas Técnicas; editor com lista de Ingredientes/quantidades/custo; histórico de versões.
+
+**Cards:** custo total vigente; rendimento.
+
+**Tabelas:** lista de Fichas Técnicas; histórico de versões (F-044).
+
+**Gráficos:** evolução de custo ao longo das versões (mini-gráfico de linha).
+
+**Filtros:** por Produto; por estado (Vigente, Substituída, Descontinuada); busca por nome de Produto/Receita.
+
+**Menus:** menu lateral (Fichas Técnicas).
+
+**Botões:** "Nova Ficha Técnica" (F-042), "Recalcular" (F-043, normalmente automático).
+
+**Atalhos:** "Ver impacto em Orçamentos abertos" após um recálculo.
+
+**Estados da interface:** Rascunho, Vigente, Substituída, Descontinuada.
+
+**Mensagens:** aviso de "Ficha Técnica recalculada automaticamente".
+
+**Alertas:** impacto de recálculo em Orçamentos abertos (RN-019).
+
+**Validações visuais:** duas Fichas Técnicas Vigentes para o mesmo item não são permitidas simultaneamente — bloqueio explícito na tentativa.
+
+**Comportamento esperado:** recálculo automático disparado por atualização de custo de Ingrediente (RN-019) é sempre visível ao usuário — nunca um valor de custo silenciosamente atualizado sem notificação; valores de custo aqui exibidos alimentam diretamente o Dashboard Engenharia de Custos (Capítulo 18).
+
+### 24.10 Precificação
+
+**Objetivo:** garantir que todo preço tenha lastro em custo e margem definida (Módulo 14).
+
+**Layout / Template:** Lista de Produtos/Pacotes com preço calculado + painel de margem-alvo.
+
+**Distribuição dos componentes:** tabela de Produtos/Pacotes com custo/preço/margem; painel de configuração de margem-alvo.
+
+**Cards:** margem média; número de exceções aprovadas no período.
+
+**Tabelas:** lista de Produtos/Pacotes com custo, margem e preço.
+
+**Gráficos:** distribuição de margem por Produto (histograma simples).
+
+**Filtros:** por categoria de Produto; por faixa de margem; busca por nome de Produto/Pacote.
+
+**Menus:** menu lateral (Precificação).
+
+**Botões:** "Definir Margem-Alvo" (F-045/F-077, atalho para Configurações), "Recalcular Preço" (F-046), "Aprovar Exceção de Margem" (F-047).
+
+**Atalhos:** atalho direto de "Definir Margem-Alvo" para a tela de Configurações (Capítulo 24.19, sub-parte 3c).
+
+**Estados da interface:** normal; "margem-alvo não definida" (bloqueio com link direto para Configurações).
+
+**Mensagens:** aviso de "preço recalculado" após mudança de custo.
+
+**Alertas:** margem abaixo do mínimo (RN-023); preço fora da faixa esperada.
+
+**Validações visuais:** preço nunca é editável diretamente — sempre calculado a partir de custo e margem; qualquer tentativa de edição direta é bloqueada.
+
+**Comportamento esperado:** cálculo automático de preço a partir do custo vigente (RN-022) sempre pelo Serviço dono (PF-03); aprovação de exceção de margem exige justificativa obrigatória em Modal — nunca uma aprovação de um único clique.
+
+### 24.11 Compras
+
+**Objetivo:** garantir o abastecimento junto a Fornecedores (Módulo 15).
+
+**Layout / Template:** Lista em variante Kanban por status (Solicitada → Cotação → Pedido → Recebida → Conferida) + Detalhe de Fornecedores.
+
+**Distribuição dos componentes:** kanban/lista por status no corpo principal; tabela de Fornecedores com histórico (F-051).
+
+**Cards:** Compras pendentes de conferência; valor total do período.
+
+**Tabelas:** lista de Compras; lista de Fornecedores com histórico.
+
+**Gráficos:** gasto por Fornecedor (barras).
+
+**Filtros:** por Fornecedor; por status; por período; busca por nome de Fornecedor/Ingrediente.
+
+**Menus:** menu lateral (Compras).
+
+**Botões:** "Ver Lista de Compras Sugerida" (F-048), "Cotar/Emitir Pedido" (F-049), "Receber e Conferir" (F-050).
+
+**Atalhos:** "Registrar divergência" direto da tela de conferência.
+
+**Estados da interface:** cor por status do ciclo — Solicitada, Cotação, Pedido, Recebida, Conferida.
+
+**Mensagens:** "Compra conferida — Estoque atualizado".
+
+**Alertas:** item sem Fornecedor definido; prazo incompatível com data do Evento; divergência na conferência (RN-031).
+
+**Validações visuais:** conferência com divergência exige decisão explícita do usuário antes de prosseguir — nunca um avanço automático silencioso.
+
+**Comportamento esperado:** lista de Compras sugerida é gerada automaticamente a partir da Produção planejada (RN-030); conferência aprovada gera automaticamente Estoque/Lote/Despesa, sempre visível no resumo da ação, nunca uma alteração de saldo sem rastro visual.
+
+### 24.12 Estoque *(tela operacional)*
+
+**Objetivo:** operar o controle diário de saldo de Ingredientes/Produtos — complementar ao Dashboard Estoque (Módulo 16).
+
+**Layout / Template:** Lista com painel de detalhe lateral (histórico de movimentações do item selecionado) — não uma tela de Detalhe navegável separada.
+
+**Distribuição dos componentes:** tabela detalhada por item; painel de detalhe lateral com histórico de movimentações.
+
+**Cards:** itens críticos (abaixo do ponto de reposição).
+
+**Tabelas:** movimentações por item (entrada/saída, origem, Lote).
+
+**Gráficos:** histórico de saldo do item (linha).
+
+**Filtros:** por item; por localização; por tipo de movimentação; busca por nome de item.
+
+**Menus:** menu lateral (Estoque).
+
+**Botões:** "Realizar Inventário" (F-053), "Configurar Ponto de Reposição" (F-054).
+
+**Atalhos:** "Ver Lotes deste item" (Capítulo 24.13, a seguir).
+
+**Estados da interface:** normal; crítico (cor Vermelho-crítico).
+
+**Mensagens:** "inventário concluído".
+
+**Alertas:** saldo insuficiente; abaixo do ponto de reposição.
+
+**Validações visuais:** ajuste de inventário sem justificativa é bloqueado.
+
+**Comportamento esperado:** atualização automática de saldo (RN-032) sempre visível na tabela de movimentações — nenhum ajuste de saldo ocorre sem um registro de movimentação correspondente; destaque crítico usa a mesma paleta de severidade de todo o sistema (Capítulo 26, a construir).
+
+### 24.13 Lotes
+
+**Objetivo:** garantir rastreabilidade de origem e validade (Módulo 17).
+
+**Layout / Template:** Lista com destaque visual por proximidade de vencimento + painel de detalhe (origem, consumo, validade).
+
+**Distribuição dos componentes:** tabela de Lotes; painel de detalhe do Lote selecionado.
+
+**Cards:** Lotes vencendo em 7 dias; Lotes vencidos não descartados.
+
+**Tabelas:** lista de Lotes (item, quantidade, origem, validade, estado).
+
+**Gráficos:** nenhum nesta tela.
+
+**Filtros:** por item; por validade; por estado; busca por item ou número de Lote.
+
+**Menus:** menu lateral (Lotes).
+
+**Botões:** "Registrar Descarte" (F-056).
+
+**Atalhos:** "Ver Compra/Produção de origem" (F-055).
+
+**Estados da interface:** Ativo, Em consumo, Vencido (Vermelho-crítico), Descartado, Esgotado.
+
+**Mensagens:** "descarte registrado".
+
+**Alertas:** validade próxima; tentativa de uso de Lote vencido é bloqueada.
+
+**Validações visuais:** descarte sem motivo obrigatório é bloqueado.
+
+**Comportamento esperado:** priorização automática "primeiro que vence, primeiro que sai" (RN-034) é uma regra de consumo do backend — a tela apenas exibe a ordem já determinada, nunca decide por conta própria qual Lote usar.
+
+### 24.14 Equipamentos *(inclui Veículos)*
+
+**Objetivo:** controlar disponibilidade e alocação de bens físicos reutilizáveis (Módulo 18).
+
+**Layout / Template:** Lista/calendário de alocação por item + Detalhe do item.
+
+**Distribuição dos componentes:** tabela de itens; calendário de alocação; painel de detalhe.
+
+**Cards:** itens disponíveis; itens em manutenção.
+
+**Tabelas:** lista de Equipamentos/Veículos com estado e próxima alocação.
+
+**Gráficos:** nenhum nesta tela.
+
+**Filtros:** por tipo; por estado; por período de alocação; busca por nome/identificação do item.
+
+**Menus:** menu lateral (Equipamentos).
+
+**Botões:** "Cadastrar" (F-057), "Alocar" (F-058), "Registrar Manutenção/Baixa" (F-059).
+
+**Atalhos:** "Ver Evento" a partir de uma alocação (Capítulo 24.4).
+
+**Estados da interface:** Disponível (Verde-sucesso), Alocado (Brasa), Em manutenção (Âmbar-atenção), Baixado (Cinza-claro).
+
+**Mensagens:** "manutenção concluída — item disponível novamente".
+
+**Alertas:** conflito de alocação, com sugestão de alternativa (RN-035, bloqueante).
+
+**Validações visuais:** tentativa de alocar item em manutenção é bloqueada.
+
+**Comportamento esperado:** bloqueio automático de conflito de sobreposição de alocação — o usuário nunca consegue confirmar uma alocação conflitante, mesmo que tente forçar a ação.
 
 ---
 
-**Fim da Parte 3 (sub-parte 3a de 3) — Capítulo 24 em construção.**
+**Fim da Parte 3 (sub-parte 3b de 3) — Capítulo 24 em construção.**
