@@ -1784,4 +1784,36 @@ Ao iniciar a Auditoria de Abertura da Tela 09 (Dashboard Marketing), a comparaç
 
 ---
 
+## FASE — Tela 09 (Dashboard Marketing) construída e apresentada
+
+**Status:** Construída e apresentada, aguardando aprovação do proprietário
+**Data:** 2026-08-02
+
+Reiniciada a Auditoria de Abertura da Tela 09: releitura linha por linha do TCOS-018 Capítulo 21 (já corrigido), UX/UI Specification §3.4, Functional Specification (F-065/066/067) e Business Rules (RN-011) confirmou cobertura completa — nenhuma nova divergência objetiva encontrada. Construído o mockup de alta fidelidade — 9º Dashboard do sistema.
+
+### Decisões tomadas
+- D-T09-01 **[Inferência visual]**: o "Widget secundário" de consolidação de Alertas de Leads inativos (RN-011), sem precedente visual em nenhum documento, foi renderizado como painel compacto em tom Âmbar-atenção — deliberadamente distinto do Banner de alerta persistente (reservado a RN-047) e do Widget de sugestão de IA (reservado a conteúdo de IA, Roxo-IA) — evitando expandir o uso de qualquer um dos dois componentes já escopados.
+- D-T09-02 **[Inferência visual, simplificação assumida]**: a ação "Ver Leads desta Campanha" foi representada através do próprio nome da Campanha como link (mesmo padrão já usado nas Telas 04/06/07/08), em vez de um link textual separado — simplificação para manter a tabela consistente com o padrão de 1 link por linha já estabelecido, sem adicionar uma coluna de ação nova.
+- D-T09-03: KPI-row com 4 Cards (não 3, como na maioria dos outros Dashboards) — grid ajustado para `repeat(4,1fr)`, mantendo o mesmo componente Card de KPI já oficial, sem alteração de estrutura.
+
+### Alterações
+- ALT-T09-01: criados `mockup-dashboard-marketing.html` e `shot9.js` (scratchpad, não versionados em Git); gerado `dashboard-marketing.png`. Nenhum documento oficial foi alterado nesta etapa.
+
+### Autocorreções durante as auditorias finais
+- Nenhuma necessária — a construção não apresentou nenhum problema de layout (ex.: quebra de botão) desta vez, diferente da Tela 06.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova além das já registradas (correção pendente Cap. 19 "azul"; achado §3.15 Orçamentos; OE-T06-01).
+
+### Riscos encontrados
+- Nenhum risco novo.
+
+### Pendências
+- Aprovação do proprietário sobre a Tela 09.
+- Correção pendente do TCOS-018 Capítulo 19 ("azul" → "Âmbar-Atenção"), achado §3.15 Orçamentos e OE-T06-01 permanecem, sem alteração.
+
+**Confirmação de auditoria (Executiva Completa, Consistência, UX/UI, Regressão, Rastreabilidade):** confirmado que todos os componentes (Card de KPI, gráfico de barras, Badge/pill, Botão primário/secundário, painel de widget) já são oficiais ou são aplicações mínimas e rastreáveis de padrões já oficiais; confirmado que o conteúdo (KPIs, Gráfico, Widget, Tabela, Ações rápidas, Filtros) corresponde ao TCOS-018 Capítulo 21 (já corrigido) e à UX/UI Specification §3.4; confirmado que a sidebar reflete o agrupamento oficial (Marketing: Módulo 21, único); confirmado que grid, topbar e paleta são idênticos às Telas 01–08; confirmado que nenhum módulo, Serviço, regra de negócio ou documento oficial foi alterado nesta etapa — apenas o `PROJECT_MEMORY.md`.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
