@@ -5,7 +5,7 @@
 **Natureza:** Documento de representação visual do sistema. NÃO constitui implementação, NÃO constitui Frontend, NÃO constitui código. Sua finalidade exclusiva é permitir a validação da experiência do usuário antes de qualquer desenvolvimento técnico.
 **Baseline referenciada:** v1.0.0 (TCOS-000 a TCOS-017), sob a autoridade da Constituição Permanente do Projeto.
 **Referência visual canônica desta fase:** `THE_CHARCOAL_OS_UX_UI_SPECIFICATION.md` (TCOS-005) e `THE_CHARCOAL_OS_FRONTEND_ARCHITECTURE.md` (TCOS-011) — em caso de divergência de nomenclatura entre documentos oficiais, prevalecem estes dois, por determinação expressa do proprietário (comando `ALTERAR`, 2026-08-02).
-**Status:** Documento em Construção — Parte 1 de 8 concluída — aguardando decisão do proprietário para prosseguir.
+**Status:** Documento em Construção — Parte 2 de 8 concluída — aguardando decisão do proprietário para prosseguir.
 
 ---
 
@@ -179,4 +179,199 @@ Multitarefa visual (múltiplas informações simultâneas — ex.: Dashboard com
 
 ---
 
-**Fim da Parte 1 de 8.**
+## 12. Estrutura Visual dos Dashboards
+
+Os 11 Dashboards do THE CHARCOAL OS compartilham a mesma anatomia visual — instâncias do Template Dashboard (Frontend Architecture, Capítulo 12) — construída a partir dos 25 campos já especificados individualmente em UX/UI Specification, Capítulos 3.1 a 3.11. Nenhum Dashboard foge a este padrão comum:
+
+1. **Cabeçalho de contexto** — nome do Dashboard e, quando aplicável, seletor de período (ex.: mês corrente, últimos 30 dias) que filtra todos os cards e gráficos simultaneamente.
+2. **Linha de Cards de KPI** (Componente "Card de KPI") — de 3 a 6 cards no topo da tela, primeira leitura visual ao abrir o Dashboard, cada um com valor numérico em destaque e rótulo curto.
+3. **Área de visualização gráfica** — um ou mais gráficos (linha, barra, funil, calendário/timeline ou feed cronológico, conforme o Dashboard), sempre abaixo da linha de KPIs.
+4. **Tabela ou lista de itens relevantes/pendentes** (Componente "Tabela com paginação e ordenação") — os itens que exigem atenção mais imediata do Perfil daquela Área.
+5. **Ações rápidas** — botões primários específicos do módulo, permitindo iniciar a ação mais comum daquela Área sem navegar até a Lista correspondente.
+6. **Widgets especiais**, quando aplicável a um Dashboard específico: sugestão de IA (Componente de sugestão de IA, cor Roxo-IA), alerta crítico (Banner de alerta persistente, RN-047), indicador de Meta (Card de progresso, consumo apenas leitura do Módulo 26).
+
+Cada card, gráfico ou tabela assume seus próprios Estados de Carregamento (Skeleton) e Estado Vazio de forma independente (Frontend Architecture, Capítulos 18–19) — um Dashboard nunca fica bloqueado como um todo enquanto uma única fonte de dado ainda carrega; cada bloco aparece assim que seu próprio dado estiver disponível.
+
+Distribuição em grid: Desktop 2 a 4 colunas (Capítulo 11 deste documento), Tablet 1 a 2 colunas, Mobile coluna única com cards empilhados (Capítulo 10 deste documento).
+
+**[Inferência visual]** — a ordem espacial exata de cada bloco (ex.: gráfico à esquerda ou à direita da tabela) não é prescrita por nenhum documento oficial; este documento não fixa esse detalhe, deixando-o como uma decisão de prototipagem visual futura, fora do escopo desta fase — apenas a presença e o conteúdo de cada bloco são especificados aqui, nunca sua posição relativa exata em pixels.
+
+## 13. Dashboard CEO
+
+**Objetivo:** visão executiva consolidada do negócio — tela de entrada padrão do sistema para Perfis com acesso executivo (UX/UI Specification, §3.1; Functional Specification, Módulo 01, F-001/F-002).
+
+**Cards de KPI (4 a 6):** Faturamento do período, Margem média, Eventos confirmados, Eventos concluídos, Retiradas pessoais do período (dado consumido do Módulo 02), Saldo consolidado (dado consumido do Módulo 27).
+
+**Gráficos:** gráfico de linha de Fluxo de Caixa (F-008); gráfico de barras de margem por Evento (F-009).
+
+**Tabela:** próximos Eventos confirmados, com data, Cliente e status do ciclo de vida (Badge de status).
+
+**Widgets especiais:** Card de progresso de Metas (consumo apenas leitura do Módulo 26); Banner de alerta persistente para Alertas Críticos (RN-047).
+
+**Ações rápidas:** "Novo Evento", "Ver Financeiro", "Ver Metas".
+
+**Filtros:** seletor de período no cabeçalho, aplicado a todos os cards e gráficos.
+
+**Comportamento esperado:** atualização reativa a eventos relevantes de qualquer módulo consumido (User Journeys, FL-027 — "Atualização Automática do Dashboard CEO"), sem exigir recarregamento manual da tela.
+
+## 14. Dashboard Financeiro Pessoal
+
+**Objetivo:** controle das retiradas pessoais dos sócios, isolado do Financeiro Empresarial por privacidade e por organização contábil (UX/UI Specification, §3.2; Functional Specification, Módulo 02, F-003/F-004; Security and Privacy Architecture, Capítulo 11 — Separação Pessoa/Empresa).
+
+**Cards de KPI:** Total retirado no período; Retirada média mensal.
+
+**Gráfico:** gráfico de linha do histórico de retiradas ao longo do tempo.
+
+**Tabela:** histórico de retiradas, com data, valor e sócio responsável.
+
+**Ações rápidas:** "Registrar Retirada".
+
+**Filtros:** seletor de período; filtro por sócio (quando houver mais de um vinculado ao Perfil).
+
+**Comportamento esperado:** dado exibido nunca é somado ou comparado ao Dashboard Financeiro Empresarial na mesma tela — a separação visual reforça o isolamento já exigido por regra de negócio (RN-002/RN-005).
+
+## 15. Dashboard Financeiro Empresarial
+
+**Objetivo:** visão consolidada das finanças da empresa — contas a pagar/receber, fluxo de caixa, fechamento de período (UX/UI Specification, §3.3; Functional Specification, Módulo 03, F-005–F-010).
+
+**Cards de KPI:** Saldo consolidado; Total a pagar; Total a receber; Margem média.
+
+**Gráfico:** gráfico de linha de Fluxo de Caixa (F-008) — mesma visualização conceitual do Dashboard CEO, com maior nível de detalhe.
+
+**Tabela:** com abas internas — Despesas (F-005), Receitas Financeiras (F-006), Pagamentos (F-007).
+
+**Ações rápidas:** "Fechar Período" (F-010) — Operação Crítica (Security and Privacy Architecture, Capítulo 30), exige confirmação explícita antes de execução.
+
+**Filtros:** seletor de período; filtro por categoria de Despesa/Receita dentro de cada aba.
+
+**Comportamento esperado:** "Fechar Período" é sempre precedido de tela de confirmação mostrando o resumo do que será encerrado, nunca uma ação de um único clique sem revisão (padrão de Operação Crítica, Security and Privacy Architecture, Capítulo 30).
+
+## 16. Dashboard Produção
+
+**Objetivo:** acompanhamento das Produções planejadas e em execução, com desvio de rendimento e perda (UX/UI Specification, §3.5; Functional Specification, Módulo 10, F-032–F-035).
+
+**Cards de KPI:** Produções planejadas hoje; Desvio médio de rendimento; Desvio médio de perda.
+
+**Visualização:** calendário/timeline das Produções planejadas.
+
+**Gráfico:** gráfico de barras planejado x real (F-035).
+
+**Widget especial:** sugestão de previsão de demanda por IA (Componente de sugestão de IA, F-069) — sempre rotulada como "sugestão", nunca como decisão automática (PF-06).
+
+**Tabela:** Fichas Técnicas associadas às Produções do período, com data de última recalculação.
+
+**Filtros:** seletor de período; filtro por status de Produção.
+
+**Comportamento esperado:** todo valor de desvio (rendimento/perda) é somente leitura, calculado pelo Serviço dono — o Dashboard nunca recalcula esse valor na interface (PF-03, Camada de Componente, Capítulo 4 deste documento).
+
+## 17. Dashboard Estoque
+
+**Objetivo:** posição consolidada de Estoque e Lotes, incluindo alertas de reposição e validade (UX/UI Specification, §3.6; Functional Specification, Módulo 16, F-052–F-054, e Módulo 17, F-055/F-056).
+
+**Cards de KPI:** Itens abaixo do ponto de reposição; Lotes próximos do vencimento; Giro médio.
+
+**Gráfico:** gráfico de barras de saldo por categoria de Ingrediente/Produto.
+
+**Tabela:** posição de estoque (F-052), com Badge de status para itens críticos; aba de Lotes (F-055), com destaque visual (cor Amarelo/Âmbar-atenção ou Vermelho-crítico, conforme severidade) para Lotes próximos do vencimento.
+
+**Ações rápidas:** acesso direto à tela de Lotes (Capítulo 24 deste documento) a partir do card de Lotes próximos do vencimento.
+
+**Filtros:** seletor de categoria; filtro por proximidade de vencimento.
+
+**Comportamento esperado:** o destaque de vencimento segue a mesma paleta de severidade usada em todo o sistema (Design System, Capítulo 26 deste documento) — nunca uma cor exclusiva desse Dashboard.
+
+## 18. Dashboard Engenharia de Custos
+
+**Objetivo:** acompanhamento do custo real de Eventos frente ao previsto pelas Fichas Técnicas (UX/UI Specification, §3.7; Functional Specification, Módulo 11, F-036–F-038).
+
+**Cards de KPI:** Custo real médio por Evento; Desvio médio de custo; Margem média.
+
+**Gráfico:** gráfico de barras custo previsto vs. real (F-038).
+
+**Tabela:** Fichas Técnicas com data de recalculação, custo unitário e Badge de status de atualização.
+
+**Filtros:** seletor de período; filtro por Produto/Receita.
+
+**Comportamento esperado:** todo valor de custo exibido é somente leitura, oriundo exclusivamente do Serviço dono de Engenharia de Custos — o Dashboard nunca exibe um valor de custo recalculado localmente (PF-03).
+
+## 19. Dashboard Eventos
+
+**Objetivo:** acompanhamento do ciclo de vida dos Eventos confirmados e em execução (UX/UI Specification, §3.8; Functional Specification, Módulo 07, F-020–F-024).
+
+**Cards de KPI:** Eventos confirmados no período; Eventos em execução; Margem média prevista.
+
+**Visualização:** calendário colorido por status do ciclo de vida do Evento (Badge de status).
+
+**Tabela:** lista de Eventos por estágio do ciclo de vida, com data, Cliente e responsável.
+
+**Filtros:** seletor de período; filtro por estágio do ciclo de vida.
+
+**Comportamento esperado:** ao contrário dos demais Dashboards, este não possui uma funcionalidade de indicador dedicada (F-XXX) além do próprio ciclo de vida do Módulo 07 — os dados exibidos são consumidos através do Serviço de Indicadores (Frontend Architecture, Capítulo 15), reafirmando que o Dashboard nunca duplica lógica de cálculo já existente em outro Serviço.
+
+## 20. Dashboard CRM
+
+**Objetivo:** acompanhamento da captação e conversão de Leads em Clientes (UX/UI Specification, §3.9; Functional Specification, Módulo 04, F-011/F-012).
+
+**Cards de KPI:** Novos Leads; Taxa de conversão; Clientes fidelizados.
+
+**Visualização:** funil visual dedicado (Lead → Qualificação → Conversão → Contrato).
+
+**Gráfico:** gráfico de barras de retorno por Campanha (F-012).
+
+**Tabela:** Leads que exigem atenção (RN-011), com Badge de status e tempo desde o último contato.
+
+**Ações rápidas:** "Novo Lead", acesso direto à tela de Leads (Capítulo 24 deste documento).
+
+**Filtros:** seletor de período; filtro por estágio do funil.
+
+**Comportamento esperado:** o funil visual reflete exatamente os mesmos estágios já definidos no ciclo de vida de Lead (Domain Model) — nenhum estágio novo é introduzido nesta representação visual.
+
+## 21. Dashboard Marketing
+
+**Objetivo:** acompanhamento de Campanhas e geração de demanda (UX/UI Specification, §3.4; Functional Specification, Módulo 21, F-065–F-067).
+
+**Cards de KPI:** Leads gerados; Taxa de conversão; Custo por Lead; Retorno consolidado.
+
+**Gráfico:** gráfico de barras de retorno por Campanha (F-066).
+
+**Tabela:** Campanhas ativas e encerradas (F-065/F-067), com Badge de status.
+
+**Ações rápidas:** "Nova Campanha".
+
+**Filtros:** seletor de período; filtro por canal de Campanha.
+
+**Comportamento esperado:** os indicadores de retorno por Campanha aqui exibidos são os mesmos consumidos pelo Dashboard CRM (Capítulo 20) — nenhum valor é calculado duas vezes com lógica divergente (PF-03), apenas apresentado sob um recorte de leitura diferente (visão de Marketing vs. visão de CRM).
+
+## 22. Dashboard Metas
+
+**Objetivo:** acompanhamento do progresso das Metas ativas da empresa (UX/UI Specification, §3.10, nome canônico adotado nesta fase — ver Executive Memory, divergência D-01; Functional Specification, Módulo 26, F-084–F-091, especificamente F-091 "Visualizar Dashboard de Metas").
+
+**Cards:** um Card de progresso por Meta ativa, mostrando percentual alcançado frente ao alvo.
+
+**Gráfico:** gráfico de linha de histórico de progresso.
+
+**Tabela:** histórico completo de Metas (F-089), incluindo Metas já encerradas (atingidas ou não).
+
+**Filtros:** seletor de período; filtro por Área da Empresa responsável pela Meta.
+
+**Comportamento esperado:** este é o único Dashboard cujo conteúdo é também consumido, em versão reduzida (apenas leitura), como widget dentro de outros Dashboards (ex.: Dashboard CEO, Capítulo 13) — o dado de origem é sempre o mesmo Serviço dono, nunca duplicado com cálculo próprio.
+
+## 23. Dashboard Inteligência Artificial
+
+**Objetivo:** centralizar as sugestões geradas por IA em todos os módulos, permitindo acompanhamento e configuração (UX/UI Specification, §3.11; Functional Specification, Módulo 22, F-068–F-071).
+
+**Cards de KPI:** Sugestões pendentes; Taxa de aceite; Previsões ativas.
+
+**Visualização:** feed cronológico de sugestões, cada uma com origem (módulo), tipo (Classificação/Previsão/Recomendação/Monitoramento, AI Architecture, Capítulo 6) e Componente de sugestão de IA (botões Aceitar/Recusar).
+
+**Gráfico:** gráfico de taxa de aceite ao longo do tempo.
+
+**Ações rápidas:** "Configurar Automação" (F-071).
+
+**Filtros:** filtro por módulo de origem; filtro por tipo de Agente Inteligente.
+
+**Comportamento esperado:** toda sugestão listada aqui é a mesma sugestão que aparece contextualmente no módulo de origem (ex.: uma sugestão de previsão de demanda também aparece no Dashboard Produção, Capítulo 16) — este Dashboard nunca gera uma sugestão própria, apenas centraliza a visualização e o histórico de aceite/recusa já registrado pelo Serviço de IA (AI Architecture, TCOS-013). Nenhuma sugestão tem efeito sobre o sistema sem confirmação explícita do usuário (PF-06).
+
+---
+
+**Fim da Parte 2 de 8.**
