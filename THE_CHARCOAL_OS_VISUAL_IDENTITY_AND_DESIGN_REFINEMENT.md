@@ -5,7 +5,7 @@
 **Natureza:** Documento exclusivamente conceitual de identidade e linguagem visual. NÃO constitui implementação, NÃO constitui código, NÃO constitui CSS, NÃO define tecnologia, framework ou biblioteca. NÃO altera arquitetura, regra de negócio, funcionalidade, fluxo, UX oficial, nomenclatura, módulo, Dashboard, componente existente ou qualquer documento oficial congelado.
 **Baseline referenciada:** v1.0.0 (TCOS-000 a TCOS-018), sob a autoridade da Constituição Permanente do Projeto.
 **Documentos-fonte desta fase:** Constituição Permanente; `THE_CHARCOAL_OS_UX_UI_SPECIFICATION.md` (TCOS-005); `THE_CHARCOAL_OS_FRONTEND_ARCHITECTURE.md` (TCOS-011); `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` (TCOS-018).
-**Status:** Em construção — Fase 1 (Identidade Visual Oficial) APROVADA — Fase 2 (Biblioteca Visual Oficial de Componentes) concluída — aguardando decisão do proprietário.
+**Status:** Em construção — Fase 1 (Identidade Visual Oficial) APROVADA — Fase 2 (Biblioteca Visual Oficial de Componentes, 35 componentes, cobertura de 24/24 categorias do TCOS-018 §25) concluída — aguardando decisão do proprietário para iniciar o refinamento visual das telas.
 
 ---
 
@@ -534,9 +534,19 @@ Esta fase transforma a Identidade Visual Oficial (Fase 1) em uma biblioteca comp
 **Exemplo visual:** o Modal "Fechar Período" do Dashboard Financeiro Empresarial, com o resumo do que será encerrado e os botões "Cancelar" / "Confirmar Fechamento".
 **Aderência ao TCOS-018:** Capítulo 25.19; Security and Privacy Architecture, Capítulo 30.
 
-## 59. Confirmação de Cobertura da Biblioteca
+## 59. Estados de Erro / Componente de Erro de Carregamento
 
-Complementada a Biblioteca Visual Oficial com os 6 componentes integralmente ausentes (Abas e Accordions, Calendários, Upload de Arquivos/Documentos Anexados, Timeline, Kanban, Painéis e Visualizadores Especializados) e o aprofundamento dos 2 componentes com tratamento insuficiente (Estados de Sucesso, Estados de Operações Críticas), totalizando **34 componentes documentados** (26 da Fase 2 original + 8 desta complementação), cada um com os mesmos 7 campos obrigatórios. Cruzando integralmente contra o inventário do TCOS-018 (Capítulo 25.1–25.24, as 30 telas dos Capítulos 12–24): **100% dos componentes usados nas 30 telas possuem agora especificação correspondente na Biblioteca Visual Oficial.** Nenhum componente, estado, variação, comportamento ou funcionalidade foi criado sem ancoragem direta em TCOS-005, TCOS-011, TCOS-018, Security and Privacy Architecture (Capítulo 30, para Operações Críticas) ou na Fase 1 deste próprio documento.
+**Finalidade:** sinalizar que uma consulta ao backend falhou, distinto de um dado simplesmente ausente (Empty States, Capítulo 46) ou de um erro de validação de formulário (Campos de Entrada, Capítulo 33).
+**Comportamento visual:** conforme Fase 1, Capítulo 20 — ícone de atenção + mensagem + ação "Tentar novamente", ocupando apenas o espaço do componente que falhou (Card, Tabela, Gráfico), nunca a tela inteira.
+**Variações oficiais:** as 3 categorias já oficiais de Tratamento de Erros (Frontend Architecture, Capítulo 20) — erro de regra de negócio (tratado inline, Capítulo 33), erro de dado pendente (tratado como Empty State de bloqueio, Capítulo 46, ou Alerta Inline, Capítulo 40) e erro técnico (Componente de Erro de Carregamento, um dos 18 componentes oficiais já catalogados, Capítulo 25.1 do TCOS-018).
+**Estados:** este é, ele próprio, um dos 4 Estados da Interface (Capítulo 45) — a variante "erro técnico" é a única com ação própria ("Tentar novamente"); as demais variantes (regra de negócio, dado pendente) não repetem a consulta, apenas orientam a correção.
+**Regras de utilização:** nenhum erro técnico expõe detalhe de implementação (identificador de log, mensagem técnica bruta) ao usuário final — apenas ao Log técnico, consultável pela equipe técnica via Observabilidade (já oficial, Frontend Architecture Capítulo 20); as 3 categorias nunca se combinam em uma única mensagem, para que o usuário sempre saiba se o problema é dele (dado incorreto) ou do sistema (indisponibilidade).
+**Exemplo visual:** dentro do Card "Fluxo de Caixa", caso a consulta falhe, o gráfico é substituído por um ícone de atenção discreto, o texto "Não foi possível carregar este dado" e um botão terciário "Tentar novamente" — o restante do Dashboard permanece funcional.
+**Aderência ao TCOS-018:** Capítulo 25.1 (Componente de Erro de Carregamento) e 25.17 (Estados de Erro); Frontend Architecture, Capítulo 20.
+
+## 60. Confirmação de Cobertura da Biblioteca
+
+Complementada a Biblioteca Visual Oficial com os 6 componentes integralmente ausentes (Abas e Accordions, Calendários, Upload de Arquivos/Documentos Anexados, Timeline, Kanban, Painéis e Visualizadores Especializados), o aprofundamento dos 2 componentes com tratamento insuficiente (Estados de Sucesso, Estados de Operações Críticas) e o último item encontrado na auditoria de verificação (Estados de Erro / Componente de Erro de Carregamento), totalizando **35 componentes documentados** (26 da Fase 2 original + 9 desta e da complementação anterior), cada um com os mesmos 7 campos obrigatórios. Cruzando integralmente, categoria por categoria, contra o inventário completo do TCOS-018 (Capítulo 25.1–25.24, as 30 telas dos Capítulos 12–24): **as 24 categorias de componente do TCOS-018 possuem, agora, especificação correspondente na Biblioteca Visual Oficial — nenhuma restante sem documentação.** Nenhum componente, estado, variação, comportamento ou funcionalidade foi criado sem ancoragem direta em TCOS-005, TCOS-011, TCOS-018, Security and Privacy Architecture (Capítulo 30, para Operações Críticas) ou na Fase 1 deste próprio documento.
 
 ---
 
