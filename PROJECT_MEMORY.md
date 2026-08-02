@@ -1236,4 +1236,37 @@ Aprovada pelo proprietário a **sub-parte 3c**, última do Capítulo 24, com o d
 
 ---
 
+## FASE 018 — Encerramento Oficial
+
+**Status:** APROVADA E CONGELADA pelo proprietário em 2026-08-02 (comando `APROVADO`)
+**Data:** 2026-08-02
+
+O `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` (TCOS-018) passa a ser documentação oficial do THE CHARCOAL OS, como o **22º Documento Oficial Congelado**. Construído em 6 Partes (mais 2 correções pontuais aprovadas via `CORRIGIR`), cada uma com Auditoria de Consistência prévia e posterior, o documento representa visualmente toda a Baseline Oficial: 28 capítulos cobrindo a estrutura de navegação, os 11 Dashboards, as 30 telas do sistema, a biblioteca de 24 itens de Componentes Visuais, o Design System Consolidado, os 30 fluxos oficiais (FL-001 a FL-030) como caminhos visuais, e um Protótipo Navegável Conceitual (sitemap completo + roteiro de demonstração). Por determinação do proprietário, o encerramento ocorreu ao final da Parte 6 (Capítulo 28) — os capítulos "Experiência do Usuário" e "Visualização do Sistema", originalmente previstos no roteiro inicial, não foram construídos, superados pela decisão de encerramento antecipado.
+
+### Decisões tomadas
+- D-018-05: encerramento oficial do TCOS-018 ao final da Parte 6 (Capítulo 28) — os capítulos "Experiência do Usuário" e "Visualização do Sistema" do roteiro original não foram construídos, por decisão explícita do proprietário, sem constituir lacuna ou pendência.
+- D-018-06: as 3 divergências cosméticas catalogadas ao longo da fase (D-01 a D-03) permanecem registradas, não corrigidas, consolidadas no Relatório Consolidado de Padronização (dentro do próprio TCOS-018) — sujeitas a um único Change Request futuro, mediante aprovação explícita do proprietário.
+
+### Alterações
+- ALT-018-05: `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` (v1.0.0) congelado como documento oficial. Nenhum outro documento oficial foi alterado.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova. As 3 divergências cosméticas (D-01 a D-03) permanecem como candidatas a um único Change Request futuro de padronização de nomenclatura entre UX/UI Specification, Functional Specification e User Journeys — decisão exclusiva do proprietário, fora do escopo desta fase.
+
+### Riscos encontrados
+- Nenhum risco novo. Os 5 riscos já consolidados na Fase 016 permanecem, sem alteração.
+
+### Pendências
+- P-018-01 (aprovação parte a parte do Visual Blueprint) está **encerrada** — todas as 6 Partes e as 2 correções foram aprovadas pelo proprietário.
+- Duas limitações informativas específicas desta fase permanecem registradas (Capítulo 27.10 do TCOS-018): FL-021 sem tela dedicada de configuração de Dashboard; FL-030 dependente de parâmetro de fidelização ainda não confirmado — nenhuma bloqueia a implementação do Frontend.
+- Pendências herdadas: as mesmas 8 pendências substantivas consolidadas na Fase 016, sem nenhuma nova.
+
+**Nova contagem oficial de Documentos Oficiais** (critério em vigor a partir desta fase): 22 Documentos Oficiais Congelados (TCOS-000 a TCOS-018) + 1 Documento Oficial Vivo (`PROJECT_MEMORY.md`) + a Constituição Permanente (documento de governança, não contado como Fase) = **23 Documentos Oficiais + 1 Constituição**.
+
+**Percentual de maturidade do projeto:** mantido em **97%** — esta fase valida visualmente a Baseline já completa, sem ampliar ou reduzir o escopo conceitual.
+
+**Confirmação de auditoria (executada antes deste commit):** verificado programaticamente que a estrutura do `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` permanece íntegra — 28 capítulos sequenciais, subseções sequenciais em todos os capítulos que as possuem (24.1–24.20, 25.1–25.24, 26.1–26.5, 27.1–27.10, 28.1–28.5); 89 códigos F-XXX, 28 códigos RN-XXX, 3 códigos PF-XX e 30 códigos FL-XXX (cobertura de 30/30 fluxos oficiais) confirmados existentes/corretos; as 30 telas, 11 Dashboards e 27 módulos confirmados com representação visual completa; 14 inferências visuais, todas explicitamente identificadas. Confirmado via `git status`/`git diff` que, ao longo de toda a Fase 018, apenas o `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` e este `PROJECT_MEMORY.md` foram modificados — nenhum dos 21 documentos oficiais congelados anteriores nem a Constituição Permanente foram tocados.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
