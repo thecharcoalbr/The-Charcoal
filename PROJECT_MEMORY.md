@@ -2125,4 +2125,41 @@ Ao iniciar a Auditoria de Abertura da Tela 12, confirmado via TCOS-018 §24.1 (�
 
 ---
 
+## FASE — Tela 12 (Leads) construída e apresentada
+
+**Status:** Construída e apresentada, aguardando aprovação do proprietário
+**Data:** 2026-08-02
+
+Reiniciada a Auditoria de Abertura da Tela 12 após a correção do §24.2. A releitura linha por linha do TCOS-018 §24.2 (já corrigido) contra a UX/UI Specification §3.12, a Functional Specification (F-016–F-019) e a Business Rules Specification (RN-008/009/011) confirmou cobertura completa — nenhuma nova divergência objetiva encontrada. Construída a primeira das 19 telas de módulo (operacionais) do sistema — Tela 12, "Leads", primeiro uso do Template Kanban (TCOS-018 §25.23: uma coluna por estágio, um card por item, contagem no topo de cada coluna).
+
+### Decisões tomadas
+- D-T12-01: dados de 3 Leads (Sul Corp S.A., Buffet Aurora, Corp Norte S.A.) mantidos idênticos aos já exibidos na tabela "Leads que exigem atenção" da Tela 08 (Dashboard CRM, já aprovada) — mesma origem, mesmos dias de inatividade, mesmo dado de origem nunca duplicado com cálculo divergente (PF-03).
+- D-T12-02: KPI "Taxa de conversão" (24%) mantido idêntico ao já exibido na Tela 08.
+- D-T12-03 **[Inferência visual]**: o badge de Alerta "Lead inativo há X dias" (RN-011) foi renderizado em um único formato/cor (Âmbar-Atenção), sem graduação de severidade — decisão deliberadamente conservadora, evitando repetir o mesmo risco já identificado e revertido no Achado #1 da Tela 05 (nunca inventar variantes visuais sem precedente/autorização); a UX/UI Specification define apenas um badge, não dois níveis.
+- D-T12-04 **[Inferência visual]**: coluna "Perdido" renderizada com opacidade reduzida (mesmo princípio já usado para o estado "inativo" de Clientes, §24.3 — "visualmente esmaecido, permanece acessível"), sem aplicar riscado (recurso reservado ao estado "Cancelado" de Eventos, §19/24.4) — inferência mínima e conservadora para um estado terminal, sem inventar um novo padrão visual.
+- D-T12-05 **[Inferência visual]**: link "Ver Cliente →" adicionado aos cards da coluna "Convertido", seguindo o mesmo padrão de link contextual de drill-down já usado em outras telas (1 link por linha/card) — não é um "Botão" literalmente catalogado no §24.2, mas decorre diretamente do Comportamento esperado já oficial ("conversão navega automaticamente para a tela de Clientes").
+- D-T12-06: alternância "Kanban / Tabela" representada como controle segmentado no cabeçalho, com "Kanban" como visualização padrão ativa — a "Tabela" (lista alternativa, colunas Nome/Origem/Estágio/Data) é a view alternativa já documentada no §24.2, não renderizada simultaneamente para evitar duplicar o conteúdo na mesma tela.
+
+### Alterações
+- ALT-T12-01: criados `mockup-leads.html` e `shot12.js` (scratchpad, não versionados em Git); gerado `leads.png`. Nenhum documento oficial foi alterado nesta etapa.
+
+### Autocorreções durante as auditorias finais (antes da apresentação)
+- AC-T12-01: o botão "Marcar como Perdido" (F-019) estava inicialmente abreviado para "Perdido" nos cards da coluna "Em qualificação". Corrigido para o texto literal completo, consistente com o padrão já estabelecido no projeto (nunca abreviar texto de botão; usar `white-space:nowrap` quando necessário) — autocorreção sobre mockup ainda não aprovado, sem tocar em documento oficial.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova além das já registradas (correção pendente Cap. 19 "azul"; achado §3.15 Orçamentos; OE-T06-01; Backlog Oficial de UX/UI da Tela 09, itens OE-T09-01 a OE-T09-06).
+- Sinal de possível padrão sistêmico (campo "Indicadores" ausente) nos §§24.3 (Clientes) e 24.4 (Eventos), já registrado na correção anterior — a confirmar individualmente quando essas telas forem construídas.
+
+### Riscos encontrados
+- Nenhum risco novo.
+
+### Pendências
+- Aprovação do proprietário sobre a Tela 12.
+- Correção pendente do TCOS-018 Capítulo 19 ("azul" → "Âmbar-Atenção"), achado §3.15 Orçamentos e OE-T06-01 permanecem, sem alteração.
+- Com a Tela 12, iniciam-se oficialmente as 19 telas de módulo (operacionais) — 1 de 19 concluída.
+
+**Confirmação de auditoria (Executiva Completa, Consistência, UX/UI, Produto SaaS, Regressão, Rastreabilidade):** confirmado que o componente Kanban corresponde à Base oficial já catalogada (TCOS-018 §25.23); confirmado que o conteúdo (Cards, Indicadores, Tabelas, Filtros, Botões, Modais, Atalhos, Estados da interface, Mensagens, Alertas, Validações visuais) corresponde integralmente ao TCOS-018 §24.2 (já corrigido) e à UX/UI Specification §3.12; confirmado que os dados de Sul Corp S.A., Buffet Aurora, Corp Norte S.A. e a Taxa de conversão são idênticos aos já exibidos na Tela 08 (mesma origem, nunca duplicado); confirmado que a sidebar reflete o agrupamento oficial (Comercial/CRM: CRM, Clientes, Leads — ativo —, Orçamentos), mesmo padrão expandido já usado na Tela 08; confirmado que grid, topbar e paleta são idênticos às Telas 01–11; confirmado que nenhuma cor "azul" foi introduzida e que Roxo-IA permanece ausente (nenhum conteúdo de IA nesta tela); confirmado que nenhum módulo, Serviço, regra de negócio ou documento oficial foi alterado nesta etapa — apenas o `PROJECT_MEMORY.md`.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
