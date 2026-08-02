@@ -354,17 +354,21 @@ Distribuição em grid: Desktop 2 a 4 colunas (Capítulo 11 deste documento), Ta
 
 ## 22. Dashboard Metas
 
-**Objetivo:** acompanhamento do progresso das Metas ativas da empresa (UX/UI Specification, §3.10, nome canônico adotado nesta fase — ver Executive Memory, divergência D-01; Functional Specification, Módulo 26, F-084–F-091, especificamente F-091 "Visualizar Dashboard de Metas").
+**Objetivo:** ser o único lugar de gestão de Metas do sistema — criação, acompanhamento, ajuste e encerramento — além do acompanhamento do progresso das Metas ativas (UX/UI Specification, §3.10, "ser o único lugar de gestão de Metas — o Dashboard CEO apenas consome esta informação"; nome canônico adotado nesta fase — ver Executive Memory, divergência D-01; Functional Specification, Módulo 26, F-084–F-091).
 
 **Cards:** um Card de progresso por Meta ativa, mostrando percentual alcançado frente ao alvo.
 
-**Gráfico:** gráfico de linha de histórico de progresso.
+**Gráfico:** gráfico de linha de histórico de progresso (histórico de Metas atingidas vs. não atingidas por ciclo).
 
 **Tabela:** histórico completo de Metas (F-089), incluindo Metas já encerradas (atingidas ou não).
 
-**Filtros:** seletor de período; filtro por Área da Empresa responsável pela Meta.
+**Ações rápidas:** "Criar Meta" (F-084), "Editar" (F-085), "Duplicar" (F-087), "Encerrar Antecipadamente" (F-086).
 
-**Comportamento esperado:** este é o único Dashboard cujo conteúdo é também consumido, em versão reduzida (apenas leitura), como widget dentro de outros Dashboards (ex.: Dashboard CEO, Capítulo 13) — o dado de origem é sempre o mesmo Serviço dono, nunca duplicado com cálculo próprio.
+**Modais:** "Criar/Editar Meta" (período, Indicador, responsável, valor-alvo, critério de sucesso); "Registrar Justificativa" (F-090), exibido ao encerrar um ciclo como "Não atingida" ou ao encerrar antecipadamente.
+
+**Filtros:** seletor de período; filtro por Área da Empresa/responsável pela Meta; busca por nome de Meta.
+
+**Comportamento esperado:** este é o único Dashboard cujo conteúdo é também consumido, em versão reduzida (apenas leitura), como widget dentro de outros Dashboards (ex.: Dashboard CEO, Capítulo 13) — o dado de origem é sempre o mesmo Serviço dono, nunca duplicado com cálculo próprio; criação de Meta sem Indicador associado é bloqueada (validação visual); encerramento automático de ciclo na data definida (RN-046) nunca exige ação manual, mas Meta "Não atingida" sempre recebe tratamento visual neutro (Âmbar-atenção), nunca punitivo (§3.10).
 
 ## 23. Dashboard Inteligência Artificial
 
