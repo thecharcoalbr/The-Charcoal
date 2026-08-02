@@ -1422,4 +1422,37 @@ Criado, a pedido do proprietário, o `THE_CHARCOAL_OS_CUSTOMER_EXPERIENCE_AND_LI
 
 ---
 
+## FASE 022 — SaaS Platform & Tenant Management Strategy (Camada de Produto, Parte 3)
+
+**Status:** Em construção — primeira apresentação, aguardando aprovação do proprietário
+**Data:** 2026-08-02
+
+Criado, a pedido explícito do proprietário (com instrução de releitura direta dos documentos-fonte, sem uso de memória de conversa como fonte primária), o `THE_CHARCOAL_OS_SAAS_PLATFORM_AND_TENANT_MANAGEMENT_STRATEGY.md` (TCOS-022), terceira e última parte planejada da Camada de Produto — define a operação da Plataforma SaaS multi-tenant (Tenant/Organização, Workspace, Multiempresa/Multiusuário, Convites, Papéis Administrativos, Entitlements/Limites por Plano, Upgrade/Downgrade, Trial, Conversão, Suspensão/Reativação, Cancelamento, Ambiente de Demonstração, Feature Flags, Licenciamento, Governança da Plataforma, Escalabilidade para milhares de Tenants, Estratégias para Austrália e Brasil) inteiramente acima e fora dos 27 módulos, 15 Serviços, 11 Perfis de Segurança e 4 Ambientes de engenharia já oficiais — nenhum deles criado, alterado ou reinterpretado.
+
+### Decisões tomadas
+- D-022-01: "Tenant" é formalizado como o termo de plataforma/mercado para a "Organização" já reservada (TCOS-007 §7.6) — não uma entidade nova.
+- D-022-02: "Entitlement" é formalizado como o termo técnico-comercial para o mecanismo já oficial "módulo habilitado por Organização" (TCOS-020, Capítulos 9–10) — não um conceito novo.
+- D-022-03: "Ambiente de Demonstração" é formalizado como um Tenant especial com dado ilustrativo dentro do Ambiente de Produção já oficial (TCOS-014, Capítulo 5) — explicitamente NÃO um 5º Ambiente de engenharia, para não contradizer os 4 já oficiais (Development, Test, Staging, Production).
+- D-022-04: "Papéis Administrativos da Organização" (Proprietário da Organização, Administrador da Assinatura) são formalizados como conceito de Plataforma, distinto e sem sobreposição com os 11 Perfis de Segurança já oficiais (TCOS-012) — para não reabrir nem agravar RC-021-01.
+- D-022-05: "Suspensão/Reativação" são formalizados como uma dimensão de **acesso à Plataforma**, complementar e independente da dimensão de **relacionamento/sucesso** já definida no Ciclo de Vida do TCOS-021 (Capítulo 4) — as duas dimensões não se substituem.
+
+### Alterações
+- ALT-022-01: criado `THE_CHARCOAL_OS_SAAS_PLATFORM_AND_TENANT_MANAGEMENT_STRATEGY.md` (TCOS-022), em construção, 31 capítulos sequenciais confirmados programaticamente. Nenhum documento oficial congelado foi alterado. Confirmado via `git status` que apenas este arquivo foi criado.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova além das já registradas no próprio TCOS-022 (Capítulos 12, 16 — valores numéricos de Limite por Plano e duração de Trial, pendentes de dado de uso real).
+
+### Riscos encontrados
+- Nenhum risco novo de arquitetura. R-COR-01 (herdado da Auditoria Corretiva de 2026-08-02) reafirmado com relevância ampliada: a carga agregada dos Serviços de Indicadores e Dashboards e de Auditoria cresce proporcionalmente ao número de Tenants operando no modelo compartilhado (TCOS-022, Capítulo 26) — sem antecipação de solução técnica.
+
+### Pendências
+- Aprovação do proprietário sobre o TCOS-022, e ainda sobre o TCOS-020 e o TCOS-021.
+- Correção do TCOS-020 Capítulo 4 (RC-021-01) — permanece pendente, reafirmada nesta fase sem nova ação.
+- M-006-01/M-007-01 (Multiempresa/Multifilial) e M-014-03 (escolha Tenant compartilhado/isolado) — agora também diretamente relevantes à Plataforma SaaS, sem decisão tomada nesta fase.
+- Pendências herdadas: as mesmas já consolidadas, sem nenhuma nova de arquitetura.
+
+**Confirmação de auditoria (executada antes deste registro):** confirmado via `git status` que apenas `THE_CHARCOAL_OS_SAAS_PLATFORM_AND_TENANT_MANAGEMENT_STRATEGY.md` foi criado (arquivo novo); nenhum dos 26 documentos oficiais existentes (25 anteriores + TCOS-021) foi alterado; verificação programática confirmou 31 capítulos sequenciais (1–31) sem lacuna; todos os documentos-fonte (TCOS-006, TCOS-007, TCOS-012, TCOS-014, TCOS-017, TCOS-020, TCOS-021) foram relidos diretamente nas seções citadas antes da redação, conforme instrução explícita do proprietário.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
