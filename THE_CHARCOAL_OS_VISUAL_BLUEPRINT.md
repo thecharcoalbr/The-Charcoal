@@ -278,6 +278,10 @@ Distribuição em grid: Desktop 2 a 4 colunas (Capítulo 11 deste documento), Ta
 
 **Filtros:** seletor de período; filtro por status de Produção.
 
+**Ações rápidas:** "Executar Produção"; "Planejar Produção" (normalmente automático via RN-016, disponível manualmente como exceção); "Registrar Consumo Real" (F-034); ação rápida "Ver Ficha Técnica" a partir de uma Produção.
+
+**Modal:** "Registrar Consumo e Rendimento Real" (F-034).
+
 **Comportamento esperado:** todo valor de desvio (rendimento/perda) é somente leitura, calculado pelo Serviço dono — o Dashboard nunca recalcula esse valor na interface (PF-03, Camada de Componente, Capítulo 4 deste documento).
 
 ## 17. Dashboard Estoque
@@ -290,9 +294,11 @@ Distribuição em grid: Desktop 2 a 4 colunas (Capítulo 11 deste documento), Ta
 
 **Tabela:** posição de estoque (F-052), com Badge de status para itens críticos; aba de Lotes (F-055), com destaque visual (cor Amarelo/Âmbar-atenção ou Vermelho-crítico, conforme severidade) para Lotes próximos do vencimento.
 
-**Ações rápidas:** acesso direto à tela de Lotes (Capítulo 24 deste documento) a partir do card de Lotes próximos do vencimento.
+**Ações rápidas:** acesso direto à tela de Lotes (Capítulo 24 deste documento) a partir do card de Lotes próximos do vencimento; "Realizar Inventário" (F-053); "Configurar Ponto de Reposição" (F-054); "Registrar Descarte de Lote" (F-056).
 
 **Filtros:** seletor de categoria; filtro por proximidade de vencimento.
+
+**Modais:** "Realizar Inventário/Ajuste" (com justificativa obrigatória); "Registrar Descarte de Lote".
 
 **Comportamento esperado:** o destaque de vencimento segue a mesma paleta de severidade usada em todo o sistema (Design System, Capítulo 26 deste documento) — nunca uma cor exclusiva desse Dashboard.
 
@@ -308,6 +314,10 @@ Distribuição em grid: Desktop 2 a 4 colunas (Capítulo 11 deste documento), Ta
 
 **Filtros:** seletor de período; filtro por Produto/Receita.
 
+**Ações rápidas:** "Ver Detalhamento de Custo do Evento".
+
+**Modal:** detalhamento de custo de um Evento específico (breakdown por Ingrediente/mão de obra/Despesa direta).
+
 **Comportamento esperado:** todo valor de custo exibido é somente leitura, oriundo exclusivamente do Serviço dono de Engenharia de Custos — o Dashboard nunca exibe um valor de custo recalculado localmente (PF-03).
 
 ## 19. Dashboard Eventos
@@ -321,6 +331,10 @@ Distribuição em grid: Desktop 2 a 4 colunas (Capítulo 11 deste documento), Ta
 **Tabela:** lista de Eventos por estágio do ciclo de vida, com data, Cliente e responsável.
 
 **Filtros:** seletor de período; filtro por estágio do ciclo de vida.
+
+**Ações rápidas:** "Novo Evento" (F-020); "Confirmar"; "Cancelar"; ação rápida "Ver Orçamento/Contrato vinculado".
+
+**Modais:** "Novo Evento" (Cliente, data, local, convidados, escopo); "Cancelar Evento" (motivo obrigatório).
 
 **Comportamento esperado:** ao contrário dos demais Dashboards, este não possui uma funcionalidade de indicador dedicada (F-XXX) além do próprio ciclo de vida do Módulo 07 — os dados exibidos são consumidos através do Serviço de Indicadores (Frontend Architecture, Capítulo 15), reafirmando que o Dashboard nunca duplica lógica de cálculo já existente em outro Serviço.
 

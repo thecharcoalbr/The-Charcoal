@@ -1518,4 +1518,34 @@ Avaliadas as opções sob os 7 critérios de prioridade do proprietário (valor 
 
 ---
 
+## CORREÇÃO — Botões e Modais Faltantes (TCOS-018, Capítulos 16–19; Telas 04 e 05)
+
+**Status:** Correção executada dentro do escopo autorizado por `CORRIGIR`; aguardando confirmação final do proprietário antes de retomar a Tela 06
+**Data:** 2026-08-02
+
+Ao retomar a construção da Tela 06 (Dashboard Engenharia de Custos), a Auditoria de Abertura e a releitura direta da UX/UI Specification (§3.5 a §3.8) encontraram um achado real, não corrigido automaticamente: os Capítulos 16 (Produção), 17 (Estoque), 18 (Engenharia de Custos) e 19 (Eventos) do TCOS-018 omitiam integralmente os campos "Ações rápidas/Botões" e "Modais" exigidos por suas próprias fontes citadas — divergência do mesmo tipo já identificada e corrigida para o Capítulo 22 (Metas) durante a construção original do TCOS-018. O achado foi reportado ao proprietário antes de qualquer correção, que autorizou (`CORRIGIR`) o escopo mínimo abaixo.
+
+### Decisões tomadas
+- D-COR2-01: os campos "Ações rápidas" e "Modais" dos Capítulos 16–19 do TCOS-018 foram adicionados exatamente conforme definidos na UX/UI Specification (§3.5–§3.8), sem criar, remover ou reinterpretar nenhum requisito.
+- D-COR2-02: as Telas 04 (Produção) e 05 (Estoque), já aprovadas, foram atualizadas para refletir os botões agora documentados — layout, grid, componentes, identidade visual, arquitetura, regras de negócio, fluxos, KPIs, nomenclaturas e comportamento já aprovado permaneceram integralmente preservados.
+- D-COR2-03: identificado, durante a Auditoria de Regressão pré-edição, que o `.btn.primary` da Tela 04 estava escopado (corretamente) em Roxo-IA apenas para o botão "Aceitar" do widget de sugestão de IA — a correção usou um seletor mais específico (`.page-head .btn.primary`) para aplicar Brasa ao novo botão principal sem alterar em nada o componente de IA já aprovado.
+
+### Alterações
+- ALT-COR2-01: `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` (TCOS-018) — Capítulos 16, 17, 18 e 19, campos "Ações rápidas"/"Modal(is)" adicionados. Confirmado via `git diff` que apenas essas 4 seções foram tocadas (15 inserções, 1 remoção líquida) — nenhum outro capítulo do documento foi alterado.
+- ALT-COR2-02: `mockup-dashboard-producao.html` (Tela 04, scratchpad, não versionado em Git) — adicionados botões "Planejar Produção", "Registrar Consumo Real", "Executar Produção" (primário, Brasa) no cabeçalho; nomes de Ficha Técnica na tabela convertidos em links (ação "Ver Ficha Técnica"). Nenhum outro elemento alterado.
+- ALT-COR2-03: `mockup-dashboard-estoque.html` (Tela 05, scratchpad, não versionado em Git) — adicionados botões "Configurar Ponto de Reposição", "Registrar Descarte de Lote", "Realizar Inventário" (primário, Brasa) no cabeçalho. Nenhum outro elemento alterado; a correção do Achado #1 (borda/valor vermelho) permanece intacta.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova.
+
+### Riscos encontrados
+- Nenhum risco novo. Confirmado que a divergência encontrada não afeta nenhuma Regra de Negócio, Fluxo ou decisão arquitetural — apenas completude de representação visual já exigida pela documentação existente.
+
+### Pendências
+- Achados administrativos já registrados (RC-021-01; citação Cap. 14/15 da Constituição) permanecem pendentes, sem relação com esta correção.
+
+**Confirmação de auditoria (executada antes e depois da correção):** Auditoria de Regressão pré-edição confirmou que "Botão" e "Modal" já são categorias oficiais da Biblioteca Visual (TCOS-018, Capítulo 25, itens 25.3/25.5, base UX/UI Spec §5.6/§5.8) e que os códigos F-020, F-034, F-053, F-054, F-056 citados existem exatamente com esse conteúdo na Functional Specification — nenhum componente ou funcionalidade nova foi criado. Auditoria Executiva Completa pós-correção confirmou, por re-renderização e inspeção visual das Telas 04 e 05, que nenhum componente pré-existente sofreu regressão (o botão "Aceitar" do widget de IA permanece Roxo-IA; o Card corrigido do Achado #1 na Tela 05 permanece sem a variante vermelha; grid, sidebar, KPIs, gráficos, tabelas e navegação permanecem idênticos). Confirmado via `git status`/`git diff` que apenas o `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` foi alterado entre os documentos oficiais — nenhum outro documento oficial congelado foi tocado.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
