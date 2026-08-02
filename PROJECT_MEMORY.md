@@ -1455,4 +1455,37 @@ Criado, a pedido explícito do proprietário (com instrução de releitura diret
 
 ---
 
+## FASE 023 — Product Analytics, Telemetry & Product Intelligence (Camada de Produto, Parte 4)
+
+**Status:** Em construção — primeira apresentação, aguardando aprovação do proprietário
+**Data:** 2026-08-02
+
+Solicitado originalmente como "TCOS-024"; a Auditoria de Abertura confirmou, por busca em todo o repositório, que nenhum TCOS-023 havia sido criado — achado apresentado ao proprietário antes de qualquer escrita, que autorizou (`APROVADO`) a renumeração para **TCOS-023**, preservando a sequência cronológica sem lacuna. Criado o `THE_CHARCOAL_OS_PRODUCT_ANALYTICS_TELEMETRY_AND_PRODUCT_INTELLIGENCE.md` (TCOS-023), quarta e última parte planejada da Camada de Produto — define Product Intelligence, Analytics, Product Evolution, IA Aplicada ao Produto e Governança, com 45 capítulos, sem citar nenhuma tecnologia ou fornecedor, sem alterar nenhum documento oficial congelado.
+
+### Decisões tomadas
+- D-023-01: Product Intelligence opera como mais um assinante do Event Bus já oficial (TCOS-006, Capítulo 7) — nenhum mecanismo de captura paralelo, nenhuma arquitetura nova.
+- D-023-02: Product Intelligence (valor entregue pelo produto) e Observabilidade Técnica (TCOS-014, Capítulos 17–20, saúde do sistema) são fronteiras explicitamente distintas, sem sobreposição.
+- D-023-03: sinais de produto são formalmente divididos em Categoria A (derivados de eventos de negócio já existentes, disponíveis hoje sem nova instrumentação) e Categoria B (interação de interface — cliques, tempo de tela — que **não existe** em nenhum evento oficial hoje) — toda definição deste documento que depende de Categoria B está explicitamente marcada, nunca apresentada como já disponível.
+- D-023-04: toda saída de IA aplicada a produto (Capítulos 34–38) é Sugestão, nunca Decisão, em conformidade estrita com o TCOS-013 (Capítulos 8, 27) — nenhuma exceção para o domínio de "insight de produto".
+
+### Alterações
+- ALT-023-01: criado `THE_CHARCOAL_OS_PRODUCT_ANALYTICS_TELEMETRY_AND_PRODUCT_INTELLIGENCE.md` (TCOS-023), em construção, 45 capítulos sequenciais confirmados programaticamente. Nenhum documento oficial congelado foi alterado. Confirmado via `git status` que apenas este arquivo foi criado.
+
+### Melhorias sugeridas (Backlog)
+- Endereçar, em fase futura de tecnologia (extensão do TCOS-011/TCOS-017), a instrumentação de sinais de Categoria B (interação de interface) — hoje inexistente em qualquer documento oficial.
+
+### Riscos encontrados
+- Nenhum risco novo de arquitetura. Nota de rastreabilidade: R-COR-01 (carga agregada de Indicadores/Auditoria) se aplicaria igualmente a um futuro Serviço de Product Intelligence, caso este também assine todos os eventos do sistema — mencionado no TCOS-023 (Capítulo 43), sem antecipação de solução técnica.
+- **Achado (Erro, novo nesta fase, não corrigido):** a Política Oficial de Change Request é o Capítulo 14 da Constituição Permanente, não o Capítulo 15 — citação incorreta ("Capítulo 15") encontrada propagada em 3 documentos: TCOS-019A (Executive Memory, Fase 1, já aprovada), TCOS-020 (Executive Memory e Capítulo 20), TCOS-022 (Capítulo 25). Severidade Baixa (a política referenciada está correta, apenas o número do capítulo é impreciso). TCOS-023 já usa a citação correta em todo o seu conteúdo. Correção das 4 ocorrências nos 3 documentos pendente de autorização explícita do proprietário.
+
+### Pendências
+- Aprovação do proprietário sobre o TCOS-023, e ainda sobre o TCOS-020, TCOS-021 e TCOS-022.
+- Correção do TCOS-020 Capítulo 4 (RC-021-01) — permanece pendente.
+- Correção da citação "Capítulo 15 → Capítulo 14" em TCOS-019A, TCOS-020 e TCOS-022 (achado desta fase) — pendente de autorização.
+- Pendências herdadas: as mesmas já consolidadas, sem nenhuma nova de arquitetura.
+
+**Confirmação de auditoria (executada antes deste registro):** confirmado via `git status` que apenas `THE_CHARCOAL_OS_PRODUCT_ANALYTICS_TELEMETRY_AND_PRODUCT_INTELLIGENCE.md` foi criado (arquivo novo); nenhum dos 27 documentos oficiais existentes (26 anteriores + TCOS-022) foi alterado; verificação programática confirmou 45 capítulos sequenciais (1–45) sem lacuna; busca confirmou ausência de qualquer nome de fornecedor/ferramenta no documento; todos os documentos-fonte (Constituição, TCOS-006, TCOS-012, TCOS-013, TCOS-014, TCOS-020, TCOS-021, TCOS-022) foram relidos diretamente nas seções citadas antes da redação, conforme instrução explícita do proprietário.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
