@@ -5,7 +5,7 @@
 **Natureza:** Documento de representação visual do sistema. NÃO constitui implementação, NÃO constitui Frontend, NÃO constitui código. Sua finalidade exclusiva é permitir a validação da experiência do usuário antes de qualquer desenvolvimento técnico.
 **Baseline referenciada:** v1.0.0 (TCOS-000 a TCOS-017), sob a autoridade da Constituição Permanente do Projeto.
 **Referência visual canônica desta fase:** `THE_CHARCOAL_OS_UX_UI_SPECIFICATION.md` (TCOS-005) e `THE_CHARCOAL_OS_FRONTEND_ARCHITECTURE.md` (TCOS-011) — em caso de divergência de nomenclatura entre documentos oficiais, prevalecem estes dois, por determinação expressa do proprietário (comando `ALTERAR`, 2026-08-02).
-**Status:** Documento em Construção — Partes 1 a 4 APROVADAS — Parte 5 concluída (Capítulo 27, novo: Fluxos Visuais Completos do Sistema, os 30 fluxos oficiais FL-001 a FL-030 mapeados) — aguardando decisão do proprietário para prosseguir.
+**Status:** Documento em Construção — Partes 1 a 5 APROVADAS — Parte 6 concluída (Capítulo 28, novo: Protótipo Navegável Conceitual do Sistema, sitemap completo das 30 telas) — aguardando decisão do proprietário para prosseguir.
 
 ---
 
@@ -33,10 +33,11 @@ Estas três divergências herdadas do TCOS-016 (M-016-01, M-016-02, referentes a
 | 2 (aprovada) | Capítulos 12–23: Estrutura Visual dos Dashboards + os 11 Dashboards individuais |
 | 3 (aprovada) | Capítulo 24: Blueprint completo das 30 telas já especificadas (subdividida em 3 sub-partes 3a/3b/3c, todas aprovadas) |
 | 4 (aprovada) | Capítulos 25 e 26: Componentes Visuais (biblioteca completa) + Design System Consolidado — consolidados em uma única Parte por determinação expressa do proprietário |
-| 5 (esta) | Capítulo 27 (novo, inserido por determinação do proprietário): Fluxos Visuais Completos do Sistema — os 30 fluxos oficiais (FL-001 a FL-030, TCOS-004) representados como caminhos de navegação entre as telas já blueprintadas |
-| 6 | Capítulo 28 (antigo 27): Experiência do Usuário |
-| 7 | Capítulo 29 (antigo 28): Visualização do Sistema (detalhamento para prototipagem futura) — poderá ser subdividida |
-| 8 | Resumo para o Proprietário, TCOS Quality Gate Executivo, Relatório Consolidado de Padronização |
+| 5 (aprovada) | Capítulo 27 (novo, inserido por determinação do proprietário): Fluxos Visuais Completos do Sistema — os 30 fluxos oficiais (FL-001 a FL-030, TCOS-004) representados como caminhos de navegação entre as telas já blueprintadas |
+| 6 (esta) | Capítulo 28 (novo, inserido por determinação do proprietário): Protótipo Navegável Conceitual do Sistema |
+| 7 | Capítulo 29 (antigo 27): Experiência do Usuário |
+| 8 | Capítulo 30 (antigo 28): Visualização do Sistema (detalhamento para prototipagem futura) — poderá ser subdividida |
+| 9 | Resumo para o Proprietário, TCOS Quality Gate Executivo, Relatório Consolidado de Padronização |
 
 **Registro de Aprovações por Parte:**
 
@@ -49,7 +50,8 @@ Estas três divergências herdadas do TCOS-016 (M-016-01, M-016-02, referentes a
 | 3c | APROVADA (2026-08-02) | Cap. 24.15–24.20 (Funcionários, Escalas, Bancos, Conciliação Bancária, Configurações, Administração) — Capítulo 24 concluído: 30/30 telas documentadas |
 | 4 | APROVADA (2026-08-02) | Cap. 25 (24 itens de biblioteca de componentes) + Cap. 26 (5 itens de Design System Consolidado) |
 | — | CORRIGIDA (2026-08-02) | Cap. 22 (Dashboard Metas) complementado com Ações rápidas, Modais e Alertas já oficiais do TCOS-005 §3.10, achado durante a auditoria pré-Parte 5 |
-| 5 | Concluída (2026-08-02), aguardando aprovação | Cap. 27 (novo): Fluxos Visuais Completos do Sistema — 30 fluxos oficiais (FL-001 a FL-030) mapeados |
+| 5 | APROVADA (2026-08-02) | Cap. 27 (novo): Fluxos Visuais Completos do Sistema — 30 fluxos oficiais (FL-001 a FL-030) mapeados + Seção 27.10 Limitações Conhecidas |
+| 6 | Concluída (2026-08-02), aguardando aprovação | Cap. 28 (novo): Protótipo Navegável Conceitual do Sistema — sitemap das 30 telas + roteiro de demonstração |
 
 Nenhuma funcionalidade, regra de negócio, entidade, tela ou componente novo é criado neste documento — toda representação visual deriva exclusivamente do que já está oficialmente especificado. Onde a especificação existente descreve um layout em texto (ex.: "lista/kanban por estágio") sem atribuir formalmente um dos 4 Templates de Tela, este documento faz a inferência visual necessária e a identifica explicitamente como inferência, nunca como fato já decidido em outro documento.
 
@@ -1417,3 +1419,73 @@ Seção exclusivamente informativa — não cria funcionalidade, tela ou regra d
 ---
 
 **Fim da Parte 5 — Capítulo 27 concluído.**
+
+## 28. Protótipo Navegável Conceitual do Sistema
+
+### 28.1 Objetivo e Metodologia
+
+Este capítulo consolida, em uma única estrutura de navegação completa (um "sitemap navegável"), tudo o que já foi estabelecido separadamente no Mapa Geral de Navegação (Capítulo 5), no Fluxo Principal do Usuário (Capítulo 6), no Blueprint das 30 telas (Capítulo 24) e nos Fluxos Visuais (Capítulo 27) — permitindo que o proprietário percorra mentalmente, tela a tela, exatamente como um protótipo clicável (Figma ou equivalente, ferramenta ainda não decidida) faria. **Este capítulo não cria nenhum destino, ação ou transição nova** — cada aresta do grafo abaixo já foi citada em algum capítulo anterior deste mesmo documento, aqui apenas reunida em formato de sitemap.
+
+### 28.2 Sitemap Navegável — Grafo Completo das 30 Telas
+
+| Tela | Chegadas (de onde se chega) | Saídas (para onde leva) |
+|---|---|---|
+| Dashboard CEO (13) | Login (raiz do sistema); clique no logotipo, de qualquer tela | Eventos (24.4) [Novo Evento]; Financeiro Empresarial (15) [Ver Financeiro]; Dashboard Metas (22) [Ver Metas]; Eventos (24.4) [tabela de próximos] |
+| Dashboard Financeiro Pessoal (14) | Menu lateral (Financeiro) | Bancos (24.17) [referência de Conta] |
+| Dashboard Financeiro Empresarial (15) | Menu lateral; Contratos (24.6) [Receita Financeira gerada] | Bancos (24.17); Conciliação Bancária (24.18) |
+| Dashboard Produção (16) | Menu lateral | Produção (24.7) [tela operacional]; Dashboard IA (23) [sugestão] |
+| Dashboard Estoque (17) | Menu lateral | Estoque (24.12) [tela operacional]; Lotes (24.13) [Ver Lotes] |
+| Dashboard Engenharia de Custos (18) | Menu lateral | Fichas Técnicas (24.9) |
+| Dashboard Eventos (19) | Menu lateral | Eventos (24.4) [tela de gestão] |
+| Dashboard CRM (20) | Menu lateral | Leads (24.2) [Novo Lead] |
+| Dashboard Marketing (21) | Menu lateral | Dashboard CRM (20) [retorno consolidado] |
+| Dashboard Metas (22) | Menu lateral; Dashboard CEO (13) [widget] | (permanece na própria tela — Modal Criar/Editar Meta) |
+| Dashboard IA (23) | Menu lateral; ícone de sugestão pendente no cabeçalho (Capítulo 8); qualquer tela com sugestão contextual | Produção (24.7), Compras (24.11), Conciliação Bancária (24.18) [telas de origem da sugestão] |
+| Leads (24.2) | Menu (CRM); Dashboard CRM (20); Campanha (Dashboard Marketing 21) | Clientes (24.3) [Converter] |
+| Clientes (24.3) | Menu; conversão de Leads (24.2) | Orçamentos (24.5) [Novo Orçamento] |
+| Eventos (24.4) | Menu; Dashboard Eventos (19); Clientes (24.3); Dashboard CEO (13) | Orçamentos (24.5), Contratos (24.6), Produção (24.7), Escalas (24.16) [aba Equipe], Equipamentos (24.14) [aba Equipamentos], Financeiro Empresarial (15) [aba Financeiro] |
+| Orçamentos (24.5) | Menu; Clientes (24.3); aba Orçamento de Eventos (24.4) | Contratos (24.6) [aceite]; Precificação (24.10) [referência] |
+| Contratos (24.6) | Menu; Orçamentos (24.5) aceito (automático); aba Contrato de Eventos (24.4) | Eventos (24.4) [Confirmado] |
+| Produção (24.7) | Menu; Dashboard Produção (16); aba Produção de Eventos (24.4); automático (Evento confirmado) | Fichas Técnicas (24.9) [Ver Ficha Técnica]; Estoque (24.12) [baixa automática] |
+| Receitas (24.8) | Menu | Fichas Técnicas (24.9) [Criar Ficha Técnica] |
+| Fichas Técnicas (24.9) | Menu; Receitas (24.8) aprovada; Dashboard Engenharia de Custos (18); Produção (24.7) | Orçamentos (24.5) [alerta de impacto] |
+| Precificação (24.10) | Menu; Orçamentos (24.5) [referência] | Configurações (24.19) [Definir Margem-Alvo] |
+| Compras (24.11) | Menu; Dashboard Estoque (17) | Estoque (24.12), Lotes (24.13) [gerados automaticamente] |
+| Estoque (24.12) | Menu; Dashboard Estoque (17) | Lotes (24.13) [Ver Lotes] |
+| Lotes (24.13) | Menu; Dashboard Estoque (17); Estoque (24.12); automático (Compras 24.11/Produção 24.7) | Compras (24.11) / Produção (24.7) [Ver origem] |
+| Equipamentos (24.14) | Menu; aba Equipamentos de Eventos (24.4) | Eventos (24.4) [Ver Evento] |
+| Funcionários (24.15) | Menu | Escalas (24.16) [Ver Escala] |
+| Escalas (24.16) | Menu; automático (Evento confirmado); aba Equipe de Eventos (24.4) | Funcionários (24.15) [Substituir] |
+| Bancos (24.17) | Menu; referência de Financeiro Pessoal (14)/Empresarial (15) | Conciliação Bancária (24.18) [Ir para Conciliação] |
+| Conciliação Bancária (24.18) | Menu (Bancos → Conciliação); Bancos (24.17); Dashboard Financeiro Empresarial (15) | Bancos (24.17); Dashboard IA (23) [origem de sugestão] |
+| Configurações (24.19) | Menu; links diretos de telas bloqueadas (Produção 24.7, Precificação 24.10, Escalas 24.16, Eventos 24.4) | Precificação (24.10) [Ir para onde é usado] |
+| Administração (24.20) | Menu (exclusivamente — nunca drill-down de outra tela) | Nenhuma — tela terminal do grafo, apenas abas internas |
+
+**Confirmação de integridade do grafo:** todas as 30 telas possuem ao menos uma chegada (nenhuma tela órfã, inalcançável); a única tela sem saída própria é Administração (24.20), por decisão de design já oficial (UX/UI Specification, §3.30: "acessível apenas pelo menu... não é destino de drill-down"), não uma falha de navegação.
+
+### 28.3 Roteiro de Sessão de Demonstração (Walkthrough)
+
+Sequência única e contínua, combinando os principais fluxos já mapeados (Capítulo 27), utilizável como roteiro de demonstração para uma futura prototipagem clicável:
+
+1. **Login** → Dashboard CEO (13).
+2. Clique em "Novo Evento" → Eventos (24.4), Evento em estado "Prospectado".
+3. Navegação para Orçamentos (24.5) → "Novo Orçamento" → preço calculado a partir de Fichas Técnicas (24.9)/Precificação (24.10) → "Enviar".
+4. Cliente aceita (ação registrada) → navegação automática para Contratos (24.6) → minuta já gerada → "Assinar".
+5. Retorno automático a Eventos (24.4): estado "Confirmado" → orquestração automática visível (Produção 24.7, Estoque 24.12, Escalas 24.16, Compras 24.11 todos com novos itens).
+6. Navegação para Produção (24.7) → "Iniciar Execução" → "Registrar Consumo/Rendimento".
+7. Retorno a Eventos (24.4) → "Concluir Evento" → margem apurada, visível na aba Resumo.
+8. Retorno a Dashboard CEO (13) → card "Margem média" e card "Eventos concluídos" refletem o novo valor, sem recarregamento manual (toast "Dashboard atualizado agora", Capítulo 16 do Frontend Architecture).
+
+Este roteiro único percorre 6 das 30 telas de forma encadeada, demonstrando o compromisso de no máximo dois cliques a partir de qualquer Dashboard (Capítulo 5) e a atualização automática entre telas (Capítulo 16 do Frontend Architecture) — sem que nenhuma etapa exija navegação não já prevista nos Capítulos 12–27.
+
+### 28.4 Pontos de Entrada por Perfil
+
+Reafirma, sem alteração, o comportamento já definido (Capítulo 3, Visão Geral do Sistema; UX/UI Specification, Capítulo 4): após o login, cada Perfil é redirecionado automaticamente ao Dashboard mais relevante à sua Área da Empresa (Capítulo 5) — nunca a uma tela de módulo diretamente. Um Perfil com mais de uma Área vinculada (Security and Privacy Architecture, Capítulo 9, "união de Perfis") tem acesso ao Dashboard de cada Área, com o Dashboard CEO permanecendo alcançável por todos com acesso executivo, através do logotipo (Capítulo 8).
+
+### 28.5 Limitações do Protótipo Conceitual
+
+Este capítulo descreve a **estrutura completa de navegação** (sitemap + roteiro de demonstração) — não é, e não substitui, um protótipo interativo real. Não há: tecnologia de prototipagem escolhida (Figma ou equivalente, `[Pendente de confirmação visual]`); dado real ou simulado além dos exemplos ilustrativos já usados na validação visual dos Dashboards (comando `APROVADO` anterior); interatividade clicável de fato — este capítulo é o roteiro textual completo a partir do qual uma ferramenta de prototipagem poderá, em fase futura e fora do escopo deste documento, construir um protótipo clicável fiel.
+
+---
+
+**Fim da Parte 6 — Capítulo 28 concluído.**
