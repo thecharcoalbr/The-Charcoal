@@ -1750,6 +1750,8 @@ Reiniciada a Auditoria de Abertura da Tela 08 após a correção do Capítulo 20
 
 **Confirmação de auditoria (Executiva Completa, Consistência, UX/UI, Regressão, Rastreabilidade):** confirmado que o funil e o gráfico de barras usam exclusivamente cores já oficiais (Brasa em opacidade decrescente, conforme autorizado pelo TCOS-019A para este tipo específico de gráfico); confirmado que o conteúdo (KPIs, Funil, Gráfico, Tabela, Ações rápidas, Filtros) corresponde ao TCOS-018 Capítulo 20 (já corrigido) e à UX/UI Specification §3.9; confirmado que a sidebar reflete exatamente o agrupamento oficial (Comercial/CRM: 04 CRM, 05 Clientes, 06 Leads, 08 Orçamentos); confirmado que grid, topbar e paleta são idênticos às Telas 01–07; confirmado que nenhum módulo, Serviço, regra de negócio ou documento oficial foi alterado nesta etapa — apenas o `PROJECT_MEMORY.md`.
 
+**Aprovação:** a Tela 08 (Dashboard CRM) foi aprovada integralmente pelo proprietário (comando `APROVADO`) e passa a integrar oficialmente o conjunto de referências visuais aprovadas do THE CHARCOAL OS, ao lado das Telas 01–07.
+
 ---
 
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
