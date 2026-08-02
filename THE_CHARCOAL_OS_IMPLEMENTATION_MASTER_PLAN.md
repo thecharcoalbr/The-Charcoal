@@ -3,7 +3,7 @@
 **Documento:** TCOS-017 — Plano Mestre de Implementação
 **Projeto:** THE CHARCOAL OS
 **Fase:** 017 — Implementation Master Plan
-**Status:** Rascunho para validação do proprietário
+**Status:** Oficial — Aprovado e Congelado pelo proprietário em 2026-08-02 (comando `APROVADO`)
 **Versão:** 1.0.0
 
 ---
@@ -238,8 +238,8 @@ Justificativa técnica: cobertura completa dos 20 tópicos exigidos, ordem de im
 - Melhorias: 0 novas nesta fase.
 - Percentual estimado de maturidade do projeto: **97%** (inalterado — este plano organiza a execução da Baseline já completa, sem ampliar seu escopo conceitual).
 
-**Status desta fase:** rascunho aguardando validação do proprietário. Nenhuma tecnologia foi escolhida; nenhum código foi escrito; nenhum desenvolvimento foi iniciado, conforme restrição explícita do Prompt Oficial da Fase 017.
+**Status desta fase:** APROVADA E CONGELADA pelo proprietário em 2026-08-02 (comando `APROVADO`). Este documento passa a integrar a documentação oficial do THE CHARCOAL OS como o 21º Documento Oficial Congelado; nenhuma alteração futura sem criação de nova versão formal. Nenhuma tecnologia foi escolhida; nenhum código foi escrito; nenhum desenvolvimento foi iniciado.
 
 ---
 
-*Fim do documento — THE CHARCOAL OS IMPLEMENTATION MASTER PLAN v1.0.0*
+*Fim do documento — THE CHARCOAL OS IMPLEMENTATION MASTER PLAN v1.0.0 (Oficial)*

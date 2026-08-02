@@ -1101,4 +1101,21 @@ Recebido o Prompt Oficial (TCOS-017), executada a Auditoria de Consistência sob
 
 ---
 
+## FASE 017 — Encerramento Oficial
+
+**Status:** APROVADA E CONGELADA pelo proprietário em 2026-08-02 (comando `APROVADO`)
+**Data:** 2026-08-02
+
+O `THE_CHARCOAL_OS_IMPLEMENTATION_MASTER_PLAN.md` (v1.0.0) passa a ser documentação oficial do THE CHARCOAL OS, como o **21º Documento Oficial Congelado**. Nenhuma alteração futura sem criação de nova versão.
+
+**Nova contagem oficial de Documentos Oficiais** (critério em vigor a partir desta fase): 21 Documentos Oficiais Congelados (TCOS-000 a TCOS-017) + 1 Documento Oficial Vivo (`PROJECT_MEMORY.md`) + a Constituição Permanente (documento de governança, não contado como Fase) = **22 Documentos Oficiais + 1 Constituição**.
+
+**Percentual de maturidade do projeto:** mantido em **97%**, sem alteração adicional decorrente desta aprovação formal.
+
+Pendência P-017-01 (validação formal do proprietário) está **encerrada** por este comando `APROVADO`. Permanecem abertas, sem alteração, as mesmas 8 pendências substantivas consolidadas na Fase 016.
+
+**Confirmação de auditoria (executada antes deste commit):** verificado programaticamente que nenhum conteúdo técnico do `THE_CHARCOAL_OS_IMPLEMENTATION_MASTER_PLAN.md` foi alterado — apenas 3 linhas de status foram trocadas (cabeçalho, Quality Gate, linha final); as 22 seções/capítulos permanecem intactas; nenhuma referência cruzada foi modificada; nenhuma dependência entre módulos foi alterada; a ordem oficial de implementação (Camadas 0-8) permanece byte-idêntica à versão aprovada; nenhuma seção foi removida. Nenhum documento das Fases 000-016 nem a Constituição foram tocados.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
