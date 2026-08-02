@@ -1407,6 +1407,13 @@ Caminho visual: ⚙ entidade de origem criada/alterada (qualquer módulo) → �
 
 Os 30 fluxos oficiais (FL-001 a FL-030) foram mapeados integralmente às 30 telas já blueprintadas — nenhum fluxo permanece sem representação visual. Duas observações de transparência, sem impacto na integridade da Baseline: (1) FL-021 aponta para uma configuração de composição de Dashboard sem tela dedicada entre as 30 — identificado como `[Inferência visual]`, não como omissão a corrigir, por ausência de base oficial para uma tela própria; (2) FL-030 depende de parâmetros de negócio (critério de fidelização, feedback estruturado) já registrados como pendências substantivas desde a Fase 016 — este documento não antecipa esses valores.
 
+### 27.10 Limitações Conhecidas do Blueprint
+
+Seção exclusivamente informativa — não cria funcionalidade, tela ou regra de negócio nova, apenas consolida, em um único ponto do documento, as limitações já identificadas na Seção 27.9:
+
+- **FL-021 (Jornada Completa dos Dashboards):** depende de uma configuração de composição de Dashboard (definição de quais Indicadores aparecem em cada Dashboard) sem tela dedicada oficialmente especificada entre as 30 telas do sistema.
+- **FL-030 (Pós-venda):** depende de parâmetros de negócio (critério de fidelização de Cliente, estrutura de feedback pós-venda) que permanecem registrados como pendência substantiva do projeto, ainda não confirmados pelo proprietário.
+
 ---
 
 **Fim da Parte 5 — Capítulo 27 concluído.**
