@@ -1269,4 +1269,34 @@ O `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` (TCOS-018) passa a ser documentação of
 
 ---
 
+## FASE 019A — Visual Identity & Design Refinement (Progresso: Fase 1 aprovada)
+
+**Status:** Em construção por fases — Fase 1 (Identidade Visual Oficial) APROVADA; Fase 2 (Biblioteca Visual Oficial de Componentes) em construção
+**Data:** 2026-08-02
+
+Autorizada pelo proprietário uma nova etapa, fora da implementação técnica, dedicada ao refinamento visual do THE CHARCOAL OS: `THE_CHARCOAL_OS_VISUAL_IDENTITY_AND_DESIGN_REFINEMENT.md` (TCOS-019A). A Fase 1 instanciou valores concretos (paleta, tipografia, espaçamento, elevação, raios de borda, contraste) para os tokens conceituais que o TCOS-018 havia deixado `[Pendente de confirmação visual]`, e definiu a linguagem visual de ícones, gráficos, cards, tabelas, botões, filtros, badges, alertas, estados, animações e microinterações — sem alterar nenhuma categoria semântica, componente, tela, arquitetura, regra de negócio ou documento oficial congelado já existente.
+
+### Decisões tomadas
+- D-019A-01: a paleta oficial do sistema é fundamentada em tons quentes (Brasa/Carvão), com o Roxo-IA mantido deliberadamente como a única cor fria — reforçando visualmente a distinção entre dado humano e sugestão de IA (PF-06).
+- D-019A-02: tipografia definida por arquétipo (grotesca de baixo contraste) sem nomear fonte comercial específica, por ser decisão de licenciamento/tooling fora do escopo conceitual desta fase.
+- D-019A-03: 3 raios de borda e 4 níveis de sombra/profundidade, criados nesta fase (conceitos novos, sem definição anterior), aplicados por categoria de componente, não por preferência pontual.
+
+### Alterações
+- ALT-019A-01: criado o documento `THE_CHARCOAL_OS_VISUAL_IDENTITY_AND_DESIGN_REFINEMENT.md`, em construção (Fase 1 de N aprovada). Nenhum documento oficial congelado foi alterado.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova.
+
+### Riscos encontrados
+- Nenhum risco novo.
+
+### Pendências
+- Validação técnica exata do contraste AA permanece pendente da escolha de tecnologia (M-011-02, já registrada na Fase 011).
+- Fase 2 (Biblioteca Visual Oficial de Componentes) e fases subsequentes do TCOS-019A ainda pendentes.
+- Pendências herdadas: as mesmas 8 pendências substantivas consolidadas na Fase 016, sem nenhuma nova.
+
+**Confirmação de auditoria (executada antes deste registro):** confirmado que a Fase 1 instancia apenas valores concretos para categorias/conceitos já nomeados no TCOS-005/TCOS-011, sem renomear, remover ou alterar seu papel semântico; nenhuma tecnologia, código, CSS ou framework definido; confirmado via `git status` que apenas o `THE_CHARCOAL_OS_VISUAL_IDENTITY_AND_DESIGN_REFINEMENT.md` foi criado — nenhum dos 22 documentos oficiais congelados nem a Constituição Permanente foram alterados.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
