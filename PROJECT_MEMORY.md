@@ -2221,4 +2221,40 @@ Ao iniciar a Auditoria de Abertura da Tela 13, confirmado via TCOS-018 §24.1 qu
 
 ---
 
+## FASE — Tela 13 (Clientes) construída e apresentada
+
+**Status:** Construída e apresentada, aguardando aprovação do proprietário
+**Data:** 2026-08-02
+
+Reiniciada a Auditoria de Abertura da Tela 13 após a correção do §24.3. A releitura linha por linha do TCOS-018 §24.3 (já corrigido) contra a UX/UI Specification §3.13, a Functional Specification (F-013–F-015) e a Business Rules Specification (RN-009/RN-010) confirmou cobertura completa — nenhuma nova divergência objetiva encontrada. Construída a segunda das 19 telas de módulo — Tela 13, "Clientes", primeiro uso do Template "Lista + Detalhe (abas)".
+
+### Decisões tomadas
+- D-T13-01: KPI "Total de Clientes ativos" e Indicador "Taxa de fidelização" exibidos como par de estatísticas de cabeçalho, refletindo os campos "KPIs" e "Indicadores" recém-corrigidos no §24.3.
+- D-T13-02 **[Inferência visual]**: Alerta de "possível duplicidade no cadastro" (RN-009) renderizado como badge Âmbar-Atenção junto ao nome do Cliente suspeito na tabela — mesmo padrão de badge inline já usado para outros Alertas pontuais (ex.: Lead inativo, Tela 12), sem inventar um novo componente.
+- D-T13-03 **[Inferência visual]**: estado "inativo" renderizado com opacidade reduzida na linha inteira da tabela (nome, tipo, status, último Evento) — aplicação literal de "visualmente esmaecido, permanece acessível — nunca 'excluído'" (§24.3), preservando o link do nome como clicável.
+- D-T13-04 **[Inferência visual]**: botão "Inativar" (F-015) mantido em estilo neutro (mesmo `.btn` padrão, sem cor de "perigo"), consistente com o mesmo princípio conservador já usado no botão "Cancelar Evento" da Tela 07 — nenhuma variante de botão "destrutivo" foi criada por falta de precedente/autorização.
+- D-T13-05: nomes de Clientes reaproveitados de entidades já mencionadas em Telas anteriores (TechCorp Ltda., Família Andrade, Grupo Aurora, Buffet Vida Nova Eventos — Telas 01/07) e da conversão de Leads já demonstrada na Tela 12 (Recanto Verde Eventos, Espaço Alvorada) — para reforço narrativo de continuidade entre as telas; as datas específicas de cada Evento permanecem meramente ilustrativas, sem exigência de sincronismo exato entre Telas 01/07/13 (diferente dos casos em que o mesmo dado agregado é uma métrica compartilhada e obrigatoriamente idêntica, como Metas/CEO e o trio de Leads inativos CRM/Marketing/Leads).
+
+### Alterações
+- ALT-T13-01: criados `mockup-clientes.html` e `shot13.js` (scratchpad, não versionados em Git); gerado `clientes.png`. Nenhum documento oficial foi alterado nesta etapa.
+
+### Autocorreções durante as auditorias finais
+- Nenhuma necessária.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova além das já registradas (correção pendente Cap. 19 "azul"; achado §3.15 Orçamentos; OE-T06-01; Backlog Oficial de UX/UI da Tela 09, itens OE-T09-01 a OE-T09-06).
+- Sinal de possível padrão sistêmico (campo "Indicadores" ausente) no §24.4 (Eventos), já registrado anteriormente — a confirmar exclusivamente na Tela 14, sem correção preventiva, conforme instrução do proprietário.
+
+### Riscos encontrados
+- Nenhum risco novo.
+
+### Pendências
+- Aprovação do proprietário sobre a Tela 13.
+- Correção pendente do TCOS-018 Capítulo 19 ("azul" → "Âmbar-Atenção"), achado §3.15 Orçamentos e OE-T06-01 permanecem, sem alteração.
+- 2 de 19 telas de módulo concluídas.
+
+**Confirmação de auditoria (Executiva Completa, Consistência, UX/UI, Produto SaaS, Regressão, Rastreabilidade):** confirmado que o conteúdo (Cards no Detalhe, Indicadores, KPIs, Tabelas, Filtros, Menus, Botões, Modais, Atalhos, Estados da interface, Mensagens, Alertas, Validações visuais) corresponde integralmente ao TCOS-018 §24.3 (já corrigido) e à UX/UI Specification §3.13; confirmado que a sidebar reflete o agrupamento oficial (Comercial/CRM: CRM, Clientes — ativo —, Leads, Orçamentos), mesmo padrão expandido já usado nas Telas 08 e 12; confirmado que grid, topbar e paleta são idênticos às Telas 01–12; confirmado que nenhuma cor "azul" foi introduzida e que Roxo-IA permanece ausente (nenhum conteúdo de IA nesta tela); confirmado que nenhum módulo, Serviço, regra de negócio ou documento oficial foi alterado nesta etapa — apenas o `PROJECT_MEMORY.md`.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
