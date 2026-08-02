@@ -1921,4 +1921,37 @@ Ao reiniciar a Auditoria de Abertura da Tela 10 após a correção anterior (Not
 
 ---
 
+## FASE — Tela 10 (Dashboard Metas) construída e apresentada
+
+**Status:** Construída e apresentada, aguardando aprovação do proprietário
+**Data:** 2026-08-02
+
+Reiniciada a Auditoria de Abertura da Tela 10 após as duas correções do Capítulo 22 (Notificações/Estados da interface; Filtros). A releitura linha por linha do TCOS-018 Capítulo 22 (já corrigido) contra a UX/UI Specification §3.10, a Functional Specification (F-084–F-091, com destaque para F-089 que confirmou literalmente "filtro por período/responsável/Indicador") e a Business Rules Specification (RN-046) confirmou cobertura completa — nenhuma nova divergência objetiva encontrada. Construído o mockup de alta fidelidade — 10º Dashboard do sistema, primeiro da Área "BI / Direção Executiva" a ser construído (grupo de 3 módulos: Dashboard CEO, Inteligência Artificial, Metas — todos exibidos expandidos, sem submenu colapsado, já que esta Área contém múltiplos módulos e já estava assim na Tela 01, congelada).
+
+### Decisões tomadas
+- D-T10-01 **[Inferência visual]**: o Alerta "atraso no progresso" (RN-046) foi renderizado como uma pequena etiqueta Âmbar-Atenção separada, ao lado das ações do Card ("⚠ Atraso no progresso"), deliberadamente distinta e não sobreposta ao pill de Estado ("Ativa") — evitando criar um 5º "estado" não catalogado nos 4 Estados oficiais (Ativa/Atingida/Não atingida/Encerrada).
+- D-T10-02: a ação "Duplicar" (F-087) foi posicionada exclusivamente nas linhas de Metas já encerradas da tabela de histórico (Atingida/Não atingida/Encerrada), não nos Cards de Metas ativas — rastreável à Jornada FL-019 (TCOS-018, linha 1435), que mostra "Duplicar para novo ciclo" ocorrendo após o registro da Justificativa de encerramento, nunca durante o ciclo ainda ativo.
+- D-T10-03: "Editar" (F-085) e "Encerrar Antecipadamente" (F-086) posicionados nos Cards de Metas ativas — únicas ações que fazem sentido sobre uma Meta ainda em curso.
+
+### Alterações
+- ALT-T10-01: criados `mockup-dashboard-metas.html` e `shot10.js` (scratchpad, não versionados em Git); gerado `dashboard-metas.png`. Nenhum documento oficial foi alterado nesta etapa.
+
+### Autocorreções durante as auditorias finais (antes da apresentação)
+- AC-T10-01: a Auditoria Executiva Completa encontrou que o gráfico de histórico de ciclos havia sido inicialmente desenhado como gráfico de barras, divergindo do texto literal do TCOS-018 Capítulo 22 ("gráfico de linha de histórico de progresso"). Corrigido para um gráfico de linha com 2 séries (Atingida em Verde-Sucesso; Não atingida em Âmbar-Atenção, tracejada para diferenciação sem depender só da cor) antes de qualquer apresentação — autocorreção sobre mockup ainda não aprovado, sem tocar em documento oficial.
+- AC-T10-02: a Auditoria de Consistência com a Tela 01 (Dashboard CEO, já aprovada e congelada) — obrigatória, dado que o Capítulo 22 declara que o dado de origem de uma Meta "é sempre o mesmo Serviço dono, nunca duplicado com cálculo próprio" — encontrou que o widget "Metas do período" da Tela 01 já exibia "Faturamento do mês" em 72%, enquanto o rascunho da Tela 10 usava 91% para a mesma Meta. Corrigido para 72% (R$ 180.000 / R$ 250.000), alinhando os dois números da mesma entidade nas duas telas. As demais Metas ("Novos Clientes no trimestre" 45%; "Redução de perda de Produção" 100%) já estavam consistentes com a Tela 01 desde o rascunho inicial.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova além das já registradas (correção pendente Cap. 19 "azul"; achado §3.15 Orçamentos; OE-T06-01; Backlog Oficial de UX/UI da Tela 09, itens OE-T09-01 a OE-T09-06).
+
+### Riscos encontrados
+- Nenhum risco novo.
+
+### Pendências
+- Aprovação do proprietário sobre a Tela 10.
+- Correção pendente do TCOS-018 Capítulo 19 ("azul" → "Âmbar-Atenção"), achado §3.15 Orçamentos e OE-T06-01 permanecem, sem alteração.
+
+**Confirmação de auditoria (Executiva Completa, Consistência, UX/UI, Produto SaaS, Regressão, Rastreabilidade):** confirmado que todos os componentes (Card de progresso — já oficial, UX/UI Spec §5.6, catalogado para uso em Dashboard Metas e como widget no Dashboard CEO; gráfico de linha; tabela; pill de Estado; botão primário) já são oficiais ou aplicações mínimas e rastreáveis de padrões já oficiais; confirmado que o conteúdo (Cards, Gráfico, Tabela, Ações rápidas, Filtros, Alertas, Estados) corresponde integralmente ao TCOS-018 Capítulo 22 (já corrigido nas 2 rodadas) e à UX/UI Specification §3.10; confirmado que os 4 Estados da interface usam exatamente as cores oficiais determinadas (Ativa=Brasa, Atingida=Verde-Sucesso, Não atingida=Âmbar-Atenção — nunca Vermelho-Crítico —, Encerrada=Cinza); confirmado que a sidebar reflete o agrupamento oficial (BI/Direção Executiva: Dashboard CEO, Inteligência Artificial, Metas — mesmo padrão expandido já usado na Tela 01); confirmado que grid, topbar e paleta são idênticos às Telas 01–09; confirmado que os dados de "Faturamento do mês", "Novos Clientes no trimestre" e "Redução de perda de Produção" são idênticos aos já exibidos no widget da Tela 01 (mesma origem, nunca duplicado com cálculo divergente); confirmado que nenhum módulo, Serviço, regra de negócio ou documento oficial foi alterado nesta etapa — apenas o `PROJECT_MEMORY.md`.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
