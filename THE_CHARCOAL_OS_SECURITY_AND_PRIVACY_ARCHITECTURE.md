@@ -3,7 +3,7 @@
 **Documento:** TCOS-012 — Arquitetura Conceitual de Segurança e Privacidade
 **Projeto:** THE CHARCOAL OS
 **Fase:** 012 — Security and Privacy Architecture
-**Status:** Rascunho para validação do proprietário
+**Status:** Oficial — Aprovado e Congelado pelo proprietário em 2026-08-02 (comando `APROVADO`)
 **Versão:** 1.0.0
 
 ---
@@ -412,8 +412,8 @@ Justificativa técnica: cobertura completa dos 40 tópicos exigidos, com identif
 - Quantidade de melhorias sugeridas: 3 novas (M-012-01 a M-012-03).
 - Percentual estimado de maturidade do projeto: **91%** (subiu de 88% — a terceira e última arquitetura conceitual essencial antes do desenvolvimento [Backend, Frontend, Segurança] está completa e auditada; restam como não iniciadas: confirmação final do domínio de negócio via entrevista, escolha de tecnologia, e toda a fase de Desenvolvimento propriamente dita).
 
-**Status desta fase:** rascunho aguardando validação do proprietário. Nenhuma fase de Desenvolvimento, Código, Banco físico, APIs reais, Infraestrutura ou Deploy será iniciada sem autorização explícita, conforme restrição do Prompt Oficial da Fase 012.
+**Status desta fase:** APROVADA E CONGELADA pelo proprietário em 2026-08-02 (comando `APROVADO`). Este documento passa a integrar a documentação oficial do THE CHARCOAL OS como o 16º Documento Oficial Congelado; nenhuma alteração futura sem criação de nova versão formal. Nenhuma fase de Desenvolvimento, Código, Banco físico, APIs reais, Infraestrutura ou Deploy foi iniciada. A Fase 013 (AI Architecture) aguarda o Prompt Oficial do proprietário.
 
 ---
 
-*Fim do documento — THE CHARCOAL OS SECURITY AND PRIVACY ARCHITECTURE v1.0.0*
+*Fim do documento — THE CHARCOAL OS SECURITY AND PRIVACY ARCHITECTURE v1.0.0 (Oficial)*
