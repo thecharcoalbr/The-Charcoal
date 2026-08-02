@@ -310,6 +310,8 @@ Distribuição em grid: Desktop 2 a 4 colunas (Capítulo 11 deste documento), Ta
 
 **Gráfico:** gráfico de barras custo previsto vs. real (F-038).
 
+**Widget especial:** sugestão de preço por IA (Componente de sugestão de IA, F-070) — sempre rotulada como "sugestão", nunca como decisão automática (PF-06).
+
 **Tabela:** Fichas Técnicas com data de recalculação, custo unitário e Badge de status de atualização.
 
 **Filtros:** seletor de período; filtro por Produto/Receita.
@@ -317,6 +319,12 @@ Distribuição em grid: Desktop 2 a 4 colunas (Capítulo 11 deste documento), Ta
 **Ações rápidas:** "Ver Detalhamento de Custo do Evento".
 
 **Modal:** detalhamento de custo de um Evento específico (breakdown por Ingrediente/mão de obra/Despesa direta).
+
+**Alertas:** custo real excedendo significativamente o previsto (RN-018); impacto de recálculo em Orçamentos abertos (RN-019).
+
+**Notificações:** Ficha Técnica recalculada.
+
+**Estados da interface:** normal; "custo parcial" (Badge cinza enquanto há Despesa pendente).
 
 **Comportamento esperado:** todo valor de custo exibido é somente leitura, oriundo exclusivamente do Serviço dono de Engenharia de Custos — o Dashboard nunca exibe um valor de custo recalculado localmente (PF-03).
 

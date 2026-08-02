@@ -1548,4 +1548,34 @@ Ao retomar a construção da Tela 06 (Dashboard Engenharia de Custos), a Auditor
 
 ---
 
+## CORREÇÃO — Widget de IA, Alertas, Notificações e Estados Faltantes (TCOS-018, Capítulo 18)
+
+**Status:** Correção documental executada dentro do escopo autorizado por `CORRIGIR`; Tela 06 ainda não construída, aguardando nova autorização
+**Data:** 2026-08-02
+
+Durante a Auditoria de Abertura para a Tela 06 (Dashboard Engenharia de Custos), a comparação linha por linha entre o TCOS-018 (Capítulo 18) e a UX/UI Specification (§3.7) — já reler diretamente, não por memória — encontrou 4 novas categorias ausentes, distintas das já corrigidas (Botões/Modais): Widget de IA (sugestão de preço, F-070), Alertas (RN-018/RN-019), Notificações e Estados da interface ("custo parcial"). O achado foi reportado antes de qualquer correção; o proprietário autorizou (`CORRIGIR`) o escopo mínimo abaixo, restrito exclusivamente ao Capítulo 18.
+
+### Decisões tomadas
+- D-COR3-01: os 4 elementos ausentes foram adicionados ao Capítulo 18 exatamente conforme literal da UX/UI Specification §3.7 (itens 16, 17, 23, e parágrafo de Integração com IA) — nenhuma reinterpretação.
+- D-COR3-02: "links de drill-down" (item 19 da §3.7, "Fluxo de navegação") foi avaliado e **não adicionado como campo novo** — confirmado que nenhum capítulo de Dashboard do TCOS-018 (13 a 23) usa esse campo como seção própria, sendo a navegação já coberta pela estrutura de menu lateral (Capítulos 5 e 9 do próprio TCOS-018); portanto não é uma omissão real, apenas uma convenção editorial já consistente em todo o documento.
+- D-COR3-03: o Widget de IA foi redigido espelhando exatamente o padrão já usado no Capítulo 16 ("sugestão de previsão de demanda por IA"), trocando apenas o código de Funcionalidade (F-070 em vez de F-069) e o conteúdo (sugestão de preço em vez de previsão de demanda) — nenhum padrão visual novo.
+
+### Alterações
+- ALT-COR3-01: `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` (TCOS-018) — Capítulo 18: adicionados "Widget especial" (após Gráfico), "Alertas", "Notificações" e "Estados da interface" (após Modal, antes de Comportamento esperado). Confirmado via `git diff` que apenas o Capítulo 18 foi tocado (8 inserções, 0 remoções) — Capítulos 16, 17 e 19 permanecem exatamente como corrigidos na etapa anterior, sem nenhuma alteração adicional.
+
+### Melhorias sugeridas (Backlog)
+- Avaliar, em fase futura, se os Capítulos 16, 17 e 19 do TCOS-018 também têm lacunas de Widget de IA/Alertas/Notificações/Estados frente às suas respectivas fontes (§3.5, §3.6, §3.8) — sinalizado, não verificado, para evitar repetir o ciclo achado-correção tela a tela.
+
+### Riscos encontrados
+- Nenhum risco novo. Confirmado que a correção não afeta nenhuma Regra de Negócio, Fluxo, Funcionalidade ou decisão arquitetural — apenas completude de representação visual já exigida pela UX/UI Specification.
+
+### Pendências
+- Construção da Tela 06 permanece pendente de nova autorização explícita do proprietário.
+- Avaliação futura dos Capítulos 16, 17 e 19 (ver Backlog acima).
+- Achados administrativos já registrados (RC-021-01; citação Cap. 14/15 da Constituição) permanecem pendentes, sem relação com esta correção.
+
+**Confirmação de auditoria:** confirmado, antes da edição, que os 4 itens (Widget de IA/F-070, Alertas/RN-018/RN-019, Notificações, Estados) existem literalmente na UX/UI Specification §3.7. Confirmado, depois da edição, via `git diff`, que apenas o Capítulo 18 foi alterado; verificação programática confirmou os 28 capítulos do TCOS-018 permanecem sequenciais sem lacuna; busca confirmou que os códigos F-070, RN-018 e RN-019 citados existem exatamente como referenciados na Functional Specification e na Business Rules Specification, sem nenhuma alteração a esses documentos. Nenhum outro documento oficial congelado foi tocado.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
