@@ -1182,4 +1182,31 @@ Aprovada pelo proprietário a **sub-parte 3a** do Capítulo 24 (Blueprint Comple
 
 ---
 
+## FASE 018 — Visual Blueprint (Progresso: Sub-Parte 3b aprovada)
+
+**Status:** Em construção por partes — Partes 1 e 2 APROVADAS, Parte 3 em construção: sub-partes 3a e 3b APROVADAS
+**Data:** 2026-08-02
+
+Aprovada pelo proprietário a **sub-parte 3b** do Capítulo 24, com o detalhamento visual de 6 telas de módulo: Fichas Técnicas, Precificação, Compras, Estoque, Lotes e Equipamentos (Cap. 24.9–24.14), grounded exclusivamente nos perfis já oficiais do UX/UI Specification, §3.19–3.24.
+
+### Decisões tomadas
+- Nenhuma decisão nova além da já registrada em D-018-04 (subdivisão do Capítulo 24 em 3a/3b/3c).
+
+### Alterações
+- ALT-018-03: `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` avança para a sub-parte 3b aprovada (Cap. 24.9–24.14). Nenhum documento oficial congelado foi alterado.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova.
+
+### Riscos encontrados
+- Nenhum risco novo.
+
+### Pendências
+- P-018-01 segue em andamento — sub-parte 3c do Capítulo 24, e Partes 4 a 8, ainda pendentes.
+- Pendências herdadas: as mesmas 8 pendências substantivas consolidadas na Fase 016, sem nenhuma nova.
+
+**Confirmação de auditoria (executada antes deste registro):** verificados programaticamente os 10 pontos solicitados — estrutura sequencial dos 24 capítulos e das 14 subseções 24.1–24.14 íntegra; todos os 67 códigos F-XXX, 22 códigos RN-XXX, 2 códigos PF-XX e todos os módulos citados confirmados existentes nos documentos oficiais de origem; nenhuma tela, funcionalidade, componente, fluxo, botão ou comportamento criado além da documentação oficial; nenhuma funcionalidade removida; nenhuma regra de negócio ou decisão arquitetural alterada; confirmado via `git status` que apenas o `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` foi modificado.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
