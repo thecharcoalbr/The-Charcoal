@@ -3,7 +3,7 @@
 **Documento:** TCOS-014 — Arquitetura Conceitual de Infraestrutura
 **Projeto:** THE CHARCOAL OS
 **Fase:** 014 — Infrastructure Architecture
-**Status:** Rascunho para validação do proprietário
+**Status:** Oficial — Aprovado e Congelado pelo proprietário em 2026-08-02 (comando `APROVADO`)
 **Versão:** 1.0.0
 
 ---
@@ -286,8 +286,8 @@ Justificativa técnica: cobertura completa dos 28 tópicos exigidos, com identif
 - Quantidade de melhorias sugeridas: 3 novas (M-014-01 a M-014-03).
 - Percentual estimado de maturidade do projeto: **95%** (subiu de 93% — a quinta e última arquitetura conceitual essencial [Backend, Frontend, Segurança, IA, Infraestrutura] está completa e auditada; restam como não iniciadas: confirmação final do domínio de negócio via entrevista, escolha de tecnologia, e toda a fase de Desenvolvimento propriamente dita).
 
-**Status desta fase:** rascunho aguardando validação do proprietário. Nenhuma escolha de cloud provider, linguagem, banco de dados, containers, orquestração ou infraestrutura física será feita sem autorização explícita, conforme restrição do Prompt Oficial da Fase 014.
+**Status desta fase:** APROVADA E CONGELADA pelo proprietário em 2026-08-02 (comando `APROVADO`). Este documento passa a integrar a documentação oficial do THE CHARCOAL OS como o 18º Documento Oficial Congelado; nenhuma alteração futura sem criação de nova versão formal. Nenhuma escolha de cloud provider, linguagem, banco de dados, containers, orquestração ou infraestrutura física foi feita. A Fase 015 (DevOps & Operational Architecture) segue conforme instrução do proprietário.
 
 ---
 
-*Fim do documento — THE CHARCOAL OS INFRASTRUCTURE ARCHITECTURE v1.0.0*
+*Fim do documento — THE CHARCOAL OS INFRASTRUCTURE ARCHITECTURE v1.0.0 (Oficial)*
