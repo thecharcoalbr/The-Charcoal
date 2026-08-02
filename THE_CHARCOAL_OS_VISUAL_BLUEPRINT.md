@@ -5,7 +5,7 @@
 **Natureza:** Documento de representação visual do sistema. NÃO constitui implementação, NÃO constitui Frontend, NÃO constitui código. Sua finalidade exclusiva é permitir a validação da experiência do usuário antes de qualquer desenvolvimento técnico.
 **Baseline referenciada:** v1.0.0 (TCOS-000 a TCOS-017), sob a autoridade da Constituição Permanente do Projeto.
 **Referência visual canônica desta fase:** `THE_CHARCOAL_OS_UX_UI_SPECIFICATION.md` (TCOS-005) e `THE_CHARCOAL_OS_FRONTEND_ARCHITECTURE.md` (TCOS-011) — em caso de divergência de nomenclatura entre documentos oficiais, prevalecem estes dois, por determinação expressa do proprietário (comando `ALTERAR`, 2026-08-02).
-**Status:** Documento em Construção — Partes 1, 2 e 3 de 8 APROVADAS (Parte 3 = Capítulo 24, as 30 telas, em 3 sub-partes 3a/3b/3c, todas aprovadas) — Parte 4 de 8 em construção.
+**Status:** Documento em Construção — Partes 1, 2 e 3 APROVADAS — Parte 4 concluída (Capítulos 25 e 26: Componentes Visuais + Design System Consolidado) — aguardando decisão do proprietário para prosseguir.
 
 ---
 
@@ -25,18 +25,17 @@ Este documento é construído em partes, por determinação expressa do propriet
 
 Estas três divergências herdadas do TCOS-016 (M-016-01, M-016-02, referentes a contagens internas do System Architecture) permanecem registradas naquele documento, sem qualquer nova ação nesta fase.
 
-**Metodologia de construção — Roteiro das 8 Partes (sujeito a ajuste, cada subdivisão adicional será explicitamente comunicada):**
+**Metodologia de construção — Roteiro (sujeito a ajuste, cada subdivisão ou consolidação adicional será explicitamente comunicada):**
 
 | Parte | Conteúdo |
 |---|---|
-| 1 (esta) | Capítulos 1–11: Papel do Documento, Legenda, Visão Geral do Sistema, Arquitetura Visual, Mapa Geral de Navegação, Fluxo Principal do Usuário, Estrutura dos Menus, Barra Superior, Barra Lateral, Navegação Mobile, Navegação Desktop |
-| 2 | Capítulos 12–23: Estrutura Visual dos Dashboards + os 11 Dashboards individuais |
-| 3 | Capítulo 24: Blueprint completo das 30 telas já especificadas (poderá ser subdividida em até 3 sub-partes, dado o volume) |
-| 4 | Capítulo 25: Componentes Visuais |
-| 5 | Capítulo 26: Design System |
-| 6 | Capítulo 27: Experiência do Usuário |
-| 7 | Capítulo 28: Visualização do Sistema (detalhamento para prototipagem futura) — poderá ser subdividida |
-| 8 | Resumo para o Proprietário, TCOS Quality Gate Executivo, Relatório Consolidado de Padronização |
+| 1 (aprovada) | Capítulos 1–11: Papel do Documento, Legenda, Visão Geral do Sistema, Arquitetura Visual, Mapa Geral de Navegação, Fluxo Principal do Usuário, Estrutura dos Menus, Barra Superior, Barra Lateral, Navegação Mobile, Navegação Desktop |
+| 2 (aprovada) | Capítulos 12–23: Estrutura Visual dos Dashboards + os 11 Dashboards individuais |
+| 3 (aprovada) | Capítulo 24: Blueprint completo das 30 telas já especificadas (subdividida em 3 sub-partes 3a/3b/3c, todas aprovadas) |
+| 4 (esta) | Capítulos 25 e 26: Componentes Visuais (biblioteca completa) + Design System Consolidado — consolidados em uma única Parte por determinação expressa do proprietário |
+| 5 | Capítulo 27: Experiência do Usuário |
+| 6 | Capítulo 28: Visualização do Sistema (detalhamento para prototipagem futura) — poderá ser subdividida |
+| 7 | Resumo para o Proprietário, TCOS Quality Gate Executivo, Relatório Consolidado de Padronização |
 
 **Registro de Aprovações por Parte:**
 
@@ -47,6 +46,7 @@ Estas três divergências herdadas do TCOS-016 (M-016-01, M-016-02, referentes a
 | 3a | APROVADA (2026-08-02) | Cap. 24.1 (índice das 30 telas) + Cap. 24.2–24.8 (Leads, Clientes, Eventos, Orçamentos, Contratos, Produção, Receitas) |
 | 3b | APROVADA (2026-08-02) | Cap. 24.9–24.14 (Fichas Técnicas, Precificação, Compras, Estoque, Lotes, Equipamentos) |
 | 3c | APROVADA (2026-08-02) | Cap. 24.15–24.20 (Funcionários, Escalas, Bancos, Conciliação Bancária, Configurações, Administração) — Capítulo 24 concluído: 30/30 telas documentadas |
+| 4 | Concluída (2026-08-02), aguardando aprovação | Cap. 25 (24 itens de biblioteca de componentes) + Cap. 26 (5 itens de Design System Consolidado) |
 
 Nenhuma funcionalidade, regra de negócio, entidade, tela ou componente novo é criado neste documento — toda representação visual deriva exclusivamente do que já está oficialmente especificado. Onde a especificação existente descreve um layout em texto (ex.: "lista/kanban por estágio") sem atribuir formalmente um dos 4 Templates de Tela, este documento faz a inferência visual necessária e a identifica explicitamente como inferência, nunca como fato já decidido em outro documento.
 
@@ -1026,3 +1026,231 @@ Os 11 Dashboards já foram integralmente detalhados nos Capítulos 13–23 (Part
 ---
 
 **Fim da Parte 3 (sub-parte 3c de 3) — Capítulo 24 concluído.**
+
+## 25. Componentes Visuais
+
+**Nota metodológica:** este capítulo consolida em uma biblioteca única todo componente já utilizado nas 30 telas (Capítulos 13–24) e todo componente já formalmente catalogado em UX/UI Specification §5.6 (15 componentes) e Frontend Architecture Capítulo 10 (+3 componentes, total 18). **Nenhum componente novo é criado aqui** — este capítulo organiza e detalha visualmente o que já existe, e identifica como `[Inferência visual]` qualquer detalhamento (ex.: estado de foco de um campo de texto) que estenda, sem contradizer, um padrão já oficial mas nunca detalhado nesse nível.
+
+### 25.1 Biblioteca Consolidada — os 18 Componentes Oficiais
+
+| # | Componente | Origem oficial | Onde já aparece nas 30 telas |
+|---|---|---|---|
+| 1 | Card de KPI | UX/UI Spec §5.6 | Todos os 11 Dashboards |
+| 2 | Card de progresso | UX/UI Spec §5.6 | Dashboard Metas (22), Dashboard CEO (widget) |
+| 3 | Tabela com paginação e ordenação | UX/UI Spec §5.6 | Praticamente todas as 19 telas de módulo |
+| 4 | Filtro lateral/superior combinável | UX/UI Spec §5.6 | Todas as telas de Lista |
+| 5 | Modal padrão | UX/UI Spec §5.6 | Novo Lead, Novo Cliente, Registrar Aditivo, Ajustar Escala, etc. |
+| 6 | Botão primário/secundário/terciário | UX/UI Spec §5.6 | Todas as 30 telas |
+| 7 | Badge de status | UX/UI Spec §5.6 | Todas as telas com ciclo de vida (Leads, Orçamentos, Contratos, Eventos, etc.) |
+| 8 | Alerta inline | UX/UI Spec §5.6 | Formulários (ex.: cadastro de Lead sem contato, Ficha Técnica duplicada) |
+| 9 | Banner de alerta persistente | UX/UI Spec §5.6 | Dashboard CEO (RN-047), Administração |
+| 10 | Notificação toast | UX/UI Spec §5.6 | Confirmações de ação em praticamente todas as telas |
+| 11 | Menu lateral colapsável | UX/UI Spec §5.6 | Estrutura global (Capítulo 9) |
+| 12 | Breadcrumb | UX/UI Spec §5.6 | Estrutura global (Capítulo 8), todas as telas de Detalhe |
+| 13 | Documentos Anexados | UX/UI Spec §5.6 | Contratos, Compras, Clientes (Fornecedores, fora do escopo de tela própria) |
+| 14 | Componente de sugestão de IA | UX/UI Spec §5.6 | Dashboard IA (23), Produção (16), Conciliação Bancária (24.18) |
+| 15 | Componente de Estado Vazio | Frontend Arch. Cap. 10 | Qualquer Lista/Dashboard sem dado |
+| 16 | Componente de Skeleton de Carregamento | Frontend Arch. Cap. 10 | Qualquer Card/Tabela/Dashboard carregando |
+| 17 | Componente de Erro de Carregamento | Frontend Arch. Cap. 10 | Qualquer seção cuja consulta falhe |
+| 18 | (não numerado individualmente no §5.6 — ver divergência D-02, Executive Memory) | UX/UI Spec §5.6 / Quality Gate | — |
+
+O item 18 reflete a divergência D-02 já registrada (Executive Memory): o UX/UI Specification enumera 14 componentes nomeados na Seção 5.6, mas o total oficial declarado é 15 — a diferença de um item permanece um registro de acompanhamento, sem efeito na biblioteca acima, que usa os 14 nomes explicitamente listados mais os 3 do Frontend Architecture.
+
+### 25.2 Cards
+
+**Base oficial:** Card de KPI e Card de progresso (§5.6); Estados dos Cards (§5.9: normal, carregando/skeleton, erro/indisponível, destaque com borda Brasa).
+
+**Variações visuais usadas nas 30 telas:** Card de KPI numérico (a maioria dos Dashboards); Card de progresso percentual (Metas); Card de contagem por estágio (topo do kanban de Leads/Compras); Card de resumo em painel de Detalhe (ex.: margem prevista em Eventos, saldo em Bancos).
+
+**Estados:** normal, carregando (Skeleton, item 25.15), erro/indisponível (item 25.17), destaque (borda Brasa, quando o card representa ação pendente — ex.: parâmetro de Configurações não definido).
+
+**Comportamento esperado:** um Card nunca deriva seu próprio valor — é sempre um reflexo direto do Serviço dono (PF-01/PF-03, Frontend Architecture Cap. 4).
+
+### 25.3 Botões
+
+**Base oficial:** Botão primário/secundário/terciário (§5.6); Estados dos Botões (§5.8: normal, hover, focus, disabled, loading).
+
+**Variações usadas nas 30 telas:** primário (ação principal de tela, ex.: "Novo Evento", "Confirmar Evento"); secundário (ação de apoio, ex.: "Ver Financeiro"); terciário (ação de baixo destaque, ex.: "Baixar PDF", "Ver detalhe"). Botões de Operação Crítica (item 25.19) são sempre primários, nunca terciários, para garantir visibilidade proporcional ao risco da ação.
+
+**Estados:** normal, hover (leve escurecimento/elevação), focus (contorno visível, acessibilidade), disabled (opacidade reduzida), loading (spinner substitui o texto, botão bloqueado durante a ação) — nenhum estado adicional além destes 5 já oficiais (§5.8).
+
+**Comportamento esperado:** todo botão que dispara uma ação irreversível (Inativar, Cancelar, Encerrar) exige confirmação explícita antes de acionar o Caso de Uso (Frontend Architecture, Capítulo 17) — nunca executa em um único clique.
+
+### 25.4 Campos de Entrada
+
+**Base oficial:** nenhum documento cataloga individualmente "Input de texto", "Select", "Checkbox" ou "Radio Button" como componentes nomeados — eles existem apenas implicitamente, como "campos de formulário" dentro de cada Modal/editor já descrito nas 30 telas (ex.: "Novo Lead: nome, contato, origem"; "Nova Conta: tipo — pessoal, empresarial, digital, investimento, internacional").
+
+**`[Inferência visual]`** — para permitir a representação visual sem inventar comportamento: campos de texto/numérico seguem o mesmo modelo de estado já oficial dos Botões (§5.8) — normal, focus (contorno visível), disabled, erro (borda Vermelho-crítico + mensagem inline, item 25.17); campos de seleção única (equivalentes a "Select"/"Radio") são inferidos onde o perfil da tela já lista opções fechadas (ex.: tipo de Conta em Bancos, categoria de parâmetro em Configurações); campos de múltipla escolha (equivalentes a "Checkbox") não têm nenhum uso explícito identificado nas 30 telas — não são especificados neste documento além desta observação.
+
+**Validação (já oficial, Frontend Architecture Cap. 21):** validação de formato ocorre em tempo de digitação (inline, imediata); validação de regra de negócio ocorre apenas na submissão, confirmada pelo backend — nunca simulada antecipadamente na interface (PF-03).
+
+### 25.5 Tabelas e Paginação
+
+**Base oficial:** Tabela com paginação e ordenação (§5.6), presente em praticamente todas as 19 telas de módulo (Capítulo 24).
+
+**Comportamento:** paginação e ordenação persistem durante a navegação dentro do mesmo módulo (UX/UI Specification, Capítulo 4); em Mobile, toda tabela se transforma em lista de cartões (Capítulo 10 deste documento, Frontend Architecture Cap. 24).
+
+**Estados:** normal, carregando (linhas em Skeleton), vazio (item 25.16), erro (item 25.17).
+
+### 25.6 Filtros
+
+**Base oficial:** Filtro lateral/superior combinável (§5.6).
+
+**Comportamento:** todo filtro é combinável com outros filtros da mesma tela (nunca um de cada vez); em Desktop, exibido como coluna fixa lateral; em Tablet/Mobile, como painel deslizante sobreposto (Capítulo 11 deste documento, Drawer — item 25.8).
+
+### 25.7 Modais
+
+**Base oficial:** Modal padrão — cabeçalho, corpo, rodapé com ações (§5.6); Template Modal (Frontend Architecture Cap. 12).
+
+**Uso nas 30 telas:** criação/edição simples (Novo Lead, Novo Cliente), confirmação de ação irreversível (Cancelar Evento, com motivo obrigatório), aprovação com justificativa (Exceção de Margem, Ajustar Escala).
+
+**Comportamento esperado:** o rodapé sempre expõe a ação primária e uma ação de cancelamento — nunca apenas um botão de fechar sem alternativa clara.
+
+### 25.8 Drawers (Painéis Deslizantes)
+
+**Base oficial:** não catalogado como componente nomeado, mas descrito em dois pontos já oficiais: o painel de notificações do cabeçalho, que "desliza ao clicar" (UX/UI Specification, Capítulo 4); e a expansão de uma Área da barra lateral em Tablet, que "sobrepõe temporariamente o conteúdo principal" (Frontend Architecture, Capítulo 24).
+
+**`[Inferência visual]`** — este documento consolida os dois padrões acima sob o nome funcional "Drawer", sem criar comportamento novo: um Drawer sempre desliza a partir de uma borda da tela, sobrepõe o conteúdo (nunca o desloca), e se fecha ao clicar fora dele ou em uma ação explícita de fechar.
+
+**Uso nas 30 telas:** painel de notificações (Capítulo 8 deste documento); barra lateral expandida em Tablet (Capítulo 9); painel de filtro em Tablet/Mobile (item 25.6).
+
+### 25.9 Abas e Accordions
+
+**Abas — base oficial:** presentes em Clientes (Histórico, Eventos, Documentos, Financeiro), Eventos (Resumo, Orçamento, Contrato, Produção, Equipe, Equipamentos, Financeiro), Financeiro Empresarial (Despesas, Receitas, Pagamentos), Administração (Usuários, Log, Alertas, Saúde) — parte do Template Detalhe (Frontend Architecture Cap. 12).
+
+**Accordion — base oficial:** a seção colapsável do menu lateral por Área da Empresa (UX/UI Specification, Capítulo 4: "cada área é uma seção colapsável do menu") é, estruturalmente, um padrão de accordion — este documento nomeia o padrão já existente, sem criar um accordion novo em nenhuma outra parte da interface.
+
+### 25.10 Breadcrumbs
+
+**Base oficial:** Breadcrumb (§5.6), presente em toda tela de Detalhe (Capítulo 8 deste documento).
+
+**Comportamento:** cada nível do breadcrumb é clicável e retorna diretamente a esse nível, preservando filtro/paginação já aplicados (Frontend Architecture, Capítulo 7).
+
+### 25.11 Calendários
+
+**Base oficial:** usados em 3 telas já especificadas — Escalas (calendário de Escalas por Evento/Produção), Eventos (calendário colorido por status), Produção (calendário/timeline de Produções planejadas).
+
+**`[Inferência visual]`** — os três calendários compartilham o mesmo padrão visual de célula colorida por estado (Badge de status aplicado à célula do calendário), mas essa unificação de estilo entre os três é uma inferência de consistência deste documento, não uma afirmação textual prévia dos documentos de origem.
+
+### 25.12 Upload de Arquivos / Documentos Anexados
+
+**Base oficial:** não existe um componente "Upload" nomeado separadamente — a única funcionalidade de anexo de arquivo já oficial é o componente "Documentos Anexados" (§5.6), reutilizado em Contratos, Compras e Clientes, e a ação "Importar Extrato" (F-068/FL-023) na Conciliação Bancária (Capítulo 24.18), que também envolve seleção de arquivo.
+
+**`[Inferência visual]`** — este documento trata "upload" como o mecanismo de interação do componente "Documentos Anexados" e da ação "Importar Extrato" — não um componente à parte, para não introduzir um elemento de biblioteca sem base oficial.
+
+### 25.13 Badges e Tags
+
+**Base oficial:** Badge de status (§5.6) — uma cor por estado do ciclo de vida da entidade (Estados dos Indicadores, §5.10, e Cores por Categoria, §5.7).
+
+**"Tags":** não existe um componente de "Tag" (rótulo removível/múltiplo) distinto do Badge em nenhum documento oficial — onde a lista de requisitos desta fase pede "Tags", este documento aponta para o Badge de status já existente, sem criar uma segunda variante.
+
+### 25.14 Feedback Visual (Alertas, Toasts, Banners)
+
+**Base oficial:** Alerta inline, Banner de alerta persistente, Notificação toast (§5.6); as 3 respostas visuais de toda ação do usuário — sucesso, bloqueio de regra de negócio, indisponibilidade temporária (Frontend Architecture, Capítulo 17).
+
+| Tipo | Uso | Duração |
+|---|---|---|
+| Alerta inline | Erro de regra de negócio dentro de um formulário | Até o campo ser corrigido |
+| Banner de alerta persistente | Alerta crítico de sistema (RN-047) | Até ser tratado explicitamente |
+| Notificação toast | Confirmação de sucesso de uma ação | Efêmera |
+
+### 25.15 Estados de Carregamento (Skeleton)
+
+**Base oficial:** Componente de Skeleton de Carregamento (Frontend Architecture Cap. 10 e 18) — silhueta do layout final, no exato espaço que o dado ocupará; carregamento de ação de formulário usa o estado "loading" do próprio Botão (item 25.3), nunca um bloqueio de tela inteira.
+
+### 25.16 Estados Vazios
+
+**Base oficial:** Componente de Estado Vazio (Frontend Architecture Cap. 10 e 19), com 3 situações distintas já oficiais: ainda não há dado (mensagem convidativa + ação primária); filtro sem resultado (mensagem neutra + ação de limpar filtro); bloqueado por parâmetro de Configuração pendente (mensagem explícita indicando o parâmetro e o Perfil responsável — nunca tratado como "vazio" comum).
+
+### 25.17 Estados de Erro
+
+**Base oficial:** as 3 categorias já oficiais de Tratamento de Erros (Frontend Architecture Cap. 20): erro de regra de negócio (inline, junto ao campo/ação); erro de dado pendente (Estado Vazio de bloqueio ou Alerta Inline); erro técnico (Componente de Erro de Carregamento + "Tentar novamente"). Nenhum erro técnico expõe detalhe de implementação ao usuário final.
+
+### 25.18 Estados de Sucesso
+
+**Base oficial:** confirmação visual breve — toast ou mudança de estado do próprio componente (ex.: Badge de status atualizado) — nunca um redirecionamento inesperado sem explicação (Frontend Architecture, Capítulo 17).
+
+### 25.19 Estados de Operações Críticas
+
+**Base oficial:** catálogo de 8 Operações Críticas (Security and Privacy Architecture, Capítulo 30): Confirmar Evento; Cancelar Evento/Contrato; Registrar Pagamento/Estorno; Alterar Perfil/Permissão de usuário; Aceitar sugestão de IA financeira/comercial; Inativar/Descontinuar entidade Mestre; Exportar relatório com dado sensível; Importar Extrato Bancário.
+
+**Padrão visual comum a todas:** confirmação explícita obrigatória antes da execução (nunca um único clique); Modal ou tela de confirmação mostrando exatamente o que muda; botão primário de confirmação nunca pré-selecionado/padrão de teclado (Enter), para reduzir confirmação acidental — **`[Inferência visual]`** quanto a este último ponto, extrapolado do princípio geral de confirmação explícita já oficial, sem contradizer nenhum documento.
+
+### 25.20 KPIs, Gráficos e Widgets
+
+**Base oficial:** Card de KPI (§5.6); tipos de gráfico já usados nas 30 telas — linha, barras, funil (dedicado), calendário/timeline, feed cronológico, histograma (distribuição de margem, Precificação); Widgets especiais já usados — sugestão de IA, banner de alerta crítico, card de progresso de Meta (Capítulo 12 deste documento).
+
+**Comportamento esperado:** nenhum gráfico recalcula um valor — sempre exibe o valor já calculado e entregue pelo Serviço dono (PF-03).
+
+### 25.21 Assistente/Sugestão de IA e Chat IA
+
+**Base oficial:** Componente de sugestão de IA — botões Aceitar/Recusar (§5.6), cor Roxo-IA como atributo de estado obrigatório de qualquer conteúdo gerado por IA (Frontend Architecture, Capítulo 11).
+
+**"Chat IA":** não existe nenhuma funcionalidade ou tela de conversação livre com IA em nenhum documento oficial (Functional Specification, AI Architecture) — o padrão de interação com IA em todo o sistema é sempre "sugestão pontual com Aceitar/Recusar" (Dashboard IA, Capítulo 23), nunca um chat conversacional. Este documento não cria um componente de "Chat IA" por ausência de base oficial — onde a lista de requisitos desta fase menciona "Chat IA", este documento aponta para o Componente de sugestão de IA já existente como a única interação de IA oficialmente especificada.
+
+### 25.22 Timeline
+
+**Base oficial:** linha do tempo do ciclo de vida do Evento (UX/UI Specification, §3.14) e a aba "Ver histórico" de toda entidade com histórico obrigatório, com conteúdo mínimo já definido — data, autor, o que mudou (Frontend Architecture, Capítulo 23 — Auditoria Visual de Ações).
+
+### 25.23 Kanban
+
+**Base oficial:** citado explicitamente como "Componentes existentes" em duas telas já especificadas — Leads (§3.12: "kanban de estágios, tabela alternativa") e Compras (§3.21: "kanban/lista por status"). Não está entre os 18 componentes formalmente numerados em §5.6/Frontend Architecture Cap. 10, mas é um padrão visual próprio, citado nominalmente pelo UX/UI Specification.
+
+**Estrutura:** uma coluna por estágio do ciclo de vida (Novo/Em qualificação/Convertido/Perdido em Leads; Solicitada/Cotação/Pedido/Recebida/Conferida em Compras); um card por item dentro da coluna; contagem por estágio no topo de cada coluna (Card, item 25.2).
+
+**Comportamento esperado:** mover um card entre colunas é a ação visual equivalente a mudar o estágio do ciclo de vida do item — sempre a mesma transição que a Lista alternativa em tabela ofereceria por botão, nunca uma segunda regra de transição divergente.
+
+### 25.24 Painéis e Visualizadores Especializados
+
+Consolida, sob um único item, um conjunto de padrões de exibição já citados individualmente no perfil de telas específicas (Capítulo 24), sem componente próprio nomeado em §5.6 — apresentados aqui para garantir que nenhum elemento usado nas 30 telas fique sem especificação correspondente:
+
+- **Editor de composição** (linha por item + quantidade/valor): usado em Orçamentos (itens do Orçamento), Receitas e Fichas Técnicas (lista de Ingredientes), Precificação (custo/preço/margem por Produto). Estrutura comum: tabela editável, uma linha por item, com totalizador ao final — variação do componente "Tabela com paginação e ordenação" (item 25.5) com células editáveis, não um componente novo.
+- **Visualizador de documento/PDF:** usado em Contratos (visualizador de PDF/documento). Exibe o documento gerado automaticamente (RN-014); ação "Baixar PDF" disponível a partir dele (Botão terciário, item 25.3).
+- **Visualizador de log filtrável:** usado em Administração (Log de Auditoria, F-081). Lista cronológica com os mesmos filtros já padrão de qualquer Lista (item 25.6), sem paginação especial além da já oficial (item 25.5).
+- **Painel de saúde do sistema:** usado em Administração ("Saúde do Sistema"). **`[Inferência visual]`** — nenhum documento oficial detalha o conteúdo visual deste painel além de citá-lo como uma das 4 abas de Administração (UX/UI Specification, §3.30); este documento não atribui conteúdo específico além do já citado, para não inventar métrica não confirmada.
+- **Indicador visual de correspondência:** usado na Conciliação Bancária (linha conectando Pagamento e lançamento de extrato quando batem). Variação do Badge de status (item 25.13) aplicada a um par de linhas em vez de uma linha única.
+
+## 26. Design System Consolidado
+
+**Nota metodológica:** este capítulo reafirma, sem redefinir, o Design System já integralmente definido em UX/UI Specification, Capítulo 5, e mantido "congelado e não redefinido" pelo Frontend Architecture, Capítulo 11. Nenhum valor técnico (hexadecimal, pixel além do grid de 8px, nome de fonte, biblioteca ou framework) é definido aqui — todos permanecem `[Pendente de confirmação visual]`, por decisão constitucional de não inventar parâmetro não confirmado.
+
+### 26.1 Hierarquia Visual
+
+Hierarquia de tela: Dashboard → Lista → Detalhe → Modal (UX/UI Specification, §5.2) — nenhuma tela pula mais de um nível sem passar pelo breadcrumb (item 25.10). Hierarquia visual dentro da tela: título da página → seção/aba → título de card → corpo → legenda/metadado (menor contraste) — números de KPI recebem o tratamento tipográfico mais forte de toda a tela, por serem a primeira informação que o usuário deve perceber (§5.4).
+
+### 26.2 Regras de Espaçamento
+
+Grid de 8px como unidade base — todo espaçamento e dimensionamento de componente é um múltiplo de 8 (UX/UI Specification, §5.3). Esta é a única regra de espaçamento oficial; nenhum valor específico de margem/padding em pixels é definido além desta unidade-base.
+
+### 26.3 Regras de Alinhamento
+
+Não há uma seção dedicada de "alinhamento" em nenhum documento oficial. **`[Inferência visual]`** — este documento infere, a partir da Hierarquia de Organização (§5.2) e do padrão consistente de "cabeçalho + corpo + rodapé" repetido em Modal, Dashboard e Detalhe (Capítulo 12, Frontend Architecture), que o alinhamento segue a mesma grade de 8px (item 26.2) tanto na direção horizontal quanto vertical — sem introduzir uma regra de alinhamento independente do grid já oficial.
+
+### 26.4 Responsividade
+
+Reafirma, sem alteração, os 3 níveis já oficiais (UX/UI Specification §5.11; Frontend Architecture Cap. 24): Desktop (menu lateral fixo expandido, grids de 2 a 4 colunas), Tablet (menu colapsado em ícones, grids de 1-2 colunas, tabelas priorizam colunas essenciais), Mobile (navegação por abas inferiores, coluna única, cards empilhados, tabelas viram listas de cartões). Os 4 Templates (Frontend Architecture Cap. 12) são os mesmos nos 3 níveis — a responsividade altera densidade e disposição, nunca a estrutura lógica da tela.
+
+### 26.5 Tokens Visuais Conceituais
+
+Consolidação, em forma de tokens nomeados (nunca valores técnicos), de tudo já oficial:
+
+| Token conceitual | Papel | Origem |
+|---|---|---|
+| `cor.brasa` | Ação primária, estado ativo/confirmado, destaque | UX/UI Spec §5.7 |
+| `cor.carvao` | Texto principal, alta ênfase, fundo do menu lateral | UX/UI Spec §5.7 |
+| `cor.cinza-claro` | Fundos neutros, estados inativos | UX/UI Spec §5.7 |
+| `cor.verde-sucesso` | Confirmações, Metas atingidas, "Disponível"/"Concluído" | UX/UI Spec §5.7 |
+| `cor.ambar-atencao` | Alertas não críticos, "Em manutenção" | UX/UI Spec §5.7 |
+| `cor.vermelho-critico` | Alertas de alta prioridade, bloqueios, "Vencido"/"Cancelado" | UX/UI Spec §5.7 |
+| `cor.roxo-ia` | Exclusivo para conteúdo gerado/sugerido por IA | UX/UI Spec §5.7 |
+| `espacamento.unidade` | Grid de 8px, base de todo espaçamento | UX/UI Spec §5.3 |
+| `tipografia.corpo` | Peso regular | UX/UI Spec §5.4 |
+| `tipografia.titulo-kpi` | Peso semibold, maior destaque | UX/UI Spec §5.4 |
+| `tipografia.alerta-critico` | Peso bold, uso exclusivo para alertas críticos | UX/UI Spec §5.4 |
+| `icone.estilo` | Linha (outline), ícone de IA fixo (símbolo único) | UX/UI Spec §5.5 |
+
+Nenhum destes tokens recebe valor técnico (hex, px, nome de fonte, biblioteca) neste documento — permanecem papéis nomeados, prontos para receber um valor técnico apenas quando o proprietário autorizar essa decisão em fase própria, fora do escopo deste Visual Blueprint.
+
+---
+
+**Fim da Parte 4 — Capítulos 25 e 26 concluídos.**
