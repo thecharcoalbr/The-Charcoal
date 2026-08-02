@@ -1391,4 +1391,35 @@ Nesta mesma fase, o proprietário instituiu também, de forma permanente e aplic
 
 ---
 
+## FASE 021 — Customer Experience & Lifecycle Strategy (Camada de Produto, Parte 2)
+
+**Status:** Em construção — primeira apresentação, aguardando aprovação do proprietário
+**Data:** 2026-08-02
+
+Criado, a pedido do proprietário, o `THE_CHARCOAL_OS_CUSTOMER_EXPERIENCE_AND_LIFECYCLE_STRATEGY.md` (TCOS-021), segunda parte da Camada de Produto — complementa o TCOS-020 com o detalhamento operacional de Jornada do Cliente, Ciclo de Vida, Onboarding, Ativação, Trial, Conversão, Cobrança, Renovação, Cancelamento, Retenção, Expansão, Customer Success, Suporte e Feedback Contínuo. Toda a relação comercial de assinatura (trial/cobrança/renovação/cancelamento) foi formalmente definida como uma camada acima e fora dos 27 módulos de domínio, para nunca contaminar o Financeiro do próprio cliente (Módulos 02/03/27) com a receita de assinatura do fornecedor, e para não exigir nenhum módulo novo.
+
+### Decisões tomadas
+- D-021-01: a Camada de Assinatura/Cobrança do THE CHARCOAL OS como fornecedor é conceitualmente distinta e externa aos 27 módulos de domínio, que modelam exclusivamente o negócio do cliente — nenhuma implementação técnica de billing é definida nesta fase.
+- D-021-02: o Ciclo de Vida do Cliente (6 estágios: Prospect, Trial, Onboarding, Ativo, Em risco, Encerrado) é modelado inteiramente como leitura comercial sobre dado e evento já existentes — nenhuma entidade nova do Domain Model.
+
+### Alterações
+- ALT-021-01: criado `THE_CHARCOAL_OS_CUSTOMER_EXPERIENCE_AND_LIFECYCLE_STRATEGY.md` (TCOS-021), em construção. Nenhum documento oficial congelado foi alterado. Confirmado via `git status` que apenas este arquivo foi criado.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova além das já registradas no TCOS-021 (Capítulo 18: RC-021-02, RC-021-03).
+
+### Riscos encontrados
+- **RC-021-01 (Erro, achado nesta fase, NÃO corrigido):** o TCOS-020, Capítulo 4 (Personas), cita incorretamente "5 Perfis... Proprietário, Administrativo, Operacional, Comercial, BI/Direção" como já formalizados no TCOS-012. A estrutura real e oficial (TCOS-012, Capítulos 8–9; TCOS-006, Capítulo 8) é de **10 Perfis por Área da Empresa** (Comercial/CRM, Produção, Compras/Suprimentos, Estoque/Logística, Eventos/Operações, Financeiro, Marketing, Pessoas/Mão de Obra, Administrativo/Documentos, BI/Direção Executiva) **mais o Administrador do Sistema transversal** — 11 papéis nomeados, nenhum deles "Proprietário" ou "Operacional". Severidade Média. O TCOS-021 já usa a estrutura correta em todo o seu conteúdo, para não propagar o erro. Correção do TCOS-020 Capítulo 4 pendente de autorização explícita do proprietário.
+- RC-021-02 (Risco): ausência de definição técnica da Camada de Assinatura — sem estimativa de esforço até extensão futura do TCOS-017.
+- RC-021-03 (Risco, herdado): retenção de dado pós-cancelamento depende da mesma decisão de Governança de Privacidade já pendente (TCOS-012, Capítulo 31).
+
+### Pendências
+- Aprovação do proprietário sobre o TCOS-021.
+- Correção do TCOS-020 Capítulo 4 (RC-021-01) — aguardando autorização explícita.
+- Pendências herdadas: as mesmas já consolidadas, sem nenhuma nova de arquitetura.
+
+**Confirmação de auditoria (executada antes deste registro):** confirmado via `git status` que apenas `THE_CHARCOAL_OS_CUSTOMER_EXPERIENCE_AND_LIFECYCLE_STRATEGY.md` foi criado (arquivo novo, não modificação); nenhum dos 25 documentos oficiais existentes foi alterado; verificação programática confirmou 18 capítulos sequenciais (1–18) sem lacuna; toda a Matriz de Perfis e Módulos (Capítulo 17 do TCOS-021) foi conferida item a item contra a Matriz de Dependências do TCOS-006 (Capítulo 4) — nenhum módulo ou Perfil citado é inexistente.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
