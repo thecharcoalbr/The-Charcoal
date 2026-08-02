@@ -1069,4 +1069,36 @@ A Baseline Oficial v1.0.0 do THE CHARCOAL OS é definida, por esta Constituiçã
 
 ---
 
+## FASE 017 — Implementation Master Plan
+
+**Status:** Rascunho entregue — aguardando validação do proprietário (`THE_CHARCOAL_OS_IMPLEMENTATION_MASTER_PLAN.md` v1.0.0)
+**Data:** 2026-08-02
+
+Recebido o Prompt Oficial (TCOS-017), executada a Auditoria de Consistência sobre os 20 Documentos Oficiais Congelados, a Constituição Permanente e o `PROJECT_MEMORY.md`, e produzido o Plano Mestre de Implementação: os 27 módulos organizados em 9 Camadas de Implementação por dependência técnica (derivadas da Matriz de Dependências já oficial, TCOS-006 Capítulo 4), MVP definido em 18 módulos, Pós-MVP em 9 módulos distribuídos em 3 entregas adicionais, e estratégia completa de Sprint, testes, homologação, validação, migração, implantação, treinamento e evolução contínua. Nenhuma tecnologia foi escolhida; nenhum código foi escrito; nenhum documento da Baseline Oficial foi alterado.
+
+### Decisões tomadas
+- D-017-01: ordem de implementação dos 27 módulos organizada em 9 Camadas, derivadas exclusivamente da Matriz de Dependências já oficial (TCOS-006, Capítulo 4) — nenhum critério novo de dependência foi criado.
+- D-017-02: dependência mútua de operação entre Produção (10) e Estoque (16), já registrada no TCOS-006, resolvida para fins de implementação colocando os dois módulos no mesmo bloco (Camada 3), junto com Precificação (14) — sem alterar a documentação original, apenas definindo a ordem prática de construção.
+- D-017-03: MVP definido em 18 módulos (Camadas 0-7), incluindo deliberadamente a Engenharia de Custos (Módulo 11) — apurar a margem por Evento é tratado como núcleo do valor de negócio, não um refinamento posterior.
+- D-017-04: confirmação do domínio de negócio (R-000-03) formalizada como critério explícito de início do primeiro Sprint (Capítulo 11) e item do Checklist Obrigatório antes de qualquer desenvolvimento (Capítulo 22) — o tratamento mais direto já dado a esse risco em qualquer fase do projeto.
+- D-017-05: Estratégia de Migração de Dados e Estratégia de Treinamento do Usuário formalizadas pela primeira vez nesta fase, por adição, sem tecnologia definida.
+
+### Alterações
+- ALT-017-01: criado o documento `THE_CHARCOAL_OS_IMPLEMENTATION_MASTER_PLAN.md` (v1.0.0). Nenhum documento anterior foi alterado.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova. Este plano organiza a execução da Baseline já completa, sem identificar lacunas de arquitetura adicionais às já registradas nas Fases 000-016.
+
+### Riscos encontrados
+- Nenhum risco novo de arquitetura. R-000-03 (domínio de negócio não confirmado) recebe, nesta fase, o tratamento de maior impacto prático já dado a ele: pré-requisito explícito e não contornável do primeiro Sprint de implementação.
+
+### Pendências
+- P-017-01: validação formal do proprietário sobre o `THE_CHARCOAL_OS_IMPLEMENTATION_MASTER_PLAN.md`.
+- Pendências herdadas: as mesmas 8 pendências substantivas consolidadas na Fase 016, sem nenhuma nova.
+
+### Estrutura de implementação identificada
+- 27/27 módulos organizados (100%) em 9 Camadas de Implementação, MVP de 18 módulos, Pós-MVP de 9 módulos em 3 entregas, 8 Entregas de Roadmap no total, 6 riscos de implementação catalogados, 5 critérios de aceite formalizados. Maturidade estimada do projeto: 97% (inalterada — este plano organiza a execução, sem ampliar o escopo conceitual da Baseline).
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
