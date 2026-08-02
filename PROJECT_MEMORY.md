@@ -1605,6 +1605,36 @@ Executada a Auditoria de Abertura final (nenhuma nova divergência objetiva enco
 
 **Confirmação de auditoria (Executiva Completa, Consistência, UX/UI, Regressão, Rastreabilidade):** confirmado que todos os componentes usados (Card de KPI, gráfico de barras, Badge/pill, Botão primário/secundário, Widget de sugestão de IA) já são oficiais na Biblioteca Visual, sem nenhum componente novo criado; confirmado que o conteúdo (KPIs, Tabela, Filtros, Ações rápidas, Widget) corresponde palavra por palavra ao TCOS-018 Capítulo 18 e à UX/UI Specification §3.7; confirmado, por inspeção direta do CSS, que grid, cores, tipografia, raios e sombras são idênticos aos já usados nas Telas 01–05, incluindo a correção de especificidade do botão primário (Brasa) sem alterar o widget de IA (Roxo-IA); confirmado que nenhum módulo, Serviço, regra de negócio ou documento oficial foi alterado nesta etapa — apenas o `PROJECT_MEMORY.md`.
 
+**Aprovação:** a Tela 06 foi aprovada integralmente pelo proprietário (comando `APROVADO`), incluindo a decisão conservadora de remover o Banner de alerta persistente. 3 observações de melhoria futura, não bloqueantes, foram registradas por ele: (a) componente visual específico para Alertas Operacionais, distinto do padrão RN-047 — mesmo tema de OE-T06-01, já registrado; (b) avaliar hierarquia visual da tabela de Fichas Técnicas para maior volume de registros; (c) avaliar indicadores de tendência (↑ ↓ =) nos KPIs de custo/margem. Todas roteadas ao Backlog da Revisão Global de UX/UI, sem alterar a baseline aprovada.
+
+---
+
+## CORREÇÃO — Alertas, Notificações e Estados Faltantes (TCOS-018, Capítulo 19)
+
+**Status:** Correção documental executada dentro do escopo autorizado por `CORRIGIR`; Tela 07 a ser construída na sequência
+**Data:** 2026-08-02
+
+Ao iniciar a Auditoria de Abertura da Tela 07 (Dashboard Eventos), a comparação linha por linha entre o TCOS-018 (Capítulo 19, já com Botões/Modais corrigidos) e a UX/UI Specification (§3.8) confirmou a suspeita já registrada no Backlog após a correção do Capítulo 18: o mesmo padrão de lacuna (Alertas/Notificações/Estados) também afetava o Capítulo 19 — sem Widget de IA, que a própria §3.8 confirma não se aplicar a este Dashboard. O achado foi reportado antes de qualquer correção; o proprietário autorizou (`CORRIGIR`) o escopo mínimo abaixo, restrito exclusivamente ao Capítulo 19.
+
+### Decisões tomadas
+- D-COR4-01: adicionados ao Capítulo 19 os campos Alertas (RN-006, margem mínima, RN-007), Notificações (Evento confirmado/concluído) e Estados da interface (5 estados do ciclo de vida do Evento com suas cores oficiais), exatamente conforme literal da UX/UI Specification §3.8 — nenhuma reinterpretação.
+- D-COR4-02: os 5 Estados da interface agora documentados ("Prospectado" cinza, "Confirmado" Brasa, "Em execução" azul, "Concluído" verde, "Cancelado" vermelho riscado) são a base de cor obrigatória para o calendário da Tela 07 — sem essa definição, a cor do calendário teria sido inventada; a correção elimina esse risco antes da construção.
+
+### Alterações
+- ALT-COR4-01: `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` (TCOS-018) — Capítulo 19: adicionados "Alertas", "Notificações" e "Estados da interface" (após Modais, antes de Comportamento esperado). Confirmado via `git diff` que apenas o Capítulo 19 foi tocado (6 inserções, 0 remoções) — nenhum outro capítulo alterado; verificação programática confirmou os 28 capítulos permanecem sequenciais; RN-006 e RN-007 existem exatamente como citados na Business Rules Specification, sem alteração.
+
+### Melhorias sugeridas (Backlog)
+- Com a correção dos Capítulos 16, 17, 18 e 19, resta avaliar se os demais 7 Dashboards (13, 14, 15, 20, 21, 22, 23) têm as mesmas categorias já completas — indício forte de que sim, já que todos já incluíam Ações rápidas/Botões corretamente desde a auditoria original; não verificado exaustivamente para Alertas/Notificações/Estados nesta fase.
+
+### Riscos encontrados
+- Nenhum risco novo de arquitetura.
+
+### Pendências
+- Construção da Tela 07 prossegue imediatamente, conforme autorizado.
+- Pendências já registradas (RC-021-01; citação Cap. 14/15; OE-T06-01) permanecem, sem alteração.
+
+**Confirmação de auditoria:** confirmado, antes da edição, que os 3 itens autorizados existem literalmente na UX/UI Specification §3.8. Confirmado, depois da edição, via `git diff`, que apenas o Capítulo 19 foi alterado; nenhuma Regra de Negócio, Fluxo, Funcionalidade ou decisão arquitetural foi modificada; nenhum outro documento oficial congelado foi tocado.
+
 ---
 
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*

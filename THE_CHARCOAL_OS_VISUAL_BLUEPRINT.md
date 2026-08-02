@@ -344,6 +344,12 @@ Distribuição em grid: Desktop 2 a 4 colunas (Capítulo 11 deste documento), Ta
 
 **Modais:** "Novo Evento" (Cliente, data, local, convidados, escopo); "Cancelar Evento" (motivo obrigatório).
 
+**Alertas:** inviabilidade operacional na confirmação (RN-006); margem prevista abaixo do mínimo; impacto financeiro de cancelamento (RN-007).
+
+**Notificações:** Evento confirmado (com resumo da orquestração executada); Evento concluído.
+
+**Estados da interface:** "Prospectado" (cinza); "Confirmado" (Brasa); "Em execução" (azul); "Concluído" (verde); "Cancelado" (vermelho, riscado).
+
 **Comportamento esperado:** ao contrário dos demais Dashboards, este não possui uma funcionalidade de indicador dedicada (F-XXX) além do próprio ciclo de vida do Módulo 07 — os dados exibidos são consumidos através do Serviço de Indicadores (Frontend Architecture, Capítulo 15), reafirmando que o Dashboard nunca duplica lógica de cálculo já existente em outro Serviço.
 
 ## 20. Dashboard CRM
