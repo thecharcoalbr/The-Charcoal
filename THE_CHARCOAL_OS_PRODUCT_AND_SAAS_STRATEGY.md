@@ -5,7 +5,7 @@
 **Natureza:** Documento exclusivamente de estratégia de produto e de negócio comercial (Camada de Produto). NÃO constitui arquitetura, NÃO constitui implementação, NÃO constitui código, NÃO define tecnologia. NÃO cria, altera ou remove nenhum módulo, Serviço, tela, componente, Fluxo, Funcionalidade ou Regra de Negócio. NÃO altera nenhum documento oficial congelado — atua exclusivamente **acima** da arquitetura já aprovada, como a camada que transforma o sistema já especificado em um produto SaaS comercializável.
 **Baseline referenciada:** v1.0.0 (TCOS-000 a TCOS-018, congelados) + TCOS-019A (Fases 1 e 2 aprovadas — Identidade Visual e Biblioteca Visual Oficial) + Auditoria Arquitetural Corretiva de 2026-08-02 (registrada no `PROJECT_MEMORY.md`), sob a autoridade da Constituição Permanente do Projeto.
 **Documentos-fonte desta fase:** Constituição Permanente; `THE_CHARCOAL_OS_PROJECT_CONSTITUTION.md`; `THE_CHARCOAL_OS_DOMAIN_MODEL.md` (TCOS-002); `THE_CHARCOAL_OS_BUSINESS_RULES_SPECIFICATION.md` (TCOS-002A); `THE_CHARCOAL_OS_SYSTEM_ARCHITECTURE.md` (TCOS-006); `THE_CHARCOAL_OS_AI_ARCHITECTURE.md` (TCOS-013); `THE_CHARCOAL_OS_INFRASTRUCTURE_ARCHITECTURE.md` (TCOS-014, Capítulos 25–26 — Multiempresa/Multitenancy); `THE_CHARCOAL_OS_SECURITY_AND_PRIVACY_ARCHITECTURE.md` (TCOS-012); `THE_CHARCOAL_OS_UX_UI_SPECIFICATION.md` (TCOS-005); `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` (TCOS-018); `THE_CHARCOAL_OS_EXECUTIVE_GLOBAL_AUDIT.md` (TCOS-016); `PROJECT_MEMORY.md`.
-**Status:** Em construção — primeira apresentação completa das 30 seções solicitadas, aguardando Auditoria Estratégica e aprovação do proprietário.
+**Status:** Em construção — v1.1.0. Revisão estratégica de mercado-alvo (Austrália como mercado primário de validação; Brasil como mercado estratégico de expansão posterior) aplicada mediante `CORRIGIR` do proprietário, escopo limitado aos capítulos de ICP, Posicionamento, Roadmap Comercial e Estratégia Internacional. Aguardando aprovação final do proprietário.
 
 ---
 
@@ -20,6 +20,8 @@ Esta fase inicia oficialmente a **Camada de Produto** do THE CHARCOAL OS: a cama
 - Pendências herdadas adicionais diretamente relevantes a esta fase: decisão de negócio sobre Multiempresa/Multifilial (M-006-01/M-007-01), já refletida na reserva estrutural do atributo "Organização" (TCOS-007 §7.6) e nos dois modelos de Multitenancy já formalizados (TCOS-014, Capítulo 26) — usados nesta fase apenas como **restrição de compatibilidade** (o que a estratégia de planos/expansão pode assumir como já sustentado pela infraestrutura), nunca como decisão de negócio tomada por este documento.
 - Nenhuma inconsistência, sobreposição ou conflito com documento já oficial foi encontrado. A construção desta fase está autorizada a prosseguir.
 
+**Revisão de mercado-alvo (v1.1.0, autorizada por `CORRIGIR` do proprietário):** a primeira versão desta fase assumia, por inferência estratégica não confirmada, o Brasil como mercado doméstico de lançamento. O proprietário esclareceu explicitamente que a **Austrália é o mercado primário de validação** do THE CHARCOAL OS, com o **Brasil como mercado estratégico de expansão posterior**. A revisão foi limitada exclusivamente aos capítulos de ICP (3), Posicionamento/Visão (1–2), Roadmap Comercial (13) e Estratégia Internacional (15), com ajuste de consistência no Plano de Crescimento de 10 Anos (30), que restatava diretamente a sequência do Capítulo 15. Nenhuma arquitetura, módulo, regra de negócio, funcionalidade, UX/UI ou documento técnico foi alterado.
+
 **Convenção de rastreabilidade desta fase:** todo conteúdo que extrapola diretamente de um fato já documentado é identificado como **[Inferência estratégica]** — a mesma disciplina já usada no TCOS-018 (`[Inferência visual]`) e no TCOS-019A, aplicada agora a decisões de negócio em vez de decisões visuais. Nenhuma inferência estratégica altera, substitui ou contradiz nenhum documento já oficial.
 
 ---
@@ -28,7 +30,7 @@ Esta fase inicia oficialmente a **Camada de Produto** do THE CHARCOAL OS: a cama
 
 O THE CHARCOAL OS é o sistema operacional de gestão para negócios de produção artesanal e eventos — a ponte entre o ofício (a Receita, a Ficha Técnica, o ponto exato da execução) e a gestão (o caixa, a margem, o cliente, a decisão). **[Inferência estratégica, condicionada a R-000-03]** A visão de produto assume, como toda a arquitetura já assume, que o segmento-alvo é o de negócios cuja operação central gira em torno de Produção sob demanda vinculada a Eventos — o exemplo ilustrativo mais recorrente em todo o corpus documental é o de churrascarias, casas de eventos e operações de catering, mas a arquitetura (Capítulo 2, Filosofia Arquitetural, TCOS-006) já foi deliberadamente construída para não travar em um único subsegmento.
 
-**Visão de 10 anos (síntese, detalhada no Capítulo 30):** tornar-se o sistema de gestão de referência para negócios de produção artesanal e eventos, primeiro no Brasil, depois na América Latina e em mercados de culinária tradicional/artesanal com estrutura comercial semelhante — reconhecido não por ser genérico, mas por ser **profundamente correto** para este tipo específico de operação, onde sistemas de gestão genéricos (ERPs horizontais, planilhas, sistemas de ponto de venda) sistematicamente falham em capturar a relação entre Ficha Técnica, Produção e margem real.
+**Visão de 10 anos (síntese, detalhada no Capítulo 30):** tornar-se o sistema de gestão de referência para negócios de produção artesanal e eventos, com a **Austrália como mercado primário de validação** e o **Brasil como mercado estratégico de expansão posterior**, seguido de mercados de culinária tradicional/artesanal com estrutura comercial semelhante — reconhecido não por ser genérico, mas por ser **profundamente correto** para este tipo específico de operação, onde sistemas de gestão genéricos (ERPs horizontais, planilhas, sistemas de ponto de venda) sistematicamente falham em capturar a relação entre Ficha Técnica, Produção e margem real.
 
 ## 2. Posicionamento de Mercado
 
@@ -51,7 +53,7 @@ O THE CHARCOAL OS é o sistema operacional de gestão para negócios de produç�
 | Estrutura societária | Frequentemente familiar ou com poucos sócios — justifica a separação já modelada entre Financeiro Pessoal e Empresarial (Módulos 02/03) como diferencial reconhecível, não genérico |
 | Maturidade de gestão | Já sente dor de controle (planilhas, WhatsApp, caderno), mas ainda não tem orçamento ou apetite para um ERP horizontal complexo |
 | Ciclo de operação | Produção vinculada a Evento/encomenda — não apenas venda de prateleira |
-| Geografia inicial | Brasil, mercado doméstico — expansão internacional tratada no Capítulo 15 |
+| Geografia inicial | Austrália, mercado primário de validação — Brasil como mercado estratégico de expansão posterior; sequência completa tratada no Capítulo 15 |
 
 **Anti-ICP (quem o produto não deve tentar atender neste horizonte):** indústria de produção em larga escala com múltiplas fábricas (exigiria MES/SCM dedicado); redes de franquia com centenas de unidades simultâneas (exigiria multiempresa/multitenancy já além do que M-006-01 decidiu); negócios sem nenhum componente de Produção ou Evento (o modelo de dados perde a maior parte do seu diferencial).
 
@@ -158,7 +160,7 @@ A IA já é, por desenho arquitetural (TCOS-013), um diferencial competitivo pro
 
 | Horizonte | Foco comercial |
 |---|---|
-| Lançamento (Plano Essencial) | Validar UVP (Capítulo 7) com o núcleo comercial/operacional/financeiro — cadência de Entregas já definida no TCOS-017 |
+| Lançamento (Plano Essencial) | Validar UVP (Capítulo 7) com o núcleo comercial/operacional/financeiro na Austrália, mercado primário de validação (Capítulo 15) — cadência de Entregas já definida no TCOS-017 |
 | +2–3 entregas | Plano Profissional — Precificação, Lotes, Recursos Humanos, Metas |
 | +4–5 entregas | Plano Avançado — CRM, Marketing, primeira Extensão de IA priorizada (M-013-03) |
 | Pós-MVP | Multiempresa/Multifilial (após M-006-01 resolvido) e primeira exploração de Marketplace (Capítulo 11) |
@@ -171,7 +173,7 @@ Herdada diretamente da arquitetura já aprovada, sem redefinição técnica: cad
 
 ## 15. Estratégia Internacional
 
-**[Inferência estratégica, condicionada a R-000-03 e a M-006-01]** Expansão internacional é tratada como sequência de mercados com estrutura de negócio semelhante à do ICP (Capítulo 3) — culinária artesanal/tradicional com forte componente de Evento — antes de qualquer mercado genérico. Pré-condições já satisfeitas pela arquitetura: nenhuma entidade assume moeda, idioma ou jurisdição fiscal única (Filosofia de Evolução do Framework, já referenciada em TCOS-006 Capítulo 9); Multiempresa (Capítulo 25, TCOS-014) sustenta múltiplas Organizações sem reconstrução. Pré-condições **não satisfeitas ainda** e fora do escopo desta fase: localização de idioma/moeda/tributação (decisão de tecnologia, TCOS-017), adequação regulatória por país (fora do escopo conceitual). Sequência recomendada: consolidar mercado doméstico → países de língua portuguesa/espanhola com perfil de negócio semelhante → mercados mais distantes, apenas após validação de tração.
+**[Inferência estratégica, condicionada a R-000-03 e a M-006-01]** A **Austrália é estabelecida como mercado primário de validação** do THE CHARCOAL OS, com o **Brasil como mercado estratégico de expansão posterior** — direção definida explicitamente pelo proprietário nesta revisão, substituindo a sequência anterior desta fase (que assumia o mercado doméstico brasileiro como ponto de partida). Pré-condições já satisfeitas pela arquitetura: nenhuma entidade assume moeda, idioma ou jurisdição fiscal única (Filosofia de Evolução do Framework, já referenciada em TCOS-006 Capítulo 9); Multiempresa (Capítulo 25, TCOS-014) sustenta múltiplas Organizações sem reconstrução — a arquitetura já suporta operar Austrália e Brasil como Organizações distintas sem qualquer reconstrução. Pré-condições **não satisfeitas ainda** e fora do escopo desta fase — agora com relevância imediata, e não mais diferida a uma fase distante como assumia a sequência anterior: localização de idioma (inglês) e moeda (AUD) para o mercado australiano; adequação regulatória e tributária australiana; as mesmas exigências de localização/regulação para o Brasil no momento de sua expansão — todas decisões de tecnologia/implementação (TCOS-017), fora do escopo conceitual desta fase. Sequência recomendada: consolidar a Austrália como mercado primário de validação → Brasil como mercado estratégico de expansão → demais mercados de perfil de negócio semelhante (culinária artesanal/tradicional com forte componente de Evento), apenas após validação de tração em ambos.
 
 ## 16. Estratégia de Onboarding
 
@@ -266,9 +268,9 @@ Além do Backlog Estratégico (Capítulo 25): parcerias com fornecedores do seto
 
 | Horizonte | Foco |
 |---|---|
-| Anos 1–2 | Validação de mercado doméstico, Planos Essencial/Profissional, consolidação da North Star Metric (Capítulo 23), primeira Extensão de IA priorizada |
-| Anos 3–4 | Plano Avançado consolidado, resolução de M-006-01 e lançamento comercial de Multiempresa/Multifilial, início de exploração de Marketplace (Capítulo 11) |
-| Anos 5–6 | Expansão internacional para mercados de perfil semelhante (Capítulo 15), Comunidade e benchmarking entre Organizações (Capítulo 19, sujeito à Governança de Privacidade) |
+| Anos 1–2 | Validação do mercado primário (Austrália), Planos Essencial/Profissional, consolidação da North Star Metric (Capítulo 23), primeira Extensão de IA priorizada |
+| Anos 3–4 | Plano Avançado consolidado, resolução de M-006-01 e lançamento comercial de Multiempresa/Multifilial, expansão estratégica para o Brasil (Capítulo 15), início de exploração de Marketplace (Capítulo 11) |
+| Anos 5–6 | Expansão para demais mercados de perfil semelhante (Capítulo 15), Comunidade e benchmarking entre Organizações (Capítulo 19, sujeito à Governança de Privacidade) |
 | Anos 7–8 | Marketplace maduro como segunda fonte de receita recorrente; tenant isolado como oferta enterprise consolidada (Capítulo 25, OE-020-05) |
 | Anos 9–10 | Posição de referência no segmento de produção artesanal/eventos nos mercados atendidos; todo crescimento adicional avaliado sob o mesmo critério de "extensão, nunca reconstrução" (Capítulo 21) |
 

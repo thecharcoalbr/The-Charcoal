@@ -1360,4 +1360,35 @@ Executada, a pedido do proprietário, uma Auditoria Arquitetural completa (arqui
 
 ---
 
+## FASE 020 — Product & SaaS Strategy (Camada de Produto, em construção)
+
+**Status:** Em construção — v1.1.0 (revisão de mercado-alvo aplicada), aguardando aprovação final do proprietário
+**Data:** 2026-08-02
+
+Instituída, a pedido do proprietário, a Camada de Produto do THE CHARCOAL OS: novo documento `THE_CHARCOAL_OS_PRODUCT_AND_SAAS_STRATEGY.md` (TCOS-020), com 30 seções cobrindo visão de produto, posicionamento, ICP, personas, JTBD, diferenciais competitivos, UVP, monetização, planos/empacotamento dos 27 módulos já existentes, estratégia de IA como diferencial comercial, roadmap comercial, escalabilidade, expansão internacional, onboarding, customer success, retenção, comunidade, feedback, evolução contínua, métricas SaaS, North Star Metric, KPIs, backlog estratégico, riscos de produto, SWOT, moat e plano direcional de 10 anos — operando exclusivamente acima da arquitetura já aprovada, sem alterar nenhum módulo, Serviço, tela, Fluxo, Funcionalidade, Regra de Negócio ou documento oficial congelado. O documento herda explicitamente o risco R-000-03 (domínio de negócio não confirmado, "o risco mais relevante do projeto" per TCOS-016) para todo o conteúdo de mercado/ICP/personas.
+
+Nesta mesma fase, o proprietário instituiu também, de forma permanente e aplicável a todas as etapas futuras: (a) a ampliação do meu papel para incluir CPO, Product & Business Architect, SaaS Strategist, Growth Advisor, Customer Success Architect, UX Strategist e Software Quality Director; (b) o Protocolo Executivo de Desenvolvimento, com hierarquia de decisão (Constituição → Framework → Documentos Oficiais → Arquitetura → Regras de Negócio → TCOS-020 → demais documentos → prompt da tarefa) e Auditoria Executiva de 10 pontos (Estrutural, Componentes, Documental, Conteúdo, Consistência, Arquitetural, UX/UI, SaaS, Comercial, Estratégica); (c) o Protocolo de Orquestração Inteligente de Capacidades (Skills/Agent/Artifact/ferramentas usadas apenas quando trazem ganho objetivo, nunca conduzindo decisão arquitetural, sempre registradas em "Capacidades Utilizadas"); (d) o Protocolo de Priorização Estratégica (11 critérios de impacto, recomendação nunca automática).
+
+### Decisões tomadas
+- D-020-01: Camada de Produto opera estritamente acima da arquitetura oficial — nenhuma decisão de produto pode alterar módulo, Serviço, regra de negócio ou documento técnico já congelado; em qualquer conflito, arquitetura/regras de negócio prevalecem sobre recomendação comercial.
+- D-020-02 (revisão v1.1.0): a **Austrália é estabelecida como mercado primário de validação** do THE CHARCOAL OS, com o **Brasil como mercado estratégico de expansão posterior** — substituindo a hipótese inicial (Brasil como mercado doméstico de lançamento), que era uma inferência estratégica não confirmada. Revisão limitada aos Capítulos 1–3 (Visão/Posicionamento/ICP), 13 (Roadmap Comercial) e 15 (Estratégia Internacional) do TCOS-020, com ajuste de consistência no Capítulo 30 (Plano de 10 Anos), que restatava diretamente a sequência do Capítulo 15.
+
+### Alterações
+- ALT-020-01: criado `THE_CHARCOAL_OS_PRODUCT_AND_SAAS_STRATEGY.md` (TCOS-020), em construção. Nenhum documento oficial congelado foi alterado.
+- ALT-020-02: revisão v1.1.0 do TCOS-020 — mercado-alvo (Austrália/Brasil) — 6 trechos ajustados (Capítulos 1, 3, 13, 15, 30 + nota de revisão na Executive Memory), confirmados via `git diff` como as únicas alterações. Nenhum outro documento oficial foi tocado.
+
+### Melhorias sugeridas (Backlog)
+- Observação de auditoria (não incorporada ao TCOS-020 por estar fora do escopo autorizado desta revisão): a elevação da Austrália a mercado primário torna as pré-condições de localização de idioma (inglês) e moeda (AUD), e de adequação regulatória/tributária australiana, imediatamente relevantes — anteriormente essas pré-condições eram tratadas como diferidas a uma fase distante. Recomenda-se considerar, em revisão futura do Capítulo 27 (Riscos do Produto) do TCOS-020, o registro formal de um risco específico sobre isso — não registrado nesta fase por não constar no escopo autorizado pelo `CORRIGIR`.
+
+### Riscos encontrados
+- Nenhum risco novo de arquitetura. Riscos de produto já registrados no próprio TCOS-020 (RP-020-01 a RP-020-04) permanecem, com R-000-03 (herdado) como o de maior relevância sobre todo o conteúdo de mercado.
+
+### Pendências
+- Aprovação final do proprietário sobre o TCOS-020 (v1.1.0) ainda pendente.
+- Pendências herdadas: as mesmas pendências substantivas já consolidadas, sem nenhuma nova de arquitetura.
+
+**Confirmação de auditoria (executada antes deste registro):** confirmado via `git diff --stat` que, na revisão v1.1.0, apenas `THE_CHARCOAL_OS_PRODUCT_AND_SAAS_STRATEGY.md` foi modificado (10 inserções, 8 remoções, todas dentro dos Capítulos 1, 3, 13, 15, 30 e da Executive Memory); nenhum módulo, Serviço, Fluxo (FL-XXX), Funcionalidade (F-XXX) ou Regra de Negócio (RN-XXX) foi referenciado nas linhas alteradas; nenhum dos 24 documentos oficiais congelados nem a Constituição Permanente foram tocados.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
