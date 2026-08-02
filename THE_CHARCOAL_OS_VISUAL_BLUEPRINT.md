@@ -5,7 +5,7 @@
 **Natureza:** Documento de representação visual do sistema. NÃO constitui implementação, NÃO constitui Frontend, NÃO constitui código. Sua finalidade exclusiva é permitir a validação da experiência do usuário antes de qualquer desenvolvimento técnico.
 **Baseline referenciada:** v1.0.0 (TCOS-000 a TCOS-017), sob a autoridade da Constituição Permanente do Projeto.
 **Referência visual canônica desta fase:** `THE_CHARCOAL_OS_UX_UI_SPECIFICATION.md` (TCOS-005) e `THE_CHARCOAL_OS_FRONTEND_ARCHITECTURE.md` (TCOS-011) — em caso de divergência de nomenclatura entre documentos oficiais, prevalecem estes dois, por determinação expressa do proprietário (comando `ALTERAR`, 2026-08-02).
-**Status:** Documento em Construção — Parte 2 de 8 concluída — aguardando decisão do proprietário para prosseguir.
+**Status:** Documento em Construção — Parte 2 de 8 APROVADA (inclui validação visual dos 11 Dashboards, aprovada pelo proprietário em 2026-08-02) — Parte 3 de 8 em construção.
 
 ---
 
@@ -37,6 +37,13 @@ Estas três divergências herdadas do TCOS-016 (M-016-01, M-016-02, referentes a
 | 6 | Capítulo 27: Experiência do Usuário |
 | 7 | Capítulo 28: Visualização do Sistema (detalhamento para prototipagem futura) — poderá ser subdividida |
 | 8 | Resumo para o Proprietário, TCOS Quality Gate Executivo, Relatório Consolidado de Padronização |
+
+**Registro de Aprovações por Parte:**
+
+| Parte | Status | Observação |
+|---|---|---|
+| 1 | APROVADA (2026-08-02) | — |
+| 2 | APROVADA (2026-08-02) | Inclui validação visual complementar dos 11 Dashboards (wireframe estrutural), aprovada pelo proprietário antes do início da Parte 3 |
 
 Nenhuma funcionalidade, regra de negócio, entidade, tela ou componente novo é criado neste documento — toda representação visual deriva exclusivamente do que já está oficialmente especificado. Onde a especificação existente descreve um layout em texto (ex.: "lista/kanban por estágio") sem atribuir formalmente um dos 4 Templates de Tela, este documento faz a inferência visual necessária e a identifica explicitamente como inferência, nunca como fato já decidido em outro documento.
 
@@ -216,7 +223,7 @@ Distribuição em grid: Desktop 2 a 4 colunas (Capítulo 11 deste documento), Ta
 
 ## 14. Dashboard Financeiro Pessoal
 
-**Objetivo:** controle das retiradas pessoais dos sócios, isolado do Financeiro Empresarial por privacidade e por organização contábil (UX/UI Specification, §3.2; Functional Specification, Módulo 02, F-003/F-004; Security and Privacy Architecture, Capítulo 11 — Separação Pessoa/Empresa).
+**Objetivo:** controle das retiradas pessoais dos sócios, isolado do Financeiro Empresarial por privacidade e por organização contábil (UX/UI Specification, §3.2; Functional Specification, Módulo 02, F-003/F-004; Security and Privacy Architecture, Capítulo 13 — Isolamento entre Dados Pessoais e Empresariais).
 
 **Cards de KPI:** Total retirado no período; Retirada média mensal.
 

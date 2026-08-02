@@ -1118,4 +1118,41 @@ Pendência P-017-01 (validação formal do proprietário) está **encerrada** po
 
 ---
 
+---
+
+## FASE 018 — Visual Blueprint (Progresso: Partes 1 e 2 aprovadas)
+
+**Status:** Em construção por partes — Parte 1 APROVADA, Parte 2 APROVADA (inclui validação visual complementar dos 11 Dashboards)
+**Data:** 2026-08-02
+
+Autorizada pelo proprietário (comando `AUTORIZADO`) a criação de um novo documento oficial fora da lógica de fase única: `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` (TCOS-018), com a finalidade exclusiva de representar visualmente o sistema para validação de UX antes de qualquer implementação técnica — não constitui Frontend, não constitui código. Por determinação expressa do proprietário, o documento é construído em 8 partes, cada uma com Auditoria de Consistência prévia e posterior, Resumo Executivo e aprovação formal antes da parte seguinte.
+
+Antes do início da Parte 1, foi executada Auditoria de Consistência completa sobre toda a documentação oficial relevante para a experiência visual (UX/UI Specification, Frontend Architecture, Functional Specification, User Journeys, Domain Model, Business Rules Specification, System Architecture, Data Architecture). O proprietário determinou (comando `ALTERAR`) que as 3 divergências cosméticas encontradas (nomenclatura "Dashboard Metas" vs. "Dashboard de Metas"; contagem interna 14 vs. 15 componentes no UX/UI Specification; uso não desambiguado de "Dashboard Financeiro" no User Journeys) não impedem a construção do documento, não geram melhoria permanente nem Change Request nesta fase, e ficam catalogadas para um único Relatório Consolidado de Padronização ao final das 8 partes.
+
+**Parte 1** (Capítulos 1–11): Papel do Documento, Legenda, Visão Geral do Sistema, Arquitetura Visual (mapeamento das 5 sub-camadas já aprovadas do Frontend Architecture, sem camada nova), Mapa Geral de Navegação (com o agrupamento dos 27 módulos nas 10 Áreas da Empresa identificado explicitamente como inferência visual), Fluxo Principal do Usuário, Estrutura dos Menus, Barra Superior, Barra Lateral, Navegação Mobile, Navegação Desktop.
+
+**Parte 2** (Capítulos 12–23): Estrutura Visual comum aos 11 Dashboards e o detalhamento individual de cada um (CEO, Financeiro Pessoal, Financeiro Empresarial, Produção, Estoque, Engenharia de Custos, Eventos, CRM, Marketing, Metas, Inteligência Artificial), todos ancorados nos códigos F-XXX/RN-XXX/PF-XX já oficiais. Complementarmente, por determinação do proprietário, foi produzida uma validação visual (wireframe estrutural, sem paleta/tipografia oficial — ambas permanecem pendentes de confirmação) dos 11 Dashboards, apresentada como Artifact e aprovada antes do início da Parte 3.
+
+### Decisões tomadas
+- D-018-01: em caso de divergência de nomenclatura entre documentos oficiais, prevalecem UX/UI Specification (TCOS-005) e Frontend Architecture (TCOS-011) como referência visual canônica desta fase — sem alterar nenhum documento congelado.
+- D-018-02: o agrupamento dos 27 módulos em 10 Áreas da Empresa para fins de menu lateral é uma inferência visual desta fase, derivada de Enterprise Domain Discovery §5, System Architecture Cap. 8 e Security and Privacy Architecture — nunca uma nova regra de negócio ou redefinição de Perfil de acesso.
+- D-018-03: as divergências cosméticas identificadas na Auditoria de Consistência pré-construção não geram melhoria permanente nem Change Request nesta fase — ficam catalogadas para um único Relatório Consolidado de Padronização ao final das 8 partes.
+
+### Alterações
+- ALT-018-01: criado o documento `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md`, em construção (Partes 1–2 de 8 aprovadas). Nenhum documento oficial congelado foi alterado.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova melhoria permanente registrada nesta fase, por determinação expressa do proprietário (ver Decisão D-018-03). As 3 divergências cosméticas permanecem em registro interno de acompanhamento dentro do próprio `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md`.
+
+### Riscos encontrados
+- Nenhum risco novo. Os 5 riscos já consolidados na Fase 016 permanecem, sem alteração.
+
+### Pendências
+- P-018-01: aprovação formal do proprietário para as Partes 3 a 8 do `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` (em andamento, parte a parte).
+- Pendências herdadas: as mesmas 8 pendências substantivas consolidadas na Fase 016, sem nenhuma nova.
+
+**Confirmação de auditoria (executada antes deste registro):** verificado programaticamente que a numeração dos 23 capítulos já construídos é sequencial e íntegra; todos os códigos F-XXX (31 citados), RN-XXX (4 citados) e PF-XX (2 citados) existem nos documentos oficiais de origem; todos os módulos citados correspondem ao mapeamento oficial; 3 erros de citação cruzada de capítulo cometidos durante a própria redação desta fase foram encontrados e corrigidos antes deste registro (nunca em documento congelado — sempre no `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md`, ainda em construção). Confirmado via `git status` que nenhum documento além do `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` foi modificado. Nenhuma funcionalidade, regra de negócio ou decisão arquitetural foi criada, alterada ou removida.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
