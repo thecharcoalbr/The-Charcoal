@@ -1865,4 +1865,33 @@ Observação estratégica (sem ação recomendada nesta fase):
 
 ---
 
+## CORREÇÃO — Notificações e Estados da Interface Faltantes (TCOS-018, Capítulo 22)
+
+**Status:** CONCLUÍDA E APROVADA PELO PROPRIETÁRIO (comando `CORRIGIR`, escopo fechado)
+**Data:** 2026-08-02
+
+Ao iniciar a Auditoria de Abertura da Tela 10 (Dashboard Metas), a comparação linha por linha entre o TCOS-018 (Capítulo 22) e a UX/UI Specification (§3.10) encontrou o mesmo padrão sistêmico de lacuna já corrigido nos Capítulos 16–21: os campos "Notificações" (item 17) e "Estados da interface" (item 23) da UX/UI Specification não estavam presentes no Capítulo 22. Reportado como Achado formal antes de qualquer correção; o proprietário autorizou (`CORRIGIR`) o escopo exato abaixo.
+
+### Decisões tomadas
+- D-COR8-01: campo "Notificações" adicionado ao Capítulo 22, copiado literalmente da UX/UI Specification §3.10, item 17 ("Meta atingida — celebração visual"; "Meta não atingida — neutro, sem 'gamificação negativa'").
+- D-COR8-02: campo "Estados da interface" adicionado ao Capítulo 22, copiado literalmente da UX/UI Specification §3.10, item 23 (Ativa → Brasa; Atingida → Verde-Sucesso; Não atingida → Âmbar-Atenção, nunca Vermelho-Crítico — estado não punitivo; Encerrada → Cinza).
+- D-COR8-03: confirmado, conforme instrução explícita do proprietário, que nenhum "Widget de IA" foi adicionado — nenhuma das fontes oficiais (TCOS-018 original ou UX/UI Specification §3.10) prevê widget de IA para este Dashboard.
+
+### Alterações
+- ALT-COR8-01: `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` (TCOS-018), Capítulo 22 — campos "Notificações" e "Estados da interface" adicionados. Confirmado via `git diff` que apenas o Capítulo 22 foi tocado (4 inserções, 0 remoções) — nenhum outro capítulo alterado; verificação programática confirmou os 28 capítulos permanecem sequenciais; RN-046 e F-084–F-091 existem exatamente como já citados, sem alteração a esses documentos ou a qualquer outro campo já existente no Capítulo 22 (Objetivo, Cards, Gráfico, Tabela, Ações rápidas, Modais, Alertas, Filtros, Comportamento esperado).
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova além das já registradas (correção pendente Cap. 19 "azul"; achado §3.15 Orçamentos; OE-T06-01; Backlog Oficial de UX/UI da Tela 09, itens OE-T09-01 a OE-T09-06).
+
+### Riscos encontrados
+- Nenhum risco novo de arquitetura, regra de negócio ou documento oficial.
+
+### Pendências
+- Nova Auditoria de Abertura da Tela 10 a ser executada antes da construção, conforme protocolo.
+- Correção pendente do TCOS-018 Capítulo 19 ("azul" → "Âmbar-Atenção"), achado §3.15 Orçamentos e OE-T06-01 permanecem, sem alteração.
+
+**Confirmação de auditoria:** confirmado, antes da edição, que o working tree estava limpo e os 28 capítulos íntegros/sequenciais. Confirmado, depois da edição, via `git diff`, que apenas o Capítulo 22 foi alterado (4 inserções); confirmado que RN-046 e as referências F-084–F-091 permanecem íntegras em seus documentos de origem; confirmado que nenhum outro campo do Capítulo 22 (KPIs/Cards, Gráfico, Tabela, Filtros, Alertas, Ações rápidas, Modais) foi modificado; confirmado que nenhuma Regra de Negócio, Fluxo, Funcionalidade ou decisão arquitetural foi alterada; confirmado que nenhum outro documento oficial congelado foi tocado.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*

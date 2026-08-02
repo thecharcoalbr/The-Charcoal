@@ -414,7 +414,11 @@ Distribuição em grid: Desktop 2 a 4 colunas (Capítulo 11 deste documento), Ta
 
 **Alertas:** atraso no progresso; conclusão de ciclo (RN-046).
 
+**Notificações:** Meta atingida (celebração visual); Meta não atingida (neutro, sem "gamificação negativa").
+
 **Filtros:** seletor de período; filtro por Área da Empresa/responsável pela Meta; busca por nome de Meta.
+
+**Estados da interface:** "Ativa" (Brasa); "Atingida" (Verde-Sucesso); "Não atingida" (Âmbar-Atenção, nunca Vermelho-Crítico — estado não punitivo); "Encerrada" (Cinza).
 
 **Comportamento esperado:** este é o único Dashboard cujo conteúdo é também consumido, em versão reduzida (apenas leitura), como widget dentro de outros Dashboards (ex.: Dashboard CEO, Capítulo 13) — o dado de origem é sempre o mesmo Serviço dono, nunca duplicado com cálculo próprio; criação de Meta sem Indicador associado é bloqueada (validação visual); encerramento automático de ciclo na data definida (RN-046) nunca exige ação manual, mas Meta "Não atingida" sempre recebe tratamento visual neutro (Âmbar-atenção), nunca punitivo (§3.10).
 
