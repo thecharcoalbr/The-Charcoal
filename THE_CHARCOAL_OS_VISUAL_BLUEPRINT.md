@@ -5,7 +5,7 @@
 **Natureza:** Documento de representação visual do sistema. NÃO constitui implementação, NÃO constitui Frontend, NÃO constitui código. Sua finalidade exclusiva é permitir a validação da experiência do usuário antes de qualquer desenvolvimento técnico.
 **Baseline referenciada:** v1.0.0 (TCOS-000 a TCOS-017), sob a autoridade da Constituição Permanente do Projeto.
 **Referência visual canônica desta fase:** `THE_CHARCOAL_OS_UX_UI_SPECIFICATION.md` (TCOS-005) e `THE_CHARCOAL_OS_FRONTEND_ARCHITECTURE.md` (TCOS-011) — em caso de divergência de nomenclatura entre documentos oficiais, prevalecem estes dois, por determinação expressa do proprietário (comando `ALTERAR`, 2026-08-02).
-**Status:** Documento em Construção — Parte 2 de 8 APROVADA (inclui validação visual dos 11 Dashboards, aprovada pelo proprietário em 2026-08-02) — Parte 3 de 8 em construção.
+**Status:** Documento em Construção — Parte 2 de 8 APROVADA (inclui validação visual dos 11 Dashboards) — Parte 3 de 8 em construção (sub-parte 3a de 3 concluída: índice das 30 telas + 7 telas de módulo detalhadas) — aguardando decisão do proprietário para prosseguir.
 
 ---
 
@@ -381,4 +381,261 @@ Distribuição em grid: Desktop 2 a 4 colunas (Capítulo 11 deste documento), Ta
 
 ---
 
-**Fim da Parte 2 de 8.**
+## 24. Blueprint Completo das 30 Telas já Especificadas
+
+**Nota metodológica:** dado o volume (30 telas, 14 aspectos visuais cada), este Capítulo é construído em até 3 sub-partes, conforme já sinalizado no roteiro da Executive Memory. Esta é a **sub-parte 3a de 3**, cobrindo o índice completo das 30 telas e o detalhamento das 7 primeiras telas de módulo (Comercial/CRM, Eventos e início de Produção). As sub-partes 3b e 3c cobrirão as 12 telas de módulo restantes, mediante aprovação desta sub-parte.
+
+### 24.1 Índice Completo das 30 Telas
+
+Os 11 Dashboards já foram integralmente detalhados nos Capítulos 13–23 (Parte 2, aprovada) — não são repetidos aqui, apenas referenciados. Este capítulo completa o quadro com as 19 telas de módulo, classificadas por Template (Frontend Architecture, Capítulo 12) a partir do "Layout geral" já descrito em cada perfil oficial (UX/UI Specification, §3.12–3.30) — toda classificação de Template é uma **[Inferência visual]**, pois a especificação existente não publica essa atribuição em tabela própria (ver Auditoria de Consistência, Capítulo 2).
+
+| # | Tela | Módulo | Template (inferência visual) | Sub-parte |
+|---|---|---|---|---|
+| 1–11 | (os 11 Dashboards) | — | Dashboard | Capítulos 13–23 |
+| 12 | Leads | 06 | Lista (variante Kanban) | 3a |
+| 13 | Clientes | 05 | Lista + Detalhe (abas) | 3a |
+| 14 | Eventos | 07 | Detalhe (abas) | 3a |
+| 15 | Orçamentos | 08 | Lista + Detalhe (editor) | 3a |
+| 16 | Contratos | 09 | Lista + Detalhe (visualizador) | 3a |
+| 17 | Produção | 10 | Lista + Modal (execução) | 3a |
+| 18 | Receitas | 12 | Lista + Detalhe (editor) | 3a |
+| 19 | Fichas Técnicas | 13 | Lista + Detalhe | 3b |
+| 20 | Precificação | 14 | Lista + Detalhe | 3b |
+| 21 | Compras | 15 | Lista + Detalhe | 3b |
+| 22 | Estoque | 16 | Lista | 3b |
+| 23 | Lotes | 17 | Lista | 3b |
+| 24 | Equipamentos | 18 | Lista + Detalhe | 3b |
+| 25 | Funcionários | 19 | Lista + Detalhe | 3c |
+| 26 | Escalas | 20 | Lista (calendário) | 3c |
+| 27 | Bancos | 27 | Lista + Detalhe | 3c |
+| 28 | Conciliação Bancária | 27 | Lista (pareamento) | 3c |
+| 29 | Configurações | 24 | Lista + formulário inline | 3c |
+| 30 | Administração | 25 | Lista + Detalhe | 3c |
+
+### 24.2 Leads
+
+**Objetivo:** gerenciar o ciclo de vida do Lead, da captação à conversão/perda (Módulo 06).
+
+**Layout / Template:** Lista em variante Kanban por estágio (Novo, Em qualificação, Convertido, Perdido), com alternativa em tabela.
+
+**Distribuição dos componentes:** kanban de colunas por estágio no corpo principal; card de contagem por estágio no topo de cada coluna; painel de detalhe do Lead ao selecionar um card.
+
+**Cards:** contagem por estágio (topo do kanban); total de Leads ativos (cabeçalho da tela).
+
+**Tabelas:** lista alternativa ao kanban, colunas Nome, Origem, Estágio, Data.
+
+**Gráficos:** nenhum nesta tela — consolidados no Dashboard CRM (Capítulo 20).
+
+**Filtros:** por origem/Campanha; por estágio; por período; busca por nome/contato.
+
+**Menus:** menu lateral (Comercial/CRM → Leads).
+
+**Botões:** "Novo Lead" (F-016), "Qualificar" (F-017), "Converter" (F-018), "Marcar como Perdido" (F-019).
+
+**Atalhos:** arrastar card entre colunas do kanban para mudar de estágio.
+
+**Estados da interface:** vazio; normal; "correspondência ambígua" (modal de confirmação na conversão).
+
+**Mensagens:** confirmação de "Lead convertido com sucesso".
+
+**Alertas:** badge de "Lead inativo há X dias" no card (RN-011).
+
+**Validações visuais:** cadastro sem meio de contato é bloqueado, com mensagem explicativa.
+
+**Comportamento esperado:** conversão navega automaticamente para a tela de Clientes (Capítulo 24.3); atribuição de origem e sugestão de perda por inatividade ocorrem automaticamente (RN-008/RN-011), sempre visíveis, nunca silenciosas.
+
+### 24.3 Clientes
+
+**Objetivo:** manter o cadastro único e o histórico de relacionamento com cada Cliente (Módulo 05).
+
+**Layout / Template:** Lista de Clientes + Detalhe com abas (Histórico, Eventos, Documentos, Financeiro).
+
+**Distribuição dos componentes:** tabela de Clientes à esquerda/topo; painel de Detalhe com abas ao selecionar um Cliente.
+
+**Cards (no Detalhe):** total de Eventos, valor total histórico, status de fidelização.
+
+**Tabelas:** lista de Clientes (nome, tipo, status, último Evento); linha do tempo de Eventos/Orçamentos/Contratos na aba Histórico (F-014).
+
+**Gráficos:** nenhum nesta tela.
+
+**Filtros:** por status (ativo/inativo); por fidelização; por tipo (PF/PJ); busca por nome/contato.
+
+**Menus:** menu lateral (Clientes); abas internas no painel de Detalhe.
+
+**Botões:** "Novo Cliente" (F-013), "Inativar" (F-015), "Novo Orçamento para este Cliente" (a partir do Detalhe).
+
+**Atalhos:** ação rápida de novo Orçamento direto do painel de Detalhe.
+
+**Estados da interface:** ativo; inativo (visualmente esmaecido, permanece acessível — nunca "excluído").
+
+**Mensagens:** badge visual de "Cliente fidelizado" (RN-010, automático).
+
+**Alertas:** possível duplicidade no cadastro (RN-009).
+
+**Validações visuais:** tentativa de criar Orçamento para Cliente inativo sugere reativação antes de prosseguir.
+
+**Comportamento esperado:** dados de contato visíveis a Comercial/CRM; dados financeiros restritos a Financeiro/Direção (Security and Privacy Architecture, Capítulo 6 — Arquitetura de Privacidade, Classificação de sensibilidade de dado); marcação de fidelização nunca manual.
+
+### 24.4 Eventos
+
+**Objetivo:** gerenciar o ciclo de vida operacional de um Evento específico — tela de gestão/detalhe, complementar ao Dashboard Eventos (Módulo 07).
+
+**Layout / Template:** Detalhe com abas — Resumo, Orçamento, Contrato, Produção, Equipe/Escala, Equipamentos, Financeiro.
+
+**Distribuição dos componentes:** cabeçalho com Badge de status do ciclo de vida; abas internas; linha do tempo do ciclo de vida.
+
+**Cards:** margem prevista; número de convidados; dias até o Evento.
+
+**Tabelas:** itens do Orçamento (aba Orçamento); lista de Produções (aba Produção); lista de Alocações (aba Equipe).
+
+**Gráficos:** nenhum nesta tela — consolidados no Dashboard Eventos (Capítulo 19).
+
+**Filtros:** não aplicável — tela de Detalhe de um único Evento.
+
+**Menus:** abas internas (Resumo, Orçamento, Contrato, Produção, Equipe, Equipamentos, Financeiro).
+
+**Botões:** "Confirmar Evento" (F-021), "Ajustar Planejamento" (F-022), "Concluir Evento" (F-023), "Cancelar Evento" (F-024).
+
+**Atalhos:** "Ver Orçamento completo", "Ver Contrato", direto de cada aba relacionada.
+
+**Estados da interface:** um estado visual (cor + ações disponíveis) por estágio do ciclo de vida, de Prospectado a Cancelado.
+
+**Mensagens:** confirmação com resumo da orquestração completa disparada ao confirmar o Evento.
+
+**Alertas:** inviabilidade operacional (RN-006); margem abaixo do mínimo; conflito de Equipamento/Escala.
+
+**Validações visuais:** confirmação bloqueada com explicação exata do recurso insuficiente, nunca um erro genérico.
+
+**Comportamento esperado:** confirmação de Evento aciona orquestração automática completa (RN-006) envolvendo Módulos 08, 09, 10, 15, 16, 18, 19, 20 e 03; cada aba é visível apenas conforme a Área do usuário (Security and Privacy Architecture, Capítulo 7 — Controle de Acesso).
+
+### 24.5 Orçamentos
+
+**Objetivo:** montar, enviar e acompanhar propostas comerciais (Módulo 08).
+
+**Layout / Template:** Lista de Orçamentos + Detalhe/editor de proposta.
+
+**Distribuição dos componentes:** tabela de Orçamentos; editor de itens (uma linha por Produto/Pacote) com resumo de valor/margem.
+
+**Cards:** valor total; margem calculada (visível apenas a quem tem permissão).
+
+**Tabelas:** lista de Orçamentos (Cliente, valor, status, validade); itens do Orçamento no editor.
+
+**Gráficos:** nenhum nesta tela.
+
+**Filtros:** por status (Rascunho, Enviado, Aceito, Recusado, Expirado); por Cliente; por período; busca por Cliente/Evento.
+
+**Menus:** menu lateral (Orçamentos).
+
+**Botões:** "Novo Orçamento" (F-025), "Enviar" (F-026), "Nova Versão" (F-027), "Registrar Aceite/Recusa" (F-028).
+
+**Atalhos:** "Duplicar Orçamento" para Evento semelhante.
+
+**Estados da interface:** Badge de status por cor — Rascunho (cinza), Enviado (azul/Brasa conforme convenção de ativo), Aceito (verde), Recusado (vermelho), Expirado (cinza-claro).
+
+**Mensagens:** Orçamento aceito dispara geração automática de Contrato, com aviso visível ao usuário.
+
+**Alertas:** margem abaixo do mínimo (RN-023, bloqueio com fluxo de aprovação); Produto sem Ficha Técnica vigente (RN-021).
+
+**Validações visuais:** tentativa de enviar Orçamento sem itens é bloqueada.
+
+**Comportamento esperado:** cálculo de preço e expiração automática (RN-012/013/022) sempre executados pelo Serviço dono, nunca recalculados na interface (PF-03); aceite navega automaticamente para a tela de Contratos (Capítulo 24.6).
+
+### 24.6 Contratos
+
+**Objetivo:** formalizar e acompanhar o compromisso contratual (Módulo 09).
+
+**Layout / Template:** Lista de Contratos + Detalhe com visualizador de documento e histórico de aditivos.
+
+**Distribuição dos componentes:** tabela de Contratos; visualizador de PDF/documento; linha de histórico de aditivos.
+
+**Cards:** valor total; status; data de assinatura.
+
+**Tabelas:** lista de Contratos; histórico de aditivos.
+
+**Gráficos:** nenhum nesta tela.
+
+**Filtros:** por status; por Cliente; por período; busca por Cliente/Evento.
+
+**Menus:** menu lateral (Contratos).
+
+**Botões:** "Assinar" (F-030), "Registrar Aditivo" (F-031), "Baixar PDF", "Ver Evento vinculado".
+
+**Atalhos:** acesso direto ao Evento vinculado a partir do Contrato.
+
+**Estados da interface:** Rascunho, Assinado, Em execução, Concluído, Cancelado.
+
+**Mensagens:** Contrato assinado dispara confirmação de Evento, visível ao usuário.
+
+**Alertas:** dados obrigatórios ausentes (RN-014); impacto de aditivo em recursos já reservados (RN-015).
+
+**Validações visuais:** tentativa de editar Contrato assinado diretamente é bloqueada, com redirecionamento explícito para "Registrar Aditivo".
+
+**Comportamento esperado:** minuta gerada automaticamente a partir do Orçamento aceito (RN-014); assinatura gera Receita Financeira prevista automaticamente, consumida pelo Dashboard Financeiro Empresarial (Capítulo 15).
+
+### 24.7 Produção *(tela operacional)*
+
+**Objetivo:** executar e registrar a Produção do dia a dia — complementar ao Dashboard Produção (Módulo 10).
+
+**Layout / Template:** Lista de Produções planejadas + Modal de execução.
+
+**Distribuição dos componentes:** tabela de Produções por status; formulário de execução (consumo/rendimento real) em Modal.
+
+**Cards:** Produções pendentes hoje; Produções concluídas hoje.
+
+**Tabelas:** lista de Produções por status.
+
+**Gráficos:** nenhum nesta tela — consolidados no Dashboard Produção (Capítulo 16).
+
+**Filtros:** por Evento; por Ficha Técnica; por status; por data; busca por nome de Produto/Receita.
+
+**Menus:** menu lateral (Produção).
+
+**Botões:** "Iniciar Execução" (F-033), "Registrar Consumo/Rendimento" (F-034), "Ver Ficha Técnica".
+
+**Atalhos:** acesso direto à Ficha Técnica a partir de uma Produção listada.
+
+**Estados da interface:** Planejada, Em execução, Concluída, Cancelada.
+
+**Mensagens:** confirmação de "Produção concluída".
+
+**Alertas:** Estoque insuficiente (RN-032); rendimento insuficiente (RN-029, alta prioridade).
+
+**Validações visuais:** tentativa de concluir sem registrar consumo real é bloqueada.
+
+**Comportamento esperado:** conclusão da execução dispara baixa automática de Estoque e geração de Lote (RN-032) — sempre visível ao usuário no resumo de conclusão, nunca uma alteração silenciosa de saldo.
+
+### 24.8 Receitas
+
+**Objetivo:** padronizar e versionar o "como fazer" de cada item (Módulo 12).
+
+**Layout / Template:** Lista de Receitas + Detalhe/editor (ingredientes, quantidades, modo de preparo).
+
+**Distribuição dos componentes:** tabela de Receitas; editor com lista de Ingredientes.
+
+**Cards:** total de Receitas ativas; em desenvolvimento.
+
+**Tabelas:** lista de Receitas com estado e versão atual.
+
+**Gráficos:** nenhum nesta tela.
+
+**Filtros:** por estado (Em desenvolvimento, Aprovada, Em revisão, Descontinuada); busca por nome de Receita/Ingrediente.
+
+**Menus:** menu lateral (Receitas).
+
+**Botões:** "Nova Receita" (F-039), "Aprovar" (F-040), "Revisar/Nova Versão" (F-041).
+
+**Atalhos:** "Criar Ficha Técnica a partir desta Receita".
+
+**Estados da interface:** Em desenvolvimento, Aprovada, Em revisão, Descontinuada.
+
+**Mensagens:** aviso à equipe de Produção quando uma nova versão é publicada.
+
+**Alertas:** tentativa de aprovar Receita sem Ficha Técnica associada.
+
+**Validações visuais:** edição de Receita Aprovada sempre gera nova versão automaticamente — nunca sobrescreve a versão vigente.
+
+**Comportamento esperado:** aprovação leva à criação da Ficha Técnica associada (Capítulo 3b); nova versão se propaga automaticamente à Ficha Técnica já existente (RN-020), sempre com aviso visível, nunca silenciosamente.
+
+---
+
+**Fim da Parte 3 (sub-parte 3a de 3) — Capítulo 24 em construção.**
