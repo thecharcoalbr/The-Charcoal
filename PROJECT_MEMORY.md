@@ -1016,4 +1016,21 @@ Recebido o Prompt Oficial (TCOS-016), executada a auditoria executiva global de 
 
 ---
 
+## FASE 016 — Encerramento Oficial
+
+**Status:** APROVADA E CONGELADA pelo proprietário em 2026-08-02 (comando `APROVADO`)
+**Data:** 2026-08-02
+
+O `THE_CHARCOAL_OS_EXECUTIVE_GLOBAL_AUDIT.md` (v1.0.0) passa a ser documentação oficial do THE CHARCOAL OS, como o **20º Documento Oficial Congelado**. Nenhuma alteração futura sem criação de nova versão.
+
+**Nova contagem oficial de Documentos Oficiais** (critério em vigor a partir desta fase): 20 Documentos Oficiais Congelados + 1 Documento Oficial Vivo (`PROJECT_MEMORY.md`) = **21 Documentos Oficiais no total**.
+
+**Percentual de maturidade do projeto:** mantido em **97%**, sem alteração adicional decorrente desta aprovação formal.
+
+Pendência P-016-01 (validação formal do proprietário) está **encerrada** por este comando `APROVADO`. Os 2 achados registrados (M-016-01, M-016-02) permanecem como melhoria de correção editorial para uma futura v1.1.0 do System Architecture (TCOS-006) — nenhuma correção feita agora.
+
+**Confirmação de auditoria (executada antes deste commit):** verificado programaticamente que nenhum conteúdo técnico do `THE_CHARCOAL_OS_EXECUTIVE_GLOBAL_AUDIT.md` foi alterado — apenas 3 linhas de status foram trocadas (cabeçalho, Quality Gate, linha final); as 12 seções/capítulos permanecem intactas; nenhuma referência cruzada foi modificada; nenhuma seção foi removida. Nenhum documento das Fases 000-015 foi tocado.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*

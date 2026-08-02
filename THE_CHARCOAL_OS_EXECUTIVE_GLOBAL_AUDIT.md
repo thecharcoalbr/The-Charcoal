@@ -3,7 +3,7 @@
 **Documento:** TCOS-016 — Auditoria Executiva Global
 **Projeto:** THE CHARCOAL OS
 **Fase:** 016 — Executive Global Audit
-**Status:** Rascunho para validação do proprietário
+**Status:** Oficial — Aprovado e Congelado pelo proprietário em 2026-08-02 (comando `APROVADO`)
 **Versão:** 1.0.0
 
 ---
@@ -274,8 +274,8 @@ O projeto está pronto para avançar. Os 2 achados de inconsistência (Capítulo
 
 **20. Atualização do PROJECT_MEMORY.md:** ver commit correspondente.
 
-**Status desta fase:** rascunho aguardando validação do proprietário. Nenhuma arquitetura nova foi criada; nenhum documento oficial foi alterado, conforme restrição explícita do Prompt Oficial da Fase 016.
+**Status desta fase:** APROVADA E CONGELADA pelo proprietário em 2026-08-02 (comando `APROVADO`). Este documento passa a integrar a documentação oficial do THE CHARCOAL OS como o 20º Documento Oficial Congelado; nenhuma alteração futura sem criação de nova versão formal. Nenhuma arquitetura nova foi criada; nenhum documento oficial foi alterado.
 
 ---
 
-*Fim do documento — THE CHARCOAL OS EXECUTIVE GLOBAL AUDIT v1.0.0*
+*Fim do documento — THE CHARCOAL OS EXECUTIVE GLOBAL AUDIT v1.0.0 (Oficial)*
