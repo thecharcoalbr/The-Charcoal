@@ -5,7 +5,7 @@
 **Natureza:** Documento exclusivamente conceitual de identidade e linguagem visual. NÃO constitui implementação, NÃO constitui código, NÃO constitui CSS, NÃO define tecnologia, framework ou biblioteca. NÃO altera arquitetura, regra de negócio, funcionalidade, fluxo, UX oficial, nomenclatura, módulo, Dashboard, componente existente ou qualquer documento oficial congelado.
 **Baseline referenciada:** v1.0.0 (TCOS-000 a TCOS-018), sob a autoridade da Constituição Permanente do Projeto.
 **Documentos-fonte desta fase:** Constituição Permanente; `THE_CHARCOAL_OS_UX_UI_SPECIFICATION.md` (TCOS-005); `THE_CHARCOAL_OS_FRONTEND_ARCHITECTURE.md` (TCOS-011); `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` (TCOS-018).
-**Status:** Em construção — Fase 1 (Identidade Visual Oficial) APROVADA (2026-08-02) — Fase 2 (Biblioteca Visual Oficial de Componentes) em construção.
+**Status:** Em construção — Fase 1 (Identidade Visual Oficial) APROVADA — Fase 2 (Biblioteca Visual Oficial de Componentes) concluída — aguardando decisão do proprietário.
 
 ---
 
@@ -179,3 +179,285 @@ Toda animação é breve por princípio (Capítulo 4, item 5: "nada se move sem 
 ---
 
 **Fim da Fase 1 — Identidade Visual Oficial.**
+
+## 23. Metodologia da Fase 2 — Biblioteca Visual Oficial de Componentes
+
+Esta fase transforma a Identidade Visual Oficial (Fase 1) em uma biblioteca completa de componentes reutilizáveis, documentando cada um com 7 campos fixos: **Finalidade**, **Comportamento visual**, **Variações oficiais**, **Estados**, **Regras de utilização**, **Exemplo visual** (esboço textual — nenhuma imagem é gerada nesta fase, por determinação expressa do proprietário: "não atualizar nenhuma das 30 telas") e **Aderência ao TCOS-018**. Todo componente aqui documentado já existe, nomeado, no TCOS-018 (Capítulo 25) e/ou no TCOS-005 (§5.6); onde a lista de 26 itens desta fase inclui algo sem base oficial própria, isso é declarado explicitamente, nunca inventado. Os valores concretos (cor, raio, sombra, tipografia) aplicados a cada componente são os já definidos na Fase 1 — nenhum valor novo é criado aqui.
+
+## 24. Sidebar
+
+**Finalidade:** navegação estrutural principal do sistema, sempre visível em Desktop/Tablet (TCOS-018, Capítulo 9).
+**Comportamento visual:** fundo Carvão sólido (Fase 1, Capítulo 5); 10 seções colapsáveis por Área da Empresa + rodapé fixo (Configurações/Administração); apenas a Área da tela atual expandida por padrão.
+**Variações oficiais:** expandida (Desktop) e colapsada em ícones (Tablet) — TCOS-018, Capítulo 9.
+**Estados:** item de navegação normal, item ativo (barra lateral esquerda em Brasa + fundo em leve wash de Brasa, já validado no mockup do Dashboard CEO), seção expandida/colapsada.
+**Regras de utilização:** nunca é o único caminho para uma tela (Capítulo 5, TCOS-018); item ativo sempre visualmente único — nunca dois itens marcados como ativos simultaneamente.
+**Exemplo visual:** faixa vertical escura de 248px, logotipo no topo, lista de seções com um item em destaque (fundo laranja-wash, barra lateral sólida) e as demais em texto neutro esmaecido.
+**Aderência ao TCOS-018:** Capítulos 5 e 9; validado no mockup aprovado do Dashboard CEO (10 Áreas completas).
+
+## 25. Header (Barra Superior)
+
+**Finalidade:** acesso rápido e sempre visível, independentemente da Área navegada (TCOS-018, Capítulo 8).
+**Comportamento visual:** fundo neutro claro (Nível 0, Fase 1 Capítulo 9), fixo no topo, altura constante em todas as telas.
+**Variações oficiais:** completo (Desktop/Tablet) e simplificado — sem busca expandida, apenas ícone (Mobile, TCOS-018 Capítulo 8).
+**Estados:** normal; com indicador de sugestão de IA pendente (ponto Roxo-IA); com notificação não lida (ponto Vermelho-crítico).
+**Regras de utilização:** nunca compete visualmente com o conteúdo da tela — nenhum elemento do Header usa a cor Brasa, reservada à ação primária da página.
+**Exemplo visual:** faixa branca fixa, busca à esquerda, ícones de IA/notificação/perfil à direita, sem borda inferior pesada (apenas linha de 1px na cor de borda sutil).
+**Aderência ao TCOS-018:** Capítulo 8; validado no mockup aprovado do Dashboard CEO.
+
+## 26. Breadcrumb
+
+**Finalidade:** indicar o caminho de navegação em toda tela de Detalhe (TCOS-018, Capítulo 8; UX/UI Spec §4).
+**Comportamento visual:** texto pequeno, cor secundária, separadores discretos (">"), cada nível clicável.
+**Variações oficiais:** nenhuma — presente apenas em telas de Detalhe, ausente em Dashboards e Listas (Capítulo 11, TCOS-018).
+**Estados:** normal; nível atual (último item) em Carvão de alta ênfase; níveis anteriores em cor secundária, clicáveis.
+**Regras de utilização:** preserva sempre o estado de filtro/paginação da tela de origem ao ser clicado (Frontend Architecture, Capítulo 7).
+**Exemplo visual:** "Eventos › Evento #123 › Orçamento", cada segmento separado por um ">" cinza discreto.
+**Aderência ao TCOS-018:** Capítulos 5 e 8.
+
+## 27. Barra de Busca
+
+**Finalidade:** pesquisa global simultânea em Cliente, Evento, Orçamento e Contrato (UX/UI Spec, Capítulo 4).
+**Comportamento visual:** campo com ícone de lupa, fundo neutro claro, raio pequeno (Fase 1, Capítulo 8), largura fixa no Header.
+**Variações oficiais:** busca global (Header) e busca local (dentro de cada Lista, específica dos itens daquela tela) — UX/UI Spec, Capítulo 4.
+**Estados:** normal (placeholder "Buscar..."); focus (borda em Brasa); com resultado ativo.
+**Regras de utilização:** busca global nunca substitui os filtros locais de cada Lista — são mecanismos complementares, nunca redundantes.
+**Exemplo visual:** campo retangular discreto no Header, ícone de lupa à esquerda, texto placeholder em cinza-claro.
+**Aderência ao TCOS-018:** Capítulo 8; validado no mockup aprovado.
+
+## 28. Perfil do Usuário
+
+**Finalidade:** identificação do usuário autenticado e acesso a Configurações/Sair (TCOS-018, Capítulo 8).
+**Comportamento visual:** avatar circular (Fase 1, Capítulo 8 — raio circular exclusivo de "pessoa"/IA) com iniciais, nome e Perfil/Área ao lado.
+**Variações oficiais:** usuário com um Perfil (exibição direta) e usuário com mais de um Perfil vinculado (seletor de Perfil, TCOS-018 Capítulo 8).
+**Estados:** normal; menu aberto (Drawer/dropdown, Capítulo 42).
+**Regras de utilização:** avatar usa sempre a cor de fundo Brasa-wash com texto Brasa — nunca uma cor semântica de status, para não ser confundido com um Badge.
+**Exemplo visual:** círculo pequeno com iniciais "MF" em laranja-claro, nome e cargo à esquerda dele.
+**Aderência ao TCOS-018:** Capítulo 8; validado no mockup aprovado.
+
+## 29. Área de Notificações
+
+**Finalidade:** histórico de notificações e alertas críticos, acessível pelo sino do Header (UX/UI Spec, Capítulo 4).
+**Comportamento visual:** ícone de sino com contagem de não lidas; ao clicar, abre um Drawer lateral (Capítulo 42).
+**Variações oficiais:** painel de notificações (Drawer) e Banner de alerta persistente (quando crítico, exibido também na tela relevante, TCOS-018 Capítulo 25.14).
+**Estados:** sem notificação (sino neutro); com notificação não lida (ponto Vermelho-crítico sobre o sino).
+**Regras de utilização:** alerta crítico nunca aparece somente na Área de Notificações — sempre replicado como Banner persistente na tela relevante até ser tratado (já oficial, TCOS-018 Capítulo 8).
+**Exemplo visual:** ícone de sino no Header com um pequeno ponto vermelho no canto superior direito.
+**Aderência ao TCOS-018:** Capítulos 8 e 25.14; validado no mockup aprovado.
+
+## 30. Cards KPI
+
+**Finalidade:** exibir um valor numérico de alto destaque no topo de todo Dashboard (TCOS-018, Capítulo 12).
+**Comportamento visual:** fundo branco, borda sutil, raio médio, sombra Nível 1 (Fase 1, Capítulos 8–9); número em tipografia Semibold/tabular (Fase 1, Capítulo 6), maior que qualquer outro texto do card.
+**Variações oficiais:** com indicador de variação (seta + percentual, já validado no mockup) e sem indicador (quando não há comparação aplicável, ex.: "Módulo 27").
+**Estados:** normal; carregando (Skeleton, Capítulo 48); erro (Capítulo 25.17, TCOS-018).
+**Regras de utilização:** rótulo sempre em menor ênfase que o valor — nunca o inverso (Fase 1, Capítulo 14).
+**Exemplo visual:** já demonstrado nos 6 Cards de KPI do mockup aprovado do Dashboard CEO.
+**Aderência ao TCOS-018:** Capítulos 13–23 (todos os Dashboards); Capítulo 25.20.
+
+## 31. Cards de Conteúdo
+
+**Finalidade:** conter gráficos, tabelas ou widgets dentro de uma tela (contêiner genérico, Fase 1 Capítulo 14).
+**Comportamento visual:** mesma anatomia dos Cards KPI (fundo, borda, raio, sombra), com cabeçalho de título + rótulo secundário (ex.: "Últimos 6 meses").
+**Variações oficiais:** Card de progresso (Metas, TCOS-018 Capítulo 25.2) e Card genérico de painel (usado em gráficos/tabelas).
+**Estados:** normal; carregando; vazio (Capítulo 46); erro.
+**Regras de utilização:** nunca aninha outro Card de Conteúdo dentro de si — apenas Cards KPI podem aparecer lado a lado sem contêiner externo.
+**Exemplo visual:** os painéis "Fluxo de Caixa" e "Margem por Evento" do mockup aprovado.
+**Aderência ao TCOS-018:** Capítulo 25.2, 25.20.
+
+## 32. Botões (todas as variações oficiais)
+
+**Finalidade:** disparar ação de comando (TCOS-018, Capítulo 25.3).
+**Comportamento visual:** conforme Fase 1, Capítulo 16 — primário (fundo Brasa sólido), secundário (borda Carvão), terciário (texto puro).
+**Variações oficiais:** primário, secundário, terciário (§5.6, TCOS-005) — nenhuma quarta variação existe.
+**Estados:** normal, hover, focus, disabled, loading (5 estados já oficiais, §5.8, TCOS-005).
+**Regras de utilização:** apenas um botão primário visível por tela/seção (Fase 1, Capítulo 4, princípio 1); botão de Operação Crítica (TCOS-018, item 25.19) é sempre primário, nunca terciário.
+**Exemplo visual:** já demonstrado no mockup aprovado — "Novo Evento" (primário), "Ver Financeiro" (secundário), "Ver Metas" (terciário/ghost).
+**Aderência ao TCOS-018:** Capítulo 25.3; Fase 1 Capítulo 16.
+
+## 33. Campos de Entrada
+
+**Finalidade:** captura de dado textual/numérico em formulários e Modais (TCOS-018, Capítulo 25.4).
+**Comportamento visual:** raio pequeno (Fase 1, Capítulo 8), borda sutil, rótulo acima do campo.
+**Variações oficiais:** texto, numérico — nenhuma outra variação nomeada oficialmente (ver TCOS-018, Capítulo 25.4).
+**Estados:** normal, focus (borda Brasa), disabled, erro (borda Vermelho-crítico + mensagem inline) — `[Inferência visual]` herdada do TCOS-018, que já extrapolou este modelo do padrão de Botões (§5.8).
+**Regras de utilização:** validação de formato em tempo de digitação; validação de regra de negócio apenas na submissão (Frontend Architecture, Capítulo 21) — nunca simulada antecipadamente.
+**Exemplo visual:** campo retangular de borda fina, rótulo pequeno acima ("Nome do Cliente"), texto de conteúdo em Carvão.
+**Aderência ao TCOS-018:** Capítulo 25.4.
+
+## 34. Selects
+
+**Finalidade:** seleção de uma opção entre um conjunto fechado (ex.: tipo de Conta em Bancos, categoria de parâmetro em Configurações).
+**Comportamento visual:** mesma anatomia visual de um Campo de Entrada (Capítulo 33), com um ícone de seta indicando expansibilidade.
+**Variações oficiais:** **nenhuma** — o TCOS-018 (Capítulo 25.4) já registrou explicitamente que "Select" não é um componente nomeado em nenhum documento oficial; existe apenas implicitamente onde uma tela já lista opções fechadas.
+**Estados:** normal, focus, disabled, aberto (lista de opções visível).
+**Regras de utilização:** nunca usado para uma escolha com mais de ~8 opções sem busca interna — decisão de uso, não uma regra oficial (`[Inferência visual]`).
+**Exemplo visual:** mesmo campo retangular dos Campos de Entrada, com uma seta "▾" à direita.
+**Aderência ao TCOS-018:** Capítulo 25.4 (extensão explícita de uma lacuna já registrada, não um componente novo).
+
+## 35. Filtros
+
+**Finalidade:** refinar o conteúdo de uma Lista/Dashboard (TCOS-018, Capítulo 25.6).
+**Comportamento visual:** conforme Fase 1, Capítulo 17 — mesma forma de Campo de Entrada, com marcação de "filtro ativo" em borda Brasa.
+**Variações oficiais:** filtro lateral/superior combinável (Desktop) e painel deslizante (Drawer, Tablet/Mobile) — TCOS-018 Capítulo 25.6.
+**Estados:** padrão (sem valor selecionado); ativo (valor diferente do padrão, borda Brasa).
+**Regras de utilização:** todo filtro é combinável com outros da mesma tela (UX/UI Spec, Capítulo 4) — nunca um de cada vez.
+**Exemplo visual:** o seletor de período "Agosto 2026" do mockup aprovado — campo com ícone de calendário e valor selecionado.
+**Aderência ao TCOS-018:** Capítulos 25.6; validado no mockup aprovado.
+
+## 36. Tabelas
+
+**Finalidade:** exibir coleções de itens com paginação e ordenação (TCOS-018, Capítulo 25.5).
+**Comportamento visual:** conforme Fase 1, Capítulo 15 — cabeçalho pequeno/Semibold, linhas separadas por borda sutil, sem zebra-striping, colunas numéricas alinhadas à direita com tabular-nums.
+**Variações oficiais:** tabela completa (Desktop/Tablet) e lista de cartões (Mobile, TCOS-018 Capítulo 10).
+**Estados:** normal, carregando (linhas em Skeleton), vazio (Capítulo 46), erro.
+**Regras de utilização:** paginação e ordenação persistem durante a navegação no mesmo módulo (UX/UI Spec, Capítulo 4).
+**Exemplo visual:** a tabela "Próximos Eventos confirmados" do mockup aprovado — 3 colunas (Data, Cliente, Status), sem linhas zebradas.
+**Aderência ao TCOS-018:** Capítulo 25.5; validado no mockup aprovado.
+
+## 37. Paginação
+
+**Finalidade:** navegar entre páginas de uma Tabela extensa — parte constituinte do componente "Tabela com paginação e ordenação" (§5.6, TCOS-005), nunca um componente isolado.
+**Comportamento visual:** controles numéricos discretos no rodapé da Tabela, página atual em destaque (Brasa).
+**Variações oficiais:** nenhuma separada da Tabela — não há paginação fora do contexto de uma Tabela em nenhuma das 30 telas.
+**Estados:** página normal; página atual (destaque); botão "anterior/próxima" desabilitado nas extremidades.
+**Regras de utilização:** estado de página é preservado ao navegar para Detalhe e retornar via breadcrumb (Capítulo 26).
+**Exemplo visual:** numeração discreta "1 2 3 ... 8" alinhada à direita do rodapé da Tabela, algarismo atual em Brasa.
+**Aderência ao TCOS-018:** Capítulo 25.5 (parte constituinte do componente Tabela, não um item separado do catálogo de 18/24).
+
+## 38. Badges
+
+**Finalidade:** indicar o estado do ciclo de vida de uma entidade (TCOS-018, Capítulo 25.13).
+**Comportamento visual:** conforme Fase 1, Capítulo 18 — pílula de raio circular, fundo em tom claro da cor semântica, texto na variante escura.
+**Variações oficiais:** uma cor por estado do ciclo de vida — nunca mais de uma cor por Badge (§5.6, TCOS-005).
+**Estados:** cada estado do ciclo de vida da entidade correspondente (ex.: Confirmado/verde, Aguardando pagamento/âmbar, Cancelado/vermelho).
+**Regras de utilização:** cor sempre corresponde à categoria semântica já oficial (Verde-sucesso/Âmbar-atenção/Vermelho-crítico/Cinza-claro) — nunca uma cor arbitrária por tela.
+**Exemplo visual:** "Confirmado" (verde) e "Aguardando pagamento" (âmbar) na tabela de Eventos do mockup aprovado.
+**Aderência ao TCOS-018:** Capítulo 25.13; validado no mockup aprovado.
+
+## 39. Tags
+
+**Finalidade:** não há finalidade própria — **nenhum componente de "Tag" existe separadamente do Badge de status** em qualquer documento oficial (TCOS-018, Capítulo 25.13, já registrou esta ausência explicitamente).
+**Comportamento visual:** idêntico ao Badge (Capítulo 38).
+**Variações oficiais:** nenhuma — este item da lista da Fase 2 é tratado como sinônimo funcional do Badge, não como um segundo componente.
+**Estados:** os mesmos do Badge.
+**Regras de utilização:** onde uma tela futura precisar de um rótulo removível/múltiplo (diferente de estado de ciclo de vida), isso constituiria um componente novo, fora do escopo desta fase — não criado aqui.
+**Exemplo visual:** ver Capítulo 38.
+**Aderência ao TCOS-018:** Capítulo 25.13 (confirmação de ausência, não criação de componente).
+
+## 40. Alertas
+
+**Finalidade:** comunicar bloqueio, atenção ou criticidade ao usuário (TCOS-018, Capítulo 25.14).
+**Comportamento visual:** conforme Fase 1, Capítulo 19 — Alerta inline (texto colorido, sem fundo), Banner persistente (fundo claro + ícone, largura total), Toast (fundo Carvão + indicador lateral colorido).
+**Variações oficiais:** as 3 já oficiais — nenhuma quarta variação.
+**Estados:** por severidade (Âmbar-atenção, Vermelho-crítico) e por tipo (inline/banner/toast).
+**Regras de utilização:** alerta crítico de sistema (RN-047) é sempre Banner persistente, nunca apenas Toast (que é efêmero e poderia passar despercebido).
+**Exemplo visual:** o Banner "2 alertas críticos aguardando tratamento" do mockup aprovado do Dashboard CEO.
+**Aderência ao TCOS-018:** Capítulo 25.14; validado no mockup aprovado.
+
+## 41. Modais
+
+**Finalidade:** ação pontual — criação/edição simples ou confirmação (TCOS-018, Capítulo 25.7).
+**Comportamento visual:** cabeçalho + corpo + rodapé com ações (§5.6, TCOS-005); sombra Nível 3 (Fase 1, Capítulo 9) — a mais forte do sistema, reservada a este momento de interrupção total.
+**Variações oficiais:** Modal de formulário (criação/edição) e Modal de confirmação (ação irreversível, TCOS-018 Capítulo 25.19).
+**Estados:** normal; com campo em erro (Capítulo 33); em processamento (botão de confirmação em estado loading, Capítulo 32).
+**Regras de utilização:** rodapé sempre expõe a ação primária e uma ação de cancelamento — nunca apenas um botão de fechar.
+**Exemplo visual:** um contêiner central sobreposto, fundo escurecido atrás dele (overlay), cabeçalho com título e botão de fechar, rodapé com "Cancelar" (secundário) e a ação primária (Brasa).
+**Aderência ao TCOS-018:** Capítulo 25.7.
+
+## 42. Drawers
+
+**Finalidade:** painel deslizante temporário — notificações, filtro em Tablet/Mobile, expansão de Área na barra lateral (TCOS-018, Capítulo 25.8).
+**Comportamento visual:** desliza a partir de uma borda da tela, sobrepõe o conteúdo (nunca o desloca), sombra Nível 2 (Fase 1, Capítulo 9).
+**Variações oficiais:** painel de notificações (Capítulo 29), painel de filtro (Capítulo 35), expansão de barra lateral em Tablet (Capítulo 24) — os 3 usos já oficiais consolidados no TCOS-018.
+**Estados:** fechado, abrindo (animação de entrada, Fase 1 Capítulo 21), aberto, fechando.
+**Regras de utilização:** fecha ao clicar fora dele ou em ação explícita de fechar — nunca requer uma segunda confirmação para fechar (diferente do Modal).
+**Exemplo visual:** painel estreito deslizando da borda direita, sobre um fundo levemente escurecido.
+**Aderência ao TCOS-018:** Capítulo 25.8.
+
+## 43. Gráficos
+
+**Finalidade:** visualização de dado agregado em Dashboards (TCOS-018, Capítulo 25.20).
+**Comportamento visual:** conforme Fase 1, Capítulo 13 — traço/preenchimento em Brasa, no máximo 2 cores por gráfico (exceto funil e calendário).
+**Variações oficiais:** linha, barras, funil, calendário/timeline, feed cronológico, histograma — os 6 tipos já usados nas 30 telas (TCOS-018, Capítulo 24).
+**Estados:** normal; carregando (Skeleton, Capítulo 48); vazio; erro.
+**Regras de utilização:** nenhum gráfico recalcula um valor — sempre exibe o valor já entregue pelo Serviço dono (PF-03).
+**Exemplo visual:** os gráficos "Fluxo de Caixa" (linha) e "Margem por Evento" (barras) do mockup aprovado.
+**Aderência ao TCOS-018:** Capítulo 25.20; validado no mockup aprovado.
+
+## 44. Widgets
+
+**Finalidade:** blocos especiais de Dashboard além de Card/Gráfico/Tabela — sugestão de IA, alerta crítico, progresso de Meta (TCOS-018, Capítulo 12).
+**Comportamento visual:** cada Widget herda a linguagem visual do seu tipo (Alerta = Capítulo 40; sugestão de IA = borda/ícone Roxo-IA; progresso de Meta = barra de progresso em Brasa sobre trilho neutro).
+**Variações oficiais:** Card de progresso de Meta, Banner de alerta crítico, Componente de sugestão de IA — os 3 já usados nos 11 Dashboards.
+**Estados:** conforme o tipo de Widget (ver Capítulos correspondentes).
+**Regras de utilização:** um Dashboard nunca usa mais de um Widget do mesmo tipo simultaneamente sem separação visual clara.
+**Exemplo visual:** o Widget "Metas do período" (3 barras de progresso) do mockup aprovado.
+**Aderência ao TCOS-018:** Capítulo 25.20; validado no mockup aprovado.
+
+## 45. Estados da Interface
+
+**Finalidade:** comunicar visualmente o momento em que uma tela/componente se encontra — carregando, vazio, erro, sucesso (Frontend Architecture, Capítulos 17–20).
+**Comportamento visual:** conforme Fase 1, Capítulo 20 — cada estado com identidade própria, nunca misturados (ex.: erro técnico nunca combinado com mensagem de regra de negócio).
+**Variações oficiais:** carregando (Capítulo 47), vazio (Capítulo 46), erro, sucesso — os 4 já oficiais.
+**Estados:** este é, ele próprio, o capítulo dos estados — não se aplica um nível adicional.
+**Regras de utilização:** todo componente que consulta dado do backend (Card, Tabela, Gráfico) implementa os 4 estados de forma independente — nunca a tela inteira bloqueada por uma única consulta lenta.
+**Exemplo visual:** ver Capítulos 46–48 (Empty States, Loading, Skeleton).
+**Aderência ao TCOS-018:** Capítulos 25.15–25.18.
+
+## 46. Empty States
+
+**Finalidade:** substituir uma Lista/Tabela/Dashboard sem dado por uma mensagem construtiva, nunca uma área em branco (TCOS-018, Capítulo 25.16).
+**Comportamento visual:** ilustração de linha simples (consistente com a linguagem de ícones, Fase 1 Capítulo 12) + texto explicativo + ação sugerida.
+**Variações oficiais:** as 3 situações já oficiais — "ainda não há dado" (ação de criar o primeiro item), "filtro sem resultado" (ação de limpar filtro), "bloqueado por parâmetro pendente" (indica o parâmetro e o Perfil responsável).
+**Estados:** cada uma das 3 variações é, ela própria, um estado distinto — nunca apresentadas com a mesma mensagem genérica.
+**Regras de utilização:** nunca confundido visualmente com um erro técnico (Capítulo 40) — Empty State nunca usa a cor Vermelho-crítico.
+**Exemplo visual:** ícone de linha simples ao centro de um Card/Tabela vazio, com texto "Nenhum Lead cadastrado ainda" e botão "Cadastrar o primeiro Lead".
+**Aderência ao TCOS-018:** Capítulo 25.16.
+
+## 47. Loading
+
+**Finalidade:** indicar que uma ação do usuário está em processamento (Frontend Architecture, Capítulo 18) — distinto do carregamento de dado em tela (Capítulo 48, Skeleton).
+**Comportamento visual:** conforme Fase 1, Capítulo 21 — o próprio Botão assume o estado "loading" (spinner substitui o texto), nunca um bloqueio de tela inteira.
+**Variações oficiais:** loading de botão (ação de formulário) — a única variação já oficial (§5.8, TCOS-005).
+**Estados:** este é, ele próprio, um dos 5 estados oficiais do Botão (Capítulo 32).
+**Regras de utilização:** nunca combinado com um spinner de tela inteira — uma ação de usuário nunca bloqueia o restante da interface.
+**Exemplo visual:** o botão "Novo Evento" com um pequeno spinner circular substituindo o texto, mesma cor Brasa, levemente esmaecido.
+**Aderência ao TCOS-018:** Capítulo 25.3 (Botões, estado loading).
+
+## 48. Skeleton
+
+**Finalidade:** indicar que um dado de tela ainda está sendo consultado do backend (Frontend Architecture, Capítulo 18; TCOS-018 Capítulo 25.15).
+**Comportamento visual:** conforme Fase 1, Capítulo 21 — silhueta cinza-claro no exato formato do conteúdo final, com pulsação suave e lenta (nunca piscar rápido).
+**Variações oficiais:** Skeleton de Card, de linha de Tabela, de Gráfico — a mesma lógica aplicada à silhueta de cada componente.
+**Estados:** este é, ele próprio, o Estado de Carregamento de qualquer componente (não possui sub-estados).
+**Regras de utilização:** aparece apenas no espaço exato que o dado ocupará quando chegar — nunca uma tela em branco, nunca um spinner genérico cobrindo a tela inteira.
+**Exemplo visual:** um card com retângulos cinza-claro arredondados no lugar do rótulo e do valor, em leve pulsação.
+**Aderência ao TCOS-018:** Capítulo 25.15.
+
+## 49. Tooltips
+
+**Finalidade:** explicar uma restrição ou fornecer contexto adicional sem ocupar espaço permanente na tela (Frontend Architecture, Capítulo 22: "ação desabilitada com indicação visual, tooltip explicando a restrição").
+**Comportamento visual:** balão pequeno, fundo Carvão sólido, texto branco, aparece ao passar o cursor/foco sobre o elemento.
+**Variações oficiais:** nenhuma variação além do uso já citado (explicação de ação desabilitada por permissão) — o TCOS-011 não cataloga outros usos de Tooltip.
+**Estados:** oculto (padrão); visível (hover/focus).
+**Regras de utilização:** usado exclusivamente para informação de apoio, nunca para conteúdo essencial à tarefa — se a informação for indispensável, deve estar visível permanentemente na tela, não atrás de um Tooltip.
+**Exemplo visual:** um pequeno balão escuro acima de um botão desabilitado, com o texto "Acesso restrito a Financeiro/Direção".
+**Aderência ao TCOS-018:** Frontend Architecture, Capítulo 22 (base oficial única).
+
+## 50. Menus de Contexto
+
+**Finalidade:** **nenhuma base oficial encontrada.** Nenhum documento oficial (UX/UI Specification, Frontend Architecture, Visual Blueprint) descreve um menu de contexto (menu suspenso ao clique secundário ou ícone "⋮") em nenhuma das 30 telas.
+**Comportamento visual:** não especificado — não definido nesta fase, por ausência de base oficial.
+**Variações oficiais:** nenhuma.
+**Estados:** não aplicável.
+**Regras de utilização:** onde uma ação múltipla por linha de Tabela for necessária no futuro, as 30 telas já especificadas resolvem isso com botões de ação diretos (ex.: "Ver Ficha Técnica", "Editar") — nunca um menu de contexto oculto. A introdução de um Menu de Contexto real exigiria uma nova especificação funcional/UX, fora do escopo desta fase.
+**Exemplo visual:** não gerado — ausência de base oficial impede qualquer representação sem inventar comportamento.
+**Aderência ao TCOS-018:** nenhuma — item registrado como não especificado, por transparência, não como omissão a corrigir.
+
+## 51. Confirmação de Cobertura da Biblioteca
+
+Os 26 componentes solicitados foram documentados. Desses, **23 têm base oficial direta ou por extensão explícita já registrada no TCOS-018**; **2 (Tags, Selects) são tratados como sinônimo/extensão de um componente já existente**, sem constituir componente novo; **1 (Menus de Contexto) não possui base oficial alguma**, registrado como não especificado, sem inventar comportamento. Nenhum componente, estado, variação ou valor visual foi criado sem ancoragem em TCOS-005, TCOS-011, TCOS-018 ou na Fase 1 deste próprio documento.
+
+---
+
+**Fim da Fase 2 — Biblioteca Visual Oficial de Componentes.**
