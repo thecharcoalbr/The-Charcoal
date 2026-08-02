@@ -416,7 +416,7 @@ Distribuição em grid: Desktop 2 a 4 colunas (Capítulo 11 deste documento), Ta
 
 **Notificações:** Meta atingida (celebração visual); Meta não atingida (neutro, sem "gamificação negativa").
 
-**Filtros:** seletor de período; filtro por Área da Empresa/responsável pela Meta; busca por nome de Meta.
+**Filtros:** seletor de período; filtro por Indicador/responsável pela Meta; busca por nome de Meta.
 
 **Estados da interface:** "Ativa" (Brasa); "Atingida" (Verde-Sucesso); "Não atingida" (Âmbar-Atenção, nunca Vermelho-Crítico — estado não punitivo); "Encerrada" (Cinza).
 

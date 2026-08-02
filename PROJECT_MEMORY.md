@@ -1894,4 +1894,31 @@ Ao iniciar a Auditoria de Abertura da Tela 10 (Dashboard Metas), a comparação 
 
 ---
 
+## CORREÇÃO — Divergência no campo "Filtros" (TCOS-018, Capítulo 22)
+
+**Status:** CONCLUÍDA E APROVADA PELO PROPRIETÁRIO (comando `CORRIGIR`, escopo fechado)
+**Data:** 2026-08-02
+
+Ao reiniciar a Auditoria de Abertura da Tela 10 após a correção anterior (Notificações/Estados da interface), a releitura linha por linha do campo "Filtros" do Capítulo 22 contra a UX/UI Specification §3.10 encontrou uma nova divergência, independente da anterior: o TCOS-018 citava "Área da Empresa" como dimensão de filtro (não especificada na fonte oficial) e omitia "Indicador" (explicitamente especificado). Reportado como Achado formal antes de qualquer correção; o proprietário autorizou (`CORRIGIR`) o escopo exato abaixo.
+
+### Decisões tomadas
+- D-COR9-01: campo "Filtros" do Capítulo 22 corrigido — "Área da Empresa" substituído por "Indicador", copiado literalmente da UX/UI Specification §3.10, item 5–15 ("filtro por período/responsável/Indicador; pesquisa por nome de Meta"). Filtros "período", "responsável" e "busca por nome de Meta" mantidos inalterados.
+
+### Alterações
+- ALT-COR9-01: `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` (TCOS-018), Capítulo 22, campo "Filtros" — substituição pontual de uma dimensão de filtro. Confirmado via `git diff` que apenas essa linha foi alterada (1 inserção, 1 remoção) — nenhum outro campo do Capítulo 22 (Objetivo, Cards, Gráfico, Tabela, Ações rápidas, Modais, Alertas, Notificações, Estados da interface, Comportamento esperado) foi tocado; nenhum outro capítulo alterado; verificação programática confirmou os 28 capítulos permanecem sequenciais; nenhum identificador oficial (RN-046, F-084–F-091) foi modificado.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova além das já registradas (correção pendente Cap. 19 "azul"; achado §3.15 Orçamentos; OE-T06-01; Backlog Oficial de UX/UI da Tela 09, itens OE-T09-01 a OE-T09-06).
+
+### Riscos encontrados
+- Nenhum risco novo de arquitetura, regra de negócio ou documento oficial.
+
+### Pendências
+- Nova Auditoria de Abertura da Tela 10 a ser executada (novamente) antes da construção, conforme protocolo.
+- Correção pendente do TCOS-018 Capítulo 19 ("azul" → "Âmbar-Atenção"), achado §3.15 Orçamentos e OE-T06-01 permanecem, sem alteração.
+
+**Confirmação de auditoria:** confirmado, antes da edição, que o working tree estava limpo e os 28 capítulos íntegros/sequenciais. Confirmado, depois da edição, via `git diff`, que apenas a linha do campo "Filtros" do Capítulo 22 foi alterada; confirmado que nenhum outro campo, capítulo ou documento oficial foi modificado; confirmado que RN-046 e F-084–F-091 permanecem íntegros em seus documentos de origem.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
