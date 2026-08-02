@@ -5,7 +5,7 @@
 **Natureza:** Documento de representação visual do sistema. NÃO constitui implementação, NÃO constitui Frontend, NÃO constitui código. Sua finalidade exclusiva é permitir a validação da experiência do usuário antes de qualquer desenvolvimento técnico.
 **Baseline referenciada:** v1.0.0 (TCOS-000 a TCOS-017), sob a autoridade da Constituição Permanente do Projeto.
 **Referência visual canônica desta fase:** `THE_CHARCOAL_OS_UX_UI_SPECIFICATION.md` (TCOS-005) e `THE_CHARCOAL_OS_FRONTEND_ARCHITECTURE.md` (TCOS-011) — em caso de divergência de nomenclatura entre documentos oficiais, prevalecem estes dois, por determinação expressa do proprietário (comando `ALTERAR`, 2026-08-02).
-**Status:** Documento em Construção — Parte 2 de 8 APROVADA — Parte 3 de 8 em construção: sub-partes 3a e 3b APROVADAS — sub-parte 3c em construção.
+**Status:** Documento em Construção — Partes 1 e 2 de 8 APROVADAS — Parte 3 de 8 (Capítulo 24, as 30 telas) concluída em 3 sub-partes (3a e 3b APROVADAS; 3c concluída, aguardando aprovação) — Partes 4 a 8 pendentes.
 
 ---
 
@@ -385,7 +385,7 @@ Distribuição em grid: Desktop 2 a 4 colunas (Capítulo 11 deste documento), Ta
 
 ## 24. Blueprint Completo das 30 Telas já Especificadas
 
-**Nota metodológica:** dado o volume (30 telas, 14 aspectos visuais cada), este Capítulo é construído em até 3 sub-partes, conforme já sinalizado no roteiro da Executive Memory. Esta é a **sub-parte 3a de 3**, cobrindo o índice completo das 30 telas e o detalhamento das 7 primeiras telas de módulo (Comercial/CRM, Eventos e início de Produção). As sub-partes 3b e 3c cobrirão as 12 telas de módulo restantes, mediante aprovação desta sub-parte.
+**Nota metodológica:** dado o volume (30 telas, 14 aspectos visuais cada), este Capítulo foi construído em 3 sub-partes, conforme sinalizado no roteiro da Executive Memory: **3a** (índice das 30 telas + Leads, Clientes, Eventos, Orçamentos, Contratos, Produção, Receitas), **3b** (Fichas Técnicas, Precificação, Compras, Estoque, Lotes, Equipamentos) e **3c** (Funcionários, Escalas, Bancos, Conciliação Bancária, Configurações, Administração) — esta última concluindo o Capítulo 24.
 
 ### 24.1 Índice Completo das 30 Telas
 
@@ -830,6 +830,198 @@ Os 11 Dashboards já foram integralmente detalhados nos Capítulos 13–23 (Part
 
 **Comportamento esperado:** bloqueio automático de conflito de sobreposição de alocação — o usuário nunca consegue confirmar uma alocação conflitante, mesmo que tente forçar a ação.
 
+### 24.15 Funcionários
+
+**Objetivo:** manter o cadastro e o custo de mão de obra da equipe (Módulo 19).
+
+**Layout / Template:** Lista de Funcionários + Detalhe (painel com histórico de Alocações).
+
+**Distribuição dos componentes:** tabela de Funcionários; painel de detalhe com histórico de Alocações.
+
+**Cards:** total de Funcionários ativos; fixos vs. freelancers.
+
+**Tabelas:** lista de Funcionários; histórico de Alocações no painel de detalhe.
+
+**Gráficos:** nenhum nesta tela.
+
+**Filtros:** por tipo de vínculo; por função; por status; busca por nome.
+
+**Menus:** menu lateral (Funcionários).
+
+**Botões:** "Cadastrar" (F-060), "Desligar" (F-062).
+
+**Atalhos:** "Ver Escala" (Capítulo 24.16, a seguir).
+
+**Estados da interface:** Ativo, Afastado, Inativo/Desligado.
+
+**Mensagens:** nenhuma notificação própria além das gerais do sistema.
+
+**Alertas:** Alocação sem valor definido (RN-036).
+
+**Validações visuais:** desligamento de Funcionário com Alocação futura pendente exige confirmação explícita, nunca um desligamento silencioso.
+
+**Comportamento esperado:** consolidação automática de custo a partir de Alocações Realizadas (F-061) é sempre somente leitura na interface; dados de remuneração restritos a Financeiro/Direção (CG-05), nunca visíveis a Pessoas/Mão de Obra por padrão.
+
+### 24.16 Escalas
+
+**Objetivo:** planejar quem trabalha em cada Evento/Produção (Módulo 20).
+
+**Layout / Template:** Lista em formato de calendário de Escalas por Evento/Produção.
+
+**Distribuição dos componentes:** calendário; lista de Alocações por Evento.
+
+**Cards:** Escalas pendentes de confirmação; Eventos sem escala definida.
+
+**Tabelas:** lista de Alocações por Evento (Funcionário, função, horário, status).
+
+**Gráficos:** nenhum nesta tela.
+
+**Filtros:** por Evento; por Funcionário; por período; busca por nome de Funcionário/Evento.
+
+**Menus:** menu lateral (Escalas).
+
+**Botões:** "Confirmar/Ajustar Escala" (F-064).
+
+**Atalhos:** "Substituir Funcionário" em caso de indisponibilidade.
+
+**Estados da interface:** "parâmetro não definido" (bloqueio com link direto para Configurações, Capítulo 24.19, a seguir), Planejada, Confirmada, Realizada, Cancelada.
+
+**Mensagens:** "escala confirmada — Funcionários notificados".
+
+**Alertas:** escala não confirmada a X dias do Evento (RN-037); sobreposição de horário (bloqueio).
+
+**Validações visuais:** sobreposição de horário do mesmo Funcionário é sempre bloqueada, nunca permitida com aviso apenas informativo.
+
+**Comportamento esperado:** escala é gerada automaticamente na confirmação do Evento (mesma orquestração de RN-006, Capítulo 24.4) e sugerida por RN-037 — toda sugestão permanece editável pelo usuário antes da confirmação, nunca é aplicada como fato consumado sem revisão.
+
+### 24.17 Bancos
+
+**Objetivo:** centralizar o cadastro de Banco, Conta e Cartão (Módulo 27).
+
+**Layout / Template:** Lista de Bancos/Contas + Detalhe (saldo e histórico).
+
+**Distribuição dos componentes:** tabela de Contas agrupadas por Banco; painel de detalhe.
+
+**Cards:** saldo consolidado total; saldo por tipo de Conta (pessoal/empresarial/investimento).
+
+**Tabelas:** lista de Contas/Cartões; movimentações no painel de detalhe.
+
+**Gráficos:** distribuição de saldo por Banco (pizza ou barras).
+
+**Filtros:** por Banco; por tipo de Conta; por status; busca por nome do Banco/Conta.
+
+**Menus:** menu lateral (Bancos).
+
+**Botões:** "Cadastrar Banco" (F-092), "Cadastrar Conta/Cartão" (F-093/F-094), "Encerrar" (F-095).
+
+**Atalhos:** "Ver Histórico de Movimentações" (F-097), "Ir para Conciliação" (Capítulo 24.18, a seguir).
+
+**Estados da interface:** Ativa, Encerrada.
+
+**Mensagens:** "Conta/Cartão cadastrado com sucesso".
+
+**Alertas:** resumo herdado de RN-043/RN-044 (detalhados na Conciliação Bancária).
+
+**Validações visuais:** Conta encerrada não aceita novo Pagamento — bloqueio explícito na tentativa.
+
+**Comportamento esperado:** este módulo não executa nenhuma ação automática própria — apenas fornece o dado de referência (Contas/Cartões) consumido pelas automações do Financeiro Pessoal (Capítulo 14) e Empresarial (Capítulo 15); acesso restrito a Financeiro/Direção.
+
+### 24.18 Conciliação Bancária
+
+**Objetivo:** garantir que todo Pagamento registrado corresponda a um lançamento real (Módulo 27 — sub-tela financeira).
+
+**Layout / Template:** Lista em duas colunas paralelas — Pagamentos registrados (esquerda) vs. lançamentos do extrato (direita) — com sugestões de correspondência ao centro.
+
+**Distribuição dos componentes:** duas listas paralelas; indicadores visuais de correspondência (linha conectando os dois lados quando batem).
+
+**Cards:** total conciliado; total pendente; divergências abertas.
+
+**Tabelas:** Pagamentos e lançamentos do extrato, lado a lado.
+
+**Gráficos:** nenhum nesta tela.
+
+**Filtros:** por Conta; por período; por status (conciliado/pendente/divergente); busca por valor/data.
+
+**Menus:** menu lateral (Bancos → Conciliação).
+
+**Botões:** "Importar Extrato" (F-068/FL-023), "Conciliar Selecionados", "Marcar Divergência".
+
+**Atalhos:** aceitar sugestão de correspondência com um clique.
+
+**Estados da interface:** conciliado (Verde-sucesso), pendente (Cinza-claro), divergente (Âmbar-atenção).
+
+**Mensagens:** "extrato importado com sucesso"; "conciliação concluída".
+
+**Alertas:** Conta com pendência de conciliação há mais de um período definido (RN-044); possível duplicidade; possível lançamento pessoal (RN-005).
+
+**Validações visuais:** divergência nunca é corrigida automaticamente — exige decisão humana registrada, nunca uma resolução silenciosa.
+
+**Comportamento esperado:** sugestão de categorização e conciliação vem da IA (RN-043, cor Roxo-IA, PF-06) mas nenhuma conciliação é efetivada sem confirmação explícita em caso de ambiguidade — a IA nunca decide sozinha, mesmo em uma tela de alto volume operacional.
+
+### 24.19 Configurações
+
+**Objetivo:** ser o local único onde todo parâmetro de negócio pendente é definido (Módulo 24).
+
+**Layout / Template:** Lista de categorias de parâmetro + formulário inline por categoria (não um Modal, dado o volume de campos).
+
+**Distribuição dos componentes:** menu de categorias à esquerda (Consumo, Perdas/Rendimento, Precificação, Escalas, Cancelamento); formulário à direita; indicador de "parâmetros pendentes".
+
+**Cards:** quantidade de parâmetros definidos vs. pendentes.
+
+**Tabelas:** lista de parâmetros por categoria, com valor atual e data da última alteração.
+
+**Gráficos:** nenhum nesta tela.
+
+**Filtros:** por categoria; por status (definido/pendente); busca por nome do parâmetro.
+
+**Menus:** menu lateral de categorias (interno à própria tela).
+
+**Botões:** "Definir Parâmetro de Consumo" (F-075), "Definir Perdas/Rendimento" (F-076), "Definir Margem-Alvo" (F-077), "Definir Proporção de Escala" (F-078), "Definir Política de Cancelamento" (F-079).
+
+**Atalhos:** "Ir para onde este parâmetro é usado" (ex.: da margem-alvo direto para Precificação, Capítulo 24.10).
+
+**Estados da interface:** "Definido" (Verde-sucesso), "Pendente" (Âmbar-atenção, com badge de contagem no menu).
+
+**Mensagens:** "parâmetro salvo com sucesso", sempre acompanhado do aviso de impacto (ex.: "afeta X Orçamentos abertos").
+
+**Alertas:** destaque visual persistente para parâmetro crítico ainda não definido, até ser resolvido.
+
+**Validações visuais:** valores fora de faixas plausíveis (ex.: percentual de perda negativo) são bloqueados.
+
+**Comportamento esperado:** este é o único módulo do sistema 100% de definição humana — nenhuma ação automática, nenhuma suposição de valor, consistente com o mandato de nunca inventar parâmetro de negócio não confirmado (Constituição Permanente); telas bloqueadas por parâmetro ausente (Produção, Precificação, Escalas, Eventos) sempre linkam diretamente para cá.
+
+### 24.20 Administração
+
+**Objetivo:** governar acesso, integridade e auditabilidade técnica do sistema (Módulo 25).
+
+**Layout / Template:** Lista + Detalhe, organizados em abas internas (Usuários e Permissões, Log de Auditoria, Central de Alertas, Saúde do Sistema).
+
+**Distribuição dos componentes:** tabela de usuários; visualizador de log; central de alertas consolidada; painel de saúde.
+
+**Cards:** usuários ativos; alertas pendentes; parâmetros de Configurações não definidos.
+
+**Tabelas:** usuários e suas Áreas de Empresa vinculadas (F-080); log de auditoria filtrável (F-081); lista de alertas (F-082).
+
+**Gráficos:** nenhum nesta tela.
+
+**Filtros:** por usuário; por área; por período; por tipo de alerta; busca por nome de usuário ou entidade auditada.
+
+**Menus:** abas internas (Usuários e Permissões, Log de Auditoria, Central de Alertas, Saúde do Sistema).
+
+**Botões:** "Adicionar Usuário", "Editar Permissões", "Marcar Alerta como Tratado".
+
+**Atalhos:** "Ver detalhe da alteração" a partir de uma linha do log.
+
+**Estados da interface:** normal; "alerta crítico pendente" (badge Vermelho-crítico no menu principal).
+
+**Mensagens:** "usuário criado/editado com sucesso".
+
+**Alertas:** central consolidada de todos os alertas do sistema (RN-047, mesma origem do banner do Dashboard CEO, Capítulo 13).
+
+**Validações visuais:** tentativa de remover a única permissão de Administrador do Sistema é bloqueada — trava de segurança, sem exceção.
+
+**Comportamento esperado:** acessível apenas pelo menu lateral, nunca como destino de drill-down de outra tela — reforça seu caráter de módulo de governança transversal, não operacional; nenhuma ação automática própria, é o ponto de controle manual do sistema.
+
 ---
 
-**Fim da Parte 3 (sub-parte 3b de 3) — Capítulo 24 em construção.**
+**Fim da Parte 3 (sub-parte 3c de 3) — Capítulo 24 concluído.**
