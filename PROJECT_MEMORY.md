@@ -930,4 +930,37 @@ Pendência P-014-01 (validação formal do proprietário) está **encerrada** po
 
 ---
 
+## FASE 015 — DevOps & Operational Architecture
+
+**Status:** Rascunho entregue — aguardando validação do proprietário (`THE_CHARCOAL_OS_DEVOPS_AND_OPERATIONAL_ARCHITECTURE.md` v1.0.0)
+**Data:** 2026-08-02
+
+Recebido o Prompt Oficial (TCOS-015), executada a auditoria de abertura sobre os 18 Documentos Oficiais Congelados, e produzido o documento com a arquitetura conceitual completa de DevOps e Operação: 27 tópicos obrigatórios cobertos, Pipeline Conceitual de Entrega de 6 estágios (Construção, Verificação Automatizada, Verificação Manual, Aprovação, Implantação, Operação), distinção formal entre Incidente/Problema/Mudança, e consolidação operacional de Capacidade, Disponibilidade e Continuidade já definidas nas fases de infraestrutura e segurança. Nenhum CI/CD, ferramenta de pipeline, container ou infraestrutura física foi definida. Nenhum documento anterior foi alterado.
+
+### Decisões tomadas
+- D-015-01: Pipeline Conceitual de Entrega formalizado em 6 estágios sequenciais (Construção, Verificação Automatizada, Verificação Manual, Aprovação, Implantação, Operação) — nenhum estágio é pulado, mesmo sob urgência.
+- D-015-02: Incidente, Problema e Mudança formalizados como três conceitos distintos e relacionados — Incidente (evento não planejado), Problema (causa raiz recorrente), Mudança (alteração planejada) — nunca tratados como sinônimos.
+- D-015-03: Observabilidade/Monitoramento Operacional (Capítulos 18-19) definidos como reaproveitamento de uso, nunca de mecanismo, dos mesmos sinais técnicos já coletados pelo TCOS-010/TCOS-014 — evitando uma segunda infraestrutura de coleta paralela.
+- D-015-04: Critérios de Aprovação formalizados crescendo em rigor a cada Ambiente (Development→Test→Staging→Production), culminando em aprovação humana explícita para Production, espelhando a disciplina de Operação Crítica já exigida para ações de negócio (TCOS-012).
+
+### Alterações
+- ALT-015-01: criado o documento `THE_CHARCOAL_OS_DEVOPS_AND_OPERATIONAL_ARCHITECTURE.md` (v1.0.0). Nenhum documento anterior foi alterado.
+
+### Melhorias sugeridas (Backlog)
+- M-015-01 (nova): ao escolher a ferramenta de CI/CD em fase técnica futura, avaliar mecanismos nativos de Pipeline, Gestão de Artefatos e Rollback antes de implementá-los de forma customizada.
+- M-015-02 (nova): definir, junto à Direção, os níveis esperados de Disponibilidade e os tempos-alvo de resposta a Incidente.
+- M-015-03 (nova): estabelecer, em fase técnica futura, a cadência concreta de revisão de Capacidade e de Evolução Contínua.
+
+### Riscos encontrados
+- Nenhum risco novo de negócio ou de arquitetura. Riscos herdados (R-000-03/R-002-01, R-001-01/R-002-02, R-002A-01) permanecem abertos, sem impedir a arquitetura de DevOps e Operação.
+
+### Pendências
+- P-015-01: validação formal do proprietário sobre o `THE_CHARCOAL_OS_DEVOPS_AND_OPERATIONAL_ARCHITECTURE.md`.
+- Pendências herdadas: parâmetros do Módulo 24, M-003A-03/04, M-005 a M-014 (melhorias ainda não resolvidas), confirmação do domínio de negócio (R-000-03), decisão de governança sobre anonimização de dado pessoal, decisão de negócio sobre Multiempresa/Multifilial.
+
+### Estrutura de DevOps e Operação identificada
+- 27/27 tópicos obrigatórios cobertos, Pipeline de 6 estágios, 3 conceitos operacionais formalizados (Incidente, Problema, Mudança), consolidação de Capacidade/Disponibilidade/Continuidade já definidas em 2 documentos anteriores (TCOS-012, TCOS-014). Maturidade estimada do projeto: 97%.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
