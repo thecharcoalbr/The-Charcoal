@@ -1979,4 +1979,35 @@ O proprietário aprovou integralmente a Tela 10 (Dashboard Metas) como baseline 
 
 ---
 
+## CORREÇÃO — Alertas, Notificações, Modais, Estados da Interface e Filtros Incompletos (TCOS-018, Capítulo 23)
+
+**Status:** CONCLUÍDA E APROVADA PELO PROPRIETÁRIO (comando `CORRIGIR`, escopo fechado)
+**Data:** 2026-08-02
+
+Ao iniciar a Auditoria de Abertura da Tela 11 (Dashboard Inteligência Artificial), a comparação linha por linha entre o TCOS-018 (Capítulo 23) e a UX/UI Specification (§3.11) encontrou o achado mais extenso desta sequência de correções: campos "Alertas", "Notificações", "Modais" e "Estados da interface" totalmente ausentes, e campo "Filtros" incompleto (faltavam as dimensões "status" e "pesquisa por período"). Reportado como Achado formal antes de qualquer correção; o proprietário autorizou (`CORRIGIR`) o escopo exato abaixo.
+
+### Decisões tomadas
+- D-COR10-01: campo "Modais" adicionado — "Configurar Nível de Automação" (por tipo de sugestão: sempre confirmar vs. automático se reversível), copiado literalmente da UX/UI Specification §3.11, item 18.
+- D-COR10-02: campo "Alertas" adicionado — baixa confiança de previsão por histórico insuficiente (RN-042), copiado literalmente do item 16.
+- D-COR10-03: campo "Notificações" adicionado — nova sugestão de alta relevância disponível, copiado literalmente do item 17.
+- D-COR10-04: campo "Filtros" completado — de "filtro por módulo de origem; filtro por tipo de Agente Inteligente" para "filtro por módulo de origem; filtro por tipo; filtro por status; pesquisa por período", alinhado literalmente ao item 5–15.
+- D-COR10-05: campo "Estados da interface" adicionado — "Pendente" (Brasa), "Aceita" (Verde-Sucesso), "Recusada" (Cinza, com motivo visível), copiado literalmente do item 23.
+
+### Alterações
+- ALT-COR10-01: `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` (TCOS-018), Capítulo 23 — campos "Modais", "Alertas", "Notificações", "Estados da interface" adicionados; campo "Filtros" completado. Confirmado via `git diff` que apenas o Capítulo 23 foi tocado (1 linha removida, 5 campos inseridos) — nenhum outro capítulo alterado; verificação programática confirmou os 28 capítulos permanecem sequenciais; RN-041/042/043 e F-068–F-071 existem exatamente como já citados, sem alteração a esses documentos ou a qualquer outro campo já existente no Capítulo 23 (Objetivo, Cards de KPI, Visualização, Gráfico, Ações rápidas, Comportamento esperado).
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova além das já registradas (correção pendente Cap. 19 "azul"; achado §3.15 Orçamentos; OE-T06-01; Backlog Oficial de UX/UI da Tela 09, itens OE-T09-01 a OE-T09-06).
+
+### Riscos encontrados
+- Nenhum risco novo de arquitetura, regra de negócio ou documento oficial.
+
+### Pendências
+- Nova Auditoria de Abertura da Tela 11 a ser executada antes da construção, conforme protocolo.
+- Correção pendente do TCOS-018 Capítulo 19 ("azul" → "Âmbar-Atenção"), achado §3.15 Orçamentos e OE-T06-01 permanecem, sem alteração.
+
+**Confirmação de auditoria:** confirmado, antes da edição, que o working tree estava limpo e os 28 capítulos íntegros/sequenciais. Confirmado, depois da edição, via `git diff`, que apenas o Capítulo 23 foi alterado; confirmado que RN-041/042/043 e as referências F-068–F-071 permanecem íntegras em seus documentos de origem; confirmado que nenhum outro campo do Capítulo 23 foi modificado; confirmado que nenhuma Regra de Negócio, Fluxo, Funcionalidade ou decisão arquitetural foi alterada; confirmado que nenhum outro documento oficial congelado foi tocado.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*

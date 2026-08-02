@@ -434,7 +434,15 @@ Distribuição em grid: Desktop 2 a 4 colunas (Capítulo 11 deste documento), Ta
 
 **Ações rápidas:** "Configurar Automação" (F-071).
 
-**Filtros:** filtro por módulo de origem; filtro por tipo de Agente Inteligente.
+**Modais:** "Configurar Nível de Automação" (por tipo de sugestão: sempre confirmar vs. automático se reversível).
+
+**Alertas:** baixa confiança de previsão por histórico insuficiente (RN-042).
+
+**Notificações:** nova sugestão de alta relevância disponível.
+
+**Filtros:** filtro por módulo de origem; filtro por tipo; filtro por status; pesquisa por período.
+
+**Estados da interface:** "Pendente" (Brasa); "Aceita" (Verde-Sucesso); "Recusada" (Cinza, com motivo visível).
 
 **Comportamento esperado:** toda sugestão listada aqui é a mesma sugestão que aparece contextualmente no módulo de origem (ex.: uma sugestão de previsão de demanda também aparece no Dashboard Produção, Capítulo 16) — este Dashboard nunca gera uma sugestão própria, apenas centraliza a visualização e o histórico de aceite/recusa já registrado pelo Serviço de IA (AI Architecture, TCOS-013). Nenhuma sugestão tem efeito sobre o sistema sem confirmação explícita do usuário (PF-06).
 
