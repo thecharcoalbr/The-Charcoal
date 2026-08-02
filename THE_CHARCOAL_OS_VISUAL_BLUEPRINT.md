@@ -489,6 +489,8 @@ Os 11 Dashboards já foram integralmente detalhados nos Capítulos 13–23 (Part
 
 **Cards:** contagem por estágio (topo do kanban); total de Leads ativos (cabeçalho da tela).
 
+**Indicadores:** taxa de conversão; tempo médio de qualificação.
+
 **Tabelas:** lista alternativa ao kanban, colunas Nome, Origem, Estágio, Data.
 
 **Gráficos:** nenhum nesta tela — consolidados no Dashboard CRM (Capítulo 20).
@@ -498,6 +500,8 @@ Os 11 Dashboards já foram integralmente detalhados nos Capítulos 13–23 (Part
 **Menus:** menu lateral (Comercial/CRM → Leads).
 
 **Botões:** "Novo Lead" (F-016), "Qualificar" (F-017), "Converter" (F-018), "Marcar como Perdido" (F-019).
+
+**Modais:** "Novo Lead" (nome, contato, origem); "Converter Lead" (com aviso de possível duplicidade, RN-009).
 
 **Atalhos:** arrastar card entre colunas do kanban para mudar de estágio.
 

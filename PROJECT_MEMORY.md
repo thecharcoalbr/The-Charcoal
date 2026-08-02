@@ -2095,4 +2095,34 @@ O proprietário aprovou integralmente a Tela 11 (Dashboard Inteligência Artific
 
 ---
 
+## CORREÇÃO — Campos "Indicadores" e "Modais" Ausentes (TCOS-018, §24.2 Leads)
+
+**Status:** CONCLUÍDA E APROVADA PELO PROPRIETÁRIO (comando `CORRIGIR`, escopo fechado)
+**Data:** 2026-08-02
+
+Ao iniciar a Auditoria de Abertura da Tela 12, confirmado via TCOS-018 §24.1 (Índice Completo das 30 Telas) que a Tela 12 é "Leads" (Módulo 06, primeira das 19 telas de módulo, já que os 11 Dashboards — Telas 01–11 — estão concluídos). A comparação linha por linha entre o TCOS-018 §24.2 e a UX/UI Specification §3.12 encontrou o mesmo padrão sistêmico de lacuna já visto nos Capítulos 16–23 (Dashboards), agora no Capítulo 24 (telas operacionais): campos "Indicadores" e "Modais" ausentes. Uma verificação adicional, não exaustiva, sugeriu que a lacuna do campo "Indicadores" pode se repetir nos §§24.3 (Clientes) e 24.4 (Eventos) — sinalizado para verificação individual em cada construção futura, sem correção preventiva. Reportado como Achado formal antes de qualquer correção; o proprietário autorizou (`CORRIGIR`) o escopo exato abaixo, restrito à Seção 24.2.
+
+### Decisões tomadas
+- D-COR12-01: campo "Indicadores" adicionado ao §24.2 — "taxa de conversão; tempo médio de qualificação", copiado literalmente da UX/UI Specification §3.12, item 7.
+- D-COR12-02: campo "Modais" adicionado ao §24.2 — "'Novo Lead' (nome, contato, origem); 'Converter Lead' (com aviso de possível duplicidade, RN-009)", copiado literalmente do item 18.
+- D-COR12-03: confirmado, conforme instrução explícita do proprietário, que nenhuma correção preventiva foi aplicada aos §§24.3 em diante, mesmo com a suspeita de repetição do padrão — cada seção será auditada individualmente no momento de sua respectiva construção.
+
+### Alterações
+- ALT-COR12-01: `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` (TCOS-018), §24.2 — campos "Indicadores" e "Modais" adicionados. Confirmado via `git diff` que apenas a Seção 24.2 foi tocada (4 linhas inseridas, 0 removidas) — nenhuma outra subseção do Capítulo 24 alterada; verificação programática confirmou as 20 subseções (24.1–24.20) permanecem sequenciais; RN-009 e F-016–F-019 existem exatamente como já citados, sem alteração a esses documentos ou a qualquer outro campo já existente no §24.2 (Objetivo, Layout/Template, Distribuição dos componentes, Cards, Tabelas, Gráficos, Filtros, Menus, Botões, Atalhos, Estados da interface, Mensagens, Alertas, Validações visuais, Comportamento esperado).
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova além das já registradas (correção pendente Cap. 19 "azul"; achado §3.15 Orçamentos; OE-T06-01; Backlog Oficial de UX/UI da Tela 09, itens OE-T09-01 a OE-T09-06).
+- Sinal de possível padrão sistêmico (campo "Indicadores" ausente) nos §§24.3 (Clientes) e 24.4 (Eventos) — a confirmar individualmente quando essas telas forem construídas.
+
+### Riscos encontrados
+- Nenhum risco novo de arquitetura, regra de negócio ou documento oficial.
+
+### Pendências
+- Nova Auditoria de Abertura da Tela 12 a ser executada antes da construção, conforme protocolo.
+- Correção pendente do TCOS-018 Capítulo 19 ("azul" → "Âmbar-Atenção"), achado §3.15 Orçamentos e OE-T06-01 permanecem, sem alteração.
+
+**Confirmação de auditoria:** confirmado, antes da edição, que o working tree estava limpo e as 20 subseções do Capítulo 24 íntegras/sequenciais. Confirmado, depois da edição, via `git diff`, que apenas a Seção 24.2 foi alterada; confirmado que RN-009 e as referências F-016–F-019 permanecem íntegras em seus documentos de origem; confirmado que nenhum outro campo da Seção 24.2 foi modificado; confirmado que nenhuma Regra de Negócio, Fluxo, Funcionalidade ou decisão arquitetural foi alterada; confirmado que nenhum outro documento oficial congelado foi tocado.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
