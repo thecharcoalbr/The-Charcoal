@@ -1578,4 +1578,33 @@ Durante a Auditoria de Abertura para a Tela 06 (Dashboard Engenharia de Custos),
 
 ---
 
+## FASE — Tela 06 (Dashboard Engenharia de Custos) construída e apresentada
+
+**Status:** Construída e apresentada, aguardando aprovação do proprietário
+**Data:** 2026-08-02
+
+Executada a Auditoria de Abertura final (nenhuma nova divergência objetiva encontrada entre TCOS-018 Capítulo 18, já corrigido, e a UX/UI Specification §3.7) e construído o mockup de alta fidelidade da Tela 06 — 6º Dashboard do sistema, reutilizando integralmente a Biblioteca Visual Oficial e os padrões já estabelecidos pelas Telas 01–05.
+
+### Decisões tomadas
+- D-T06-01: layout segue o precedente da Tela 04 (mesma Área "Produção" na barra lateral, mesmo padrão de cabeçalho/botões) — Cards de KPI, gráfico de barras (Custo previsto × real), Widget de IA (sugestão de preço, F-070), Tabela de Fichas Técnicas com Badge de status, botão "Ver Detalhamento de Custo do Evento".
+- D-T06-02 (autocorreção antes da apresentação): inicialmente incluí um "Banner de alerta persistente" para os Alertas RN-018/RN-019 (mesmo componente visual do Dashboard CEO). Ao auditar a Biblioteca Visual (TCOS-018, Capítulo 25, item 9 da tabela mestra, e Capítulo 25.14 — Feedback Visual), confirmei que este componente é catalogado com "onde já aparece: Dashboard CEO (RN-047), Administração" — nenhum outro Dashboard o utiliza para outro Alerta até o momento. Diante da ambiguidade sobre se essa lista é exaustiva ou apenas descritiva, optei pela leitura mais conservadora (consistente com a regra "não criar novos padrões visuais" e com o histórico desta sessão de nunca expandir o uso de um componente sem precedente claro), removendo o banner antes da apresentação. Os Alertas RN-018/RN-019 permanecem documentados no TCOS-018 (Capítulo 18), mas sem representação visual nesta tela, até uma decisão explícita do proprietário sobre o padrão visual de Alertas não-RN-047.
+
+### Alterações
+- ALT-T06-01: criados `mockup-dashboard-engenharia-custos.html` e `shot6.js` (scratchpad, não versionados em Git); gerado `dashboard-engenharia-custos.png`. Nenhum documento oficial foi alterado nesta etapa.
+
+### Melhorias sugeridas (Backlog)
+- OE-T06-01: definir, em fase futura (Revisão Global de UX/UI ou extensão da Biblioteca Visual), um padrão visual oficial para Alertas específicos de Dashboard que não sejam RN-047 — hoje só existe o padrão restrito ao Dashboard CEO/Administração. Sem essa definição, todo Dashboard com "Alertas" documentados no TCOS-018 (ex.: Produção RN-029, Estoque RN-033/034, Engenharia de Custos RN-018/019, Eventos RN-006/007) ficará sem representação visual até essa decisão ser tomada.
+
+### Riscos encontrados
+- Nenhum risco novo de arquitetura.
+
+### Pendências
+- Aprovação do proprietário sobre a Tela 06.
+- OE-T06-01 (ver Backlog acima) — decisão futura sobre padrão visual de Alertas não-RN-047.
+- Pendências já registradas (RC-021-01; citação Cap. 14/15; avaliação futura dos Capítulos 16/17/19) permanecem, sem alteração.
+
+**Confirmação de auditoria (Executiva Completa, Consistência, UX/UI, Regressão, Rastreabilidade):** confirmado que todos os componentes usados (Card de KPI, gráfico de barras, Badge/pill, Botão primário/secundário, Widget de sugestão de IA) já são oficiais na Biblioteca Visual, sem nenhum componente novo criado; confirmado que o conteúdo (KPIs, Tabela, Filtros, Ações rápidas, Widget) corresponde palavra por palavra ao TCOS-018 Capítulo 18 e à UX/UI Specification §3.7; confirmado, por inspeção direta do CSS, que grid, cores, tipografia, raios e sombras são idênticos aos já usados nas Telas 01–05, incluindo a correção de especificidade do botão primário (Brasa) sem alterar o widget de IA (Roxo-IA); confirmado que nenhum módulo, Serviço, regra de negócio ou documento oficial foi alterado nesta etapa — apenas o `PROJECT_MEMORY.md`.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
