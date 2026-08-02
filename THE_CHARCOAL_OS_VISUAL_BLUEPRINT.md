@@ -384,9 +384,17 @@ Distribuição em grid: Desktop 2 a 4 colunas (Capítulo 11 deste documento), Ta
 
 **Tabela:** Campanhas ativas e encerradas (F-065/F-067), com Badge de status.
 
-**Ações rápidas:** "Nova Campanha".
+**Ações rápidas:** "Nova Campanha"; "Encerrar Campanha"; ação rápida "Ver Leads desta Campanha" (leva ao Módulo 06 filtrado).
 
 **Filtros:** seletor de período; filtro por canal de Campanha.
+
+**Modal:** "Nova Campanha" (nome, canal, período, objetivo, investimento).
+
+**Widget secundário:** consolidação de alertas de Leads inativos (RN-011) — mesmo dado já exposto no Dashboard CRM (Capítulo 20), nunca recalculado ou duplicado com lógica divergente (PF-03).
+
+**Notificações:** Campanha encerrada com sucesso.
+
+**Estados da interface:** vazio ("nenhuma Campanha ativa"); normal.
 
 **Comportamento esperado:** os indicadores de retorno por Campanha aqui exibidos são os mesmos consumidos pelo Dashboard CRM (Capítulo 20) — nenhum valor é calculado duas vezes com lógica divergente (PF-03), apenas apresentado sob um recorte de leitura diferente (visão de Marketing vs. visão de CRM).
 

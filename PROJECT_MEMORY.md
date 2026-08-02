@@ -1754,4 +1754,34 @@ Reiniciada a Auditoria de Abertura da Tela 08 após a correção do Capítulo 20
 
 ---
 
+## CORREÇÃO — Ações Rápidas, Modal, Widget, Notificações e Estados Faltantes (TCOS-018, Capítulo 21)
+
+**Status:** CONCLUÍDA E APROVADA PELO PROPRIETÁRIO (comando `CORRIGIR`, escopo fechado)
+**Data:** 2026-08-02
+
+Ao iniciar a Auditoria de Abertura da Tela 09 (Dashboard Marketing), a comparação linha por linha entre o TCOS-018 (Capítulo 21) e a UX/UI Specification (§3.4) encontrou o achado mais extenso desta sequência: Ações rápidas incompletas (faltavam "Encerrar Campanha" e "Ver Leads desta Campanha"), Modal "Nova Campanha" ausente, Widget secundário de consolidação de Alertas de Leads inativos (RN-011) ausente, Notificações ausentes, Estados da interface ausentes. Reportado antes de qualquer correção; o proprietário autorizou (`CORRIGIR`) o escopo exato abaixo.
+
+### Decisões tomadas
+- D-COR7-01: Ações rápidas completadas com "Encerrar Campanha" e "Ver Leads desta Campanha", exatamente conforme §3.4.
+- D-COR7-02: Modal "Nova Campanha" (nome, canal, período, objetivo, investimento) adicionado, exatamente conforme §3.4.
+- D-COR7-03: Widget secundário de consolidação de Alertas de Leads inativos (RN-011) adicionado — explicitamente reutilizando o mesmo dado já exposto no Dashboard CRM (Capítulo 20), nunca recalculado ou duplicado com lógica divergente (PF-03), conforme já era a prática documentada no "Comportamento esperado" original deste mesmo capítulo.
+- D-COR7-04: Notificações ("Campanha encerrada com sucesso") e Estados da interface (vazio/normal) adicionados, exatamente conforme §3.4.
+
+### Alterações
+- ALT-COR7-01: `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` (TCOS-018), Capítulo 21 — Ações rápidas completadas; Modal, Widget secundário, Notificações e Estados da interface adicionados. Confirmado via `git diff` que apenas o Capítulo 21 foi tocado (9 inserções, 1 remoção) — nenhum outro capítulo alterado; verificação programática confirmou os 28 capítulos permanecem sequenciais; RN-011 e F-065/066/067 existem exatamente como citados, sem alteração a esses documentos.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova além das já registradas (correção pendente Cap. 19 "azul"; achado §3.15 Orçamentos; OE-T06-01).
+
+### Riscos encontrados
+- Nenhum risco novo de arquitetura.
+
+### Pendências
+- Nova Auditoria de Abertura da Tela 09 a ser executada antes da construção, conforme protocolo.
+- Correção pendente do TCOS-018 Capítulo 19 ("azul" → "Âmbar-Atenção"), achado §3.15 Orçamentos e OE-T06-01 permanecem, sem alteração.
+
+**Confirmação de auditoria:** confirmado, antes da edição, que todos os itens autorizados existem literalmente na UX/UI Specification §3.4. Confirmado, depois da edição, via `git diff`, que apenas o Capítulo 21 foi alterado; validadas as referências cruzadas (RN-011, F-065, F-066, F-067) — todas íntegras e sem alteração em seus documentos de origem; nenhuma Regra de Negócio, Fluxo, Funcionalidade ou decisão arquitetural foi modificada; nenhum outro documento oficial congelado foi tocado.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
