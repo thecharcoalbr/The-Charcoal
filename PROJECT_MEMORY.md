@@ -1033,4 +1033,40 @@ Pendência P-016-01 (validação formal do proprietário) está **encerrada** po
 
 ---
 
+## CONSTITUIÇÃO PERMANENTE — Registro Oficial
+
+**Status:** Oficial — Registrada e Vigente desde 2026-08-02
+**Data:** 2026-08-02
+**Documento:** `THE_CHARCOAL_OS_PROJECT_CONSTITUTION.md` (v1.0.0)
+
+Criado, por determinação explícita do proprietário (comando `ALTERAR`, recebido imediatamente após a conclusão da Fase 016), o documento de maior autoridade do THE CHARCOAL OS: a Constituição Permanente do Projeto. Este documento **não representa uma nova Fase** e **não substitui nenhum documento oficial existente** — estabelece a governança permanente que protege e disciplina a evolução de toda a documentação já construída.
+
+### Auditoria de pré-criação executada
+Antes de escrever qualquer conteúdo, foram lidos integralmente os 20 Documentos Oficiais Congelados (TCOS-000 a TCOS-016) e este `PROJECT_MEMORY.md`, com verificação específica de que: nenhuma decisão arquitetural foi perdida; nenhuma regra de negócio foi omitida; nenhuma política de governança existente seria contrariada; nenhuma referência cruzada seria quebrada; nenhuma diretriz já aprovada seria substituída; nenhuma informação seria duplicada desnecessariamente. **Resultado: nenhuma inconsistência encontrada** — a criação prosseguiu sem interrupção.
+
+### Baseline Oficial v1.0.0 — registrada oficialmente
+A Baseline Oficial v1.0.0 do THE CHARCOAL OS é definida, por esta Constituição (Capítulo 5), como o conjunto fechado de: os 20 Documentos Oficiais Congelados (TCOS-000 a TCOS-016), o `PROJECT_MEMORY.md` no estado desta entrada, e a própria Constituição como documento de governança. Representa 100% da arquitetura conceitual do projeto, 0% de tecnologia escolhida, 0% de implementação iniciada — maturidade 97%, Score Geral 9,6/10 (herdados do TCOS-016, sem alteração).
+
+### Decisões tomadas
+- D-CONST-01: Hierarquia Oficial dos Documentos formalizada — a Constituição tem autoridade máxima sobre governança/versionamento/processo de mudança; o Development Framework (TCOS-000) mantém autoridade sobre o método de trabalho; os demais 18 documentos técnicos mantêm autoridade plena sobre seus próprios domínios; o `PROJECT_MEMORY.md` mantém autoridade de registro histórico, nunca de decisão técnica nova.
+- D-CONST-02: Política Oficial de Change Request (CR) instituída como único caminho válido para qualquer alteração futura a um documento já congelado — substituindo, a partir de agora, qualquer correção direta, mesmo para achados já identificados (M-016-01/M-016-02).
+- D-CONST-03: os 2 achados do TCOS-006 (M-016-01, M-016-02) permanecem não corrigidos — sua correção formal exigirá o primeiro Change Request executado sob esta Constituição.
+
+### Confirmações formais desta entrada
+- **Confirmado:** nenhum documento oficial existente (TCOS-000 a TCOS-016) foi alterado pela criação desta Constituição.
+- **Confirmado:** todos os 20 Documentos Oficiais Congelados permanecem congelados, sem nenhuma modificação de conteúdo ou de status.
+- **Confirmado:** a partir desta data, futuras alterações a qualquer documento oficial somente poderão ocorrer através de Solicitação Oficial de Mudança (Change Request — CR), conforme o processo definido no Capítulo 14 da Constituição.
+- **Confirmado:** toda a Constituição foi construída em conformidade com a totalidade dos documentos oficiais previamente aprovados, sem introduzir nenhuma contradição.
+
+### Pendências
+- Nenhuma pendência de validação nova — este documento não é uma Fase e não está sujeito ao ciclo `APROVADO`/`CORRIGIR` de encerramento de Fase; passa a viger imediatamente como documento de governança, por determinação já explícita do proprietário.
+- Pendências substantivas do projeto permanecem inalteradas (8 no total, consolidadas na Fase 016): confirmação do domínio de negócio (R-000-03); parâmetros do Módulo 24; M-003A-03/04; decisão de negócio sobre Multiempresa/Multifilial; decisão de governança sobre anonimização de dado pessoal; lacuna de cobertura do TCOS-009 (M-010-03); priorização das Extensões Estruturais de IA (M-013-03); decisão sobre retomar a entrevista de descoberta.
+
+### Riscos e melhorias
+- Nenhum risco novo. Nenhuma melhoria nova. Os 5 riscos e 45 melhorias já consolidados na Fase 016 permanecem, sem alteração, a totalidade do backlog do projeto.
+
+**Não iniciada:** nenhuma nova Fase, nenhuma implementação técnica, nenhum código, banco físico, API real, backend, frontend, IA em produção ou infraestrutura física. O projeto aguarda autorização explícita do proprietário para iniciar a implementação técnica.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
