@@ -454,9 +454,89 @@ Esta fase transforma a Identidade Visual Oficial (Fase 1) em uma biblioteca comp
 **Exemplo visual:** não gerado — ausência de base oficial impede qualquer representação sem inventar comportamento.
 **Aderência ao TCOS-018:** nenhuma — item registrado como não especificado, por transparência, não como omissão a corrigir.
 
-## 51. Confirmação de Cobertura da Biblioteca
+## 51. Abas e Accordions
 
-Os 26 componentes solicitados foram documentados. Desses, **23 têm base oficial direta ou por extensão explícita já registrada no TCOS-018**; **2 (Tags, Selects) são tratados como sinônimo/extensão de um componente já existente**, sem constituir componente novo; **1 (Menus de Contexto) não possui base oficial alguma**, registrado como não especificado, sem inventar comportamento. Nenhum componente, estado, variação ou valor visual foi criado sem ancoragem em TCOS-005, TCOS-011, TCOS-018 ou na Fase 1 deste próprio documento.
+**Finalidade:** organizar conteúdo relacionado dentro de uma mesma tela sem exigir navegação separada (Abas); organizar categorias de navegação de forma compacta e colapsável (Accordion).
+**Comportamento visual:** Abas horizontais no topo do painel de Detalhe, aba ativa com sublinhado em Brasa (Fase 1, Capítulo 5); Accordion vertical, exclusivo da barra lateral (Capítulo 24), expande/colapsa ao clicar no cabeçalho da seção.
+**Variações oficiais:** Abas — Clientes (Histórico, Eventos, Documentos, Financeiro), Eventos (Resumo, Orçamento, Contrato, Produção, Equipe, Equipamentos, Financeiro), Financeiro Empresarial (Despesas, Receitas, Pagamentos), Administração (Usuários, Log, Alertas, Saúde). Accordion — exclusivo das 10 Áreas da Empresa na barra lateral (Capítulo 24).
+**Estados:** aba ativa/inativa; seção de Accordion expandida/colapsada.
+**Regras de utilização:** apenas uma aba ativa por vez, dentro do Template Detalhe (Frontend Architecture, Capítulo 12); apenas a Área da tela atual permanece expandida por padrão na barra lateral (já oficial, TCOS-018 Capítulo 9).
+**Exemplo visual:** no topo da tela de Eventos, abas "Resumo | Orçamento | Contrato | Produção | Equipe | Equipamentos | Financeiro", a aba ativa com sublinhado em Brasa e peso Semibold.
+**Aderência ao TCOS-018:** Capítulo 25.9; Frontend Architecture, Capítulo 12 (Template Detalhe).
+
+## 52. Calendários
+
+**Finalidade:** representar visualmente a distribuição de itens (Escala, Evento, Produção) ao longo de datas de calendário — distinto de um Gráfico (Capítulo 43), que representa série temporal contínua, não datas específicas.
+**Comportamento visual:** grade de células por dia; cor da célula corresponde ao Badge de status (Fase 1, Capítulo 18) do item daquele dia.
+**Variações oficiais:** calendário de Escalas por Evento/Produção (Escalas), calendário colorido por status (Eventos), calendário/timeline de Produções planejadas (Produção) — os 3 já usados nas 30 telas.
+**Estados:** dia vazio (sem item); dia com item (célula colorida pelo status); dia atual (borda de destaque).
+**Regras de utilização:** uma célula nunca combina mais de uma cor simultânea — múltiplos itens no mesmo dia são exibidos como contagem numérica, nunca como sobreposição de cores (`[Inferência visual]`, já registrada no TCOS-018 §25.11, quanto à unificação de estilo entre os 3 usos).
+**Exemplo visual:** grade de 7 colunas (dias da semana), células com pequenos indicadores coloridos por Evento/Produção/Escala programada naquele dia.
+**Aderência ao TCOS-018:** Capítulo 25.11.
+
+## 53. Upload de Arquivos / Documentos Anexados
+
+**Finalidade:** anexar ou consultar documento vinculado a uma entidade, ou importar um arquivo externo (extrato bancário).
+**Comportamento visual:** área de seleção de arquivo com borda tracejada (Fase 1, Capítulo 8 — raio pequeno) no estado padrão; lista de documentos já anexados abaixo, cada um com ícone por tipo de arquivo (Fase 1, Capítulo 12).
+**Variações oficiais:** as 2 únicas já oficiais — componente "Documentos Anexados" (Contratos, Compras, Clientes) e a ação "Importar Extrato" (Conciliação Bancária, F-068/FL-023).
+**Estados:** vazio (nenhum documento anexado); com documentos; enviando (Loading, Capítulo 47); erro de envio (Capítulo 40).
+**Regras de utilização:** não existe um componente de upload genérico reutilizável fora desses 2 contextos já oficiais — qualquer novo uso exigiria nova especificação funcional, fora do escopo desta fase (`[Inferência visual]`, já registrada no TCOS-018 §25.12).
+**Exemplo visual:** área tracejada com ícone de clipe e texto "Arraste um arquivo ou clique para selecionar", lista de anexos abaixo com nome do arquivo e data de envio.
+**Aderência ao TCOS-018:** Capítulo 25.12.
+
+## 54. Timeline
+
+**Finalidade:** exibir a sequência cronológica de mudanças de estado de uma entidade.
+**Comportamento visual:** linha vertical com marcadores por evento de mudança, cada um com data, autor ("Sistema" quando automático) e descrição da mudança, ordem cronológica decrescente (mais recente no topo) — conteúdo mínimo já oficial (Frontend Architecture, Capítulo 23).
+**Variações oficiais:** linha do tempo do ciclo de vida do Evento (cabeçalho de Eventos, UX/UI Spec §3.14) e a aba "Ver histórico" de toda entidade com histórico obrigatório (ex.: Clientes).
+**Estados:** marcador normal; marcador de mudança automática (ícone diferenciado indicando "Sistema"); vazio (entidade recém-criada, sem histórico).
+**Regras de utilização:** nunca omite o autor da mudança — toda entrada mostra "usuário" ou "Sistema", nunca em branco (Frontend Architecture, Capítulo 23); consome o Log de Auditoria apenas por consulta, nunca por escrita própria.
+**Exemplo visual:** linha vertical fina em cinza, pontos coloridos por tipo de mudança, texto "05/08 · Sistema · Contrato assinado, Evento confirmado".
+**Aderência ao TCOS-018:** Capítulo 25.22; Frontend Architecture, Capítulo 23.
+
+## 55. Kanban
+
+**Finalidade:** representar um item avançando por estágios de um ciclo de vida, com transição por arraste entre colunas.
+**Comportamento visual:** colunas verticais, uma por estágio; Cards de Conteúdo (Capítulo 31) dentro de cada coluna; contagem no topo de cada coluna.
+**Variações oficiais:** as 2 únicas já oficiais — Leads (Novo, Em qualificação, Convertido, Perdido) e Compras (Solicitada, Cotação, Pedido, Recebida, Conferida), cada um com tabela alternativa equivalente já especificada.
+**Estados:** coluna vazia; coluna com cards; card sendo arrastado (elevação Nível 2, Fase 1 Capítulo 9; microinteração de arraste, Fase 1 Capítulo 22).
+**Regras de utilização:** mover um card entre colunas é sempre equivalente à mesma transição de estágio já disponível na tabela alternativa da mesma tela — nunca uma segunda regra de transição divergente (já oficial, TCOS-018 §25.23).
+**Exemplo visual:** 4 colunas lado a lado com título e contagem no topo, cards exibindo nome do Lead e badge de origem/Campanha.
+**Aderência ao TCOS-018:** Capítulo 25.23.
+
+## 56. Painéis e Visualizadores Especializados
+
+**Finalidade:** agrupamento de padrões de exibição específicos de uma única tela cada, sem componente único genérico por trás deles.
+**Comportamento visual:** variável por tipo — editor de composição é uma Tabela (Capítulo 36) com células editáveis e totalizador; visualizador de documento é um quadro de exibição de PDF; visualizador de log é uma lista cronológica filtrável (Filtros, Capítulo 35); indicador de correspondência é uma marcação visual conectando duas linhas pareadas.
+**Variações oficiais:** as 5 já citadas no TCOS-018 §25.24 — editor de composição (Orçamentos, Receitas, Fichas Técnicas), visualizador de documento/PDF (Contratos), visualizador de log (Administração), painel de saúde do sistema (Administração), indicador de correspondência (Conciliação Bancária).
+**Estados:** cada um herda os estados do componente-base que estende — Tabela (editor, log) ou vazio/erro (visualizador de documento).
+**Regras de utilização:** o painel de saúde do sistema permanece sem conteúdo visual específico definido, por ausência de base oficial além de sua citação como uma das 4 abas de Administração — esta fase não preenche essa lacuna, apenas a reconhece (já registrado, TCOS-018 §25.24).
+**Exemplo visual:** o editor de itens do Orçamento (linha por Produto/Pacote com totalizador ao final) e o visualizador de PDF de um Contrato assinado, com botão "Baixar PDF" ao lado.
+**Aderência ao TCOS-018:** Capítulo 25.24.
+
+## 57. Estados de Sucesso
+
+**Finalidade:** confirmar visualmente que uma ação do usuário foi concluída com êxito (Frontend Architecture, Capítulo 17).
+**Comportamento visual:** conforme Fase 1, Capítulo 20 — nunca uma tela inteira em verde; a confirmação é sempre um Toast (Capítulo 40) ou uma mudança de estado do próprio componente (ex.: Badge de status atualizado).
+**Variações oficiais:** as 2 formas já oficiais — Toast de sucesso e mudança de estado in-place do componente afetado (Frontend Architecture, Capítulo 17).
+**Estados:** este é, ele próprio, um dos 4 Estados da Interface (Capítulo 45) — não possui sub-estados adicionais.
+**Regras de utilização:** nunca acompanhado de um redirecionamento inesperado sem explicação (já oficial, Frontend Architecture Capítulo 17).
+**Exemplo visual:** toast breve "Orçamento enviado com sucesso" no canto da tela, com um pequeno indicador em Verde-sucesso.
+**Aderência ao TCOS-018:** Capítulo 25.18; Frontend Architecture, Capítulo 17.
+
+## 58. Estados de Operações Críticas
+
+**Finalidade:** garantir que as 8 Operações Críticas já catalogadas (Security and Privacy Architecture, Capítulo 30) recebam tratamento visual distinto de qualquer ação comum do sistema.
+**Comportamento visual:** conforme Fase 1, Capítulo 9 (sombra Nível 3, a mais forte do sistema) — Modal (Capítulo 41) ou tela de confirmação com o resumo exato do que será alterado; botão primário de confirmação nunca pré-selecionado por teclado (Fase 1, Capítulo 25.19 do TCOS-018).
+**Variações oficiais:** as 8 já catalogadas — Confirmar Evento; Cancelar Evento/Contrato; Registrar Pagamento/Estorno; Alterar Perfil/Permissão de usuário; Aceitar sugestão de IA financeira/comercial; Inativar/Descontinuar entidade Mestre; Exportar relatório com dado sensível; Importar Extrato Bancário.
+**Estados:** pendente de confirmação (Modal aberto); confirmado (fecha com Estado de Sucesso, Capítulo 57); cancelado pelo usuário (fecha sem efeito, nenhum Caso de Uso acionado).
+**Regras de utilização:** nenhuma Operação Crítica é executada em um único clique, sem exceção — reafirma, sem alteração, Security and Privacy Architecture, Capítulo 30.
+**Exemplo visual:** o Modal "Fechar Período" do Dashboard Financeiro Empresarial, com o resumo do que será encerrado e os botões "Cancelar" / "Confirmar Fechamento".
+**Aderência ao TCOS-018:** Capítulo 25.19; Security and Privacy Architecture, Capítulo 30.
+
+## 59. Confirmação de Cobertura da Biblioteca
+
+Complementada a Biblioteca Visual Oficial com os 6 componentes integralmente ausentes (Abas e Accordions, Calendários, Upload de Arquivos/Documentos Anexados, Timeline, Kanban, Painéis e Visualizadores Especializados) e o aprofundamento dos 2 componentes com tratamento insuficiente (Estados de Sucesso, Estados de Operações Críticas), totalizando **34 componentes documentados** (26 da Fase 2 original + 8 desta complementação), cada um com os mesmos 7 campos obrigatórios. Cruzando integralmente contra o inventário do TCOS-018 (Capítulo 25.1–25.24, as 30 telas dos Capítulos 12–24): **100% dos componentes usados nas 30 telas possuem agora especificação correspondente na Biblioteca Visual Oficial.** Nenhum componente, estado, variação, comportamento ou funcionalidade foi criado sem ancoragem direta em TCOS-005, TCOS-011, TCOS-018, Security and Privacy Architecture (Capítulo 30, para Operações Críticas) ou na Fase 1 deste próprio documento.
 
 ---
 
