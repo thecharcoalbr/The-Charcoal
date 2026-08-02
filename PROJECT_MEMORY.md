@@ -880,4 +880,37 @@ Pendência P-013-01 (validação formal do proprietário) está **encerrada** po
 
 ---
 
+## FASE 014 — Infrastructure Architecture
+
+**Status:** Rascunho entregue — aguardando validação do proprietário (`THE_CHARCOAL_OS_INFRASTRUCTURE_ARCHITECTURE.md` v1.0.0)
+**Data:** 2026-08-02
+
+Recebido o Prompt Oficial (TCOS-014), executada a auditoria de abertura sobre os 17 Documentos Oficiais Congelados, e produzido o documento com a arquitetura conceitual completa de infraestrutura: 28 tópicos obrigatórios cobertos, 4 Ambientes formalizados (Development, Test, Staging, Production), consolidação física de Escalabilidade/Backup/Disponibilidade/Observabilidade já definidos em fases anteriores, e formalização de 6 conceitos novos (Ambientes, Estrutura de Deploy, Recuperação de Desastres, Health Checks, Gestão de Segredos, Capacidade, Multitenancy). Nenhum cloud provider, linguagem, banco de dados, container, orquestração ou infraestrutura física foi definida. Nenhum documento anterior foi alterado.
+
+### Decisões tomadas
+- D-014-01: 4 Ambientes formalizados (Development, Test, Staging, Production), cada um com propósito e nível de dado real distinto — nenhuma mudança avança entre Ambientes sem validação do anterior.
+- D-014-02: **Recuperação de Desastres** formalizada como distinta de Backup — Backup protege dado pontual; Recuperação de Desastres trata da perda de um Ambiente inteiro, com dois indicadores conceituais (Tempo de Recuperação esperado, Perda de Dado aceitável).
+- D-014-03: **Multitenancy** (estratégia de infraestrutura) formalizada como distinta de **Multiempresa** (decisão de negócio já reservada no TCOS-007) — dois modelos conceituais apresentados (Tenant compartilhado, Tenant isolado), nenhum escolhido nesta fase.
+- D-014-04: Gestão de Segredos, Health Checks e Capacidade formalizados como conceitos próprios, consolidando requisitos que antes apareciam apenas implicitamente em Segurança, Tolerância a Falhas e Escalabilidade.
+
+### Alterações
+- ALT-014-01: criado o documento `THE_CHARCOAL_OS_INFRASTRUCTURE_ARCHITECTURE.md` (v1.0.0). Nenhum documento anterior foi alterado.
+
+### Melhorias sugeridas (Backlog)
+- M-014-01 (nova): ao escolher o cloud provider em fase técnica futura, avaliar mecanismos nativos de Health Check, Balanceamento e Recuperação de Desastres antes de implementá-los de forma customizada.
+- M-014-02 (nova): definir, junto à Direção, os valores concretos de Tempo de Recuperação esperado e Perda de Dado aceitável.
+- M-014-03 (nova): revisitar a decisão entre Tenant compartilhado e Tenant isolado assim que a decisão de negócio sobre Multiempresa (M-006-01) for confirmada.
+
+### Riscos encontrados
+- Nenhum risco novo de negócio ou de arquitetura. Riscos herdados (R-000-03/R-002-01, R-001-01/R-002-02, R-002A-01) permanecem abertos, sem impedir a arquitetura de infraestrutura.
+
+### Pendências
+- P-014-01: validação formal do proprietário sobre o `THE_CHARCOAL_OS_INFRASTRUCTURE_ARCHITECTURE.md`.
+- Pendências herdadas: parâmetros do Módulo 24, M-003A-03/04, M-005 a M-013 (melhorias ainda não resolvidas), confirmação do domínio de negócio (R-000-03), decisão de governança sobre anonimização de dado pessoal, decisão de negócio sobre Multiempresa/Multifilial (M-006-01/M-007-01).
+
+### Estrutura de infraestrutura identificada
+- 28/28 tópicos obrigatórios cobertos, 4 Ambientes formalizados, 6 conceitos novos (Ambientes, Deploy, Recuperação de Desastres, Health Checks, Segredos, Capacidade/Multitenancy), consolidação de Escalabilidade/Backup/Disponibilidade/Observabilidade já definidos em 5 documentos anteriores. Maturidade estimada do projeto: 95%.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
