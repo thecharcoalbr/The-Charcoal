@@ -1666,4 +1666,33 @@ Ao aplicar os Estados da interface do Capítulo 19 (recém-corrigido) para const
 
 ---
 
+## FASE — Tela 07 (Dashboard Eventos) construída e apresentada
+
+**Status:** Construída e apresentada, aguardando aprovação do proprietário
+**Data:** 2026-08-02
+
+Construído o mockup de alta fidelidade da Tela 07 — 7º Dashboard do sistema — imediatamente após a correção da contradição TCOS-005×TCOS-019A, já usando oficialmente os 5 Estados definidos pelo proprietário (Prospectado/Cinza-claro, Confirmado/Brasa, Em execução/Âmbar-Atenção, Concluído/Verde-sucesso, Cancelado/Vermelho-crítico riscado).
+
+### Decisões tomadas
+- D-T07-01: layout segue o precedente das Telas 04–06 (mesmo padrão de cabeçalho/botões); Área "Eventos / Operações" da barra lateral, com único módulo (Eventos), renderizada expandida por consistência estrutural com as demais Áreas ativas, mesmo contendo apenas 1 item.
+- D-T07-02: calendário e tabela reutilizam integralmente o componente Badge/pill já oficial, aplicando as 5 cores exatamente como recém-definidas — nenhuma cor nova, nenhum componente novo.
+- D-T07-03: nomes de Evento na tabela convertidos em links (Brasa-dark), mesmo padrão já usado nas Telas 04/06, para representar a ação "Ver Orçamento/Contrato vinculado" (UX/UI §3.8) sem restruturar a tabela.
+
+### Alterações
+- ALT-T07-01: criados `mockup-dashboard-eventos.html` e `shot7.js` (scratchpad, não versionados em Git); gerado `dashboard-eventos.png`. Nenhum documento oficial foi alterado nesta etapa.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova além das já registradas (OE-T06-01, achado §3.15 Orçamentos).
+
+### Riscos encontrados
+- Nenhum risco novo.
+
+### Pendências
+- Aprovação do proprietário sobre a Tela 07.
+- Achado §3.15 Orçamentos (Enviado, azul) e OE-T06-01 permanecem, sem alteração.
+
+**Confirmação de auditoria (Executiva Completa, Consistência, UX/UI, Regressão, Rastreabilidade):** confirmado que todos os componentes (Card de KPI, calendário, Badge/pill, Botão primário/secundário, tabela) já são oficiais na Biblioteca Visual; confirmado que o conteúdo corresponde palavra por palavra ao TCOS-018 Capítulo 19 e à UX/UI Specification §3.8 (já corrigida); confirmado que as 5 cores de estado usadas são exatamente as 5 categorias já oficiais da Paleta (nenhuma cor inventada); confirmado, por inspeção visual, que "Confirmado" (Brasa) e "Cancelado" (Vermelho-crítico, riscado) permanecem distinguíveis apesar da proximidade tonal, graças ao riscado já exigido pela especificação; confirmado que grid, sidebar, topbar e paleta são idênticos às Telas 01–06; confirmado que nenhum módulo, Serviço, regra de negócio ou documento oficial foi alterado nesta etapa — apenas o `PROJECT_MEMORY.md`.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
