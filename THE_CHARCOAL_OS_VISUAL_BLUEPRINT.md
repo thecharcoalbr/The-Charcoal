@@ -5,7 +5,7 @@
 **Natureza:** Documento de representação visual do sistema. NÃO constitui implementação, NÃO constitui Frontend, NÃO constitui código. Sua finalidade exclusiva é permitir a validação da experiência do usuário antes de qualquer desenvolvimento técnico.
 **Baseline referenciada:** v1.0.0 (TCOS-000 a TCOS-017), sob a autoridade da Constituição Permanente do Projeto.
 **Referência visual canônica desta fase:** `THE_CHARCOAL_OS_UX_UI_SPECIFICATION.md` (TCOS-005) e `THE_CHARCOAL_OS_FRONTEND_ARCHITECTURE.md` (TCOS-011) — em caso de divergência de nomenclatura entre documentos oficiais, prevalecem estes dois, por determinação expressa do proprietário (comando `ALTERAR`, 2026-08-02).
-**Status:** Documento em Construção — Partes 1, 2 e 3 APROVADAS — Parte 4 concluída (Capítulos 25 e 26: Componentes Visuais + Design System Consolidado) — aguardando decisão do proprietário para prosseguir.
+**Status:** Documento em Construção — Partes 1 a 4 APROVADAS — Parte 5 concluída (Capítulo 27, novo: Fluxos Visuais Completos do Sistema, os 30 fluxos oficiais FL-001 a FL-030 mapeados) — aguardando decisão do proprietário para prosseguir.
 
 ---
 
@@ -32,10 +32,11 @@ Estas três divergências herdadas do TCOS-016 (M-016-01, M-016-02, referentes a
 | 1 (aprovada) | Capítulos 1–11: Papel do Documento, Legenda, Visão Geral do Sistema, Arquitetura Visual, Mapa Geral de Navegação, Fluxo Principal do Usuário, Estrutura dos Menus, Barra Superior, Barra Lateral, Navegação Mobile, Navegação Desktop |
 | 2 (aprovada) | Capítulos 12–23: Estrutura Visual dos Dashboards + os 11 Dashboards individuais |
 | 3 (aprovada) | Capítulo 24: Blueprint completo das 30 telas já especificadas (subdividida em 3 sub-partes 3a/3b/3c, todas aprovadas) |
-| 4 (esta) | Capítulos 25 e 26: Componentes Visuais (biblioteca completa) + Design System Consolidado — consolidados em uma única Parte por determinação expressa do proprietário |
-| 5 | Capítulo 27: Experiência do Usuário |
-| 6 | Capítulo 28: Visualização do Sistema (detalhamento para prototipagem futura) — poderá ser subdividida |
-| 7 | Resumo para o Proprietário, TCOS Quality Gate Executivo, Relatório Consolidado de Padronização |
+| 4 (aprovada) | Capítulos 25 e 26: Componentes Visuais (biblioteca completa) + Design System Consolidado — consolidados em uma única Parte por determinação expressa do proprietário |
+| 5 (esta) | Capítulo 27 (novo, inserido por determinação do proprietário): Fluxos Visuais Completos do Sistema — os 30 fluxos oficiais (FL-001 a FL-030, TCOS-004) representados como caminhos de navegação entre as telas já blueprintadas |
+| 6 | Capítulo 28 (antigo 27): Experiência do Usuário |
+| 7 | Capítulo 29 (antigo 28): Visualização do Sistema (detalhamento para prototipagem futura) — poderá ser subdividida |
+| 8 | Resumo para o Proprietário, TCOS Quality Gate Executivo, Relatório Consolidado de Padronização |
 
 **Registro de Aprovações por Parte:**
 
@@ -46,7 +47,9 @@ Estas três divergências herdadas do TCOS-016 (M-016-01, M-016-02, referentes a
 | 3a | APROVADA (2026-08-02) | Cap. 24.1 (índice das 30 telas) + Cap. 24.2–24.8 (Leads, Clientes, Eventos, Orçamentos, Contratos, Produção, Receitas) |
 | 3b | APROVADA (2026-08-02) | Cap. 24.9–24.14 (Fichas Técnicas, Precificação, Compras, Estoque, Lotes, Equipamentos) |
 | 3c | APROVADA (2026-08-02) | Cap. 24.15–24.20 (Funcionários, Escalas, Bancos, Conciliação Bancária, Configurações, Administração) — Capítulo 24 concluído: 30/30 telas documentadas |
-| 4 | Concluída (2026-08-02), aguardando aprovação | Cap. 25 (24 itens de biblioteca de componentes) + Cap. 26 (5 itens de Design System Consolidado) |
+| 4 | APROVADA (2026-08-02) | Cap. 25 (24 itens de biblioteca de componentes) + Cap. 26 (5 itens de Design System Consolidado) |
+| — | CORRIGIDA (2026-08-02) | Cap. 22 (Dashboard Metas) complementado com Ações rápidas, Modais e Alertas já oficiais do TCOS-005 §3.10, achado durante a auditoria pré-Parte 5 |
+| 5 | Concluída (2026-08-02), aguardando aprovação | Cap. 27 (novo): Fluxos Visuais Completos do Sistema — 30 fluxos oficiais (FL-001 a FL-030) mapeados |
 
 Nenhuma funcionalidade, regra de negócio, entidade, tela ou componente novo é criado neste documento — toda representação visual deriva exclusivamente do que já está oficialmente especificado. Onde a especificação existente descreve um layout em texto (ex.: "lista/kanban por estágio") sem atribuir formalmente um dos 4 Templates de Tela, este documento faz a inferência visual necessária e a identifica explicitamente como inferência, nunca como fato já decidido em outro documento.
 
@@ -1260,3 +1263,150 @@ Nenhum destes tokens recebe valor técnico (hex, px, nome de fonte, biblioteca) 
 ---
 
 **Fim da Parte 4 — Capítulos 25 e 26 concluídos.**
+
+## 27. Fluxos Visuais Completos do Sistema
+
+### 27.1 Objetivo e Metodologia
+
+Este capítulo representa visualmente, como caminhos de navegação entre as telas já blueprintadas (Capítulos 12–24), os **30 fluxos oficiais** já definidos em User Journeys and System Flows (TCOS-004, FL-001 a FL-030). Nenhum fluxo novo é criado — cada caminho visual é derivado exclusivamente da "Sequência" já oficial de cada FL-XXX, traduzindo cada passo textual em um deslocamento entre Telas/Dashboards, uma ação automática sem tela própria, ou um ponto de decisão do usuário.
+
+### 27.2 Notação Visual de Fluxo
+
+| Símbolo | Significado |
+|---|---|
+| `Tela (Cap. X)` | uma das 30 telas/Dashboards já blueprintados, identificada pelo capítulo correspondente |
+| `→` | transição de navegação direta, disparada por ação explícita do usuário (Capítulo 6, Fluxo Principal do Usuário) |
+| `⚙` | ação automática do backend, sem navegação a nenhuma tela — o usuário permanece onde está (Frontend Architecture, Capítulo 16, Estratégia de Atualização) |
+| `◇` | ponto de decisão/bifurcação visível ao usuário |
+| `⚠` | alerta disparado neste ponto do fluxo (Banner/Alerta inline, Capítulo 25.14) |
+
+### 27.3 Fluxos Comerciais e de Relacionamento
+
+**FL-001 — Jornada Completa do Lead**
+Caminho visual: Leads (24.2) → [qualificar] → Leads (24.2) → ◇ [converter ou marcar perdido] → Clientes (24.3), se convertido.
+Automações sem tela: ⚙ atribuição de origem (RN-008); ⚙ sugestão de perda por inatividade (RN-011, ⚠ badge no card).
+Dashboards atualizados: CRM (20), CEO (13, indireto).
+
+**FL-002 — Jornada Completa do Cliente**
+Caminho visual: Clientes (24.3) → [Novo Orçamento para este Cliente] → Orçamentos (24.5) → (dispara FL-003/FL-004) → ⚙ marcação automática de fidelização (RN-010) → Clientes (24.3) atualizado.
+Dashboards atualizados: CRM (20), CEO (13).
+
+**FL-020 — Jornada Completa do Marketing**
+Caminho visual: Dashboard Marketing (21) → [Nova Campanha] → ⚙ Leads gerados atribuídos automaticamente à Campanha (FL-001) → Dashboard Marketing (21) / Dashboard CRM (20) [retorno consolidado, F-012] → ◇ [encerrar Campanha].
+Observação: sem tela de Lista própria para Campanha entre as 30 — gestão ocorre inteiramente dentro do Dashboard Marketing, consistente com o perfil oficial (§3.4) já usado na Parte 2.
+
+**FL-030 — Pós-venda**
+Caminho visual: Eventos (24.4) [Concluído, via FL-029] → ⚙ verificação de critério de fidelização (RN-010) → Clientes (24.3) [badge de fidelizado] → ⚙ indicações geradas alimentam Leads (24.2), origem "indicação" → Dashboard CRM (20) [retorno consolidado].
+Observação: RN-010 (critério de fidelização) e o tema de feedback estruturado permanecem parâmetros/pendências de negócio ainda não confirmados (pendências substantivas já registradas na Fase 016) — este documento não inventa um valor para eles, apenas representa o ponto onde, quando confirmados, produzirão efeito visual.
+
+### 27.4 Fluxo Central do Evento
+
+**FL-003 — Jornada Completa do Evento** *(fluxo mais extenso do sistema)*
+Caminho visual: Eventos (24.4) [Prospectado] → Orçamentos (24.5) [FL-004] → ◇ [aceito] → Contratos (24.6) [FL-005] → Eventos (24.4) [Confirmado] → ⚙ orquestração completa (RN-006): Produção (24.7) planejada, Estoque (24.12) reservado, Escalas (24.16) sugeridas, Compras (24.11) sugeridas, Financeiro Empresarial (15) [Receita prevista] → Eventos (24.4) [Ajustar Planejamento, revisão humana] → Produção (24.7) [execução, FL-007] → Eventos (24.4) [Concluir, FL-029].
+Decisão alternativa: ◇ Cancelar (F-024) em qualquer ponto após a confirmação → Eventos (24.4) [Cancelado], recursos liberados.
+Alertas: ⚠ inviabilidade operacional bloqueia a confirmação; ⚠ margem prevista abaixo do mínimo.
+Dashboards atualizados: CEO (13), Financeiro Empresarial (15), Metas (22, indireto).
+
+**FL-004 — Jornada Completa do Orçamento**
+Caminho visual: Orçamentos (24.5) [criar, preço calculado via Fichas Técnicas 24.9/Precificação 24.10] → [enviar] → ◇ [nova versão | aceite → Contratos 24.6 | recusa | ⚙ expiração automática, RN-013].
+Alertas: ⚠ margem abaixo do mínimo (RN-023) → Precificação (24.10) [aprovação de exceção, F-047].
+
+**FL-005 — Jornada Completa do Contrato**
+Caminho visual: ⚙ minuta gerada automaticamente (RN-014, a partir de Orçamentos 24.5 aceito) → Contratos (24.6) [revisão] → [Assinar] → Eventos (24.4) [Confirmado, retorno a FL-003 passo 4] + ⚙ Receita Financeira prevista → Financeiro Empresarial (15) → ◇ [Registrar Aditivo] → Contratos (24.6).
+
+**FL-029 — Encerramento de Evento**
+Caminho visual: Eventos (24.4) [Concluir Evento] → ⚙ comparação planejado × real para toda Produção vinculada (Produção 24.7 / Dashboard Produção 16) → ⚙ custo total real calculado → Dashboard Engenharia de Custos (18) → ⚙ margem real apurada → Eventos (24.4) [Concluído] → dispara FL-030 (27.3).
+Alertas: ⚠ custo real excedendo significativamente o previsto.
+Dashboards atualizados: CEO (13), Financeiro Empresarial (15).
+
+### 27.5 Fluxos Financeiros
+
+**FL-006 — Jornada Completa do Pagamento**
+Caminho visual: Financeiro Empresarial (15) ou Financeiro Pessoal (14) [lançamento manual, FL-025] **ou** Conciliação Bancária (24.18) [origem: extrato, FL-023] → [Registrar/Confirmar Pagamento] → ⚙ status atualizado → Conciliação Bancária (24.18) [FL-024] → ⚙ Fluxo de Caixa recalculado → Financeiro Empresarial (15).
+Alertas: ⚠ possível duplicidade; ⚠ lançamento sem correspondência.
+
+**FL-018 — Jornada Completa dos Bancos**
+Caminho visual: Bancos (24.17) [Cadastrar Banco/Conta] → ◇ usado como origem/destino em Financeiro Pessoal (14) / Financeiro Empresarial (15) [FL-006] → Bancos (24.17) [consultar saldo/histórico, F-097] → Conciliação Bancária (24.18) [FL-024] → ◇ [Encerrar Conta].
+
+**FL-023 — Importação Automática de Extratos Bancários**
+Caminho visual: Conciliação Bancária (24.18) [Importar Extrato] → ⚙ identificação de lançamentos → ⚙ sugestão de categorização por IA (F-068, cor Roxo-IA) → ⚙ sugestão de conciliação por IA → ◇ [usuário confirma cada lançamento ambíguo] → ⚙ Pagamento efetivado → Financeiro Empresarial (15) [Fluxo de Caixa, Indicadores, Dashboards atualizados].
+Alertas: ⚠ possível duplicidade; ⚠ lançamento sem correspondência; ⚠ possível lançamento pessoal (RN-005).
+Observação: nenhuma etapa desta jornada aplica uma sugestão de IA sem confirmação humana explícita em caso de ambiguidade — mesmo padrão do Dashboard IA (23) e PF-06.
+
+**FL-024 — Conciliação Bancária**
+Caminho visual: ⚙ comparação automática de Pagamentos registrados vs. lançamentos do extrato (F-097) → Conciliação Bancária (24.18) [lançamentos batidos marcados "conciliado"] → ◇ [divergência] → Conciliação Bancária (24.18) [Marcar Divergência, decisão humana obrigatória].
+Alertas: ⚠ Conta com pendência de conciliação prolongada (RN-044).
+
+**FL-025 — Lançamentos Financeiros Manuais**
+Caminho visual: Financeiro Empresarial (15) ou Financeiro Pessoal (14) [usuário informa origem/categoria/valor/data/Conta] → ◇ [origem não automaticamente associável → categoria e justificativa exigidas] → ⚙ tratado com as mesmas regras de qualquer lançamento (alimenta FL-006).
+Observação: nenhuma ação automática nesta jornada — é o complemento humano à automação, por definição oficial.
+
+### 27.6 Fluxos de Produção e Suprimentos
+
+**FL-007 — Jornada Completa da Produção**
+Caminho visual: ⚙ "Evento confirmado" (FL-003) ou necessidade de reposição → Produção (24.7) [planejada automaticamente, F-032] → Produção (24.7) [Iniciar Execução, F-033] → ⚙ Ingrediente baixado do Estoque (24.12), referenciando Lote (24.13) → Produção (24.7) [Registrar Consumo/Rendimento, F-034] → ⚙ Lote de Produto gerado (24.13) → Dashboard Produção (16) [comparação planejado × real, F-035].
+Alertas: ⚠ Estoque insuficiente (RN-032, bloqueante); ⚠ rendimento insuficiente (RN-029, alta prioridade).
+
+**FL-008 — Jornada Completa das Compras**
+Caminho visual: ⚙ "Produção planejada" ou ponto de reposição atingido → Compras (24.11) [lista sugerida gerada automaticamente, F-048, RN-030] → Compras (24.11) [Cotar/Emitir Pedido, F-049] → Compras (24.11) [Receber e Conferir, F-050] → ⚙ Estoque (24.12), Lote (24.13) e Despesa (Financeiro Empresarial 15) gerados.
+Alertas: ⚠ item sem Fornecedor definido; ⚠ divergência na conferência (RN-031).
+
+**FL-009 — Jornada Completa do Estoque**
+Caminho visual: ⚙ entrada (Compras 24.11 conferida) ou saída (Produção 24.7) → Estoque (24.12) [saldo atualizado automaticamente, RN-032] → ◇ [ponto de reposição atingido] → ⚠ alerta → Estoque (24.12) [Realizar Inventário, F-053, ajuste de divergência].
+
+**FL-010 — Jornada Completa dos Lotes**
+Caminho visual: ⚙ Lote criado automaticamente (conferência de Compra 24.11 ou conclusão de Produção 24.7) → Lotes (24.13) [consumo registrado, priorização automática "primeiro que vence, primeiro que sai", RN-034] → ◇ [validade próxima] → ⚠ alerta → ◇ [vencido] → Lotes (24.13) [Registrar Descarte, F-056, motivo obrigatório].
+
+**FL-011 — Jornada Completa da Engenharia de Custos**
+Caminho visual: ⚙ custo de Ingrediente atualizado → Fichas Técnicas (24.9) [recalculada automaticamente, F-043] → ⚠ Orçamentos abertos alertados (RN-019) → ⚙ consolidação de custo de mão de obra (Funcionários 24.15, F-061, ao longo do Evento) → ⚙ custo total real calculado ao concluir Produções (F-036) → Dashboard Engenharia de Custos (18) [desvio disponível, F-038] → alimenta FL-029.
+
+**FL-012 — Jornada Completa das Receitas**
+Caminho visual: Receitas (24.8) [Nova Receita, F-039, "Em desenvolvimento"] → ◇ (paralelo) Fichas Técnicas (24.9) [FL-013] → Receitas (24.8) [Aprovar, F-040, exige Ficha Técnica associada] → ◇ [Revisar/Nova Versão, F-041] → Receitas (24.8), nunca sobrescrevendo a versão anterior.
+
+**FL-013 — Jornada Completa das Fichas Técnicas**
+Caminho visual: Receitas (24.8) [aprovada] → Fichas Técnicas (24.9) [criada, F-042, "Vigente"] → ⚙ recálculo automático por atualização de custo de Ingrediente (F-043) → ◇ [mudança de composição] → Fichas Técnicas (24.9) [nova versão, anterior torna-se "Substituída"] → ◇ [Produto sem Ficha Técnica vigente] → bloqueio em Orçamentos (24.5, FL-004).
+
+**FL-014 — Jornada Completa da Precificação**
+Caminho visual: Configurações (24.19) [margem-alvo definida, F-077] → Precificação (24.10) [preço calculado a partir do custo vigente, F-046] → Orçamentos (24.5) [FL-004, uso do preço] → ◇ [ajuste abaixo da margem mínima] → ⚠ alerta (RN-023) → Precificação (24.10) [Aprovar Exceção de Margem, F-047, justificativa obrigatória].
+
+### 27.7 Fluxos de Pessoas e Recursos
+
+**FL-015 — Jornada Completa das Escalas**
+Caminho visual: ⚙ "Evento confirmado" (FL-003) → Escalas (24.16) [sugestão automática, F-063, RN-037] → Escalas (24.16) [Confirmar/Ajustar Escala, F-064] → ⚙ Funcionários notificados → Funcionários (24.15) [participação real registrada no dia do Evento, alimenta FL-011].
+Alertas: ⚠ escala não confirmada a X dias do Evento (RN-037); ⚠ sobreposição de horário, sempre bloqueada.
+
+**FL-016 — Jornada Completa dos Funcionários**
+Caminho visual: Funcionários (24.15) [Cadastrar, F-060] → ◇ Escalas (24.16) [FL-015, alocado ao longo do tempo] → ⚙ consolidação automática de custo por Alocação Realizada (F-061) → Funcionários (24.15) [Desligar, F-062, preserva histórico].
+
+**FL-017 — Jornada Completa dos Equipamentos**
+Caminho visual: Equipamentos (24.14) [Cadastrar, F-057, "Disponível"] → ◇ "Evento confirmado" (FL-003) → Equipamentos (24.14) [Alocar, F-058, ⚙ checagem automática de conflito] → ⚙ retorna a "Disponível" após o Evento → ◇ [Registrar Manutenção/Baixa, F-059] → ⚙ Despesa gerada (Financeiro Empresarial 15).
+Alertas: ⚠ conflito de alocação, com sugestão de alternativa (RN-035, sempre bloqueante).
+
+### 27.8 Fluxos de Governança e Inteligência
+
+**FL-019 — Jornada Completa das Metas**
+Caminho visual: Dashboard Metas (22) [Criar Meta, F-084] → ⚙ progresso acompanhado continuamente (F-088) → ◇ [Editar, F-085] → ⚙ encerramento automático de ciclo na data definida (F-086, RN-046) → Dashboard Metas (22) [Registrar Justificativa, F-090] → ◇ [Duplicar para novo ciclo, F-087] → Dashboard Metas (22) [histórico permanente, F-089] → Dashboard CEO (13) [consumo apenas leitura].
+Observação: fluxo integralmente suportado após a complementação do Capítulo 22 (correção aprovada nesta mesma Parte).
+
+**FL-021 — Jornada Completa dos Dashboards**
+Caminho visual: ⚙ Indicador é recalculado a cada Evento de Domínio relevante (FL-028) → ⚙ todo Dashboard que o inclui é atualizado automaticamente (FL-026) → qualquer um dos 11 Dashboards (Capítulos 13–23).
+**`[Inferência visual]`** — a reconfiguração de "quais Indicadores aparecem em cada Dashboard" (passo 1 da jornada oficial) não tem uma tela dedicada entre as 30 já especificadas; este documento não atribui essa configuração a nenhuma tela existente, por ausência de base oficial, e a representa apenas como uma decisão de backend/governança sem interface própria nesta Baseline.
+
+**FL-022 — Jornada Completa da Inteligência Artificial**
+Caminho visual: ⚙ IA analisa o contexto (extrato, histórico, custo vigente) → sugestão aparece contextualmente no módulo de origem (ex.: Produção 24.7, Compras 24.11, Conciliação Bancária 24.18) **e** centralizada no Dashboard IA (23) → ◇ [usuário aceita, ajusta ou recusa, Componente de sugestão de IA, item 25.21] → ⚙ decisão aplicada e registrada.
+Exceção visual: ações de baixo risco pré-aprovadas (F-071, "Configurar Automação") dispensam confirmação pontual — configuradas no próprio Dashboard IA (23).
+
+**FL-026 — Atualização Automática dos Dashboards** e **FL-027 — Atualização Automática do Dashboard CEO**
+Caminho visual: ⚙ Evento de negócio ocorre (qualquer módulo) → ⚙ Indicador recalculado (FL-028) → ⚙ todo Dashboard que o inclui reflete o novo valor, com toast sutil "Dashboard atualizado agora" (Frontend Architecture, Capítulo 16) → nenhuma tela própria, nenhuma ação humana.
+Observação: FL-027 é o mesmo caminho, restrito aos Indicadores priorizados pela Direção no Dashboard CEO (13) — não é um fluxo visualmente distinto, apenas um subconjunto de FL-026.
+
+**FL-028 — Atualização Automática dos Indicadores**
+Caminho visual: ⚙ entidade de origem criada/alterada (qualquer módulo) → ⚙ todo Indicador cuja fórmula a referencia é recalculado → ⚙ notifica FL-026 → nenhuma tela própria — é a camada de cálculo que sustenta todos os Dashboards.
+
+### 27.9 Confirmação de Cobertura
+
+Os 30 fluxos oficiais (FL-001 a FL-030) foram mapeados integralmente às 30 telas já blueprintadas — nenhum fluxo permanece sem representação visual. Duas observações de transparência, sem impacto na integridade da Baseline: (1) FL-021 aponta para uma configuração de composição de Dashboard sem tela dedicada entre as 30 — identificado como `[Inferência visual]`, não como omissão a corrigir, por ausência de base oficial para uma tela própria; (2) FL-030 depende de parâmetros de negócio (critério de fidelização, feedback estruturado) já registrados como pendências substantivas desde a Fase 016 — este documento não antecipa esses valores.
+
+---
+
+**Fim da Parte 5 — Capítulo 27 concluído.**
