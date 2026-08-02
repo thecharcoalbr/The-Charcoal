@@ -366,6 +366,8 @@ Distribuição em grid: Desktop 2 a 4 colunas (Capítulo 11 deste documento), Ta
 
 **Modais:** "Criar/Editar Meta" (período, Indicador, responsável, valor-alvo, critério de sucesso); "Registrar Justificativa" (F-090), exibido ao encerrar um ciclo como "Não atingida" ou ao encerrar antecipadamente.
 
+**Alertas:** atraso no progresso; conclusão de ciclo (RN-046).
+
 **Filtros:** seletor de período; filtro por Área da Empresa/responsável pela Meta; busca por nome de Meta.
 
 **Comportamento esperado:** este é o único Dashboard cujo conteúdo é também consumido, em versão reduzida (apenas leitura), como widget dentro de outros Dashboards (ex.: Dashboard CEO, Capítulo 13) — o dado de origem é sempre o mesmo Serviço dono, nunca duplicado com cálculo próprio; criação de Meta sem Indicador associado é bloqueada (validação visual); encerramento automático de ciclo na data definida (RN-046) nunca exige ação manual, mas Meta "Não atingida" sempre recebe tratamento visual neutro (Âmbar-atenção), nunca punitivo (§3.10).
