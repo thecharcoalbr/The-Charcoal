@@ -830,4 +830,37 @@ Pendência P-012-01 (validação formal do proprietário) está **encerrada** po
 
 ---
 
+## FASE 013 — AI Architecture
+
+**Status:** Rascunho entregue — aguardando validação do proprietário (`THE_CHARCOAL_OS_AI_ARCHITECTURE.md` v1.0.0)
+**Data:** 2026-08-02
+
+Recebido o Prompt Oficial (TCOS-013), executada a auditoria de abertura sobre os 16 Documentos Oficiais Congelados, e produzido o documento com a arquitetura conceitual completa de Inteligência Artificial: 31 tópicos obrigatórios cobertos, 4 Tipos de Agentes Inteligentes (Classificação, Previsão, Recomendação, Monitoramento), 2 categorias de Memória (Operacional, Estratégica), atuação detalhada em 10 domínios de negócio, catálogo de 8 Limites da IA, e integração consolidada com os 27 módulos, 15 Serviços, Event Bus e os 16 Documentos Oficiais Congelados. Nenhum modelo de IA, API, linguagem, banco de dados ou infraestrutura foi definida. Nenhum documento anterior foi alterado.
+
+### Decisões tomadas
+- D-013-01: 4 Tipos de Agentes Inteligentes formalizados (Classificação, Previsão, Recomendação, Monitoramento), generalizando os padrões já existentes nas funcionalidades F-068 a F-071 sem criar comportamento novo.
+- D-013-02: Memória Operacional (consulta de curto prazo, por contrato público, ao dado de origem) e Memória Estratégica (síntese de longo prazo para recomendações à Direção) formalizadas como conceitos distintos, ambas nunca uma cópia paralela do dado de negócio (PF-01/PF-03).
+- D-013-03: conceito de **Extensão Estrutural Preparada** adotado como disciplina de governança para resolver, sem inventar funcionalidade nova, o pedido de atuação da IA em 6 domínios (Produção, Estoque, Eventos, CRM, Marketing, Indicadores) que ainda não têm funcionalidade F-XXX formal — a criação de funcionalidade real permanece pendente de uma futura nova versão do Functional Specification (TCOS-003).
+- D-013-04: catálogo de 8 Limites da IA consolidado a partir de restrições já espalhadas por 5 documentos anteriores (TCOS-002A, TCOS-006, TCOS-010, TCOS-011, TCOS-012) — nenhuma restrição nova, apenas reunidas em lista única.
+
+### Alterações
+- ALT-013-01: criado o documento `THE_CHARCOAL_OS_AI_ARCHITECTURE.md` (v1.0.0). Nenhum documento anterior foi alterado.
+
+### Melhorias sugeridas (Backlog)
+- M-013-01 (nova): ao escolher o modelo/provedor de IA em fase técnica futura, avaliar a viabilidade de cada Extensão Estrutural Preparada como candidata a uma futura nova versão do Functional Specification antes de implementá-la.
+- M-013-02 (nova): formalizar, em fase técnica futura, o mecanismo concreto de cálculo de "nível de confiança" — hoje descrito apenas como conceito.
+- M-013-03 (nova): avaliar, junto à Direção, a prioridade de negócio entre as 6 Extensões Estruturais Preparadas sem funcionalidade formal (Produção, Estoque, Eventos, CRM, Marketing, Indicadores).
+
+### Riscos encontrados
+- Nenhum risco novo de negócio ou de arquitetura. Riscos herdados (R-000-03/R-002-01, R-001-01/R-002-02, R-002A-01) permanecem abertos, sem impedir a arquitetura de IA.
+
+### Pendências
+- P-013-01: validação formal do proprietário sobre o `THE_CHARCOAL_OS_AI_ARCHITECTURE.md`.
+- Pendências herdadas: parâmetros do Módulo 24, M-003A-03/04, M-005 a M-012 (melhorias ainda não resolvidas), confirmação do domínio de negócio (R-000-03), decisão de governança sobre anonimização de dado pessoal.
+
+### Estrutura de IA identificada
+- 31/31 tópicos obrigatórios cobertos, 4 Tipos de Agentes Inteligentes, 2 categorias de Memória, 10 domínios de negócio detalhados (4 com funcionalidade formal já aprovada + 6 como Extensão Estrutural Preparada), 8 Limites da IA catalogados, 3 Regras de Negócio referenciadas (RN-041 a RN-043, 0 novas, 0 alteradas), 4 funcionalidades de IA já oficiais (F-068 a F-071, 0 novas). Maturidade estimada do projeto: 93%.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
