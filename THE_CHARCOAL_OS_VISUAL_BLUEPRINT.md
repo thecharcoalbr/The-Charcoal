@@ -5,7 +5,7 @@
 **Natureza:** Documento de representação visual do sistema. NÃO constitui implementação, NÃO constitui Frontend, NÃO constitui código. Sua finalidade exclusiva é permitir a validação da experiência do usuário antes de qualquer desenvolvimento técnico.
 **Baseline referenciada:** v1.0.0 (TCOS-000 a TCOS-017), sob a autoridade da Constituição Permanente do Projeto.
 **Referência visual canônica desta fase:** `THE_CHARCOAL_OS_UX_UI_SPECIFICATION.md` (TCOS-005) e `THE_CHARCOAL_OS_FRONTEND_ARCHITECTURE.md` (TCOS-011) — em caso de divergência de nomenclatura entre documentos oficiais, prevalecem estes dois, por determinação expressa do proprietário (comando `ALTERAR`, 2026-08-02).
-**Status:** Documento em Construção — Parte 2 de 8 APROVADA (inclui validação visual dos 11 Dashboards) — Parte 3 de 8 em construção (sub-parte 3a de 3 concluída: índice das 30 telas + 7 telas de módulo detalhadas) — aguardando decisão do proprietário para prosseguir.
+**Status:** Documento em Construção — Parte 2 de 8 APROVADA — Parte 3 de 8 em construção: sub-parte 3a APROVADA (índice das 30 telas + 7 telas de módulo) — sub-parte 3b em construção.
 
 ---
 
@@ -44,6 +44,7 @@ Estas três divergências herdadas do TCOS-016 (M-016-01, M-016-02, referentes a
 |---|---|---|
 | 1 | APROVADA (2026-08-02) | — |
 | 2 | APROVADA (2026-08-02) | Inclui validação visual complementar dos 11 Dashboards (wireframe estrutural), aprovada pelo proprietário antes do início da Parte 3 |
+| 3a | APROVADA (2026-08-02) | Cap. 24.1 (índice das 30 telas) + Cap. 24.2–24.8 (Leads, Clientes, Eventos, Orçamentos, Contratos, Produção, Receitas) |
 
 Nenhuma funcionalidade, regra de negócio, entidade, tela ou componente novo é criado neste documento — toda representação visual deriva exclusivamente do que já está oficialmente especificado. Onde a especificação existente descreve um layout em texto (ex.: "lista/kanban por estágio") sem atribuir formalmente um dos 4 Templates de Tela, este documento faz a inferência visual necessária e a identifica explicitamente como inferência, nunca como fato já decidido em outro documento.
 

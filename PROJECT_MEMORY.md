@@ -1155,4 +1155,31 @@ Antes do início da Parte 1, foi executada Auditoria de Consistência completa s
 
 ---
 
+## FASE 018 — Visual Blueprint (Progresso: Sub-Parte 3a aprovada)
+
+**Status:** Em construção por partes — Parte 1 APROVADA, Parte 2 APROVADA (com validação visual dos 11 Dashboards), Parte 3 em construção: sub-parte 3a APROVADA
+**Data:** 2026-08-02
+
+Aprovada pelo proprietário a **sub-parte 3a** do Capítulo 24 (Blueprint Completo das 30 Telas), que entregou o índice completo das 30 telas (Cap. 24.1, com toda classificação de Template identificada explicitamente como `[Inferência visual]`) e o detalhamento visual de 7 telas de módulo: Leads, Clientes, Eventos, Orçamentos, Contratos, Produção e Receitas (Cap. 24.2–24.8), grounded exclusivamente nos perfis já oficiais do UX/UI Specification, §3.12–3.18.
+
+### Decisões tomadas
+- D-018-04: dado o volume do Capítulo 24 (30 telas × 14 aspectos visuais), a construção foi subdividida em 3 sub-partes (3a, 3b, 3c) dentro da Parte 3 do roteiro de 8 partes, sem alterar o escopo total já comunicado.
+
+### Alterações
+- ALT-018-02: `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` avança para a sub-parte 3a aprovada (Cap. 24.1–24.8). Nenhum documento oficial congelado foi alterado.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova. As 3 divergências cosméticas já catalogadas na Fase 018 (registro interno do próprio Visual Blueprint) permanecem sem alteração de tratamento.
+
+### Riscos encontrados
+- Nenhum risco novo.
+
+### Pendências
+- P-018-01 (aprovação parte a parte do Visual Blueprint) segue em andamento — sub-partes 3b e 3c do Capítulo 24, e Partes 4 a 8, ainda pendentes.
+- Pendências herdadas: as mesmas 8 pendências substantivas consolidadas na Fase 016, sem nenhuma nova.
+
+**Confirmação de auditoria (executada antes deste registro):** verificados programaticamente os 10 pontos solicitados pelo proprietário — estrutura sequencial dos 24 capítulos íntegra; todas as referências cruzadas (incluindo referências futuras aos Capítulos 25–28, já declaradas no roteiro) consistentes; todos os 53 códigos F-XXX, 16 códigos RN-XXX, 2 códigos PF-XX e todos os módulos citados confirmados existentes nos documentos oficiais de origem; nenhuma tela, funcionalidade, componente, fluxo, botão ou comportamento criado além da documentação oficial; nenhuma funcionalidade removida; nenhuma regra de negócio ou decisão arquitetural alterada; confirmado via `git status` que apenas o `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` foi modificado.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
