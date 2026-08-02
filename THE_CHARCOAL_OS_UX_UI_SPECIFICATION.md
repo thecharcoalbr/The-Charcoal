@@ -243,7 +243,7 @@ Este documento traduz tudo que já foi aprovado (entidades, regras, funcionalida
 20. **Ações automáticas:** orquestração completa na confirmação (RN-006): reserva de Estoque, planejamento de Produção, sugestão de Escala, lista de Compras, previsão financeira.
 21. **Integração com outros módulos:** 08, 09, 10, 15, 16, 18, 19, 20, 03 — o Dashboard com mais integrações do sistema, além do Dashboard CEO.
 22. **Regras de visibilidade:** dados comerciais visíveis a Comercial; dados de custo/margem restritos a Financeiro/Direção.
-23. **Estados da interface:** "Prospectado" (cinza), "Confirmado" (Brasa), "Em execução" (azul), "Concluído" (verde), "Cancelado" (vermelho, riscado).
+23. **Estados da interface:** "Prospectado" (cinza), "Confirmado" (Brasa), "Em execução" (Âmbar-Atenção), "Concluído" (verde), "Cancelado" (vermelho, riscado).
 24. **Tratamento de erro:** tentativa de confirmar Evento inviável exibe modal explicando exatamente qual recurso está insuficiente (Estoque, Equipamento, mão de obra).
 25. **Melhorias futuras:** visão de mapa (localização geográfica dos Eventos do dia), útil para logística.
 

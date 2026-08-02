@@ -1637,4 +1637,33 @@ Ao iniciar a Auditoria de Abertura da Tela 07 (Dashboard Eventos), a comparaçã
 
 ---
 
+## CORREÇÃO — Contradição TCOS-005 × TCOS-019A ("Em execução" azul → Âmbar-Atenção)
+
+**Status:** CONCLUÍDA E APROVADA PELO PROPRIETÁRIO (comando `CORRIGIR`, escopo fechado, decisão de cor definida por ele)
+**Data:** 2026-08-02
+
+Ao aplicar os Estados da interface do Capítulo 19 (recém-corrigido) para construir o calendário da Tela 07, identifiquei uma contradição real entre a UX/UI Specification (TCOS-005 §3.8, item 23 — "Em execução" definido como "azul") e a Identidade Visual Oficial (TCOS-019A, Capítulo 5 — Paleta Oficial, já congelada), que reserva **qualquer tom frio exclusivamente para conteúdo de IA** (Roxo-IA como única exceção fria, "nunca azul" na paleta). O achado foi apresentado antes de qualquer correção; o proprietário decidiu oficialmente que "Em execução" passa a usar **Âmbar-Atenção**, e autorizou (`CORRIGIR`) a correção pontual do TCOS-005.
+
+### Decisões tomadas
+- D-COR5-01 (decisão oficial do proprietário): o estado "Em execução" do ciclo de vida do Evento é definido oficialmente como **Âmbar-Atenção** — nunca azul. Nenhuma cor nova foi criada; nenhuma categoria da Paleta Oficial (7 categorias) foi expandida.
+- D-COR5-02: os 5 Estados da interface do Dashboard Eventos ficam definidos oficialmente como: Prospectado → Cinza-claro; Confirmado → Brasa; Em execução → Âmbar-Atenção; Concluído → Verde-sucesso; Cancelado → Vermelho-crítico (riscado).
+
+### Alterações
+- ALT-COR5-01: `THE_CHARCOAL_OS_UX_UI_SPECIFICATION.md` (TCOS-005), §3.8, item 23 — "Em execução (azul)" substituído por "Em execução (Âmbar-Atenção)". Confirmado via `git diff` que apenas essa linha foi alterada (1 inserção, 1 remoção) — nenhum outro trecho do documento tocado. TCOS-018 e TCOS-019A permanecem intocados, conforme exigido.
+
+### Achado adicional, encontrado durante a Auditoria de Regressão, NÃO corrigido (fora do escopo autorizado)
+- Busca por "azul" em todo o TCOS-005, executada como parte da Auditoria de Regressão, encontrou **1 ocorrência remanescente**: §3.15 Orçamentos (Módulo 08), item 23 — *"Estados da interface: cores por status (Rascunho cinza, **Enviado azul**, Aceito verde, Recusado vermelho, Expirado cinza-claro)."* Mesma contradição com o TCOS-019A ("nunca azul"), desta vez para o estado "Enviado" de Orçamento. Não corrigido — fora do escopo desta autorização, que era restrita a "não alterar qualquer outro trecho do TCOS-005". Nenhuma tela de Orçamentos foi construída ainda, então este achado não afeta nenhum mockup existente — registrado para correção quando a Tela de Orçamentos (fora da sequência dos 11 Dashboards, telas operacionais) for iniciada, ou antecipadamente, mediante autorização específica do proprietário.
+
+### Riscos encontrados
+- Nenhum risco novo de arquitetura. Risco de produto/design: outras seções do TCOS-005 não verificadas linha a linha para esta mesma contradição além da busca textual por "azul" já executada (que é exaustiva para a palavra exata, mas não cobre eventuais sinônimos ou referências indiretas a tons frios).
+
+### Pendências
+- Achado de §3.15 Orçamentos (Enviado, azul) — aguardando autorização específica para correção, quando a tela correspondente for iniciada.
+- Construção da Tela 07 prossegue imediatamente, com os 5 Estados oficiais já definidos.
+- Pendências já registradas (RC-021-01; citação Cap. 14/15; OE-T06-01) permanecem, sem alteração.
+
+**Confirmação de auditoria (Regressão completa):** confirmado via `git diff` que apenas 1 linha do TCOS-005 foi alterada; confirmado via `git status` que TCOS-018 e TCOS-019A não foram tocados; confirmado que a Paleta Oficial (7 categorias) permanece exatamente a mesma, sem adição ou remoção de categoria; confirmado que a semântica de cores (tom frio exclusivo para IA) permanece consistente após a correção; busca por "azul" em todo o TCOS-005 confirmou exatamente 1 ocorrência remanescente (§3.15), registrada como achado novo, não corrigida.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
