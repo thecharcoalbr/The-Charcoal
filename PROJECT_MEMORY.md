@@ -780,4 +780,37 @@ Pendência P-011-01 (validação formal do proprietário) está **encerrada** po
 
 ---
 
+## FASE 012 — Security and Privacy Architecture
+
+**Status:** Rascunho entregue — aguardando validação do proprietário (`THE_CHARCOAL_OS_SECURITY_AND_PRIVACY_ARCHITECTURE.md` v1.0.0)
+**Data:** 2026-08-02
+
+Recebido o Prompt Oficial (TCOS-012), executada a auditoria de abertura sobre os 15 Documentos Oficiais Congelados, e produzido o documento com a arquitetura conceitual completa de segurança e privacidade: 40 tópicos obrigatórios cobertos, 11 Perfis (10 Áreas da Empresa + Administrador do Sistema) consolidados em Matriz de Responsabilidades, 9 capítulos de segurança por domínio de negócio (Financeiro, Custos, Produção, Estoque, Eventos, Dashboards, IA, Integrações, Documentos), e 2 fluxos conceituais consolidados (Segurança e Auditoria). Nenhuma autenticação específica, criptografia específica, infraestrutura ou tecnologia foi definida. Nenhum documento anterior foi alterado.
+
+### Decisões tomadas
+- D-012-01: princípio de **negação padrão (fail-closed)** formalizado como regra geral — toda checagem de permissão que não puder ser concluída com certeza resulta em acesso negado, nunca concedido por omissão ou indisponibilidade. Achado de segurança mais relevante desta fase, por adição, sem contradizer nenhum documento anterior.
+- D-012-02: **Herança de Permissões** formalizada em exatamente dois padrões observáveis no Domain Model — Herança Consolidada (Direção, somente leitura) e Herança Administrativa (Administrador do Sistema, apenas sobre Perfis/Permissões, nunca sobre dado de negócio sensível).
+- D-012-03: **Sessões** e **Expiração de Sessão** formalizadas pela primeira vez — criadas na autenticação, expiram por inatividade ou duração máxima, com reautenticação exigível para Operações Críticas mesmo dentro de uma Sessão válida.
+- D-012-04: **Operações Críticas** catalogadas sob um critério único (impacto financeiro, irreversibilidade, alteração de permissão, exposição de dado sensível, ou aceite de sugestão de IA) — 8 operações já existentes nos documentos anteriores reunidas pela primeira vez sob esse critério.
+
+### Alterações
+- ALT-012-01: criado o documento `THE_CHARCOAL_OS_SECURITY_AND_PRIVACY_ARCHITECTURE.md` (v1.0.0). Nenhum documento anterior foi alterado.
+
+### Melhorias sugeridas (Backlog)
+- M-012-01 (nova): ao escolher a tecnologia de autenticação em fase técnica futura, avaliar mecanismos nativos de expiração de sessão e reautenticação para Operações Críticas antes de implementá-los de forma customizada.
+- M-012-02 (nova): confirmar com o proprietário o parâmetro de duração de Sessão/inatividade — hoje modelado como Configuração pendente, sem valor assumido.
+- M-012-03 (nova): decisão de governança sobre anonimização de dado pessoal permanece pendente — recomenda-se tratá-la antes de uma eventual exigência legal, não apenas reativamente.
+
+### Riscos encontrados
+- Nenhum risco novo de arquitetura. Riscos herdados (R-000-03/R-002-01, R-001-01/R-002-02, R-002A-01) permanecem abertos, sem impedir a arquitetura de segurança. Um risco de governança (não técnico) foi identificado: ausência de decisão sobre anonimização de dado pessoal — tratado como pendência (não como risco de arquitetura), pois a Exclusão Lógica já protege a integridade do histórico independentemente dessa decisão.
+
+### Pendências
+- P-012-01: validação formal do proprietário sobre o `THE_CHARCOAL_OS_SECURITY_AND_PRIVACY_ARCHITECTURE.md`.
+- Pendências herdadas: parâmetros do Módulo 24 (incluindo o novo parâmetro de duração de Sessão/inatividade), M-003A-03/04, M-005-01/02/03, M-006-01, M-007-01, M-008-01, M-009-01, M-010-01/02/03, M-011-01/02/03, confirmação do domínio de negócio (R-000-03), decisão de governança sobre anonimização de dado pessoal.
+
+### Estrutura de segurança identificada
+- 40/40 tópicos obrigatórios cobertos, 11 Perfis consolidados em Matriz de Responsabilidades, 9 capítulos de segurança por domínio, 6 Eventos de Segurança catalogados (1 herdado + 5 novos), 8 Operações Críticas catalogadas, 2 fluxos conceituais (Segurança, Auditoria), 30 entidades e 12 Regras de Negócio referenciadas (0 novas, 0 alteradas). Maturidade estimada do projeto: 91%.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
