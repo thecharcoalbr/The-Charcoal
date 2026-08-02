@@ -2191,4 +2191,34 @@ O proprietário aprovou integralmente a Tela 12 (Leads) como baseline oficial, e
 
 ---
 
+## CORREÇÃO — Campos "Indicadores", "KPIs" e "Modais" Ausentes (TCOS-018, §24.3 Clientes)
+
+**Status:** CONCLUÍDA E APROVADA PELO PROPRIETÁRIO (comando `CORRIGIR`, escopo fechado)
+**Data:** 2026-08-02
+
+Ao iniciar a Auditoria de Abertura da Tela 13, confirmado via TCOS-018 §24.1 que a Tela 13 é "Clientes" (Módulo 05). A comparação linha por linha entre o TCOS-018 §24.3 e a UX/UI Specification §3.13 confirmou o sinal já registrado durante a correção da Tela 12: o mesmo padrão sistêmico de lacuna, agora com um terceiro campo ausente que não havia ocorrido na Tela 12 — o KPI de cabeçalho "total de Clientes ativos" não estava coberto por nenhum campo, já que "Cards" está explicitamente escopado como "(no Detalhe)". Reportado como Achado formal antes de qualquer correção; o proprietário autorizou (`CORRIGIR`) o escopo exato abaixo, restrito à Seção 24.3.
+
+### Decisões tomadas
+- D-COR13-01: campo "Indicadores" adicionado ao §24.3 — "número de Clientes ativos; taxa de fidelização", copiado literalmente da UX/UI Specification §3.13, item 7.
+- D-COR13-02: campo "KPIs" adicionado ao §24.3 — "total de Clientes ativos (cabeçalho da lista)", copiado literalmente do item 9. Nome do campo ("KPIs") escolhido por ser o nome literal já usado pela própria UX/UI Specification para este item, evitando tanto inventar uma categoria nova quanto forçar o dado dentro do campo "Cards (no Detalhe)", que tem escopo explicitamente diferente (painel de Detalhe, não cabeçalho da lista).
+- D-COR13-03: campo "Modais" adicionado ao §24.3 — "'Novo/Editar Cliente'", copiado literalmente do item 18.
+
+### Alterações
+- ALT-COR13-01: `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` (TCOS-018), §24.3 — campos "Indicadores", "KPIs" e "Modais" adicionados. Confirmado via `git diff` que apenas a Seção 24.3 foi tocada (8 linhas inseridas, 0 removidas) — nenhuma outra subseção do Capítulo 24 alterada; verificação programática confirmou as 20 subseções (24.1–24.20) permanecem sequenciais; RN-009/RN-010 e F-013–F-015 existem exatamente como já citados, sem alteração a esses documentos ou a qualquer outro campo já existente no §24.3.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova além das já registradas (correção pendente Cap. 19 "azul"; achado §3.15 Orçamentos; OE-T06-01; Backlog Oficial de UX/UI da Tela 09, itens OE-T09-01 a OE-T09-06).
+- Confirmado o padrão sistêmico nas Telas 12 e 13 (campo "Indicadores" ausente); §24.4 (Eventos) já sinalizado anteriormente — a confirmar quando essa tela for construída, sem correção preventiva.
+
+### Riscos encontrados
+- Nenhum risco novo de arquitetura, regra de negócio ou documento oficial.
+
+### Pendências
+- Nova Auditoria de Abertura da Tela 13 a ser executada antes da construção, conforme protocolo.
+- Correção pendente do TCOS-018 Capítulo 19 ("azul" → "Âmbar-Atenção"), achado §3.15 Orçamentos e OE-T06-01 permanecem, sem alteração.
+
+**Confirmação de auditoria:** confirmado, antes da edição, que o working tree estava limpo e as 20 subseções do Capítulo 24 íntegras/sequenciais. Confirmado, depois da edição, via `git diff`, que apenas a Seção 24.3 foi alterada; confirmado que RN-009/RN-010 e as referências F-013–F-015 permanecem íntegras em seus documentos de origem; confirmado que nenhum outro campo da Seção 24.3 foi modificado; confirmado que nenhuma Regra de Negócio, Fluxo, Funcionalidade ou decisão arquitetural foi alterada; confirmado que nenhum outro documento oficial congelado foi tocado.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*

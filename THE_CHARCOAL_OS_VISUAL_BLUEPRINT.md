@@ -525,6 +525,10 @@ Os 11 Dashboards já foram integralmente detalhados nos Capítulos 13–23 (Part
 
 **Cards (no Detalhe):** total de Eventos, valor total histórico, status de fidelização.
 
+**Indicadores:** número de Clientes ativos; taxa de fidelização.
+
+**KPIs:** total de Clientes ativos (cabeçalho da lista).
+
 **Tabelas:** lista de Clientes (nome, tipo, status, último Evento); linha do tempo de Eventos/Orçamentos/Contratos na aba Histórico (F-014).
 
 **Gráficos:** nenhum nesta tela.
@@ -534,6 +538,8 @@ Os 11 Dashboards já foram integralmente detalhados nos Capítulos 13–23 (Part
 **Menus:** menu lateral (Clientes); abas internas no painel de Detalhe.
 
 **Botões:** "Novo Cliente" (F-013), "Inativar" (F-015), "Novo Orçamento para este Cliente" (a partir do Detalhe).
+
+**Modais:** "Novo/Editar Cliente".
 
 **Atalhos:** ação rápida de novo Orçamento direto do painel de Detalhe.
 
