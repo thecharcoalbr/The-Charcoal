@@ -1724,4 +1724,32 @@ Ao auditar a Tela 08 (Dashboard CRM) antes da construção, a comparação linha
 
 ---
 
+## FASE — Tela 08 (Dashboard CRM) construída e apresentada
+
+**Status:** Construída e apresentada, aguardando aprovação do proprietário
+**Data:** 2026-08-02
+
+Reiniciada a Auditoria de Abertura da Tela 08 após a correção do Capítulo 20: releitura confirmou que o Capítulo 20 (já corrigido) corresponde integralmente à UX/UI Specification §3.9 — nenhum novo achado. Construído o mockup de alta fidelidade — 8º Dashboard do sistema, primeiro a usar o gráfico tipo "funil", já catalogado (TCOS-018 Cap. 25.20; TCOS-019A Cap. 13 — exceção autorizada, junto ao calendário, à regra de no máximo 2 cores por gráfico).
+
+### Decisões tomadas
+- D-T08-01: funil comercial (Lead → Qualificação → Conversão → Contrato) renderizado com opacidade decrescente de Brasa (100%/80%/60%/40%) — não a "paleta semântica completa" mencionada no TCOS-019A Cap. 13 como alternativa para o funil, pois os 4 estágios representam progressão sequencial de um único funil, não estados distintos de severidade (diferente do calendário, que usa a paleta semântica porque representa estados de ciclo de vida). **[Inferência visual]**, por não haver exemplo de funil já construído em nenhuma tela anterior para servir de precedente direto.
+- D-T08-02 **[Inferência visual]**: rótulos de severidade da tabela "Leads que exigem atenção" ("Atenção"/"Inativo") e sua graduação de cor (Âmbar/Vermelho-crítico por tempo de inatividade) não são especificados literalmente pela UX/UI Specification (que só define o Alerta "Lead inativo há X dias", RN-011, sem texto de Badge nem limiar) — inferência necessária para renderizar a tabela, rastreável à RN-011.
+
+### Alterações
+- ALT-T08-01: criados `mockup-dashboard-crm.html` e `shot8.js` (scratchpad, não versionados em Git); gerado `dashboard-crm.png`. Nenhum documento oficial foi alterado nesta etapa.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova além das já registradas (correção pendente Cap. 19 "azul"; achado §3.15 Orçamentos; OE-T06-01).
+
+### Riscos encontrados
+- Nenhum risco novo.
+
+### Pendências
+- Aprovação do proprietário sobre a Tela 08.
+- Correção pendente do TCOS-018 Capítulo 19 ("azul" → "Âmbar-Atenção"), achado §3.15 Orçamentos e OE-T06-01 permanecem, sem alteração.
+
+**Confirmação de auditoria (Executiva Completa, Consistência, UX/UI, Regressão, Rastreabilidade):** confirmado que o funil e o gráfico de barras usam exclusivamente cores já oficiais (Brasa em opacidade decrescente, conforme autorizado pelo TCOS-019A para este tipo específico de gráfico); confirmado que o conteúdo (KPIs, Funil, Gráfico, Tabela, Ações rápidas, Filtros) corresponde ao TCOS-018 Capítulo 20 (já corrigido) e à UX/UI Specification §3.9; confirmado que a sidebar reflete exatamente o agrupamento oficial (Comercial/CRM: 04 CRM, 05 Clientes, 06 Leads, 08 Orçamentos); confirmado que grid, topbar e paleta são idênticos às Telas 01–07; confirmado que nenhum módulo, Serviço, regra de negócio ou documento oficial foi alterado nesta etapa — apenas o `PROJECT_MEMORY.md`.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
