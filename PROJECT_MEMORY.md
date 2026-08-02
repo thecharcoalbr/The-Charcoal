@@ -1816,4 +1816,53 @@ Reiniciada a Auditoria de Abertura da Tela 09: releitura linha por linha do TCOS
 
 ---
 
+## FASE — Auditoria de UX/UI de Excelência da Tela 09 (Dashboard Marketing) — Aprovada
+
+**Status:** CONCLUÍDA E APROVADA PELO PROPRIETÁRIO (comando `APROVADO`)
+**Data:** 2026-08-02
+
+Executada, a pedido do proprietário, uma Auditoria de UX/UI de Excelência sobre a Tela 09 já concluída, buscando oportunidades reais de melhoria de percepção de qualidade, sem alterar nenhuma regra de negócio, documento oficial ou funcionalidade já aprovada. A auditoria cobriu UX, UI, Produto SaaS, Consistência, Acessibilidade, Escalabilidade Visual, Microinterações, Navegação, Produtividade e Valor Percebido, evitando repetir observações genéricas já registradas no backlog padrão da Revisão Global de UX/UI.
+
+### Resultado da auditoria
+Recomendação final: **APROVAR COM MELHORIAS RECOMENDADAS**.
+
+Pontuação (0–10): UX 8.0 · UI 8.5 · Produto 8.0 · Consistência 9.0 · Escalabilidade Visual 8.5 · Qualidade Enterprise 8.0 · Prontidão mercado brasileiro 9.0 · Prontidão mercado australiano 4.0 (localização de moeda/idioma ainda não endereçada — decisão técnica futura, TCOS-017/TCOS-022 Cap. 27, corretamente fora de escopo visual nesta fase).
+
+### Backlog Oficial de UX/UI — Tela 09 (Dashboard Marketing)
+
+Prioridade **Médio**:
+1. OE-T09-01 — Widget de Leads Inativos sem ação direta (nenhum link/botão para agir sobre o lead a partir do próprio widget).
+2. OE-T09-02 — Desequilíbrio de altura entre os painéis do row2 (gráfico de barras x widget de leads inativos).
+3. OE-T09-03 — Gráfico de barras (canais de aquisição) sem rótulos de valor.
+
+Prioridade **Baixo**:
+4. OE-T09-04 — Ausência de diferenciação de urgência (graduação de cor) no Widget de Leads Inativos — **mesmo risco já identificado e revertido no Achado #1 da Tela 05; não implementar sem nova autorização explícita.**
+5. OE-T09-05 — Redundância do rótulo "Marketing" repetido (área expandida + único item de submenu) na sidebar.
+
+Observação estratégica (sem ação recomendada nesta fase):
+6. OE-T09-06 — Localização de moeda/idioma para o mercado australiano ainda pendente (score 4.0/10); tratamento é decisão técnica futura, fora do escopo desta auditoria visual.
+
+### Determinações do proprietário (comando `APROVADO`)
+- Todas as oportunidades acima são registradas exclusivamente como Backlog Oficial de UX/UI, preservando a prioridade Médio → Baixo, **sem implementação nesta fase**.
+- Nenhuma melhoria será aplicada isoladamente, para evitar inconsistência entre as telas já aprovadas e congeladas.
+- Estas oportunidades serão consolidadas, junto ao backlog acumulado das Telas 04–09, para uma futura **Revisão Global de UX/UI**, a ser executada somente após a conclusão de 100% das 30 telas oficiais.
+- Princípio reafirmado: primeiro concluir integralmente a arquitetura visual; somente depois executar um ciclo único de refinamento premium, simultâneo, em todas as telas.
+- **Nenhuma alteração visual foi aplicada nesta etapa** — nem ao `mockup-dashboard-marketing.html`, nem a qualquer outro mockup, nem a qualquer documento oficial (TCOS-018, TCOS-005 ou qualquer outro).
+- A Tela 09 (Dashboard Marketing) permanece oficialmente **aprovada e congelada** como referência visual desta fase, ao lado das Telas 01–08.
+
+### Alterações
+- Nenhuma. Apenas este registro em `PROJECT_MEMORY.md`.
+
+### Riscos encontrados
+- Nenhum risco novo de arquitetura, regra de negócio ou documento oficial.
+
+### Pendências
+- Backlog Oficial de UX/UI da Tela 09 (itens OE-T09-01 a OE-T09-05) e a observação estratégica OE-T09-06 aguardam a futura Revisão Global de UX/UI (pós-Tela 30).
+- Correção pendente do TCOS-018 Capítulo 19 ("azul" → "Âmbar-Atenção"), achado §3.15 Orçamentos (UX/UI Specification) e OE-T06-01 permanecem, sem alteração.
+- Início imediato do protocolo oficial da Tela 10 (Dashboard Metas).
+
+**Confirmação de auditoria:** confirmado que nenhum arquivo de mockup, TCOS-018, TCOS-005 ou qualquer outro documento oficial foi alterado nesta etapa — apenas `PROJECT_MEMORY.md`; confirmado que a Tela 09 permanece aprovada e congelada; confirmado que todas as 6 oportunidades identificadas foram registradas com prioridade preservada e nenhuma foi implementada.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
