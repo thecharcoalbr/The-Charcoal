@@ -1209,4 +1209,31 @@ Aprovada pelo proprietário a **sub-parte 3b** do Capítulo 24, com o detalhamen
 
 ---
 
+## FASE 018 — Visual Blueprint (Progresso: Capítulo 24 concluído — Partes 1-3 aprovadas)
+
+**Status:** Em construção por partes — Partes 1, 2 e 3 APROVADAS (Parte 3 = Capítulo 24, as 30 telas, em sub-partes 3a/3b/3c, todas aprovadas)
+**Data:** 2026-08-02
+
+Aprovada pelo proprietário a **sub-parte 3c**, última do Capítulo 24, com o detalhamento visual de 6 telas de módulo: Funcionários, Escalas, Bancos, Conciliação Bancária, Configurações e Administração (Cap. 24.15–24.20). Com esta aprovação, o **Capítulo 24 (Blueprint Completo das 30 Telas) está oficialmente concluído**: as 30 telas do sistema (11 Dashboards, Capítulos 13–23, mais 19 telas de módulo, Capítulos 24.2–24.20) estão documentadas visualmente, cada uma exatamente uma única vez.
+
+### Decisões tomadas
+- Nenhuma decisão nova além das já registradas em D-018-04 (subdivisão em sub-partes).
+
+### Alterações
+- ALT-018-04: `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` conclui a Parte 3 (Capítulo 24, sub-partes 3a/3b/3c todas aprovadas). Nenhum documento oficial congelado foi alterado.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova.
+
+### Riscos encontrados
+- Nenhum risco novo.
+
+### Pendências
+- P-018-01 segue em andamento — Partes 4 a 8 do Visual Blueprint ainda pendentes.
+- Pendências herdadas: as mesmas 8 pendências substantivas consolidadas na Fase 016, sem nenhuma nova.
+
+**Confirmação de auditoria (executada antes deste registro):** verificados programaticamente os 10 pontos solicitados — estrutura sequencial dos 24 capítulos e das 20 subseções 24.1–24.20 íntegra; todos os 83 códigos F-XXX, 26 códigos RN-XXX, 2 códigos PF-XX, 2 códigos FL-XXX e os 27 módulos citados confirmados existentes/corretos; as 30 telas confirmadas documentadas exatamente uma única vez, sem omissão ou duplicação; nenhum elemento visual criado além da documentação oficial; nenhuma funcionalidade removida; nenhuma regra de negócio ou decisão arquitetural alterada; confirmado via `git status` que apenas o `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` foi modificado.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*

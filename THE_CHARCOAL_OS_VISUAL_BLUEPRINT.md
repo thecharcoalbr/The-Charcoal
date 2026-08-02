@@ -5,7 +5,7 @@
 **Natureza:** Documento de representação visual do sistema. NÃO constitui implementação, NÃO constitui Frontend, NÃO constitui código. Sua finalidade exclusiva é permitir a validação da experiência do usuário antes de qualquer desenvolvimento técnico.
 **Baseline referenciada:** v1.0.0 (TCOS-000 a TCOS-017), sob a autoridade da Constituição Permanente do Projeto.
 **Referência visual canônica desta fase:** `THE_CHARCOAL_OS_UX_UI_SPECIFICATION.md` (TCOS-005) e `THE_CHARCOAL_OS_FRONTEND_ARCHITECTURE.md` (TCOS-011) — em caso de divergência de nomenclatura entre documentos oficiais, prevalecem estes dois, por determinação expressa do proprietário (comando `ALTERAR`, 2026-08-02).
-**Status:** Documento em Construção — Partes 1 e 2 de 8 APROVADAS — Parte 3 de 8 (Capítulo 24, as 30 telas) concluída em 3 sub-partes (3a e 3b APROVADAS; 3c concluída, aguardando aprovação) — Partes 4 a 8 pendentes.
+**Status:** Documento em Construção — Partes 1, 2 e 3 de 8 APROVADAS (Parte 3 = Capítulo 24, as 30 telas, em 3 sub-partes 3a/3b/3c, todas aprovadas) — Parte 4 de 8 em construção.
 
 ---
 
@@ -46,6 +46,7 @@ Estas três divergências herdadas do TCOS-016 (M-016-01, M-016-02, referentes a
 | 2 | APROVADA (2026-08-02) | Inclui validação visual complementar dos 11 Dashboards (wireframe estrutural), aprovada pelo proprietário antes do início da Parte 3 |
 | 3a | APROVADA (2026-08-02) | Cap. 24.1 (índice das 30 telas) + Cap. 24.2–24.8 (Leads, Clientes, Eventos, Orçamentos, Contratos, Produção, Receitas) |
 | 3b | APROVADA (2026-08-02) | Cap. 24.9–24.14 (Fichas Técnicas, Precificação, Compras, Estoque, Lotes, Equipamentos) |
+| 3c | APROVADA (2026-08-02) | Cap. 24.15–24.20 (Funcionários, Escalas, Bancos, Conciliação Bancária, Configurações, Administração) — Capítulo 24 concluído: 30/30 telas documentadas |
 
 Nenhuma funcionalidade, regra de negócio, entidade, tela ou componente novo é criado neste documento — toda representação visual deriva exclusivamente do que já está oficialmente especificado. Onde a especificação existente descreve um layout em texto (ex.: "lista/kanban por estágio") sem atribuir formalmente um dos 4 Templates de Tela, este documento faz a inferência visual necessária e a identifica explicitamente como inferência, nunca como fato já decidido em outro documento.
 
