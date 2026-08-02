@@ -357,7 +357,7 @@ Esta cadeia é o único caminho pelo qual uma sugestão de IA chega a produzir e
 | Administração e Segurança | — | todos (para controle de acesso) | domínio de negócio de qualquer Serviço |
 | Auditoria | todos os demais Serviços (assina todos os eventos, sem exceção) | — | qualquer outro Serviço (apenas leitura/registro) |
 
-Esta matriz confirma, ao nível de comportamento, a ausência de dependência circular já atestada estruturalmente no TCOS-006 (Capítulo "Dependências entre Módulos") — nenhum Serviço depende, direta ou indiretamente, de um Serviço que dependa dele.
+Esta matriz descreve as dependências obrigatórias no nível de Serviço. No nível de Módulo, o TCOS-006 (Capítulo "Dependências entre Módulos") já registra uma relação de colaboração mútua entre Produção (10) e Estoque (16) — tratada como colaboração em tempo de execução via Event Bus, não como dependência de construção em uma única direção, e resolvida operacionalmente no TCOS-017 (implementação dos dois módulos no mesmo bloco). Fora dessa relação já conhecida e endereçada, nenhum outro Serviço depende, direta ou indiretamente, de um Serviço que dependa dele.
 
 ## 10. Fluxo de Sincronização entre Módulos
 

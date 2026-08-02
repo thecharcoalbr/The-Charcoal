@@ -1327,4 +1327,37 @@ Aprovada pelo proprietário a Fase 2 do TCOS-019A: a Biblioteca Visual Oficial d
 
 ---
 
+## AUDITORIA CORRETIVA DE ARQUITETURA — Achados Altos (Correção Documental)
+
+**Status:** CONCLUÍDA E APROVADA PELO PROPRIETÁRIO (comando `CORRIGIR`, escopo fechado)
+**Data:** 2026-08-02
+
+Executada, a pedido do proprietário, uma Auditoria Arquitetural completa (arquitetura, escalabilidade, desacoplamento, manutenibilidade, reutilização, modularização, SOLID, Clean Architecture, riscos técnicos, gargalos futuros) sobre a documentação oficial de arquitetura (TCOS-002 a TCOS-017). Dos achados classificados como Alto, dois foram aprovados para correção documental mínima, sem qualquer alteração de arquitetura, módulo, Serviço, Fluxo, Funcionalidade ou Regra de Negócio.
+
+### Decisões tomadas
+- D-COR-01: a relação de colaboração mútua entre Produção (Módulo 10) e Estoque (Módulo 16), já registrada na Matriz de Dependências do TCOS-006 (Capítulo 4) e já resolvida operacionalmente no TCOS-017 (implementação em bloco único), estava descrita de forma factualmente incorreta no TCOS-009 (Capítulo 9), que afirmava "confirmar a ausência de dependência circular" — a frase foi corrigida para refletir corretamente o que o próprio TCOS-006 já registra.
+- D-COR-02: a lista-resumo em prosa "Quem precisa obrigatoriamente de outro" do TCOS-006 (Capítulo 4) foi alinhada à sua própria tabela oficial, que já listava Estoque como dependente obrigatório de Produção — sem alterar a tabela, apenas complementando a prosa que a resume.
+- D-COR-03: a declaração de fechamento da Fase 004 ("grafo acíclico, sem dependência circular") representava corretamente o estado do projeto naquele momento (antes da existência do conceito de Agregado e da Matriz de Dependências entre Módulos, ambos introduzidos apenas no TCOS-006/TCOS-007). Essa leitura foi posteriormente complementada pela decisão arquitetural formalizada no TCOS-006 (colaboração mútua Produção↔Estoque) e esclarecida operacionalmente no TCOS-017. O registro original da Fase 004 permanece intacto, sem edição — esta nota apenas o contextualiza.
+- D-COR-04: o Serviço de Indicadores e Dashboards e o Serviço de Auditoria, por assinarem "todos os eventos do sistema, sem exceção" (TCOS-006, Capítulo 6), têm carga de processamento agregada por definição arquitetural — diferente dos demais 13 Serviços, cuja carga é independente entre si. Isso não é uma inconsistência documental (nenhum documento afirma o contrário de forma explícita), mas um risco de dimensionamento a ser observado quando houver definição tecnológica de infraestrutura. Nenhuma solução técnica (fila, particionamento, sharding) foi antecipada nesta fase.
+
+### Alterações
+- ALT-COR-01: `THE_CHARCOAL_OS_INTEGRATION_AND_API_CONTRACT.md` (TCOS-009), Capítulo 9 — última frase corrigida, substituindo a afirmação incorreta de "ausência de dependência circular" pelo reconhecimento da colaboração mútua Produção↔Estoque já documentada no TCOS-006 e resolvida no TCOS-017. Nenhuma outra linha do documento foi tocada.
+- ALT-COR-02: `THE_CHARCOAL_OS_SYSTEM_ARCHITECTURE.md` (TCOS-006), Capítulo 4 — lista "Quem precisa obrigatoriamente de outro" complementada com "Estoque (Compras/Produção)", alinhando a prosa à tabela oficial já existente na mesma seção. Nenhuma outra linha do documento foi tocada.
+- Nenhum outro documento oficial congelado foi alterado. O `THE_CHARCOAL_OS_IMPLEMENTATION_MASTER_PLAN.md` (TCOS-017) permanece integralmente intacto e válido — é, na verdade, a fonte da redação agora refletida no TCOS-009.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova.
+
+### Riscos encontrados
+- **R-COR-01 (Risco Técnico de Escalabilidade, registrado nesta fase, sem correção documental associada):** os Serviços Indicadores e Dashboards e Auditoria possuem carga de processamento agregada por definição arquitetural (assinam todos os eventos do sistema, sem exceção — TCOS-006, Capítulo 6), diferentemente dos demais 13 Serviços, cuja carga escala de forma independente (TCOS-006 Capítulo 9; TCOS-010 Capítulo 22). Nenhum documento oficial define hoje uma estratégia de processamento (não confundir com a estratégia de armazenamento/cache já definida no TCOS-008) para esse padrão de carga agregada. Este risco deverá receber atenção específica na primeira fase que definir a infraestrutura tecnológica do SaaS — sem antecipação de fila, particionamento, sharding ou qualquer outro mecanismo técnico nesta etapa.
+- Os demais riscos já consolidados nas fases anteriores permanecem, sem alteração.
+
+### Pendências
+- R-COR-01 aguarda retomada na futura fase de definição de infraestrutura/tecnologia.
+- Pendências herdadas: as mesmas 8 pendências substantivas consolidadas na Fase 016, sem nenhuma nova.
+
+**Confirmação de auditoria (executada antes deste registro):** confirmado via `git diff` que apenas 1 frase do TCOS-009 (Capítulo 9) e 1 item da lista-resumo do TCOS-006 (Capítulo 4) foram alterados — nenhuma tabela, nenhuma outra frase, nenhum outro capítulo de nenhum dos dois documentos foi tocado; nenhuma Regra de Negócio (RN-XXX), Fluxo (FL-XXX) ou Funcionalidade (F-XXX) referencia as linhas alteradas; o TCOS-017 não foi modificado e permanece a fonte correta já refletida nas correções; a arquitetura conceitual (27 módulos, 15 Serviços, Event Bus) permanece exatamente a mesma — apenas a documentação passou a representar corretamente uma decisão arquitetural que já existia.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*

@@ -174,7 +174,7 @@ O Serviço de Eventos é o orquestrador natural do ciclo comercial-operacional, 
 
 **Quem pode funcionar sozinho** (não exige nenhum outro Serviço para existir): Clientes (cadastro direto), Leads (cadastro direto), Receitas, Compras, Equipamentos (cadastro), Funcionários, Marketing (cadastro de Campanha), Configurações, Administração, Bancos.
 
-**Quem precisa obrigatoriamente de outro** (não pode operar sem que outro Serviço já exista/responda): Eventos (Comercial), Orçamentos (Custos/Precificação), Contratos (Orçamentos), Produção (Fichas Técnicas/Estoque/Configurações), Precificação (Fichas Técnicas/Configurações), Escalas (Funcionários/Eventos/Configurações), Metas (Indicador), Dashboards (todos), IA (o Serviço de origem de cada sugestão).
+**Quem precisa obrigatoriamente de outro** (não pode operar sem que outro Serviço já exista/responda): Eventos (Comercial), Orçamentos (Custos/Precificação), Contratos (Orçamentos), Produção (Fichas Técnicas/Estoque/Configurações), Estoque (Compras/Produção), Precificação (Fichas Técnicas/Configurações), Escalas (Funcionários/Eventos/Configurações), Metas (Indicador), Dashboards (todos), IA (o Serviço de origem de cada sugestão).
 
 ---
 
