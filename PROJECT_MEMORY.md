@@ -1695,4 +1695,33 @@ Construído o mockup de alta fidelidade da Tela 07 — 7º Dashboard do sistema 
 
 ---
 
+## CORREÇÃO — Ação Rápida, Alertas e Estados Faltantes (TCOS-018, Capítulo 20)
+
+**Status:** CONCLUÍDA E APROVADA PELO PROPRIETÁRIO (comando `APROVADO`, escopo fechado)
+**Data:** 2026-08-02
+
+Ao auditar a Tela 08 (Dashboard CRM) antes da construção, a comparação linha por linha entre o TCOS-018 (Capítulo 20) e a UX/UI Specification (§3.9) encontrou duas categorias de achado: (1) a Ação rápida documentada ("Novo Lead") divergia da fonte, que define este Dashboard como **somente navegação** ("Ir para Leads"/"Ir para Clientes"), sem ação de criação própria — a própria §3.9 confirma "nenhum [modal] próprio — ações de criação ocorrem nas telas de Leads/Clientes"; (2) Alertas (Lead inativo, RN-011) e Estados da interface (normal/vazio) ausentes, mesmo padrão já visto nos Capítulos 18/19. Ambos reportados antes de qualquer correção; o proprietário autorizou (`APROVADO`, com escopo já definido no prompt de aprovação) a correção pontual abaixo.
+
+### Decisões tomadas
+- D-COR6-01: a Ação rápida do Capítulo 20 foi corrigida para "Ir para Leads"/"Ir para Clientes", eliminando a referência a uma ação de criação ("Novo Lead") que a própria fonte nega a este Dashboard.
+- D-COR6-02: Alertas (RN-011) e Estados da interface (normal/vazio) adicionados exatamente conforme §3.9.
+
+### Alterações
+- ALT-COR6-01: `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` (TCOS-018), Capítulo 20 — Ação rápida corrigida; Alertas e Estados da interface adicionados. Confirmado via `git diff` que apenas o Capítulo 20 foi tocado (5 inserções, 1 remoção) — nenhum outro capítulo alterado; verificação programática confirmou os 28 capítulos permanecem sequenciais; RN-011 existe exatamente como citado.
+
+### Achado adicional, encontrado durante esta auditoria, NÃO corrigido (fora do escopo desta autorização)
+- O **Capítulo 19** (Dashboard Eventos), corrigido em etapa anterior a esta sessão, ainda contém o texto literal **"Em execução" (azul)** em seu campo "Estados da interface" — resíduo da correção original, aplicada *antes* da decisão do proprietário de substituir "azul" por "Âmbar-Atenção" no TCOS-005. Naquela ocasião, a autorização foi explícita em "não alterar TCOS-018", então o Capítulo 19 não foi atualizado. Resultado: o TCOS-018 Capítulo 19 está hoje **desatualizado frente ao TCOS-005 (já corrigido) e frente à própria Tela 07 (já aprovada e construída corretamente com Âmbar-Atenção)**. Não corrigido nesta fase — fora do escopo da autorização atual, que era restrita ao Capítulo 20. Recomenda-se `CORRIGIR` pontual do TCOS-018 Capítulo 19 para alinhar o texto à decisão já oficial.
+
+### Riscos encontrados
+- Nenhum risco novo de arquitetura.
+
+### Pendências
+- Correção pendente do TCOS-018 Capítulo 19 ("azul" → "Âmbar-Atenção") — aguardando autorização específica.
+- Achado §3.15 Orçamentos (Enviado, azul), OE-T06-01 permanecem, sem alteração.
+- Nova Auditoria de Abertura da Tela 08 a ser executada antes da construção, conforme instruído.
+
+**Confirmação de auditoria:** confirmado, antes da edição, que os itens autorizados existem literalmente na UX/UI Specification §3.9. Confirmado, depois da edição, via `git diff`, que apenas o Capítulo 20 foi alterado; nenhuma Regra de Negócio, Fluxo, Funcionalidade ou decisão arquitetural foi modificada; nenhum outro documento oficial congelado foi tocado.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*

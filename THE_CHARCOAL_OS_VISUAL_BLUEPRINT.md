@@ -364,9 +364,13 @@ Distribuição em grid: Desktop 2 a 4 colunas (Capítulo 11 deste documento), Ta
 
 **Tabela:** Leads que exigem atenção (RN-011), com Badge de status e tempo desde o último contato.
 
-**Ações rápidas:** "Novo Lead", acesso direto à tela de Leads (Capítulo 24 deste documento).
+**Ações rápidas:** "Ir para Leads"; "Ir para Clientes" (navegação para os módulos específicos, Capítulo 24 deste documento) — este Dashboard não possui ação de criação própria.
 
 **Filtros:** seletor de período; filtro por estágio do funil.
+
+**Alertas:** Lead inativo há X dias (RN-011).
+
+**Estados da interface:** normal; vazio (nenhum Lead no período filtrado).
 
 **Comportamento esperado:** o funil visual reflete exatamente os mesmos estágios já definidos no ciclo de vida de Lead (Domain Model) — nenhum estágio novo é introduzido nesta representação visual.
 
