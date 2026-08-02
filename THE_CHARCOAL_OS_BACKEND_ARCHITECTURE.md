@@ -3,7 +3,7 @@
 **Documento:** TCOS-010 — Arquitetura Conceitual de Backend
 **Projeto:** THE CHARCOAL OS
 **Fase:** 010 — Backend Architecture
-**Status:** Rascunho para validação do proprietário
+**Status:** Oficial — Aprovado e Congelado pelo proprietário em 2026-08-02 (comando `APROVADO`, após auditoria corretiva)
 **Versão:** 1.0.0
 
 ---
@@ -717,8 +717,8 @@ Justificativa técnica: além da cobertura já reconhecida na primeira rodada (2
 - Melhorias: 3 (M-010-01, M-010-02 mantidas; M-010-03 nova).
 - Percentual estimado de maturidade do projeto: **84%** (sem alteração em relação à primeira rodada — esta auditoria corrigiu precisão e rastreabilidade do documento já entregue, sem adicionar nem remover escopo arquitetural).
 
-**Status desta fase:** Rascunho aguardando validação do proprietário. Esta fase **não foi aprovada nem encerrada** — permanece sujeita a `APROVADO`, `CORRIGIR`, `ALTERAR`, `REMOVER` ou `CONTINUAR`. Nenhuma fase de linguagem, framework, banco de dados físico, API ou Desenvolvimento será iniciada sem autorização explícita. A Fase 011 não foi criada.
+**Status desta fase:** APROVADA E CONGELADA pelo proprietário em 2026-08-02 (comando `APROVADO`, após auditoria corretiva). Este documento passa a integrar a documentação oficial do THE CHARCOAL OS; nenhuma alteração futura sem criação de nova versão formal. Nenhuma fase de linguagem, framework, banco de dados físico, API ou Desenvolvimento foi iniciada. A Fase 011 aguarda o Prompt Oficial do proprietário.
 
 ---
 
-*Fim do documento — THE CHARCOAL OS BACKEND ARCHITECTURE v1.0.0 (rascunho em correção)*
+*Fim do documento — THE CHARCOAL OS BACKEND ARCHITECTURE v1.0.0 (Oficial)*
