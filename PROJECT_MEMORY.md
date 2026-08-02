@@ -725,4 +725,37 @@ Pendência P-010-01 (validação formal do proprietário) está **encerrada** po
 
 ---
 
+## FASE 011 — Frontend Architecture
+
+**Status:** Rascunho entregue — aguardando validação do proprietário (`THE_CHARCOAL_OS_FRONTEND_ARCHITECTURE.md` v1.0.0)
+**Data:** 2026-08-02
+
+Recebido o Prompt Oficial (TCOS-011), executada a auditoria de abertura sobre os 14 Documentos Oficiais Congelados, e produzido o documento com a arquitetura lógica interna de frontend: 5 sub-camadas de apresentação, as 30 telas (TCOS-005) organizadas em 4 Templates formais (Dashboard, Lista, Detalhe, Modal), comunicação com o backend por contrato público (espelhando o TCOS-010), consumo formalizado das 20 Integrações (TCOS-009) e dos 15 Serviços Conceituais (TCOS-006/TCOS-010), e 8 conceitos genuinamente novos formalizados por adição (Gerenciamento de Estado, Estados de Carregamento, Estados Vazios, Acessibilidade, Internacionalização, Cache da Interface, Funcionamento Offline, Observabilidade da Interface, Performance da Interface). Nenhuma linguagem, framework, biblioteca ou tecnologia de UI foi definida. Nenhum documento anterior foi alterado.
+
+### Decisões tomadas
+- D-011-01: o frontend ocupa a camada de Apresentação reservada (mas não detalhada) no System Architecture (TCOS-006), organizada em 5 sub-camadas internas (Telas, Componentes, Estado, Comunicação, Transversal) — nunca uma estrutura paralela aos Serviços/Domínios já definidos.
+- D-011-02: a hierarquia de tela já implícita no Design System (TCOS-005, Seção 5.2: Dashboard → Lista → Detalhe → Modal) foi elevada a 4 Templates formais de arquitetura, cada um com composição fixa de componentes — nenhuma das 30 telas foge a esses 4 Templates.
+- D-011-03: a comunicação do frontend com o backend adota exatamente o mesmo padrão de contrato público e Regra Transacional de Agregados já definidos no TCOS-010 (Capítulo 20) — nenhuma consulta síncrona do frontend jamais amplia uma transação do backend.
+- D-011-04: 8 lacunas conceituais reais, nunca antes formalizadas em nenhum documento aprovado, foram identificadas e resolvidas nesta fase por adição: Gerenciamento de Estado, Estados de Carregamento/Vazios (generalizando padrões pontuais já citados no TCOS-005), Acessibilidade, Internacionalização (reservada, no mesmo padrão de Multiempresa/Multifilial do TCOS-007), Cache da Interface (distinto do Cache do backend, TCOS-010), Funcionamento Offline (conectado ao Roadmap mobile do Framework), Observabilidade da Interface e Performance da Interface.
+
+### Alterações
+- ALT-011-01: criado o documento `THE_CHARCOAL_OS_FRONTEND_ARCHITECTURE.md` (v1.0.0). Nenhum documento anterior foi alterado.
+
+### Melhorias sugeridas (Backlog)
+- M-011-01 (nova): ao escolher a tecnologia de frontend em fase técnica futura, avaliar mecanismos nativos de cache de interface e de fila de ações offline antes de implementá-los de forma customizada.
+- M-011-02 (nova): validar formalmente o nível de contraste AA sobre a paleta de cores já aprovada (TCOS-005) assim que a tecnologia de UI for escolhida.
+- M-011-03 (nova): a decisão de negócio sobre suporte a múltiplos idiomas/moedas permanece não confirmada (relacionada a R-000-03) — registrada como pendência de negócio, não como lacuna de arquitetura.
+
+### Riscos encontrados
+- Nenhum risco novo de negócio. Riscos herdados (R-000-03/R-002-01, R-001-01/R-002-02, R-002A-01) permanecem abertos, sem impedir a arquitetura de frontend.
+
+### Pendências
+- P-011-01: validação formal do proprietário sobre o `THE_CHARCOAL_OS_FRONTEND_ARCHITECTURE.md`.
+- Pendências herdadas: parâmetros do Módulo 24, M-003A-03/04, M-005-01/02/03, M-006-01, M-007-01, M-008-01, M-009-01, M-010-01/02/03, confirmação do domínio de negócio (R-000-03).
+
+### Estrutura de frontend identificada
+- 30/30 telas cobertas (100%), 27/27 módulos representados na interface (100%, 26 com tela própria + 1 via componente), 15/15 Serviços consumidos (100%), 20/20 Integrações observadas (100%), 4 Templates formalizados, 18 componentes reutilizáveis (15 herdados do TCOS-005 + 3 novos), 8 conceitos novos formalizados por adição. Maturidade estimada do projeto: 88%.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
