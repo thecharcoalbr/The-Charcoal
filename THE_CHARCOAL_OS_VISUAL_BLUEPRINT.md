@@ -637,6 +637,10 @@ Os 11 Dashboards já foram integralmente detalhados nos Capítulos 13–23 (Part
 
 **Cards:** valor total; status; data de assinatura.
 
+**Indicadores:** tempo médio de formalização; volume de aditivos.
+
+**KPIs:** Contratos assinados no período.
+
 **Tabelas:** lista de Contratos; histórico de aditivos.
 
 **Gráficos:** nenhum nesta tela.
@@ -646,6 +650,8 @@ Os 11 Dashboards já foram integralmente detalhados nos Capítulos 13–23 (Part
 **Menus:** menu lateral (Contratos).
 
 **Botões:** "Assinar" (F-030), "Registrar Aditivo" (F-031), "Baixar PDF", "Ver Evento vinculado".
+
+**Modais:** "Registrar Aditivo" (descrição da alteração, novo valor se houver).
 
 **Atalhos:** acesso direto ao Evento vinculado a partir do Contrato.
 

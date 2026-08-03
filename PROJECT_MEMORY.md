@@ -2464,4 +2464,34 @@ O proprietário aprovou integralmente a Tela 15 (Orçamentos) como baseline ofic
 
 ---
 
+## CORREÇÃO — Campos "Indicadores", "KPIs" e "Modais" Ausentes (TCOS-018, §24.6 Contratos)
+
+**Status:** CONCLUÍDA E APROVADA PELO PROPRIETÁRIO (comando `CORRIGIR`, escopo fechado)
+**Data:** 2026-08-02
+
+Ao iniciar a Auditoria de Abertura da Tela 16, confirmado via TCOS-018 §24.1 que a Tela 16 é "Contratos" (Módulo 09). A comparação linha por linha entre o TCOS-018 §24.6 e a UX/UI Specification §3.16 confirmou, pela quinta vez consecutiva, o mesmo padrão sistêmico já corrigido nas Telas 12 a 15: campos "Indicadores", "KPIs" e "Modais" ausentes. Confirmado também que "Botões" do §24.6 mescla corretamente Botões + Ações rápidas da fonte (consolidação já usual) e que "Estados da interface" não apresenta nenhuma contradição de cor (nem a fonte nem o TCOS-018 especificam cores para os 5 estados de Contrato). Reportado como Achado formal antes de qualquer correção; o proprietário autorizou (`CORRIGIR`) o escopo exato abaixo.
+
+### Decisões tomadas
+- D-COR16-01: campo "Indicadores" adicionado ao §24.6 — "tempo médio de formalização; volume de aditivos", copiado literalmente da UX/UI Specification §3.16, item 7.
+- D-COR16-02: campo "KPIs" adicionado ao §24.6 — "Contratos assinados no período", copiado literalmente do item 9.
+- D-COR16-03: campo "Modais" adicionado ao §24.6 — "'Registrar Aditivo' (descrição da alteração, novo valor se houver)", copiado literalmente do item 18.
+
+### Alterações
+- ALT-COR16-01: `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` (TCOS-018), §24.6 — campos "Indicadores", "KPIs" e "Modais" adicionados. Confirmado via `git diff` que apenas a Seção 24.6 foi tocada (8 linhas inseridas, 0 removidas) — nenhuma outra subseção do Capítulo 24 alterada; verificação programática confirmou as 20 subseções (24.1–24.20) permanecem sequenciais; F-030/F-031 e RN-014/RN-015 existem exatamente como já citados, sem alteração a esses documentos ou a qualquer outro campo já existente no §24.6.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova além das já registradas (OE-T06-01; Backlog Oficial de UX/UI da Tela 09, itens OE-T09-01 a OE-T09-06).
+- Padrão sistêmico do campo "Indicadores" ausente confirmado em 5 telas consecutivas (§§24.2 a 24.6) — permanece sem correção preventiva no §24.7 em diante, a confirmar exclusivamente em cada construção futura.
+
+### Riscos encontrados
+- Nenhum risco novo de arquitetura, regra de negócio ou documento oficial.
+
+### Pendências
+- Nova Auditoria de Abertura da Tela 16 a ser executada antes da construção, conforme protocolo — construção NÃO iniciada nesta etapa, por instrução explícita do proprietário.
+- Correção pendente do TCOS-018 Capítulo 19 ("Em execução (azul)", stale) permanece, sem alteração.
+
+**Confirmação de auditoria:** confirmado, antes da edição, que o working tree estava limpo e as 20 subseções do Capítulo 24 íntegras/sequenciais. Confirmado, depois da edição, via `git diff`, que apenas a Seção 24.6 foi alterada; confirmado que F-030/F-031 e RN-014/RN-015 permanecem íntegras em seus documentos de origem; confirmado que nenhum outro campo da Seção 24.6 foi modificado; confirmado que nenhuma Regra de Negócio, Fluxo, Funcionalidade ou decisão arquitetural foi alterada; confirmado que nenhum outro documento oficial congelado foi tocado.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
