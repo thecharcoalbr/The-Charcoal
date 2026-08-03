@@ -2345,4 +2345,28 @@ Reiniciada a Auditoria de Abertura da Tela 14 após a correção do §24.4. A re
 
 ---
 
+## APROVAÇÃO — Tela 14 (Eventos — Detalhe) — Conclusão oficial
+
+**Status:** APROVADA E CONGELADA PELO PROPRIETÁRIO (comando `APROVADO`)
+**Data:** 2026-08-02
+
+O proprietário aprovou integralmente a Tela 14 (Eventos — Detalhe) como baseline oficial, encerrando esta etapa.
+
+### Alterações
+- Nenhuma alteração de conteúdo. Apenas este registro de aprovação em `PROJECT_MEMORY.md`.
+
+### Confirmação de auditoria de consistência pós-aprovação
+- Confirmado que o mockup `mockup-evento-detalhe.html`/`evento-detalhe.png` (scratchpad, não versionado em Git) corresponde integralmente ao TCOS-018 §24.4 (já corrigido) e à UX/UI Specification §3.14.
+- Confirmado, via `git status`, que nenhum documento oficial além do `PROJECT_MEMORY.md` foi alterado nesta etapa de aprovação.
+- Confirmado que a Tela 14 passa a integrar oficialmente o conjunto de referências visuais aprovadas do THE CHARCOAL OS, ao lado das Telas 01–13 (3 de 19 telas de módulo concluídas).
+
+### Pendências
+- Correção pendente do TCOS-018 Capítulo 19 ("azul" → "Âmbar-Atenção"), achado §3.15 Orçamentos (UX/UI Specification) e OE-T06-01 permanecem, sem alteração.
+- Backlog Oficial de UX/UI da Tela 09 (OE-T09-01 a OE-T09-06) permanece aguardando a futura Revisão Global de UX/UI.
+- Início imediato do protocolo oficial da Tela 15 (Orçamentos) — atenção especial ao achado já registrado §3.15 ("Enviado azul"), que será formalmente reavaliado nesta etapa.
+
+**Aprovação:** a Tela 14 (Eventos — Detalhe) foi aprovada integralmente pelo proprietário (comando `APROVADO`) e passa a integrar oficialmente o conjunto de referências visuais aprovadas do THE CHARCOAL OS, ao lado das Telas 01–13.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
