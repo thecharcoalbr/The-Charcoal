@@ -2403,4 +2403,41 @@ Ao iniciar a Auditoria de Abertura da Tela 15, confirmado via TCOS-018 §24.1 qu
 
 ---
 
+## FASE — Tela 15 (Orçamentos) construída e apresentada
+
+**Status:** Construída e apresentada, aguardando aprovação do proprietário
+**Data:** 2026-08-02
+
+Reiniciada a Auditoria de Abertura da Tela 15 após a correção do §24.5 e do §3.15. A releitura linha por linha do TCOS-018 §24.5 (já corrigido) contra a UX/UI Specification §3.15 (já corrigida), a Functional Specification (F-025–F-028, F-047) e a Business Rules Specification (RN-012/013/021/022/023) confirmou cobertura completa — nenhuma nova divergência objetiva encontrada. Construída a quarta das 19 telas de módulo — Tela 15, "Orçamentos", segundo uso do Template "Lista + Detalhe" (aqui, Detalhe/editor de proposta).
+
+### Decisões tomadas
+- D-T15-01: Orçamento selecionado em destaque no estado "Enviado" — primeira aplicação visual da cor Brasa recém-definida para este estado, substituindo definitivamente a antiga referência a "azul".
+- D-T15-02: os 5 Estados da interface (Rascunho/Cinza, Enviado/Brasa, Aceito/Verde-Sucesso, Recusado/Vermelho-Crítico, Expirado/Cinza-claro) todos representados na Lista de Orçamentos, demonstrando a paleta completa recém-corrigida.
+- D-T15-03: botões de ação no editor exibidos de forma contextual ao estado atual — "Nova Versão" (F-027) e "Registrar Aceite/Recusa" (F-028) para um Orçamento já "Enviado"; "Enviar" (F-026) omitido por não se aplicar a este estado — mesmo princípio de ações contextuais por estágio já aplicado na Tela 14.
+- D-T15-04 **[Inferência visual]**: exemplo do Alerta "Produto sem Ficha Técnica vigente" (RN-021) renderizado como etiqueta inline (Âmbar) junto ao item "Espetinho misto — porção" no editor.
+- D-T15-05: nomes de Clientes reaproveitados das Telas 12/13 (Grupo Aurora, Buffet Vida Nova Eventos, Recanto Verde Eventos, Condomínio Jardins do Sul, Sítio Boa Vista) para continuidade narrativa, evitando reutilizar "TechCorp Ltda." nesta tela para não reforçar a pequena inconsistência cronológica já existente (e já congelada) na linha do tempo da Tela 13.
+- D-T15-06: campos "Cards" (Valor total; Margem calculada) corrigidos, ainda durante a construção, para o padrão visual de caixas com borda já estabelecido (idêntico ao `.dcard` da Tela 13) — ver autocorreção abaixo.
+
+### Alterações
+- ALT-T15-01: criados `mockup-orcamentos.html` e `shot15.js` (scratchpad, não versionados em Git); gerado `orcamentos.png`. Nenhum documento oficial foi alterado nesta etapa.
+
+### Autocorreções durante as auditorias finais (antes da apresentação)
+- AC-T15-01: os Cards "Valor total" e "Margem calculada" foram inicialmente renderizados como texto simples de resumo alinhado à direita, divergindo do padrão visual de Card (caixa com borda) já estabelecido em outras telas (ex.: Tela 13). Corrigido para o mesmo padrão de caixa com borda — autocorreção sobre mockup ainda não aprovado, sem tocar em documento oficial.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova além das já registradas (OE-T06-01; Backlog Oficial de UX/UI da Tela 09, itens OE-T09-01 a OE-T09-06).
+- Padrão sistêmico do campo "Indicadores" ausente confirmado em 4 telas consecutivas (§§24.2 a 24.5) — permanece sem correção preventiva no §24.6 em diante, a confirmar exclusivamente na Tela 16.
+
+### Riscos encontrados
+- Nenhum risco novo.
+
+### Pendências
+- Aprovação do proprietário sobre a Tela 15.
+- Correção pendente do TCOS-018 Capítulo 19 ("Em execução (azul)", stale) permanece, sem alteração — escopo restrito à correção anterior do TCOS-005.
+- 4 de 19 telas de módulo concluídas.
+
+**Confirmação de auditoria (Executiva Completa, Consistência, UX/UI, Produto SaaS, Regressão, Rastreabilidade):** confirmado que o conteúdo (Cards, Indicadores, KPIs, Tabelas, Filtros, Botões, Modais, Atalhos, Estados da interface, Mensagens, Alertas, Validações visuais) corresponde integralmente ao TCOS-018 §24.5 (já corrigido) e à UX/UI Specification §3.15 (já corrigida); confirmado que os 5 Estados usam exatamente as cores oficiais, sem qualquer referência a "azul"; confirmado que a sidebar reflete o agrupamento oficial (Comercial/CRM: CRM, Clientes, Leads, Orçamentos — ativo), mesmo padrão expandido já usado nas Telas 08, 12 e 13; confirmado que grid, topbar e paleta são idênticos às Telas 01–14; confirmado que Roxo-IA permanece ausente (nenhum conteúdo de IA nesta tela); confirmado que nenhum módulo, Serviço, regra de negócio ou documento oficial foi alterado nesta etapa — apenas o `PROJECT_MEMORY.md`.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
