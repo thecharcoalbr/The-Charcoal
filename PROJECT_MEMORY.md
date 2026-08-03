@@ -2440,4 +2440,28 @@ Reiniciada a Auditoria de Abertura da Tela 15 após a correção do §24.5 e do 
 
 ---
 
+## APROVAÇÃO — Tela 15 (Orçamentos) — Conclusão oficial
+
+**Status:** APROVADA E CONGELADA PELO PROPRIETÁRIO (comando `APROVADO`)
+**Data:** 2026-08-02
+
+O proprietário aprovou integralmente a Tela 15 (Orçamentos) como baseline oficial, encerrando esta etapa.
+
+### Alterações
+- Nenhuma alteração de conteúdo. Apenas este registro de aprovação em `PROJECT_MEMORY.md`.
+
+### Confirmação de auditoria de consistência pós-aprovação
+- Confirmado que o mockup `mockup-orcamentos.html`/`orcamentos.png` (scratchpad, não versionado em Git) corresponde integralmente ao TCOS-018 §24.5 (já corrigido) e à UX/UI Specification §3.15 (já corrigida).
+- Confirmado, via `git status`, que nenhum documento oficial além do `PROJECT_MEMORY.md` foi alterado nesta etapa de aprovação.
+- Confirmado que a Tela 15 passa a integrar oficialmente o conjunto de referências visuais aprovadas do THE CHARCOAL OS, ao lado das Telas 01–14 (4 de 19 telas de módulo concluídas).
+
+### Pendências
+- Correção pendente do TCOS-018 Capítulo 19 ("Em execução (azul)", stale — escopo restrito à correção anterior do TCOS-005) permanece, sem alteração.
+- OE-T06-01 e Backlog Oficial de UX/UI da Tela 09 (OE-T09-01 a OE-T09-06) permanecem aguardando a futura Revisão Global de UX/UI.
+- Início imediato do protocolo oficial da Tela 16.
+
+**Aprovação:** a Tela 15 (Orçamentos) foi aprovada integralmente pelo proprietário (comando `APROVADO`) e passa a integrar oficialmente o conjunto de referências visuais aprovadas do THE CHARCOAL OS, ao lado das Telas 01–14.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
