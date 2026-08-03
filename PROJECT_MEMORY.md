@@ -2310,4 +2310,39 @@ Ao iniciar a Auditoria de Abertura da Tela 14, confirmado via TCOS-018 §24.1 qu
 
 ---
 
+## FASE — Tela 14 (Eventos — Detalhe) construída e apresentada
+
+**Status:** Construída e apresentada, aguardando aprovação do proprietário
+**Data:** 2026-08-02
+
+Reiniciada a Auditoria de Abertura da Tela 14 após a correção do §24.4. A releitura linha por linha do TCOS-018 §24.4 (já corrigido) contra a UX/UI Specification §3.14, a Functional Specification (F-021–F-024) e a Business Rules Specification (RN-006/RN-007) confirmou cobertura completa — nenhuma nova divergência objetiva encontrada, incluindo a confirmação de que "Ajustar Planejamento" (F-022) é o rótulo de botão correto já definido pela própria UX/UI Specification (distinto do nome funcional interno "Planejar Operação do Evento"). Construída a terceira das 19 telas de módulo — Tela 14, "Eventos" (tela de gestão/detalhe de um Evento específico, complementar ao Dashboard Eventos), primeiro uso do Template "Detalhe com abas" nesta sequência de telas operacionais.
+
+### Decisões tomadas
+- D-T14-01: Evento de exemplo escolhido como "Corporativo TechCorp" (TechCorp Ltda.), reaproveitando a mesma entidade já usada nas Telas 01, 07 e 13, reforçando continuidade narrativa entre as telas.
+- D-T14-02 **[Inferência visual]**: linha do tempo do ciclo de vida renderizada como stepper horizontal (Prospectado → Confirmado → Em execução → Concluído), com o estágio atual ("Confirmado") destacado em Brasa — sem precedente visual direto de "stepper" no projeto, mas decorre diretamente da Distribuição dos componentes já oficial ("linha do tempo do ciclo de vida").
+- D-T14-03: botões de cabeçalho exibidos de forma contextual ao estágio atual — apenas "Ajustar Planejamento" (F-022) e "Cancelar Evento" (F-024) aparecem para um Evento "Confirmado"; "Confirmar Evento" (F-021) e "Concluir Evento" (F-023) foram omitidos por não se aplicarem a este estágio — aplicação literal da regra já oficial "um estado visual (cor + ações disponíveis) por estágio" (Estados da interface, §24.4).
+- D-T14-04: apenas a aba "Resumo" foi renderizada com conteúdo (as demais abas — Orçamento, Contrato, Produção, Equipe/Escala, Equipamentos, Financeiro — aparecem como rótulos inativos, sem conteúdo simultâneo), consistente com o mesmo padrão já usado na Tela 13 (apenas a aba "Histórico" foi renderizada).
+- D-T14-05 **[Inferência visual]**: exemplo do Alerta "conflito de Equipamento/Escala" renderizado como cartão inline (Âmbar-Atenção) dentro da aba Resumo — demonstra apenas 1 dos 3 tipos de Alerta documentados (inviabilidade operacional RN-006; margem abaixo do mínimo; conflito de Equipamento/Escala), suficiente para ilustrar o campo sem exigir a ocorrência simultânea de todos.
+
+### Alterações
+- ALT-T14-01: criados `mockup-evento-detalhe.html` e `shot14.js` (scratchpad, não versionados em Git); gerado `evento-detalhe.png`. Nenhum documento oficial foi alterado nesta etapa.
+
+### Autocorreções durante as auditorias finais (antes da apresentação)
+- AC-T14-01: os nós "concluídos" do stepper (etapas já passadas) usavam inicialmente Verde-Sucesso genericamente — cor reservada exclusivamente ao estágio "Concluído" no sistema de 5 cores já oficial (Tela 07). Como "Prospectado" (etapa passada, mas diferente de "Concluído") usava essa mesma cor incorretamente, foi corrigido para um tom neutro (Cinza), reservando Verde-Sucesso exclusivamente para quando o próprio estágio "Concluído" for de fato alcançado — autocorreção sobre mockup ainda não aprovado, sem tocar em documento oficial.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova além das já registradas (correção pendente Cap. 19 "azul"; achado §3.15 Orçamentos; OE-T06-01; Backlog Oficial de UX/UI da Tela 09, itens OE-T09-01 a OE-T09-06).
+
+### Riscos encontrados
+- Nenhum risco novo.
+
+### Pendências
+- Aprovação do proprietário sobre a Tela 14.
+- Correção pendente do TCOS-018 Capítulo 19 ("azul" → "Âmbar-Atenção"), achado §3.15 Orçamentos e OE-T06-01 permanecem, sem alteração.
+- 3 de 19 telas de módulo concluídas.
+
+**Confirmação de auditoria (Executiva Completa, Consistência, UX/UI, Produto SaaS, Regressão, Rastreabilidade):** confirmado que o conteúdo (Cards, Indicadores, Tabelas — não aplicável ao Resumo mas presentes nas demais abas conforme especificação —, Menus/Abas, Botões, Modais, Atalhos, Estados da interface, Mensagens, Alertas, Validações visuais) corresponde integralmente ao TCOS-018 §24.4 (já corrigido) e à UX/UI Specification §3.14; confirmado que os 5 Estados de ciclo de vida usam exatamente as cores oficiais (Prospectado=Cinza, Confirmado=Brasa, Em execução=Âmbar, Concluído=Verde-Sucesso, Cancelado=Vermelho-Crítico riscado — mesma paleta da Tela 07), corrigido no stepper para não usar Verde fora do estágio "Concluído"; confirmado que a sidebar reflete o agrupamento oficial (Eventos/Operações: Eventos — ativo —, único módulo), mesmo padrão expandido já usado na Tela 07; confirmado que grid, topbar e paleta são idênticos às Telas 01–13; confirmado que nenhuma cor "azul" foi introduzida e que Roxo-IA permanece ausente (nenhum conteúdo de IA nesta tela); confirmado que nenhum módulo, Serviço, regra de negócio ou documento oficial foi alterado nesta etapa — apenas o `PROJECT_MEMORY.md`.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
