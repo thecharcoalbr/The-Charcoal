@@ -563,6 +563,8 @@ Os 11 Dashboards já foram integralmente detalhados nos Capítulos 13–23 (Part
 
 **Cards:** margem prevista; número de convidados; dias até o Evento.
 
+**Indicadores:** margem prevista/real; taxa de ocupação da equipe.
+
 **Tabelas:** itens do Orçamento (aba Orçamento); lista de Produções (aba Produção); lista de Alocações (aba Equipe).
 
 **Gráficos:** nenhum nesta tela — consolidados no Dashboard Eventos (Capítulo 19).
@@ -572,6 +574,8 @@ Os 11 Dashboards já foram integralmente detalhados nos Capítulos 13–23 (Part
 **Menus:** abas internas (Resumo, Orçamento, Contrato, Produção, Equipe, Equipamentos, Financeiro).
 
 **Botões:** "Confirmar Evento" (F-021), "Ajustar Planejamento" (F-022), "Concluir Evento" (F-023), "Cancelar Evento" (F-024).
+
+**Modais:** "Cancelar Evento" (motivo obrigatório); "Ajuste manual de planejamento".
 
 **Atalhos:** "Ver Orçamento completo", "Ver Contrato", direto de cada aba relacionada.
 

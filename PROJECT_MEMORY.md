@@ -2281,4 +2281,33 @@ O proprietário aprovou integralmente a Tela 13 (Clientes) como baseline oficial
 
 ---
 
+## CORREÇÃO — Campos "Indicadores" e "Modais" Ausentes (TCOS-018, §24.4 Eventos)
+
+**Status:** CONCLUÍDA E APROVADA PELO PROPRIETÁRIO (comando `CORRIGIR`, escopo fechado)
+**Data:** 2026-08-02
+
+Ao iniciar a Auditoria de Abertura da Tela 14, confirmado via TCOS-018 §24.1 que a Tela 14 é "Eventos" (Módulo 07). A comparação linha por linha entre o TCOS-018 §24.4 e a UX/UI Specification §3.14 confirmou, pela terceira vez consecutiva, o mesmo padrão sistêmico já corrigido nas Telas 12 (§24.2) e 13 (§24.3): campos "Indicadores" e "Modais" ausentes. Confirmado também que "Ajustar Planejamento" (F-022) usa corretamente o rótulo de botão já definido na própria UX/UI Specification (distinto do nome funcional interno "Planejar Operação do Evento") — não é divergência. Reportado como Achado formal antes de qualquer correção; o proprietário autorizou (`CORRIGIR`) o escopo exato abaixo, restrito à Seção 24.4.
+
+### Decisões tomadas
+- D-COR14-01: campo "Indicadores" adicionado ao §24.4 — "margem prevista/real; taxa de ocupação da equipe", copiado literalmente da UX/UI Specification §3.14, item 7.
+- D-COR14-02: campo "Modais" adicionado ao §24.4 — "'Cancelar Evento' (motivo obrigatório); 'Ajuste manual de planejamento'", copiado literalmente do item 18.
+
+### Alterações
+- ALT-COR14-01: `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` (TCOS-018), §24.4 — campos "Indicadores" e "Modais" adicionados. Confirmado via `git diff` que apenas a Seção 24.4 foi tocada (4 linhas inseridas, 0 removidas) — nenhuma outra subseção do Capítulo 24 alterada; verificação programática confirmou as 20 subseções (24.1–24.20) permanecem sequenciais; RN-006/RN-007 e F-021–F-024 existem exatamente como já citados, sem alteração a esses documentos ou a qualquer outro campo já existente no §24.4.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova além das já registradas (correção pendente Cap. 19 "azul"; achado §3.15 Orçamentos; OE-T06-01; Backlog Oficial de UX/UI da Tela 09, itens OE-T09-01 a OE-T09-06).
+- Padrão sistêmico do campo "Indicadores" ausente confirmado em 3 telas consecutivas (§§24.2, 24.3, 24.4) — permanece sem correção preventiva nas seções 24.5 em diante, a confirmar exclusivamente em cada construção futura.
+
+### Riscos encontrados
+- Nenhum risco novo de arquitetura, regra de negócio ou documento oficial.
+
+### Pendências
+- Nova Auditoria de Abertura da Tela 14 a ser executada antes da construção, conforme protocolo — construção NÃO iniciada nesta etapa, por instrução explícita do proprietário.
+- Correção pendente do TCOS-018 Capítulo 19 ("azul" → "Âmbar-Atenção"), achado §3.15 Orçamentos e OE-T06-01 permanecem, sem alteração.
+
+**Confirmação de auditoria:** confirmado, antes da edição, que o working tree estava limpo e as 20 subseções do Capítulo 24 íntegras/sequenciais. Confirmado, depois da edição, via `git diff`, que apenas a Seção 24.4 foi alterada; confirmado que RN-006/RN-007 e as referências F-021–F-024 permanecem íntegras em seus documentos de origem; confirmado que nenhum outro campo da Seção 24.4 foi modificado; confirmado que nenhuma Regra de Negócio, Fluxo, Funcionalidade ou decisão arquitetural foi alterada; confirmado que nenhum outro documento oficial congelado foi tocado.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*
