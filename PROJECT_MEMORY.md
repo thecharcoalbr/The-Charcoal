@@ -2369,4 +2369,38 @@ O proprietário aprovou integralmente a Tela 14 (Eventos — Detalhe) como basel
 
 ---
 
+## CORREÇÃO — Campos Ausentes e Contradição "Azul" Resolvida (TCOS-018 §24.5 e TCOS-005 §3.15, Orçamentos)
+
+**Status:** CONCLUÍDA E APROVADA PELO PROPRIETÁRIO (comando `CORRIGIR`, escopo fechado)
+**Data:** 2026-08-02
+
+Ao iniciar a Auditoria de Abertura da Tela 15, confirmado via TCOS-018 §24.1 que a Tela 15 é "Orçamentos" (Módulo 08). A comparação linha por linha entre o TCOS-018 §24.5 e a UX/UI Specification §3.15 confirmou, pela quarta vez consecutiva, o mesmo padrão sistêmico já corrigido nas Telas 12–14 (campos "Indicadores" e "KPIs" ausentes; adicionalmente "Modais" também ausente). Adicionalmente, foi reencontrada a contradição documental "Enviado azul" — já registrada como pendência desde a correção da Tela 07 (TCOS-005 §3.8), quando fora deliberadamente deixada fora do escopo daquela autorização. Como a Tela 15 é exatamente esta tela, o achado tornou-se bloqueante. Reportado como Achado formal antes de qualquer correção; o proprietário autorizou (`CORRIGIR`) o escopo exato abaixo.
+
+### Decisões tomadas
+- D-COR15-01: campo "Indicadores" adicionado ao §24.5 — "taxa de aceite; tempo médio de fechamento", copiado literalmente da UX/UI Specification §3.15, item 7.
+- D-COR15-02: campo "KPIs" adicionado ao §24.5 — "número de Orçamentos abertos", copiado literalmente do item 9.
+- D-COR15-03: campo "Modais" adicionado ao §24.5 — "'Solicitar Aprovação de Exceção de Margem' (F-047)", copiado literalmente do item 18.
+- D-COR15-04: **Decisão oficial de design (definitiva):** o estado "Enviado" de Orçamentos deixa de ter qualquer referência a "azul" e passa a usar oficialmente **Brasa** — eliminando a formulação ambígua anterior ("azul/Brasa conforme convenção de ativo") do TCOS-018 §24.5 e corrigindo a fonte original da contradição na UX/UI Specification (TCOS-005) §3.15, item 23. Mantém-se assim o alinhamento total com o TCOS-019A: tons frios (azul) permanecem exclusivos a conteúdo gerado por IA, nunca usados para estados operacionais.
+- D-COR15-05: confirmado que este era o último achado pendente relacionado à contradição "azul" identificada desde a correção da Tela 07 — não há mais nenhuma ocorrência conhecida de "azul" associada a Estados da interface em nenhum documento oficial revisado até o momento (Capítulo 19 do TCOS-018 permanece com a stale mention "Em execução (azul)" apenas por decisão explícita anterior de manter o escopo daquela correção restrito ao TCOS-005 — ainda pendente, tratada separadamente).
+
+### Alterações
+- ALT-COR15-01: `THE_CHARCOAL_OS_VISUAL_BLUEPRINT.md` (TCOS-018), §24.5 — campos "Indicadores", "KPIs" e "Modais" adicionados; campo "Estados da interface" corrigido (removida a formulação ambígua "azul/Brasa", definido "Enviado (Brasa)"). Confirmado via `git diff` que apenas a Seção 24.5 foi tocada (8 inserções, 1 linha modificada) — nenhuma outra subseção do Capítulo 24 alterada; verificação programática confirmou as 20 subseções (24.1–24.20) permanecem sequenciais.
+- ALT-COR15-02: `THE_CHARCOAL_OS_UX_UI_SPECIFICATION.md` (TCOS-005), §3.15, item 23 — "Enviado azul" → "Enviado Brasa". Confirmado via `git diff` que apenas essa linha foi alterada (1 inserção, 1 remoção) — nenhum outro item do §3.15 ou de qualquer outra seção tocado.
+- Confirmado que `THE_CHARCOAL_OS_VISUAL_IDENTITY_AND_DESIGN_REFINEMENT.md` (TCOS-019A) permanece inalterado; F-025–F-028, F-047 e RN-012/013/021/022/023 existem exatamente como já citados, sem alteração a esses documentos.
+
+### Melhorias sugeridas (Backlog)
+- Nenhuma nova além das já registradas (OE-T06-01; Backlog Oficial de UX/UI da Tela 09, itens OE-T09-01 a OE-T09-06).
+- Padrão sistêmico do campo "Indicadores" ausente confirmado em 4 telas consecutivas (§§24.2 a 24.5) — permanece sem correção preventiva nas seções 24.6 em diante, a confirmar exclusivamente em cada construção futura.
+
+### Riscos encontrados
+- Nenhum risco novo de arquitetura, regra de negócio ou documento oficial.
+
+### Pendências
+- Nova Auditoria de Abertura da Tela 15 a ser executada antes da construção, conforme protocolo — construção NÃO iniciada nesta etapa, por instrução explícita do proprietário.
+- Correção pendente do TCOS-018 Capítulo 19 ("Em execução (azul)" — stale, escopo da correção anterior restrito ao TCOS-005) permanece, sem alteração.
+
+**Confirmação de auditoria:** confirmado, antes da edição, que o working tree estava limpo e as 20 subseções do Capítulo 24 íntegras/sequenciais. Confirmado, depois da edição, via `git diff`, que apenas o §24.5 (TCOS-018) e o item 23 do §3.15 (TCOS-005) foram alterados; confirmado que o TCOS-019A não foi tocado; confirmado que F-025–F-028, F-047 e RN-012/013/021/022/023 permanecem íntegros em seus documentos de origem; confirmado que nenhum outro campo das seções corrigidas foi modificado; confirmado que nenhuma Regra de Negócio, Fluxo, Funcionalidade ou decisão arquitetural foi alterada além da cor definida; confirmado que nenhum outro documento oficial congelado foi tocado.
+
+---
+
 *Este arquivo deve ser atualizado ao final de cada fase, adicionando uma nova seção "FASE NNN" sem remover o histórico das fases anteriores.*

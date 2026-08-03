@@ -599,6 +599,10 @@ Os 11 Dashboards já foram integralmente detalhados nos Capítulos 13–23 (Part
 
 **Cards:** valor total; margem calculada (visível apenas a quem tem permissão).
 
+**Indicadores:** taxa de aceite; tempo médio de fechamento.
+
+**KPIs:** número de Orçamentos abertos.
+
 **Tabelas:** lista de Orçamentos (Cliente, valor, status, validade); itens do Orçamento no editor.
 
 **Gráficos:** nenhum nesta tela.
@@ -609,9 +613,11 @@ Os 11 Dashboards já foram integralmente detalhados nos Capítulos 13–23 (Part
 
 **Botões:** "Novo Orçamento" (F-025), "Enviar" (F-026), "Nova Versão" (F-027), "Registrar Aceite/Recusa" (F-028).
 
+**Modais:** "Solicitar Aprovação de Exceção de Margem" (F-047).
+
 **Atalhos:** "Duplicar Orçamento" para Evento semelhante.
 
-**Estados da interface:** Badge de status por cor — Rascunho (cinza), Enviado (azul/Brasa conforme convenção de ativo), Aceito (verde), Recusado (vermelho), Expirado (cinza-claro).
+**Estados da interface:** Badge de status por cor — Rascunho (Cinza), Enviado (Brasa), Aceito (Verde-Sucesso), Recusado (Vermelho-Crítico), Expirado (Cinza-claro).
 
 **Mensagens:** Orçamento aceito dispara geração automática de Contrato, com aviso visível ao usuário.
 

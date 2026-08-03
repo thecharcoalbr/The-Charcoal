@@ -426,7 +426,7 @@ Este documento traduz tudo que já foi aprovado (entidades, regras, funcionalida
 20. **Ações automáticas:** cálculo automático de preço (RN-012/022); expiração automática (RN-013).
 21. **Integração com outros módulos:** 13 (Fichas Técnicas), 14 (Precificação), 07 (Eventos), 09 (Contratos).
 22. **Regras de visibilidade:** valor total visível a todos com acesso; composição de custo restrita a Financeiro/Direção.
-23. **Estados da interface:** cores por status (Rascunho cinza, Enviado azul, Aceito verde, Recusado vermelho, Expirado cinza-claro).
+23. **Estados da interface:** cores por status (Rascunho cinza, Enviado Brasa, Aceito verde, Recusado vermelho, Expirado cinza-claro).
 24. **Tratamento de erro:** tentativa de enviar Orçamento sem itens é bloqueada.
 25. **Melhorias futuras:** modelo de proposta em PDF com identidade visual da marca, gerado automaticamente.
 
